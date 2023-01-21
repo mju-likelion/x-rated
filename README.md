@@ -15,11 +15,11 @@
 
 ### Naming Rule
 
-컴포넌트, 파일명 ⇒ PascalCase
-변수, 함수 ⇒ carmelCase
-폴더명 ⇒ carmelCase
-파라미터 ⇒ carmelCase
-상수 ⇒ BIG_SNAKE_CASE
+- 컴포넌트, 파일명 ⇒ PascalCase
+- 변수, 함수 ⇒ carmelCase
+- 폴더명 ⇒ carmelCase
+- 파라미터 ⇒ carmelCase
+- 상수 ⇒ BIG_SNAKE_CASE
 
 ### Branch Naming Convention
 
