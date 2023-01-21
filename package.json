@@ -13,6 +13,7 @@
     "react-router-dom": "^6.4.0",
     "react-scripts": "5.0.1",
     "recoil": "^0.7.6",
+    "spoqa-han-sans": "^3.3.0",
     "styled-components": "^5.3.6",
     "styled-reset": "^4.4.5",
     "web-vitals": "^2.1.0",

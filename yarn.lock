@@ -8287,6 +8287,11 @@ spdy@^4.0.2:
     select-hose "^2.0.0"
     spdy-transport "^3.0.0"
 
+spoqa-han-sans@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/spoqa-han-sans/-/spoqa-han-sans-3.3.0.tgz#bc12fff3e4a5e757fe2e30ef419b5f3ae634e2b2"
+  integrity sha512-uEetiueUQdfc8MW+JN0Dj9aN3oONctICzBljqbd+a7XXeQV0+Cg3bKFJVtSyIgjQkpG8F7csAVX86ZUEzTt+Iw==
+
 sprintf-js@~1.0.2:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
