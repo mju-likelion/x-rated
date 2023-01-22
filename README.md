@@ -7,11 +7,18 @@
 │
 ├── 📂 src
 │   ├── 📂 apis
+│   ├── 📂 assets
+│   │    └── 📂 imgs
+│   │
 │   ├── 📂 atoms
 │   ├── 📂 components
 │   ├── 📂 hooks
-│   ├── 📂 imgs
 │   ├── 📂 pages
+│   │    ├── 📂 applyFinishPage
+│   │    ├── 📂 applyinfoPage
+│   │    ├── 📂 applyMainPage
+│   │    └── 📂 applyWritePage
+│   │
 │   └── 📂 styles
 │
 ├── 📝 App.css,App.js,index.css,index.js ...
