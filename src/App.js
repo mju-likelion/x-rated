@@ -1,9 +1,9 @@
 import { Route, Routes } from 'react-router-dom';
 
-import ApplyFinishPage from './pages/ApplyFinishPage';
-import ApplyInfoPage from './pages/ApplyInfoPage';
-import ApplyMainPage from './pages/ApplyMainPage';
-import ApplyWritePage from './pages/ApplyWritePage';
+import ApplyFinishPage from './pages/applyFinishPage/ApplyFinishPage';
+import ApplyInfoPage from './pages/applyInfoPage/ApplyInfoPage';
+import ApplyMainPage from './pages/applyMainPage/ApplyMainPage';
+import ApplyWritePage from './pages/applyWritePage/ApplyWritePage';
 import GlobalStyle from './styles/GlobalStyle';
 
 function App() {
