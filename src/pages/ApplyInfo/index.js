@@ -1,4 +1,3 @@
-import React from 'react';
 import { Formik, Form } from 'formik';
 import { FormikConfig } from './data/FormikConfig';
 import ProgressButton from '../../components/ProgressButton';

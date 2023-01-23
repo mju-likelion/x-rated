@@ -1,4 +1,3 @@
-import React from 'react';
 import { useField } from 'formik';
 
 const ButtonBox = ({ buttonData, name }) => {
@@ -7,7 +6,7 @@ const ButtonBox = ({ buttonData, name }) => {
   const selectedValue = meta.value;
   const setSelectedValue = helpers.setValue;
 
-  const isSelected = value => (value === selectedValue ? 'selected' : '');
+  const isSelected = value => (value === selectedValue ? true : false);
   return (
     <>
       {buttonData.map(data => (
