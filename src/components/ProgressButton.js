@@ -2,12 +2,11 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-const ProgressButton = () => {
-  return <Button>ㅎㅇ</Button>;
+const ProgressButton = ({ buttonTitle }) => {
+  return <Button>{buttonTitle}</Button>;
 };
 
-const Button = styled.div`
-  display: flex;
+const Button = styled.button`
   justify-content: center;
   align-items: center;
   width: 260px;
@@ -17,9 +16,6 @@ const Button = styled.div`
   font-weight: 700px;
   border-radius: 35px;
   background-color: #ff872d;
-  &:hover {
-    cursor: pointer;
-  }
 `;
 
 export default ProgressButton;

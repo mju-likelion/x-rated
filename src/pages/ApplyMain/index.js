@@ -8,7 +8,7 @@ const ApplyMainPage = () => {
     <div>
       ApplyMainPage
       <PartInformation />
-      <ProgressButton />
+      <ProgressButton buttonTitle="지원하기" />
     </div>
   );
 };
