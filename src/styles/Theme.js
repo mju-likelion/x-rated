@@ -4,7 +4,7 @@ export const Theme = {
     GRAY1: '#2F2F2F',
     GRAY2: '#AAAAAA',
     GRAY3: '#5F5F5F',
-    ORAGE: '#FF872D',
+    ORANGE: '#FF872D',
     BLUE1: '#547AFF',
   },
 };
