@@ -17,7 +17,7 @@ const ApplyWritePage = () => {
       maxLength: 700,
     },
   ];
-  //추후 서버 통신시에 마운트되면 문항 질문 받아서 렌더링 (porps x)
+  //추후 서버 통신시에 마운트되면 문항 질문 받아서 렌더링 (props x)
 
   const initialValues = {
     firstAnswer: '',
