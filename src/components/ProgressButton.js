@@ -10,7 +10,7 @@ const ProgressButton = styled.button`
   line-height: 35px;
   font-weight: 700px;
   border-radius: 35px;
-  background-color: ${({ disabled, theme }) => (disabled ? theme.colors.GRAY2 : theme.colors.ORAGE)};
+  background-color: ${({ disabled, theme }) => (disabled ? theme.Colors.GRAY2 : theme.Colors.ORANGE)};
 `;
 
 export default ProgressButton;
