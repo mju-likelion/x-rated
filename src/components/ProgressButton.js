@@ -17,6 +17,9 @@ const Button = styled.div`
   font-weight: 700px;
   border-radius: 35px;
   background-color: #ff872d;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 export default ProgressButton;
