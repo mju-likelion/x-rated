@@ -14,10 +14,10 @@
 │   ├── 📂 components
 │   ├── 📂 hooks
 │   ├── 📂 pages
-│   │    ├── 📂 applyFinishPage
-│   │    ├── 📂 applyinfoPage
-│   │    ├── 📂 applyMainPage
-│   │    └── 📂 applyWritePage
+│   │    ├── 📂 applyFinish
+│   │    ├── 📂 applyinfo
+│   │    ├── 📂 applyMain
+│   │    └── 📂 applyWrite
 │   │
 │   └── 📂 styles
 │
