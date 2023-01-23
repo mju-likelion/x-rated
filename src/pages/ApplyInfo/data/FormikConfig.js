@@ -12,7 +12,7 @@ export const FormikConfig = {
     academic: '',
     campus: '',
     part: '',
-    acceptedInfo: false,
+    privacyAccept: false,
   },
   validationSchema: Yup.object({
     name: Yup.string().required(),
