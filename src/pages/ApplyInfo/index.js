@@ -17,7 +17,7 @@ const ApplyInfoPage = () => {
       >
         <Form>
           <TextInput name="name" type="text" />
-          <TextInput name="phoneNum" type="text" />
+          <TextInput name="phoneNumber" type="text" />
           <TextInput name="email" type="email" />
 
           <ButtonBox name="campus" buttonData={CAMPUS} />

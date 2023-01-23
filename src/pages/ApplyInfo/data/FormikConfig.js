@@ -4,7 +4,7 @@ import { ACADEMIC, PART, CAMPUS } from './ButtonData';
 export const FormikConfig = {
   initialValues: {
     name: '',
-    phoneNum: '',
+    phoneNumber: '',
     email: '',
     major: '',
     grade: '',
@@ -16,7 +16,7 @@ export const FormikConfig = {
   },
   validationSchema: Yup.object({
     name: Yup.string().required(),
-    phoneNum: Yup.string().required(),
+    phoneNumber: Yup.string().required(),
     email: Yup.string().required(),
     campus: Yup.string().required().oneOf(CAMPUS),
     major: Yup.string().required(),
