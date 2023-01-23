@@ -1,3 +1,3 @@
-export const Academic = ['재학', '휴학'];
-export const Part = ['WEB', 'SERVER', 'DESIGN'];
-export const Campus = ['자연', '인문'];
+export const ACADEMIC = ['재학', '휴학'];
+export const PART = ['WEB', 'SERVER', 'DESIGN'];
+export const CAMPUS = ['자연', '인문'];

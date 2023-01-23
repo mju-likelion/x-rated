@@ -6,7 +6,7 @@ const TextInput = ({ ...props }) => {
   return (
     <>
       {props.name}
-      <input className="text-input" {...field} {...props} />
+      <input {...field} {...props} />
       {meta.touched && meta.error ? <div className="error">{meta.error}</div> : null}
     </>
   );

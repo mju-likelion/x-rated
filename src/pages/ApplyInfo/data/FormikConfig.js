@@ -1,5 +1,5 @@
 import * as Yup from 'yup';
-import { Academic, Part, Campus } from './ButtonData';
+import { ACADEMIC, PART, CAMPUS } from './ButtonData';
 
 export const FormikConfig = {
   initialValues: {
@@ -18,13 +18,13 @@ export const FormikConfig = {
     name: Yup.string().required(),
     phoneNum: Yup.string().required(),
     email: Yup.string().required(),
-    campus: Yup.string().required().oneOf(Campus),
+    campus: Yup.string().required().oneOf(CAMPUS),
     major: Yup.string().required(),
     grade: Yup.string().required(),
     studentNumber: Yup.string().required(),
-    academic: Yup.string().required().oneOf(Academic),
-    part: Yup.string().required().oneOf(Part),
-    acceptedInfo: Yup.boolean().required().oneOf([true]),
+    academic: Yup.string().required().oneOf(ACADEMIC),
+    part: Yup.string().required().oneOf(PART),
+    privacyAccept: Yup.boolean().required().oneOf([true]),
   }),
   onSubmit: values => {
     setTimeout(() => {
