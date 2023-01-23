@@ -1,9 +1,11 @@
 import React from 'react';
-import { Formik } from 'formik';
+import { Formik, Form } from 'formik';
 import { FormikConfig } from './data/FormikConfig';
 import ProgressButton from '../../components/ProgressButton';
-import { Academic, Part, Campus } from './buttonData';
+import { Academic, Part, Campus } from './data/ButtonData';
 import CheckBox from './CheckBox';
+import TextInput from './TextInput';
+import ButtonBox from './ButtonBox';
 
 const ApplyInfoPage = () => {
   return (

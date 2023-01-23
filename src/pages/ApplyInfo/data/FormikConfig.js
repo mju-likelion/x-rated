@@ -1,4 +1,5 @@
 import * as Yup from 'yup';
+import { Academic, Part, Campus } from './ButtonData';
 
 export const FormikConfig = {
   initialValues: {
@@ -14,16 +15,16 @@ export const FormikConfig = {
     acceptedInfo: false,
   },
   validationSchema: Yup.object({
-    name: Yup.required(),
-    phoneNum: Yup.required(),
-    email: Yup.required(),
-    campus: Yup.required().oneOf(campus),
-    major: Yup.required(),
-    grade: Yup.required(),
-    studentNumber: Yup.required(),
-    academic: Yup.required().oneOf(Academic),
-    part: Yup.required().oneOf(Part),
-    acceptedInfo: Yup.required().oneOf([true]),
+    name: Yup.string().required(),
+    phoneNum: Yup.string().required(),
+    email: Yup.string().required(),
+    campus: Yup.string().required().oneOf(Campus),
+    major: Yup.string().required(),
+    grade: Yup.string().required(),
+    studentNumber: Yup.string().required(),
+    academic: Yup.string().required().oneOf(Academic),
+    part: Yup.string().required().oneOf(Part),
+    acceptedInfo: Yup.boolean().required().oneOf([true]),
   }),
   onSubmit: values => {
     setTimeout(() => {

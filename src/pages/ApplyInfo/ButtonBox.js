@@ -17,7 +17,6 @@ const ButtonBox = ({ ButtonData, name }) => {
           onClick={() => {
             setSelectedValue(data);
           }}
-          isSelected={() => isSelected(data)}
         >
           {data}
         </button>
