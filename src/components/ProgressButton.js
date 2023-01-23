@@ -1,12 +1,7 @@
-import React from 'react';
-
 import styled from 'styled-components';
 
-const ProgressButton = ({ buttonTitle }) => {
-  return <Button>{buttonTitle}</Button>;
-};
-
-const Button = styled.button`
+const ProgressButton = styled.button`
+  display: flex;
   justify-content: center;
   align-items: center;
   width: 260px;
@@ -15,7 +10,7 @@ const Button = styled.button`
   line-height: 35px;
   font-weight: 700px;
   border-radius: 35px;
-  background-color: #ff872d;
+  background-color: ${({ disabled, theme }) => (disabled ? theme.colors.GRAY2 : theme.colors.ORAGE)};
 `;
 
 export default ProgressButton;
