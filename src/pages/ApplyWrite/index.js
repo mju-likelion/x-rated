@@ -91,7 +91,7 @@ const WriteBox = styled(WriteContainer)`
   font-weight: 400px;
   gap: 10px;
   box-sizing: border-box;
-  background-color: ${props => props.theme.Colors.GRAY1};
+  background-color: ${({ theme }) => theme.Colors.GRAY1};
 `;
 
 const WriteLength = styled.p`
@@ -101,11 +101,10 @@ const WriteLength = styled.p`
 `;
 
 const WriteArea = styled.textarea`
-  background-color: white;
   color: #ffffff;
   height: 340px;
   resize: none;
-  background-color: ${props => props.theme.Colors.GRAY1};
+  background-color: ${({ theme }) => theme.Colors.GRAY1};
   border-width: 0;
   font-size: 20px;
   line-height: 30px;
