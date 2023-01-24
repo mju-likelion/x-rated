@@ -1,5 +1,5 @@
 import * as Yup from 'yup';
-import { ACADEMIC, PART, CAMPUS } from './ButtonData';
+import { ENROLLMENTSTATUS, PART, CAMPUS } from './ButtonData';
 
 export const FormikConfig = {
   initialValues: {
@@ -22,7 +22,7 @@ export const FormikConfig = {
     major: Yup.string().required(),
     grade: Yup.string().required(),
     sid: Yup.string().required(),
-    enrollmentStatus: Yup.string().required().oneOf(ACADEMIC),
+    enrollmentStatus: Yup.string().required().oneOf(ENROLLMENTSTATUS),
     part: Yup.string().required().oneOf(PART),
     personalInfoAgreement: Yup.boolean().required().oneOf([true]),
   }),

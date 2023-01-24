@@ -1,7 +1,7 @@
 import { Formik, Form } from 'formik';
-import { FormikConfig } from './data/FormikConfig';
+import { FormikConfig } from './FormikConfig';
 import ProgressButton from '../../components/ProgressButton';
-import { ACADEMIC, PART, CAMPUS } from './data/ButtonData';
+import { ENROLLMENTSTATUS, PART, CAMPUS } from './ButtonData';
 import CheckBox from './CheckBox';
 import TextInput from './TextInput';
 import ButtonBox from './ButtonBox';
@@ -25,7 +25,7 @@ const ApplyInfoPage = () => {
           <TextInput name="sid" type="text" />
           <TextInput name="grade" type="text" />
 
-          <ButtonBox name="enrollmentStatus" buttonData={ACADEMIC} />
+          <ButtonBox name="enrollmentStatus" buttonData={ENROLLMENTSTATUS} />
 
           <ButtonBox name="part" buttonData={PART} />
 
