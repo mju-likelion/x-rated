@@ -1,16 +1,31 @@
 import React from 'react';
 
 import ProgressButton from '../../components/ProgressButton';
-import PartInformation from './PartInformation';
+import ApplyMainTop from './ApplyMainTop';
+import PartInfo from './PartInfo';
+import styled from 'styled-components';
+import { PartImgData } from './PartImgData';
 
 const ApplyMainPage = () => {
   return (
-    <div>
-      ApplyMainPage
-      <PartInformation />
-      <ProgressButton buttonTitle="지원하기" />
-    </div>
+    <ApplyMainPageDiv>
+      <ApplyMainTop></ApplyMainTop>
+      <PartInfoDiv>
+        {PartImgData.map((apply, index) => (
+          <PartInfo partImg={apply.image} partTitle={apply.value} key={index} />
+        ))}
+      </PartInfoDiv>
+      <ProgressButton style={{ margin: '100px auto 0', color: 'white', fontWeight: '700' }}>지원하기</ProgressButton>
+    </ApplyMainPageDiv>
   );
 };
 
 export default ApplyMainPage;
+
+const ApplyMainPageDiv = styled.div`
+  padding: 10% 10% 0 10%;
+`;
+
+const PartInfoDiv = styled.div`
+  display: flex;
+`;
