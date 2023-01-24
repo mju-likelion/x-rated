@@ -22,14 +22,14 @@ const ApplyInfoPage = () => {
           <ButtonBox name="campus" buttonData={CAMPUS} />
 
           <TextInput name="major" type="text" />
-          <TextInput name="studentNumber" type="text" />
+          <TextInput name="sid" type="text" />
           <TextInput name="grade" type="text" />
 
-          <ButtonBox name="academic" buttonData={ACADEMIC} />
+          <ButtonBox name="enrollmentStatus" buttonData={ACADEMIC} />
 
           <ButtonBox name="part" buttonData={PART} />
 
-          <CheckBox name="privacyAccept">동의</CheckBox>
+          <CheckBox name="personalInfoAgreement">동의</CheckBox>
 
           <ProgressButton type="submit">다음으로</ProgressButton>
         </Form>

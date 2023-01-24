@@ -8,11 +8,11 @@ export const FormikConfig = {
     email: '',
     major: '',
     grade: '',
-    studentNumber: '',
-    academic: '',
+    sid: '',
+    enrollmentStatus: '',
     campus: '',
     part: '',
-    privacyAccept: false,
+    personalInfoAgreement: false,
   },
   validationSchema: Yup.object({
     name: Yup.string().required(),
@@ -21,10 +21,10 @@ export const FormikConfig = {
     campus: Yup.string().required().oneOf(CAMPUS),
     major: Yup.string().required(),
     grade: Yup.string().required(),
-    studentNumber: Yup.string().required(),
-    academic: Yup.string().required().oneOf(ACADEMIC),
+    sid: Yup.string().required(),
+    enrollmentStatus: Yup.string().required().oneOf(ACADEMIC),
     part: Yup.string().required().oneOf(PART),
-    privacyAccept: Yup.boolean().required().oneOf([true]),
+    personalInfoAgreement: Yup.boolean().required().oneOf([true]),
   }),
   onSubmit: values => {
     setTimeout(() => {
