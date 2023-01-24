@@ -1,4 +1,5 @@
 import { useField } from 'formik';
+import { ENROLLMENTSTATUS, ENROLLMENTSTATUS_CLIENT, PART } from './ButtonData';
 
 const ButtonBox = ({ buttonData, name }) => {
   const [, meta, helpers] = useField(name);
@@ -9,12 +10,18 @@ const ButtonBox = ({ buttonData, name }) => {
   const isSelected = value => (value === selectedValue ? true : false);
   return (
     <>
-      {buttonData.map(data => (
+      {buttonData.map((data, idx) => (
         <button
           key={data}
           type="button"
           onClick={() => {
-            setSelectedValue(data);
+            if (buttonData === ENROLLMENTSTATUS_CLIENT) {
+              setSelectedValue(ENROLLMENTSTATUS[idx]);
+            } else if (buttonData === PART) {
+              setSelectedValue(data.toLowerCase());
+            } else {
+              setSelectedValue(data);
+            }
           }}
         >
           {data}

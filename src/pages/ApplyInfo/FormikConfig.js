@@ -23,7 +23,9 @@ export const FormikConfig = {
     grade: Yup.string().required(),
     sid: Yup.string().required(),
     enrollmentStatus: Yup.string().required().oneOf(ENROLLMENTSTATUS),
-    part: Yup.string().required().oneOf(PART),
+    part: Yup.string()
+      .required()
+      .oneOf(PART.map(part => part.toLowerCase())),
     personalInfoAgreement: Yup.boolean().required().oneOf([true]),
   }),
   onSubmit: values => {
