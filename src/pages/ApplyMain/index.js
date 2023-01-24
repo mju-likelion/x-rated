@@ -12,7 +12,13 @@ const ApplyMainPage = () => {
       <ApplyMainTop></ApplyMainTop>
       <PartInfoDiv>
         {PartImgData.map((apply, index) => (
-          <PartInfo partImg={apply.image} partTitle={apply.value} key={index} />
+          <PartInfo
+            partImg={apply.image}
+            partTitle={apply.value}
+            partInfo={apply.info}
+            partTool={apply.tool}
+            key={index}
+          />
         ))}
       </PartInfoDiv>
       <ProgressButton style={{ margin: '100px auto 0', color: 'white', fontWeight: '700' }}>지원하기</ProgressButton>

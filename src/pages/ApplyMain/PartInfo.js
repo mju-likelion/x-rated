@@ -4,7 +4,7 @@ import { Theme } from '../../styles/Theme.js';
 import iconPlus from '../../assets/images/icon_plus.svg';
 
 const PartInformation = props => {
-  const { partImg, partTitle } = props;
+  const { partImg, partTitle, partInfo, partTool } = props;
   return (
     <PartInformationDiv style={partTitle === 'SERVER' ? { margin: '30px' } : {}}>
       <PartInfoTop>
@@ -16,9 +16,9 @@ const PartInformation = props => {
       </div>
       <PartInfoCont>
         <InfoTitle>무엇을 하나요?</InfoTitle>
-        <InfoCont>파트별 소개글이 들어갈 예정입니다.</InfoCont>
+        <InfoCont>{partInfo}</InfoCont>
         <InfoTitle>어떤 툴을 다루나요?</InfoTitle>
-        <InfoCont>이것 저것</InfoCont>
+        <InfoCont>{partTool}</InfoCont>
       </PartInfoCont>
     </PartInformationDiv>
   );
