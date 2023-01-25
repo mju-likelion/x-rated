@@ -1,24 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Theme } from '../../styles/Theme.js';
 import iconPlus from '../../assets/images/icon_plus.svg';
 
-const PartInformation = props => {
-  const { partImg, partTitle, partInfo, partTool } = props;
+const PartInformation = ({ partInfo }) => {
   return (
-    <PartInformationDiv style={partTitle === 'SERVER' ? { margin: '30px' } : {}}>
+    <PartInformationDiv style={partInfo.value === 'SERVER' ? { margin: '30px' } : {}}>
       <PartInfoTop>
-        {partTitle}
+        {partInfo.value}
         <img src={iconPlus} style={{ marginLeft: 'auto', marginRight: '24px' }} />
       </PartInfoTop>
       <div style={{ textAlign: 'center' }}>
-        <PartImg src={partImg} />
+        <PartImg src={partInfo.image} />
       </div>
       <PartInfoCont>
         <InfoTitle>무엇을 하나요?</InfoTitle>
-        <InfoCont>{partInfo}</InfoCont>
+        <InfoCont>{partInfo.info}</InfoCont>
         <InfoTitle>어떤 툴을 다루나요?</InfoTitle>
-        <InfoCont>{partTool}</InfoCont>
+        <InfoCont>{partInfo.tool}</InfoCont>
       </PartInfoCont>
     </PartInformationDiv>
   );
@@ -55,19 +53,19 @@ const InfoCont = styled.div`
   font-size: 16px;
   font-weight: 400;
   margin-top: 6px;
-  color: ${Theme.Colors.GRAY2};
+  color: ${props => props.theme.Colors.GRAY2};
 `;
 
 const PartInformationDiv = styled.div`
   width: 380px;
   height: 300px;
-  background-color: ${Theme.Colors.GRAY1};
-  border-radius: 10%;
+  background-color: ${props => props.theme.Colors.GRAY1};
+  border-radius: 18px;
   margin-top: 30px;
 
   &:hover ${PartInfoTop} {
     font-size: 20px;
-    color: ${Theme.Colors.GRAY2};
+    color: ${props => props.theme.Colors.GRAY2};
     transition: all 0.2s ease-out;
   }
 
