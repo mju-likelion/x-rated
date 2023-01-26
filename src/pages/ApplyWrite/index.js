@@ -37,6 +37,13 @@ const ApplyWritePage = () => {
     },
   });
 
+  const onChange = (e, key, maxLength) => {
+    if (e.target.value > maxLength) {
+      e.target.value = e.target.value.slice(0, -1);
+    }
+    formik.setFieldValue(key, e.target.value);
+  };
+
   return (
     <form onSubmit={formik.handleSubmit}>
       {TEMP_QUESTIONS.map((item, index) => {
@@ -52,7 +59,7 @@ const ApplyWritePage = () => {
                 placeholder="내용을 입력해주세요"
                 maxLength={item.maxLength}
                 name={order[index]}
-                onChange={formik.handleChange}
+                onChange={e => onChange(e, order[index], item.maxLength)}
                 value={formik.values[order[index]]}
               />
               <WriteLength>
