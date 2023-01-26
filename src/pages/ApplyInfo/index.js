@@ -5,6 +5,8 @@ import { ENROLLMENTSTATUS_CLIENT, PART, CAMPUS } from './ButtonData';
 import CheckBox from './CheckBox';
 import TextInput from './TextInput';
 import ButtonBox from './ButtonBox';
+import SelectBox from './SelectBox';
+import { GRADE } from './SelectData';
 
 const ApplyInfoPage = () => {
   return (
@@ -23,13 +25,14 @@ const ApplyInfoPage = () => {
 
           <TextInput name="major" type="text" />
           <TextInput name="sid" type="text" />
-          <TextInput name="grade" type="text" />
+          <SelectBox name="grade" selectdata={GRADE} />
 
           <ButtonBox name="enrollmentStatus" buttonData={ENROLLMENTSTATUS_CLIENT} />
 
           <ButtonBox name="part" buttonData={PART} />
 
-          <CheckBox name="personalInfoAgreement">동의</CheckBox>
+          <CheckBox name="personalInfoAgreement">개인정보 수집 및 이용 동의</CheckBox>
+          <CheckBox name="cautionConfirm">위의 주의사항을 확인하였습니다.</CheckBox>
 
           <ProgressButton type="submit">다음으로</ProgressButton>
         </Form>
