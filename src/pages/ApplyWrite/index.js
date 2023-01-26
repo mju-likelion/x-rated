@@ -45,35 +45,44 @@ const ApplyWritePage = () => {
   };
 
   return (
-    <form onSubmit={formik.handleSubmit}>
-      {TEMP_QUESTIONS.map((item, index) => {
-        return (
-          <WriteContainer key={index}>
-            <WriteTitle>
-              {` ${index + 1}. ${item.question}`}
-              {/* 추후 서버통신하면 변경요망 */}
-            </WriteTitle>
-            <WriteBox>
-              <WriteArea
-                id={order[index]}
-                placeholder="내용을 입력해주세요"
-                maxLength={item.maxLength}
-                name={order[index]}
-                onChange={e => onChange(e, order[index], item.maxLength)}
-                value={formik.values[order[index]]}
-              />
-              <WriteLength>
-                {formik.values[order[index]].length}/{item.maxLength}
-              </WriteLength>
-            </WriteBox>
-          </WriteContainer>
-        );
-      })}
-      <button type="submit">상태 확인 테스트</button>
-      {/* 이거 버튼은 나중에 공통 버튼으로 변경해서 가져오기요망 */}
-    </form>
+    <>
+      <BreakLine />
+      <form onSubmit={formik.handleSubmit}>
+        {TEMP_QUESTIONS.map((item, index) => {
+          return (
+            <WriteContainer key={index}>
+              <WriteTitle>
+                {` ${index + 1}. ${item.question}`}
+                {/* 추후 서버통신하면 변경요망 */}
+              </WriteTitle>
+              <WriteBox>
+                <WriteArea
+                  id={order[index]}
+                  placeholder="내용을 입력해주세요"
+                  maxLength={item.maxLength}
+                  name={order[index]}
+                  onChange={e => onChange(e, order[index], item.maxLength)}
+                  value={formik.values[order[index]]}
+                />
+                <WriteLength>
+                  {formik.values[order[index]].length}/{item.maxLength}
+                </WriteLength>
+              </WriteBox>
+            </WriteContainer>
+          );
+        })}
+        <button type="submit">상태 확인 테스트</button>
+        {/* 이거 버튼은 나중에 공통 버튼으로 변경해서 가져오기요망 */}
+      </form>
+    </>
   );
 };
+
+const BreakLine = styled.div`
+  max-width: 1200px;
+  margin: 50px auto 0 auto;
+  border: 1px solid ${({ theme }) => theme.Colors.GRAY1};
+`;
 
 const WriteContainer = styled.div`
   display: flex;
@@ -84,7 +93,7 @@ const WriteContainer = styled.div`
 `;
 
 const WriteTitle = styled.p`
-  margin-top: 100px;
+  margin-top: 50px;
   font-size: 18px;
   line-height: 23px;
   font-weight: 400px;
@@ -93,7 +102,7 @@ const WriteTitle = styled.p`
 const WriteBox = styled(WriteContainer)`
   width: 100%;
   border-radius: 18px;
-  margin-top: 16px;
+  margin: 16px 0 50px 0;
   padding: 30px 30px 15px 30px;
   font-weight: 400px;
   gap: 10px;
