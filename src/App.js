@@ -9,11 +9,14 @@ import ApplyWritePage from './pages/ApplyWrite';
 
 import GlobalStyle from './styles/GlobalStyle';
 
+import Header from './components/Header';
+
 function App() {
   return (
     <>
       <ThemeProvider theme={Theme}>
         <GlobalStyle />
+        <Header />
         <Routes>
           <Route path="/" element={<ApplyMainPage />} />
           <Route path="/info" element={<ApplyInfoPage />} />
