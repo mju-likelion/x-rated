@@ -8,7 +8,7 @@ import { PartData } from './PartData.js';
 
 const ApplyMainPage = () => {
   return (
-    <ApplyMainPageDiv>
+    <ApplyMainPageBlock>
       <ApplyMainTop></ApplyMainTop>
       <PartInfoDiv>
         {PartData.map((apply, index) => (
@@ -16,13 +16,13 @@ const ApplyMainPage = () => {
         ))}
       </PartInfoDiv>
       <ProgressButton style={{ margin: '100px auto 0', color: 'white', fontWeight: '700' }}>지원하기</ProgressButton>
-    </ApplyMainPageDiv>
+    </ApplyMainPageBlock>
   );
 };
 
 export default ApplyMainPage;
 
-const ApplyMainPageDiv = styled.div`
+const ApplyMainPageBlock = styled.div`
   padding: 10% 10% 0 10%;
 `;
 

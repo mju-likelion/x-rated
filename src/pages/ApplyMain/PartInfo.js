@@ -4,21 +4,21 @@ import iconPlus from '../../assets/images/icon_plus.svg';
 
 const PartInformation = ({ partInfo }) => {
   return (
-    <PartInformationDiv style={partInfo.value === 'SERVER' ? { margin: '30px' } : {}}>
+    <PartInformationBlock style={partInfo.value === 'SERVER' ? { margin: '30px' } : {}}>
       <PartInfoTop>
         {partInfo.value}
         <img src={iconPlus} style={{ marginLeft: 'auto', marginRight: '24px' }} />
       </PartInfoTop>
-      <div style={{ textAlign: 'center' }}>
-        <PartImg src={partInfo.image} />
-      </div>
+      <CenterImgBlock>
+        <partInfo.image />
+      </CenterImgBlock>
       <PartInfoCont>
         <InfoTitle>무엇을 하나요?</InfoTitle>
         <InfoCont>{partInfo.info}</InfoCont>
         <InfoTitle>어떤 툴을 다루나요?</InfoTitle>
         <InfoCont>{partInfo.tool}</InfoCont>
       </PartInfoCont>
-    </PartInformationDiv>
+    </PartInformationBlock>
   );
 };
 
@@ -32,9 +32,10 @@ const PartInfoTop = styled.div`
   display: flex;
 `;
 
-const PartImg = styled.img`
-  display: inline-block;
-  margin-top: 54px;
+const CenterImgBlock = styled.div`
+  margin-top: 56px;
+  display: flex;
+  justify-content: center;
 `;
 
 const PartInfoCont = styled.div`
@@ -56,7 +57,7 @@ const InfoCont = styled.div`
   color: ${props => props.theme.Colors.GRAY2};
 `;
 
-const PartInformationDiv = styled.div`
+const PartInformationBlock = styled.div`
   width: 380px;
   height: 300px;
   background-color: ${props => props.theme.Colors.GRAY1};
@@ -69,7 +70,7 @@ const PartInformationDiv = styled.div`
     transition: all 0.2s ease-out;
   }
 
-  &:hover img {
+  &:hover ${CenterImgBlock} {
     display: none;
   }
 

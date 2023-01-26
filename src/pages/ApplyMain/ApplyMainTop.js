@@ -4,11 +4,11 @@ import styled from 'styled-components';
 const ApplyMainTop = () => {
   return (
     <TitleBox>
-      <div style={{ display: 'block' }}>
+      <MainTitleBlock>
         <LeftSubTitle>모집안내</LeftSubTitle>
         <LeftTitle>멋쟁이사자처럼 명지대</LeftTitle>
         <LeftTitle>11기를 모집합니다</LeftTitle>
-      </div>
+      </MainTitleBlock>
       <RightCont>
         <TitleBox>
           <RightTitle>모집기간</RightTitle>
@@ -25,12 +25,16 @@ const ApplyMainTop = () => {
 
 export default ApplyMainTop;
 
+const MainTitleBlock = styled.div`
+  display: block;
+`;
+
 const TitleBox = styled.div`
   display: flex;
 `;
 
 const LeftSubTitle = styled.div`
-  color: ${props => props.theme.Colors.BLUE1};
+  color: ${({ theme }) => theme.Colors.BLUE1};
   font-weight: 500;
   font-size: 16px;
 `;
@@ -47,7 +51,7 @@ const RightCont = styled.div`
 `;
 
 const RightTitle = styled.div`
-  color: ${props => props.theme.Colors.GRAY2};
+  color: ${({ theme }) => theme.Colors.GRAY2};
   margin-right: 30px;
   margin-top: 8px;
   font-size: 18px;
