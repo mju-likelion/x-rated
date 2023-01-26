@@ -40,8 +40,8 @@ const CenterImgBlock = styled.div`
 
 const PartInfoCont = styled.div`
   display: none;
-  margin-left: 24px;
-  padding-top: 76px;
+  margin: 24px 24px;
+  margin-top: auto;
 `;
 
 const InfoTitle = styled.div`
@@ -54,19 +54,21 @@ const InfoCont = styled.div`
   font-size: 16px;
   font-weight: 400;
   margin-top: 6px;
-  color: ${props => props.theme.Colors.GRAY2};
+  color: ${({ theme }) => theme.Colors.GRAY2};
 `;
 
 const PartInformationBlock = styled.div`
+  display: flex;
+  flex-direction: column;
   width: 380px;
   height: 300px;
-  background-color: ${props => props.theme.Colors.GRAY1};
+  background-color: ${({ theme }) => theme.Colors.GRAY1};
   border-radius: 18px;
   margin-top: 30px;
 
   &:hover ${PartInfoTop} {
     font-size: 20px;
-    color: ${props => props.theme.Colors.GRAY2};
+    color: ${({ theme }) => theme.Colors.GRAY2};
     transition: all 0.2s ease-out;
   }
 
