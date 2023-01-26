@@ -9,6 +9,8 @@ import ApplyWritePage from './pages/ApplyWrite';
 
 import GlobalStyle from './styles/GlobalStyle';
 
+import Footer from './components/Footer';
+
 function App() {
   return (
     <>
@@ -20,6 +22,7 @@ function App() {
           <Route path="/write" element={<ApplyWritePage />} />
           <Route path="/finish" element={<ApplyFinishPage />} />
         </Routes>
+        <Footer />
       </ThemeProvider>
     </>
   );
