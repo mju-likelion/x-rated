@@ -1,6 +1,6 @@
 import { useFormik } from 'formik';
 
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const ApplyWritePage = () => {
   const TEMP_QUESTIONS = [
@@ -54,9 +54,9 @@ const ApplyWritePage = () => {
           Html 형식으로 된 자기소개서 페이지를 첨부해 주세요. <Star>*</Star>
         </BaseTitle>
 
-        <FileUploadBorder>
+        <FileUploadBorder file={fileData}>
           <FileUploadLabel htmlFor="file">
-            <FileUploadTitle>{fileData ? `${fileData.name}` : '파일 불러오기'}</FileUploadTitle>
+            <FileUploadTitle file={fileData}>{fileData ? `${fileData.name}` : '파일 불러오기'}</FileUploadTitle>
           </FileUploadLabel>
         </FileUploadBorder>
       </FileUploadContainer>
@@ -121,18 +121,32 @@ const Star = styled(BaseTitle)`
 `;
 
 const FileUploadBorder = styled.div`
-  border: 1px dashed #5f5f5f;
+  ${({ file, theme }) =>
+    file
+      ? css`
+          border: 1px solid ${theme.Colors.BLUE1};
+        `
+      : css`
+          border: 1px dashed ${theme.Colors.GRAY3};
+        `};
   border-radius: 10px;
   margin-top: 8px;
   width: 568px;
-  height: 62px;
+  // height: 62px;
   padding: 16px 20px 16px 20px;
 `;
 
 const FileUploadTitle = styled(BaseTitle)`
   font-size: 20px;
   line-height: 30px;
-  color: #5f5f5f;
+  ${({ file, theme }) =>
+    file
+      ? css`
+          color: ${theme.Colors.BLUE1};
+        `
+      : css`
+          color: ${theme.Colors.GRAY3};
+        `};
 `;
 
 const FileUploadContainer = styled(BaseContainer)`
@@ -141,10 +155,10 @@ const FileUploadContainer = styled(BaseContainer)`
 `;
 
 const FileUploadLabel = styled.label`
-  box-sizing: border-box;
   display: flex;
   justify-content: center;
   align-items: center;
+  box-sizing: border-box;
 `;
 
 const FileUpload = styled.input`
