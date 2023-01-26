@@ -26,7 +26,10 @@ const ApplyMainPage = () => {
 export default ApplyMainPage;
 
 const ApplyMainPageBlock = styled.div`
-  padding: 10% 10% 0 10%;
+  display: table;
+  margin-top: 160px;
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 const PartInfoDiv = styled.div`
