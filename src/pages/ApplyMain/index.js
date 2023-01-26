@@ -11,7 +11,7 @@ const ApplyMainPage = () => {
   };
 
   useEffect(() => {
-    if (testState.length >= 5) {
+    if (testState.length >= 5 || testState.length === 0) {
       setError('에러입니당');
     } else {
       setError('');
@@ -22,8 +22,8 @@ const ApplyMainPage = () => {
     <div>
       ApplyMainPage
       <PartInformation />
-      <input onChange={test} placeholder="5글자 이상이면에러" />
-      <Button type="button" text={'제출하기'} error={error} />
+      <input onChange={test} placeholder="1~4글자 입력 그외 에러" />
+      <Button type="button" text={'제출하기'} errorMessage={error} />
     </div>
   );
 };
