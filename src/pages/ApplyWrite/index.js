@@ -138,11 +138,9 @@ const FileUploadTitle = styled(BaseTitle)`
 const FileUploadContainer = styled(BaseContainer)`
   align-items: flex-start;
   height: 92px;
-  // background-color: pink;
 `;
 
 const FileUploadLabel = styled.label`
-  //  background-color: #5f5f5f;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
@@ -192,6 +190,9 @@ const WriteArea = styled.textarea`
   border-width: 0;
   font-size: 20px;
   line-height: 30px;
+  &:focus {
+    outline: none;
+  }
 `;
 
 export default ApplyWritePage;
