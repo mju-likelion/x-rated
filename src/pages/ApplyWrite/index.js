@@ -156,7 +156,6 @@ const FileUploadContainer = styled(BaseContainer)`
 
 const FileUploadLabel = styled.label`
   display: flex;
-  justify-content: center;
   align-items: center;
   box-sizing: border-box;
 `;
