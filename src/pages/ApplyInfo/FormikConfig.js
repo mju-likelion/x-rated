@@ -20,7 +20,7 @@ export const FormikConfig = {
     name: Yup.string().required(),
     phoneNumber: Yup.string().required(),
     email: Yup.string().required(),
-    campus: Yup.string().required().oneOf(CAMPUS),
+    campus: Yup.string().required().oneOf(['자연'], '멋쟁이사자처럼 명지대 인문캠퍼스에 지원해 주세요.'),
     major: Yup.string().required(),
     grade: Yup.string().required().oneOf(GRADE),
     sid: Yup.string().required(),

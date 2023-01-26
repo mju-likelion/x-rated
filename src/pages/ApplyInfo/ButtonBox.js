@@ -7,7 +7,7 @@ const ButtonBox = ({ buttonData, name }) => {
   const selectedValue = meta.value;
   const setSelectedValue = helpers.setValue;
 
-  const isSelected = value => (value === selectedValue ? true : false);
+  // const isSelected = value => (value === selectedValue ? true : false);
   return (
     <>
       {buttonData.map((data, idx) => (
@@ -27,6 +27,7 @@ const ButtonBox = ({ buttonData, name }) => {
           {data}
         </button>
       ))}
+      {meta.touched && meta.error ? <div className="error">{meta.error}</div> : null}
     </>
   );
 };
