@@ -115,6 +115,7 @@ const BaseTitle = styled.p`
   font-size: 18px;
   line-height: 23px;
   color: #ffffff;
+  margin-left: 6px;
 `;
 const Star = styled(BaseTitle)`
   color: #ff872d;
@@ -203,8 +204,17 @@ const WriteArea = styled.textarea`
   border-width: 0;
   font-size: 20px;
   line-height: 30px;
+  margin-right: -18px;
   &:focus {
     outline: none;
+  }
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 164px;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background-color: ${({ theme }) => theme.Colors.GRAY3};
   }
 `;
 
