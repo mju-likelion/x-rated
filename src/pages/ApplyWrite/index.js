@@ -39,7 +39,7 @@ const ApplyWritePage = () => {
 
   const onChange = (e, key, maxLength) => {
     if (e.target.value > maxLength) {
-      e.target.value = e.target.value.slice(0, -1);
+      return;
     }
     formik.setFieldValue(key, e.target.value);
   };
