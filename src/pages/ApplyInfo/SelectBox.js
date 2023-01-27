@@ -1,17 +1,17 @@
 import { useField } from 'formik';
 
-const SelectBox = ({ selectdata, ...props }) => {
-  const [field, meta] = useField(props);
+const SelectBox = ({ selectdata, name, text }) => {
+  const [field] = useField(name);
   return (
     <>
-      <select {...field} {...props}>
+      {text}
+      <select {...field}>
         {selectdata.map(data => (
           <option key={data} value={data}>
             {data}
           </option>
         ))}
       </select>
-      {meta.touched && meta.error ? <div className="error">{meta.error}</div> : null}
     </>
   );
 };

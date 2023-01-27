@@ -1,33 +1,19 @@
 import { useField } from 'formik';
-import { ENROLLMENTSTATUS, ENROLLMENTSTATUS_CLIENT, PART } from './ButtonData';
 
-const ButtonBox = ({ buttonData, name }) => {
-  const [, meta, helpers] = useField(name);
-
+const ButtonBox = ({ buttonData, name, text }) => {
+  const [field, meta] = useField(name);
   const selectedValue = meta.value;
-  const setSelectedValue = helpers.setValue;
-
   // const isSelected = value => (value === selectedValue ? true : false);
   return (
     <>
-      {buttonData.map((data, idx) => (
-        <button
-          key={data}
-          type="button"
-          onClick={() => {
-            if (buttonData === ENROLLMENTSTATUS_CLIENT) {
-              setSelectedValue(ENROLLMENTSTATUS[idx]);
-            } else if (buttonData === PART) {
-              setSelectedValue(data.toLowerCase());
-            } else {
-              setSelectedValue(data);
-            }
-          }}
-        >
-          {data}
-        </button>
+      {text}
+      {buttonData.map(data => (
+        <div key={data}>
+          <input {...field} type="radio" value={data} />
+          <span> {data}</span>
+        </div>
       ))}
-      {meta.touched && meta.error ? <div className="error">{meta.error}</div> : null}
+      {field.value && meta.touched && meta.error ? <div>{meta.error}</div> : null}
     </>
   );
 };

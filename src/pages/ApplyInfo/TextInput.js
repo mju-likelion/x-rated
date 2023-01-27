@@ -1,12 +1,23 @@
 import { useField } from 'formik';
 
-const TextInput = ({ ...props }) => {
-  const [field, meta] = useField(props);
+const TextInput = ({ name, placeholder, text, maxLength }) => {
+  const [field, meta, helper] = useField(name);
+  const { setValue } = helper;
+  const handleChange = e => {
+    const phone = e.target.value;
+    setValue(phone.length === 3 || phone.length === 8 ? phone.concat('-') : phone);
+  };
   return (
     <>
-      {props.name}
-      <input {...field} {...props} />
-      {meta.touched && meta.error ? <div className="error">{meta.error}</div> : null}
+      {text}
+      <input
+        {...field}
+        placeholder={placeholder}
+        maxLength={maxLength}
+        onChange={name === 'phone' ? handleChange : field.onChange}
+        value={field.value || ''}
+      />
+      {field.value && meta.touched && meta.error ? <div className="error">{meta.error}</div> : null}
     </>
   );
 };
