@@ -7,6 +7,23 @@ import { ReactComponent as FaceDefaultIcon } from '../assets/images/icon_face_de
 import { ReactComponent as MediDefaultIcon } from '../assets/images/icon_medi_default.svg';
 import { ReactComponent as MailDefaultIcon } from '../assets/images/icon_mail_default.svg';
 
+const Footer = () => {
+  return (
+    <FooterBox>
+      <FooterIconsBox>
+        <InstaDefaultIcon />
+        <GitDefaultIcon />
+        <FaceDefaultIcon />
+        <MediDefaultIcon />
+        <MailDefaultIcon />
+      </FooterIconsBox>
+      <CopyrightBox>© 2023.likelion MJU All pictures cannot be copied without permission.</CopyrightBox>
+    </FooterBox>
+  );
+};
+
+export default Footer;
+
 const FooterBox = styled.div`
   height: 210px;
   bottom: 0;
@@ -29,20 +46,3 @@ const CopyrightBox = styled.div`
   font-weight: 400;
   margin-top: 30px;
 `;
-
-const Footer = () => {
-  return (
-    <FooterBox>
-      <FooterIconsBox>
-        <InstaDefaultIcon />
-        <GitDefaultIcon />
-        <FaceDefaultIcon />
-        <MediDefaultIcon />
-        <MailDefaultIcon />
-      </FooterIconsBox>
-      <CopyrightBox>© 2023.likelion MJU All pictures cannot be copied without permission.</CopyrightBox>
-    </FooterBox>
-  );
-};
-
-export default Footer;
