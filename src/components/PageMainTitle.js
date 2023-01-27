@@ -17,11 +17,11 @@ const MainTitle = styled.p`
   font-weight: 700px;
   line-height: 56px;
   margin-left: 10px;
-  @media (max-width: 1199px) {
+  @media ${({ theme }) => theme.Devices.TABLET} {
     margin: 160px auto 50px auto;
     font-size: 32px;
   }
-  @media (max-width: 599px) {
+  @media ${({ theme }) => theme.Devices.PHONE} {
     height: 36px;
     margin-left: 8px;
     font-size: 22px;
@@ -35,10 +35,10 @@ const Container = styled.div`
   align-items: flex-start;
   max-width: 1200px;
   margin: 160px auto 100px auto;
-  @media (max-width: 1199px) {
+  @media ${({ theme }) => theme.Devices.TABLET} {
     margin: 100px auto 50px auto;
   }
-  @media (max-width: 599px) {
+  @media ${({ theme }) => theme.Devices.PHONE} {
     margin: 80px auto 40px auto;
   }
 `;

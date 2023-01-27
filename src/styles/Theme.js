@@ -9,4 +9,8 @@ export const Theme = {
     RED: '#FF6868',
     WHITE: '#FFFFFF',
   },
+  Devices: {
+    TABLET: `(max-width: 1199px)`,
+    PHONE: `(max-width: 599px) `,
+  },
 };

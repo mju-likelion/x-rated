@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 import Button from '../../components/Button';
 import PartInformation from './PartInformation';
 
+import PageMainTitle from '../../components/PageMainTitle';
+
 const ApplyMainPage = () => {
   const [testState, setTestState] = useState('');
   const [error, setError] = useState('');
@@ -20,6 +22,7 @@ const ApplyMainPage = () => {
 
   return (
     <div>
+      <PageMainTitle title="test" />
       ApplyMainPage
       <PartInformation />
       <input onChange={test} placeholder="1~4글자 입력 그외 에러" />
