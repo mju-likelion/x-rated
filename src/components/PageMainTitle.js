@@ -14,7 +14,7 @@ const MainTitle = styled.p`
   height: 56px;
   color: ${({ theme }) => theme.Colors.WTHIE};
   font-size: 40px;
-  font-weight: 700px;
+  font-weight: 700;
   line-height: 56px;
   margin-left: 10px;
   @media ${({ theme }) => theme.Devices.TABLET} {
