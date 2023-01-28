@@ -13,7 +13,7 @@ const ButtonBox = ({ buttonData, name, text }) => {
           <span> {data}</span>
         </div>
       ))}
-      {field.value && meta.touched && meta.error ? <div>{meta.error}</div> : null}
+      {field.value && meta.touched && meta.error && <div>{meta.error}</div>}
     </>
   );
 };
