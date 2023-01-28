@@ -35,7 +35,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: flex-start;
   max-width: 1200px;
-  margin: 80px 0px 40px 0px;
+  margin: 80px 0 40px 0;
 
   @media ${({ theme }) => theme.devices.TABLET} {
     margin: 100px 0 50px 0;
