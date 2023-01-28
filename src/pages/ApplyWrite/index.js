@@ -64,6 +64,7 @@ const ApplyWritePage = () => {
           </FileUploadLabel>
         </FileUploadBorder>
       </FileUploadContainer>
+
       <FileUpload
         id="file"
         name="file"
@@ -75,7 +76,7 @@ const ApplyWritePage = () => {
       />
 
       <BreakLine />
-      <form onSubmit={formik.handleSubmit}>
+      <WriteForm onSubmit={formik.handleSubmit}>
         {TEMP_QUESTIONS.map((item, index) => {
           return (
             <WriteContainer key={index}>
@@ -99,10 +100,10 @@ const ApplyWritePage = () => {
             </WriteContainer>
           );
         })}
-        <Button type="submit" text={'제출하기'} />
-        {/* <button type="submit">상태 확인 테스트</button> */}
-        {/* 이거 버튼은 나중에 공통 버튼으로 변경해서 가져오기요망 */}
-      </form>
+        <ButtonBox>
+          <Button type="submit" text={'제출하기'} />
+        </ButtonBox>
+      </WriteForm>
     </>
   );
 };
@@ -111,19 +112,42 @@ const BaseContainer = styled.div`
   display: flex;
   flex-direction: column;
   max-width: 1200px;
-  margin: 0 auto 0 auto;
+  margin: 0 auto;
 `;
 
 const BaseTitle = styled.p`
-  font-weight: 400;
   display: inline;
-  font-size: 18px;
-  line-height: 23px;
   color: ${({ theme }) => theme.colors.WHITE};
   margin-left: 6px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  @media ${({ theme }) => theme.devices.TABLET} {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    font-size: 18px;
+    line-height: 23px;
+  }
 `;
+
 const Star = styled(BaseTitle)`
   color: ${({ theme }) => theme.colors.ORANGE};
+`;
+
+const FileUploadContainer = styled(BaseContainer)`
+  align-items: flex-start;
+  height: 86px; //이건 두줄이라서
+  margin: 20px 16px;
+  @media ${({ theme }) => theme.devices.TABLET} {
+    height: 76px;
+    margin: 30px 16px;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    height: 92px;
+    margin: 50px auto;
+  }
 `;
 
 const FileUploadBorder = styled.div`
@@ -135,16 +159,22 @@ const FileUploadBorder = styled.div`
       : css`
           border: 1px dashed ${theme.colors.GRAY3};
         `};
+  margin-top: 6px;
+  padding: 16px;
+  width: 318px;
+  gap: 10px;
+  box-sizing: border-box;
   border-radius: 10px;
-  margin-top: 8px;
-  width: 568px;
-  // height: 62px;
-  padding: 16px 20px 16px 20px;
+  @media ${({ theme }) => theme.devices.TABLET} {
+    width: 568px;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    margin-top: 8px;
+    padding: 16px 20px 16px 20px;
+  }
 `;
 
 const FileUploadTitle = styled(BaseTitle)`
-  font-size: 20px;
-  line-height: 30px;
   ${({ file, theme }) =>
     file
       ? css`
@@ -153,11 +183,17 @@ const FileUploadTitle = styled(BaseTitle)`
       : css`
           color: ${theme.colors.GRAY3};
         `};
-`;
+  font-size: 14px;
+  line-height: 18px;
 
-const FileUploadContainer = styled(BaseContainer)`
-  align-items: flex-start;
-  height: 92px;
+  @media ${({ theme }) => theme.devices.TABLET} {
+    font-size: 16px;
+    line-height: 20px;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    font-size: 20px;
+    line-height: 30px;
+  }
 `;
 
 const FileUploadLabel = styled.label`
@@ -171,41 +207,66 @@ const FileUpload = styled.input`
 `;
 
 const BreakLine = styled.div`
+  margin: 20px 16px;
   max-width: 1200px;
-  margin: 50px auto 50px auto;
   border: 1px solid ${({ theme }) => theme.colors.GRAY1};
+  @media ${({ theme }) => theme.devices.TABLET} {
+    margin: 30px 16px;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    margin: 50px auto;
+  }
 `;
 
 const WriteContainer = styled(BaseContainer)`
   //  height: 380px; => 추후 피그마 수정하게 될지 모르니 일단 메모
 `;
 
+const WriteForm = styled.form`
+  margin: 0 16px;
+  max-width: 1200px;
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    margin: 0 auto;
+  }
+`;
+
 const WriteBox = styled(WriteContainer)`
   width: 100%;
   border-radius: 18px;
-  margin: 16px 0 100px 0;
-  padding: 30px 30px 15px 30px;
-  font-weight: 400px;
   gap: 10px;
   box-sizing: border-box;
   background-color: ${({ theme }) => theme.colors.GRAY1};
+  padding: 20px 20px 10px 30px;
+  margin: 6px 0 30px 0;
+  @media ${({ theme }) => theme.devices.TABLET} {
+    margin: 10px 0 50px 0;
+    padding: 30px 30px 15px 30px;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    margin: 16px 0 100px 0;
+  }
 `;
 
 const WriteLength = styled.p`
   align-self: flex-end;
-  font-size: 16px;
-  line-height: 20px;
+  font-size: 14px;
+  line-height: 18px;
+  @media ${({ theme }) => theme.devices.TABLET} {
+    font-size: 16px;
+    line-height: 20px;
+  }
 `;
 
 const WriteArea = styled.textarea`
   color: ${({ theme }) => theme.colors.WHITE};
-  height: 340px;
   resize: none;
   background-color: ${({ theme }) => theme.colors.GRAY1};
   border-width: 0;
-  font-size: 20px;
-  line-height: 30px;
-  margin-right: -18px;
+  height: 340px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  margin-right: -8px;
   &:focus {
     outline: none;
   }
@@ -216,6 +277,27 @@ const WriteArea = styled.textarea`
   &::-webkit-scrollbar-thumb {
     border-radius: 3px;
     background-color: ${({ theme }) => theme.colors.GRAY3};
+  }
+
+  @media ${({ theme }) => theme.devices.TABLET} {
+    font-size: 16px;
+    line-height: 23px;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    line-height: 30px;
+    font-size: 20px;
+    margin-right: -18px;
+  }
+`;
+
+const ButtonBox = styled.div`
+  display: flex;
+  justify-content: center;
+  @media ${({ theme }) => theme.devices.PHONE} {
+    margin-bottom: 47px;
+  }
+  @media ${({ theme }) => theme.devices.TABLET} {
+    margin-bottom: 68px; //이건 현재 피그마상으로 margin이 동일함(마진의 기준은 푸터가 아닌 채널톡)
   }
 `;
 
