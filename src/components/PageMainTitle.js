@@ -13,16 +13,13 @@ export default PageMainTitle;
 const MainTitle = styled.p`
   color: ${({ theme }) => theme.colors.WHITE};
   font-weight: 700;
+  margin-left: 24px;
+  height: 36px;
+  font-size: 22px;
+  line-height: 36px;
 
-  @media ${({ theme }) => theme.devices.PHONE} {
-    margin-left: 2px;
-    height: 36px;
-    margin-left: 8px;
-    font-size: 22px;
-    line-height: 36px;
-  }
   @media ${({ theme }) => theme.devices.TABLET} {
-    margin-left: 10px;
+    margin-left: 26px;
     height: 56px;
     font-size: 32px;
     line-height: 56px;
@@ -38,12 +35,10 @@ const Container = styled.div`
   flex-direction: column;
   align-items: flex-start;
   max-width: 1200px;
+  margin: 80px 0px 40px 0px;
 
-  @media ${({ theme }) => theme.devices.PHONE} {
-    margin: 80px auto 40px auto;
-  }
   @media ${({ theme }) => theme.devices.TABLET} {
-    margin: 100px auto 50px auto;
+    margin: 100px 0 50px 0;
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
     margin: 160px auto 100px auto;
