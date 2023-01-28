@@ -11,21 +11,25 @@ const PageMainTitle = ({ title }) => {
 export default PageMainTitle;
 
 const MainTitle = styled.p`
-  height: 56px;
-  color: ${({ theme }) => theme.Colors.WTHIE};
-  font-size: 40px;
+  color: ${({ theme }) => theme.Colors.WHITE};
   font-weight: 700;
-  line-height: 56px;
-  margin-left: 10px;
-  @media ${({ theme }) => theme.Devices.TABLET} {
-    margin: 160px auto 50px auto;
-    font-size: 32px;
-  }
+
   @media ${({ theme }) => theme.Devices.PHONE} {
+    margin-left: 2px;
     height: 36px;
     margin-left: 8px;
     font-size: 22px;
     line-height: 36px;
+  }
+  @media ${({ theme }) => theme.Devices.TABLET} {
+    margin-left: 10px;
+    height: 56px;
+    font-size: 32px;
+    line-height: 56px;
+  }
+  @media ${({ theme }) => theme.Devices.DESKTOP} {
+    font-size: 40px;
+    margin-left: 10px;
   }
 `;
 
@@ -34,11 +38,14 @@ const Container = styled.div`
   flex-direction: column;
   align-items: flex-start;
   max-width: 1200px;
-  margin: 160px auto 100px auto;
+
+  @media ${({ theme }) => theme.Devices.PHONE} {
+    margin: 80px auto 40px auto;
+  }
   @media ${({ theme }) => theme.Devices.TABLET} {
     margin: 100px auto 50px auto;
   }
-  @media ${({ theme }) => theme.Devices.PHONE} {
-    margin: 80px auto 40px auto;
+  @media ${({ theme }) => theme.Devices.DESKTOP} {
+    margin: 160px auto 100px auto;
   }
 `;

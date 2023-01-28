@@ -10,7 +10,8 @@ export const Theme = {
     WHITE: '#FFFFFF',
   },
   Devices: {
-    TABLET: `(max-width: 1199px)`,
-    PHONE: `(max-width: 599px) `,
+    DESKTOP: `(min-width: 1200px)`,
+    TABLET: `(min-width: 600px)`,
+    PHONE: `(min-width: 350px) `,
   },
 };
