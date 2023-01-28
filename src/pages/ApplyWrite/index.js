@@ -1,6 +1,8 @@
 import { useFormik } from 'formik';
 import styled, { css } from 'styled-components';
 
+import PageMainTitle from '../../components/PageMainTitle';
+
 import Button from './../../components/Button';
 
 const ApplyWritePage = () => {
@@ -50,9 +52,10 @@ const ApplyWritePage = () => {
 
   return (
     <>
+      <PageMainTitle title="지원서 작성하기" />
       <FileUploadContainer>
         <BaseTitle>
-          Html 혹은 css를 포함한 zip 형식의 자기소개서 페이지를 첨부해 주세요. <Star>*</Star>
+          Html 혹은 css를 포함한 <br /> zip 형식의 자기소개서 페이지를 첨부해 주세요. <Star>*</Star>
         </BaseTitle>
 
         <FileUploadBorder file={fileData}>
@@ -116,11 +119,11 @@ const BaseTitle = styled.p`
   display: inline;
   font-size: 18px;
   line-height: 23px;
-  color: #ffffff;
+  color: ${({ theme }) => theme.colors.WHITE};
   margin-left: 6px;
 `;
 const Star = styled(BaseTitle)`
-  color: #ff872d;
+  color: ${({ theme }) => theme.colors.ORANGE};
 `;
 
 const FileUploadBorder = styled.div`
@@ -195,7 +198,7 @@ const WriteLength = styled.p`
 `;
 
 const WriteArea = styled.textarea`
-  color: #ffffff;
+  color: ${({ theme }) => theme.colors.WHITE};
   height: 340px;
   resize: none;
   background-color: ${({ theme }) => theme.colors.GRAY1};
