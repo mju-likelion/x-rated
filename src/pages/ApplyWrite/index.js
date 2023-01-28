@@ -1,5 +1,4 @@
 import { useFormik } from 'formik';
-
 import styled, { css } from 'styled-components';
 
 import Button from './../../components/Button';
@@ -128,10 +127,10 @@ const FileUploadBorder = styled.div`
   ${({ file, theme }) =>
     file
       ? css`
-          border: 1px solid ${theme.Colors.BLUE1};
+          border: 1px solid ${theme.colors.BLUE1};
         `
       : css`
-          border: 1px dashed ${theme.Colors.GRAY3};
+          border: 1px dashed ${theme.colors.GRAY3};
         `};
   border-radius: 10px;
   margin-top: 8px;
@@ -146,10 +145,10 @@ const FileUploadTitle = styled(BaseTitle)`
   ${({ file, theme }) =>
     file
       ? css`
-          color: ${theme.Colors.BLUE1};
+          color: ${theme.colors.BLUE1};
         `
       : css`
-          color: ${theme.Colors.GRAY3};
+          color: ${theme.colors.GRAY3};
         `};
 `;
 
@@ -171,7 +170,7 @@ const FileUpload = styled.input`
 const BreakLine = styled.div`
   max-width: 1200px;
   margin: 50px auto 50px auto;
-  border: 1px solid ${({ theme }) => theme.Colors.GRAY1};
+  border: 1px solid ${({ theme }) => theme.colors.GRAY1};
 `;
 
 const WriteContainer = styled(BaseContainer)`
@@ -186,7 +185,7 @@ const WriteBox = styled(WriteContainer)`
   font-weight: 400px;
   gap: 10px;
   box-sizing: border-box;
-  background-color: ${({ theme }) => theme.Colors.GRAY1};
+  background-color: ${({ theme }) => theme.colors.GRAY1};
 `;
 
 const WriteLength = styled.p`
@@ -199,7 +198,7 @@ const WriteArea = styled.textarea`
   color: #ffffff;
   height: 340px;
   resize: none;
-  background-color: ${({ theme }) => theme.Colors.GRAY1};
+  background-color: ${({ theme }) => theme.colors.GRAY1};
   border-width: 0;
   font-size: 20px;
   line-height: 30px;
@@ -213,7 +212,7 @@ const WriteArea = styled.textarea`
   }
   &::-webkit-scrollbar-thumb {
     border-radius: 3px;
-    background-color: ${({ theme }) => theme.Colors.GRAY3};
+    background-color: ${({ theme }) => theme.colors.GRAY3};
   }
 `;
 
