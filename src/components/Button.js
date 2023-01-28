@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+
 import styled from 'styled-components';
 
 /**
@@ -49,14 +50,14 @@ const ButtonStyle = styled.button`
   font-weight: 700;
   border-radius: 35px;
   color: #fff;
-  background-color: ${({ disable, theme }) => (disable ? theme.Colors.GRAY2 : theme.Colors.ORANGE)};
+  background-color: ${({ disable, theme }) => (disable ? theme.colors.GRAY2 : theme.colors.ORANGE)};
   :hover {
     background-color: ${({ disable }) => disable || '#ffab6b'};
   }
 `;
 
 const Error = styled.p`
-  color: ${({ theme }) => theme.Colors.RED};
+  color: ${({ theme }) => theme.colors.RED};
   text-align: center;
   font-weight: 400;
   font-size: 18px;
