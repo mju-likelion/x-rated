@@ -1,17 +1,15 @@
 import { useField } from 'formik';
 
+import DropDown from './DropDown';
+
 const SelectBox = ({ selectdata, name, text }) => {
-  const [field] = useField(name);
+  const [, meta, helper] = useField(name);
+  const { value } = meta;
+  const { setValue } = helper;
   return (
     <>
       {text}
-      <select {...field}>
-        {selectdata.map(data => (
-          <option key={data} value={data}>
-            {data}
-          </option>
-        ))}
-      </select>
+      <DropDown selectdata={selectdata} setValue={setValue} value={value} />
     </>
   );
 };

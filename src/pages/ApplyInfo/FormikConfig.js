@@ -1,4 +1,5 @@
 import * as Yup from 'yup';
+
 import { validation } from './Validation';
 
 export const FormikConfig = {
@@ -7,7 +8,7 @@ export const FormikConfig = {
     phone: '',
     email: '',
     major: '',
-    grade: '1',
+    grade: '',
     sid: '',
     enrollmentStatus: '',
     campus: '',
