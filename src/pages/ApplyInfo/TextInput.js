@@ -2,11 +2,12 @@ import { useField } from 'formik';
 import styled from 'styled-components';
 
 const TextInput = ({ name, placeholder, text, maxLength }) => {
-  const [field, , helper] = useField(name);
+  const [field, meta, helper] = useField(name);
+  const { value } = meta;
   const { setValue } = helper;
   const handleChange = e => {
     const phone = e.target.value;
-    setValue(phone.length === 3 || phone.length === 8 ? phone.concat('-') : phone);
+    setValue([3, 8].includes(phone.length) && value.length < phone.length ? phone.concat('-') : phone);
   };
   return (
     <Container>
