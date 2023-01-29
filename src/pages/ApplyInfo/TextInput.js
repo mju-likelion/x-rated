@@ -1,7 +1,7 @@
 import { useField } from 'formik';
 
 const TextInput = ({ name, placeholder, text, maxLength }) => {
-  const [field, meta, helper] = useField(name);
+  const [field, , helper] = useField(name);
   const { setValue } = helper;
   const handleChange = e => {
     const phone = e.target.value;
@@ -17,7 +17,6 @@ const TextInput = ({ name, placeholder, text, maxLength }) => {
         onChange={name === 'phone' ? handleChange : field.onChange}
         value={field.value || ''}
       />
-      {field.value && meta.touched && meta.error ? <div className="error">{meta.error}</div> : null}
     </>
   );
 };

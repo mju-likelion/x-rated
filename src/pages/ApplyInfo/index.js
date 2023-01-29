@@ -1,14 +1,20 @@
 import { Formik, Form } from 'formik';
 import { FormikConfig } from './FormikConfig';
-import ProgressButton from '../../components/ProgressButton';
-import { PART, CAMPUS, ENROLLMENTSTATUS } from './ButtonData';
+
+import Button from '../../components/Button';
+
 import CheckBox from './CheckBox';
 import TextInput from './TextInput';
 import ButtonBox from './ButtonBox';
 import SelectBox from './SelectBox';
+
 import { GRADE } from './SelectData';
+import { PART, CAMPUS, ENROLLMENTSTATUS } from './ButtonData';
 
 const ApplyInfoPage = () => {
+  const defaultError = '작성이 완료되지 않은 내용이 있습니다.';
+  const formError = '형식에 맞지 않는 값이 존재합니다.';
+
   return (
     <>
       <Formik
@@ -16,7 +22,7 @@ const ApplyInfoPage = () => {
         validationSchema={FormikConfig.validationSchema}
         onSubmit={FormikConfig.onSubmit}
       >
-        {({ errors }) => (
+        {({ errors, handleSubmit, values }) => (
           <Form>
             <TextInput name="name" type="text" text="이름" maxLength={10} />
             <TextInput name="phone" type="text" placeholder="000-0000-0000" text="전화번호" maxLength={13} />
@@ -35,9 +41,20 @@ const ApplyInfoPage = () => {
             <CheckBox name="personalInfoAgreement">개인정보 수집 및 이용 동의</CheckBox>
             <CheckBox name="cautionConfirm">위의 주의사항을 확인하였습니다.</CheckBox>
 
-            <ProgressButton type="submit" disabled={Object.keys(errors).length > 0}>
-              다음으로
-            </ProgressButton>
+            <Button
+              type="submit"
+              text="다음으로"
+              errorMessage={
+                !values.name
+                  ? defaultError
+                  : Object.values(errors).includes('form')
+                  ? formError
+                  : Object.keys(errors).length > 0
+                  ? defaultError
+                  : null
+              }
+              onClick={handleSubmit}
+            />
           </Form>
         )}
       </Formik>
