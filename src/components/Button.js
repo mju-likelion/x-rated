@@ -10,7 +10,6 @@ import styled from 'styled-components';
  */
 const Button = ({ text, type = 'button', errorMessage, handleClick }) => {
   const [isShowErrorMessage, setIsShowErrorMessage] = useState(false);
-
   /** @TODO disable 상태에서 클릭 이벤트 동작 불가.
    * 따라서 클릭은 가능하지만 이벤트 실행시 분기 처리를 통해 구현
    * 디자인을 따라갈지 로직을 우선시 할지 논의 필요

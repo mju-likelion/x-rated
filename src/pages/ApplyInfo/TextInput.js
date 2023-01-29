@@ -1,4 +1,5 @@
 import { useField } from 'formik';
+import styled from 'styled-components';
 
 const TextInput = ({ name, placeholder, text, maxLength }) => {
   const [field, , helper] = useField(name);
@@ -8,17 +9,50 @@ const TextInput = ({ name, placeholder, text, maxLength }) => {
     setValue(phone.length === 3 || phone.length === 8 ? phone.concat('-') : phone);
   };
   return (
-    <>
-      {text}
-      <input
+    <Container>
+      <StyledText>
+        {text}
+        <p>*</p>
+      </StyledText>
+      <StyledInput
         {...field}
         placeholder={placeholder}
         maxLength={maxLength}
         onChange={name === 'phone' ? handleChange : field.onChange}
         value={field.value || ''}
       />
-    </>
+    </Container>
   );
 };
 
 export default TextInput;
+
+export const StyledText = styled.span`
+  display: inline;
+  color: ${({ theme }) => theme.colors.WHITE};
+  font-size: 18px;
+  margin: 0 0 8px 8px;
+  p {
+    display: inline;
+    color: ${({ theme }) => theme.colors.ORANGE};
+  }
+`;
+
+const Container = styled.div`
+  height: 92px;
+  width: 483px;
+  display: flex;
+  flex-direction: column;
+`;
+
+const StyledInput = styled.input`
+  width: 483px;
+  height: 62px;
+  border-radius: 10px;
+  padding: 16px 20px;
+  gap: 10px;
+  background-color: ${({ theme }) => theme.colors.GRAY1};
+  border: none;
+  font-size: 20px;
+  color: ${({ theme }) => theme.colors.WHITE};
+`;
