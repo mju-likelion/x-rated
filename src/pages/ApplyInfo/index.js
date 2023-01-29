@@ -12,8 +12,8 @@ import { GRADE } from './SelectData';
 import { PART, CAMPUS, ENROLLMENTSTATUS } from './ButtonData';
 
 const ApplyInfoPage = () => {
-  const defaultError = '작성이 완료되지 않은 내용이 있습니다.';
-  const formError = '형식에 맞지 않는 값이 존재합니다.';
+  const DEFAULTERROR = '작성이 완료되지 않은 내용이 있습니다.';
+  const FORMERROR = '형식에 맞지 않는 값이 존재합니다.';
 
   return (
     <>
@@ -46,11 +46,11 @@ const ApplyInfoPage = () => {
               text="다음으로"
               errorMessage={
                 !values.name
-                  ? defaultError
+                  ? DEFAULTERROR
                   : Object.values(errors).includes('form')
-                  ? formError
+                  ? FORMERROR
                   : Object.keys(errors).length > 0
-                  ? defaultError
+                  ? DEFAULTERROR
                   : null
               }
               onClick={handleSubmit}
