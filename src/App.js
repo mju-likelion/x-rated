@@ -1,14 +1,13 @@
 import { Route, Routes } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
+import Footer from './components/Footer';
 import ApplyFinishPage from './pages/ApplyFinish';
 import ApplyInfoPage from './pages/ApplyInfo';
 import ApplyMainPage from './pages/ApplyMain';
 import ApplyWritePage from './pages/ApplyWrite';
 import GlobalStyle from './styles/GlobalStyle';
 import { Theme } from './styles/Theme';
-
-import Footer from './components/Footer';
 
 function App() {
   return (

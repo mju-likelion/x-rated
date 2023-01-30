@@ -60,7 +60,7 @@ const FooterIconsBox = styled.div`
 `;
 
 const CopyrightBox = styled.div`
-  color: ${({ theme }) => theme.Colors.GRAY2};
+  color: ${({ theme }) => theme.colors.GRAY2};
   font-size: 12px;
   font-weight: 400;
   margin-top: 30px;
