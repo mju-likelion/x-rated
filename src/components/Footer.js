@@ -1,11 +1,12 @@
 import React from 'react';
+
 import styled from 'styled-components';
 
-import { ReactComponent as InstaIcon } from '../assets/images/icon_insta_default.svg';
-import { ReactComponent as GitIcon } from '../assets/images/icon_git_default.svg';
 import { ReactComponent as FaceIcon } from '../assets/images/icon_face_default.svg';
-import { ReactComponent as MediIcon } from '../assets/images/icon_medi_default.svg';
+import { ReactComponent as GitIcon } from '../assets/images/icon_git_default.svg';
+import { ReactComponent as InstaIcon } from '../assets/images/icon_insta_default.svg';
 import { ReactComponent as MailIcon } from '../assets/images/icon_mail_default.svg';
+import { ReactComponent as MediIcon } from '../assets/images/icon_medi_default.svg';
 
 const Footer = () => {
   const urlList = [
