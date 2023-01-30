@@ -1,14 +1,13 @@
 import { Route, Routes } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
+import Header from './components/Header';
 import ApplyFinishPage from './pages/ApplyFinish';
 import ApplyInfoPage from './pages/ApplyInfo';
 import ApplyMainPage from './pages/ApplyMain';
 import ApplyWritePage from './pages/ApplyWrite';
 import GlobalStyle from './styles/GlobalStyle';
 import { Theme } from './styles/Theme';
-
-import Header from './components/Header';
 
 function App() {
   return (

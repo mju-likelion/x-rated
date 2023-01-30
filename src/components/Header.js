@@ -1,4 +1,5 @@
 import React from 'react';
+
 import styled from 'styled-components';
 
 import { ReactComponent as Logo } from '../assets/images/icon_logo.svg';
@@ -7,7 +8,7 @@ const HeaderTopBox = styled.div`
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: ${({ theme }) => theme.Colors.BLACK};
+  background-color: ${({ theme }) => theme.colors.BLACK};
 `;
 
 const HeaderBox = styled.div`
