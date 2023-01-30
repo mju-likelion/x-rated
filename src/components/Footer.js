@@ -35,7 +35,7 @@ const Footer = () => {
         <MediIcon onClick={() => handleClick(3)} />
         <MailIcon onClick={handleCopyEmail} />
       </FooterIconsBox>
-      <CopyrightBox>© 2023.likelion MJU All pictures cannot be copied without permission.</CopyrightBox>
+      <CopyrightBox>© 2023. LIKELION MJU All pictures cannot be copied without permission.</CopyrightBox>
     </FooterBox>
   );
 };
@@ -63,4 +63,5 @@ const CopyrightBox = styled.div`
   font-size: 12px;
   font-weight: 400;
   margin-top: 30px;
+  font-family: 'Montserrat';
 `;
