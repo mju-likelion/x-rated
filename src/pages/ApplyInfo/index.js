@@ -49,8 +49,8 @@ const ApplyInfoPage = () => {
               <ButtonContainer contour>
                 <ButtonBox name="part" buttonData={PART} text="지원파트" />
               </ButtonContainer>
-              <CheckBox name="personalInfoAgreement">개인정보 수집 및 이용 동의</CheckBox>
-              <CheckBox name="cautionConfirm">위의 주의사항을 확인하였습니다.</CheckBox>
+              <CheckBox name="personalInfoAgreement" text="개인정보 수집 및 이용 동의" />
+              <CheckBox name="cautionConfirm" text="위의 주의사항을 확인하였습니다." />
               <Button
                 type="submit"
                 text="다음으로"
