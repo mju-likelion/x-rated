@@ -10,30 +10,30 @@ import { ReactComponent as MediIcon } from '../assets/images/icon_medi_default.s
 
 const Footer = () => {
   const urlList = [
-    'https://www.instagram.com/mju_likelion/',
-    'https://github.com/mju-likelion',
-    'https://www.facebook.com/likelionatmju',
-    'https://medium.com/@mju-likelion',
+    { type: 'instagram', url: 'https://www.instagram.com/mju_likelion/' },
+    { type: 'github', url: 'https://github.com/mju-likelion' },
+    { type: 'facebook', url: 'https://www.facebook.com/likelionatmju' },
+    { type: 'medium', url: 'https://medium.com/@mju-likelion' },
   ];
 
   const handleClick = type => {
-    window.open(urlList[type]);
+    {
+      urlList.map(item => item.type === type && window.open(item.url));
+    }
   };
 
   const handleCopyEmail = () => {
     const mjuEmail = 'mju@likelion.org';
     navigator.clipboard.writeText(mjuEmail);
-    navigator.clipboard.readText(mjuEmail) ? alert('이메일이 복사되었습니다.') : alert('이메일 복사 오류입니다.');
-    // 이 부분 디자인 픽스되면 토스트메시지 추가 예정입니다
   };
 
   return (
     <FooterBox>
       <FooterIconsBox>
-        <InstaIcon onClick={() => handleClick(0)} />
-        <GitIcon onClick={() => handleClick(1)} />
-        <FaceIcon onClick={() => handleClick(2)} />
-        <MediIcon onClick={() => handleClick(3)} />
+        <InstaIcon onClick={() => handleClick('instagram')} />
+        <GitIcon onClick={() => handleClick('github')} />
+        <FaceIcon onClick={() => handleClick('facebook')} />
+        <MediIcon onClick={() => handleClick('medium')} />
         <MailIcon onClick={handleCopyEmail} />
       </FooterIconsBox>
       <CopyrightBox>© 2023. LIKELION MJU All pictures cannot be copied without permission.</CopyrightBox>
