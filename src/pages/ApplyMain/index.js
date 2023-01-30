@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import Button from '../../components/Button';
 
 import ApplyMainTop from './ApplyMainTop';
-import { PartData } from './PartData.js';
+import { PART_DATA } from './PartData.js';
 import PartInfo from './PartInfo';
 
 const ApplyMainPage = () => {
@@ -26,15 +26,17 @@ const ApplyMainPage = () => {
 
   return (
     <ApplyMainPageBlock>
-      <ApplyMainTop></ApplyMainTop>
+      <ApplyMainTop />
       <PartInfoDiv>
-        {PartData.map((apply, index) => (
+        {PART_DATA.map((apply, index) => (
           <PartInfo partInfo={apply} key={index} />
         ))}
       </PartInfoDiv>
-      <StyledLink to="/info">
-        <Button text="지원하기" handleClick="/info"></Button>
-      </StyledLink>
+      <WrapApplyButton>
+        <StyledLink to="/info">
+          <Button text="지원하기"></Button>
+        </StyledLink>
+      </WrapApplyButton>
     </ApplyMainPageBlock>
   );
 };
@@ -52,8 +54,10 @@ const PartInfoDiv = styled.div`
   display: flex;
 `;
 
-const ApplyButton = styled(Button)`
-  margin: 100px auto 0;
+const WrapApplyButton = styled.div`
+  text-align: center;
+  margin-top: 100px;
+  margin-bottom: 153px;
 `;
 
 const StyledLink = styled(Link)`

@@ -6,10 +6,10 @@ import iconPlus from '../../assets/images/icon_plus.svg';
 
 const PartInformation = ({ partInfo }) => {
   return (
-    <PartInformationBlock style={partInfo.value === 'SERVER' ? { margin: '30px' } : {}}>
+    <PartInformationBlock info={partInfo.value}>
       <PartInfoTop>
         {partInfo.value}
-        <img src={iconPlus} style={{ marginLeft: 'auto', marginRight: '24px' }} />
+        <PartInfoImg src={iconPlus} />
       </PartInfoTop>
       <CenterImgBlock>
         <partInfo.image />
@@ -34,6 +34,11 @@ const PartInfoTop = styled.div`
   display: flex;
 `;
 
+const PartInfoImg = styled.img`
+  margin-left: auto;
+  margin-right: 24px;
+`;
+
 const CenterImgBlock = styled.div`
   margin-top: 56px;
   display: flex;
@@ -43,7 +48,9 @@ const CenterImgBlock = styled.div`
 const PartInfoCont = styled.div`
   display: none;
   margin: 24px 24px;
+  line-height: 1.3;
   margin-top: auto;
+  word-break: break-all;
 `;
 
 const InfoTitle = styled.div`
@@ -60,6 +67,7 @@ const InfoCont = styled.div`
 `;
 
 const PartInformationBlock = styled.div`
+  margin: ${props => (props.info === 'SERVER' ? '30px' : '')};
   display: flex;
   flex-direction: column;
   width: 380px;
