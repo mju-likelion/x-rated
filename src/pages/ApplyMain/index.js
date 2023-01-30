@@ -1,13 +1,29 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 
-import ProgressButton from '../../components/ProgressButton';
-import ApplyMainTop from './ApplyMainTop';
-import PartInfo from './PartInfo';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+
+import Button from '../../components/Button';
+
+import ApplyMainTop from './ApplyMainTop';
 import { PartData } from './PartData.js';
+import PartInfo from './PartInfo';
 
 const ApplyMainPage = () => {
+  const [testState, setTestState] = useState('');
+  const [error, setError] = useState('');
+  const test = e => {
+    setTestState(e.target.value);
+  };
+
+  useEffect(() => {
+    if (testState.length >= 5 || testState.length === 0) {
+      setError('에러입니당');
+    } else {
+      setError('');
+    }
+  }, [testState]);
+
   return (
     <ApplyMainPageBlock>
       <ApplyMainTop></ApplyMainTop>
@@ -17,7 +33,7 @@ const ApplyMainPage = () => {
         ))}
       </PartInfoDiv>
       <StyledLink to="/info">
-        <ApplyButton>지원하기</ApplyButton>
+        <Button text="지원하기" handleClick="/info"></Button>
       </StyledLink>
     </ApplyMainPageBlock>
   );
@@ -36,11 +52,8 @@ const PartInfoDiv = styled.div`
   display: flex;
 `;
 
-const ApplyButton = styled(ProgressButton)`
+const ApplyButton = styled(Button)`
   margin: 100px auto 0;
-  color: white;
-  font-weight: 700;
-  margin-bottom: 200px;
 `;
 
 const StyledLink = styled(Link)`

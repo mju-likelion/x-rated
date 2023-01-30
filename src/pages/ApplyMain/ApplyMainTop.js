@@ -1,4 +1,5 @@
 import React from 'react';
+
 import styled from 'styled-components';
 
 const ApplyMainTop = () => {
@@ -34,7 +35,7 @@ const TitleBox = styled.div`
 `;
 
 const LeftSubTitle = styled.div`
-  color: ${({ theme }) => theme.Colors.BLUE1};
+  color: ${({ theme }) => theme.colors.BLUE1};
   font-weight: 500;
   font-size: 16px;
 `;
@@ -51,7 +52,7 @@ const RightCont = styled.div`
 `;
 
 const RightTitle = styled.div`
-  color: ${({ theme }) => theme.Colors.GRAY2};
+  color: ${({ theme }) => theme.colors.GRAY2};
   margin-right: 30px;
   margin-top: 8px;
   font-size: 18px;

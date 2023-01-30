@@ -1,5 +1,7 @@
 import React from 'react';
+
 import styled from 'styled-components';
+
 import iconPlus from '../../assets/images/icon_plus.svg';
 
 const PartInformation = ({ partInfo }) => {
@@ -54,7 +56,7 @@ const InfoCont = styled.div`
   font-size: 16px;
   font-weight: 400;
   margin-top: 6px;
-  color: ${({ theme }) => theme.Colors.GRAY2};
+  color: ${({ theme }) => theme.colors.GRAY2};
 `;
 
 const PartInformationBlock = styled.div`
@@ -62,13 +64,13 @@ const PartInformationBlock = styled.div`
   flex-direction: column;
   width: 380px;
   height: 300px;
-  background-color: ${({ theme }) => theme.Colors.GRAY1};
+  background-color: ${({ theme }) => theme.colors.GRAY1};
   border-radius: 18px;
   margin-top: 30px;
 
   &:hover ${PartInfoTop} {
     font-size: 20px;
-    color: ${({ theme }) => theme.Colors.GRAY2};
+    color: ${({ theme }) => theme.colors.GRAY2};
     transition: all 0.2s ease-out;
   }
 
