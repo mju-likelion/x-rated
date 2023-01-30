@@ -49,6 +49,7 @@ const Container = styled.div`
 
 const StyledInput = styled.input`
   box-sizing: border-box;
+  font-family: 'Spoqa Han Sans Neo', 'Spoqa Han Sans JP', sans-serif;
   width: 483px;
   height: 62px;
   margin-right: 30px;

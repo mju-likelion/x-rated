@@ -40,7 +40,7 @@ const DropDown = ({ value, setValue, selectdata }) => {
       {isOpen && (
         <DownOptions>
           {selectdata.map(data => (
-            <Option key={data} onClick={() => setData(data)}>
+            <Option key={data} onClick={() => setData(data)} onMouseEnter={() => setValue(data)}>
               {data}
             </Option>
           ))}
@@ -55,11 +55,12 @@ export default DropDown;
 const DropDownContainer = styled.div`
   box-sizing: border-box;
   margin-top: 8px;
+  width: 380px;
 `;
 
 const DropDownBox = styled.div`
   box-sizing: border-box;
-  width: 380px;
+  width: 100%;
   height: 62px;
   padding: 16px 20px;
   display: flex;

@@ -39,6 +39,7 @@ const CheckboxContainer = styled.div`
   height: 26px;
   display: flex;
   align-items: center;
+  margin-top: 25px;
 `;
 
 const CheckBoxText = styled(StyledText)`
