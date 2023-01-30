@@ -32,7 +32,7 @@ const DropDown = ({ value, setValue, selectdata }) => {
     setIsOpen(false);
   };
   return (
-    <div ref={outsideRef}>
+    <DropDownContainer ref={outsideRef}>
       <DropDownBox onClick={handleOptions} isOpen={isOpen} hasValue={value}>
         {value || selectdata[0]}
         {isOpen ? <WhiteUpArrow /> : value ? <WhiteDownArrow /> : <GrayDownArrow />}
@@ -46,11 +46,16 @@ const DropDown = ({ value, setValue, selectdata }) => {
           ))}
         </DownOptions>
       )}
-    </div>
+    </DropDownContainer>
   );
 };
 
 export default DropDown;
+
+const DropDownContainer = styled.div`
+  box-sizing: border-box;
+  margin-top: 8px;
+`;
 
 const DropDownBox = styled.div`
   box-sizing: border-box;

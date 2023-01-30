@@ -1,6 +1,8 @@
 import { useField } from 'formik';
+import styled from 'styled-components';
 
 import DropDown from './DropDown';
+import { StyledText } from './TextInput';
 
 const SelectBox = ({ selectdata, name, text }) => {
   const [, meta, helper] = useField(name);
@@ -8,7 +10,10 @@ const SelectBox = ({ selectdata, name, text }) => {
   const { setValue } = helper;
   return (
     <>
-      {text}
+      <StyledText>
+        {text}
+        <p>*</p>
+      </StyledText>
       <DropDown selectdata={selectdata} setValue={setValue} value={value} />
     </>
   );

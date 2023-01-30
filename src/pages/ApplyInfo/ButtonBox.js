@@ -9,7 +9,10 @@ const ButtonBox = ({ buttonData, name, text }) => {
   // const isSelected = value => (value === selectedValue ? true : false);
   return (
     <Container>
-      <StyledText>{text}</StyledText>
+      <StyledText>
+        {text}
+        <p>*</p>
+      </StyledText>
       <ButtonContainer>
         {buttonData.map(data => (
           <StyledButton
@@ -22,7 +25,13 @@ const ButtonBox = ({ buttonData, name, text }) => {
           </StyledButton>
         ))}
       </ButtonContainer>
-      {meta.value && meta.error && <div>{meta.error}</div>}
+      {meta.value && meta.error && <ErrorMsg>{meta.error}</ErrorMsg>}
+      {text === '학적' && (
+        <Descirption>
+          23년 1학기 기준으로, 재학생은 현재 이수 중인 학년 / 휴학생의 경우 복학 예정 학년이 아닌 현재까지 이수한
+          학년으로 작성해 주세요.
+        </Descirption>
+      )}
     </Container>
   );
 };
@@ -30,6 +39,7 @@ const ButtonBox = ({ buttonData, name, text }) => {
 export default ButtonBox;
 
 const Container = styled.div`
+  box-sizing: border-box;
   height: 120px;
   display: flex;
   flex-direction: column;
@@ -59,4 +69,17 @@ const HiddenInput = styled.input`
 const ButtonText = styled.span`
   color: inherit;
   font-size: 20px;
+`;
+
+const Message = styled.div`
+  margin-top: 7px;
+  line-height: 20px;
+`;
+
+const ErrorMsg = styled(Message)`
+  color: ${({ theme }) => theme.colors.RED};
+`;
+
+const Descirption = styled(Message)`
+  color: ${({ theme }) => theme.colors.GRAY2};
 `;

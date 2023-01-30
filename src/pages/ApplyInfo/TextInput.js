@@ -40,6 +40,7 @@ export const StyledText = styled.span`
 `;
 
 const Container = styled.div`
+  box-sizing: border-box;
   height: 92px;
   width: 483px;
   display: flex;
@@ -47,8 +48,10 @@ const Container = styled.div`
 `;
 
 const StyledInput = styled.input`
+  box-sizing: border-box;
   width: 483px;
   height: 62px;
+  margin-right: 30px;
   border-radius: 10px;
   padding: 16px 20px;
   gap: 10px;
