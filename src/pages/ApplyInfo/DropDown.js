@@ -54,9 +54,13 @@ export default DropDown;
 
 const DropDownContainer = styled.div`
   box-sizing: border-box;
+  margin-top: 6px;
+
+  @media ${({ theme }) => theme.devices.PHONE} {
+    width: 156px;
+  }
   @media ${({ theme }) => theme.devices.TABLET} {
     width: 174px;
-    margin-top: 6px;
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
     width: 380px;
@@ -67,22 +71,26 @@ const DropDownContainer = styled.div`
 const DropDownBox = styled.div`
   box-sizing: border-box;
   width: 100%;
+  padding: 16px;
+  border-radius: 10px;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
   border: 1px solid ${({ theme, isOpen, hasValue }) => (isOpen || hasValue ? theme.colors.WHITE : theme.colors.GRAY3)};
 
   color: ${({ theme, isOpen, hasValue }) => (isOpen || hasValue ? theme.colors.WHITE : theme.colors.GRAY3)};
+  @media ${({ theme }) => theme.devices.PHONE} {
+    height: 50px;
+    font-size: 14px;
+  }
   @media ${({ theme }) => theme.devices.TABLET} {
     height: 52px;
-    padding: 16px;
-    border-radius: 10px;
     font-size: 16px;
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
     height: 62px;
     padding: 16px 20px;
-    border-radius: 10px;
     font-size: 20px;
   }
 `;
@@ -91,13 +99,17 @@ const DownOptions = styled.div`
   position: absolute;
   box-sizing: border-box;
   border-radius: 10px;
+  padding: 4px;
+  margin-top: 6px;
+
   display: flex;
   flex-direction: column;
   background-color: ${({ theme }) => theme.colors.GRAY1};
+  @media ${({ theme }) => theme.devices.PHONE} {
+    width: 156px;
+  }
   @media ${({ theme }) => theme.devices.TABLET} {
     width: 174px;
-    padding: 4px;
-    margin-top: 6px;
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
     width: 380px;
@@ -120,6 +132,12 @@ const Option = styled.div`
   :active {
     background-color: #232323;
     color: ${({ theme }) => theme.colors.WHITE};
+  }
+  @media ${({ theme }) => theme.devices.PHONE} {
+    height: 38px;
+    padding: 0 12px;
+    line-height: 38px;
+    margin-bottom: 4px;
   }
   @media ${({ theme }) => theme.devices.TABLET} {
     height: 40px;

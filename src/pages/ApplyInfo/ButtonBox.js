@@ -42,6 +42,9 @@ const Container = styled.div`
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  @media ${({ theme }) => theme.devices.PHONE} {
+    height: 103px;
+  }
   @media ${({ theme }) => theme.devices.TABLET} {
     height: 112px;
   }
@@ -62,6 +65,11 @@ const StyledButton = styled.label`
   color: ${({ theme, isSelected }) => (isSelected ? theme.colors.WHITE : theme.colors.GRAY3)};
   background: none;
   border-radius: 10px;
+  @media ${({ theme }) => theme.devices.PHONE} {
+    width: 156px;
+    height: 50px;
+    margin-right: 6px;
+  }
   @media ${({ theme }) => theme.devices.TABLET} {
     width: 174px;
     height: 52px;
@@ -80,6 +88,9 @@ const HiddenInput = styled.input`
 
 const ButtonText = styled.span`
   color: inherit;
+  @media ${({ theme }) => theme.devices.PHONE} {
+    font-size: 14px;
+  }
   @media ${({ theme }) => theme.devices.TABLET} {
     font-size: 16px;
   }
@@ -90,12 +101,16 @@ const ButtonText = styled.span`
 
 const Message = styled.div`
   margin-top: 7px;
-  line-height: 20px;
+  @media ${({ theme }) => theme.devices.PHONE} {
+    font-size: 10px;
+    line-height: 12px;
+  }
   @media ${({ theme }) => theme.devices.TABLET} {
     font-size: 12px;
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
     font-size: 16px;
+    line-height: 20px;
   }
 `;
 
@@ -108,7 +123,7 @@ const Descirption = styled(Message)`
 `;
 
 const DescriptionFirstLine = styled.span`
-  @media ${({ theme }) => theme.devices.TABLET} {
+  @media ${({ theme }) => theme.devices.PHONE} {
     display: block;
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {

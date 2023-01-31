@@ -7,6 +7,7 @@ import PageMainTitle from '../../components/PageMainTitle';
 
 import ButtonBox from './ButtonBox';
 import { PART, CAMPUS, ENROLLMENTSTATUS } from './ButtonData';
+import { CAUTION } from './CautionData';
 import CheckBox from './CheckBox';
 import { FormikConfig } from './FormikConfig';
 import SelectBox from './SelectBox';
@@ -17,9 +18,11 @@ const ApplyInfoPage = () => {
   const DEFAULTERROR = '작성이 완료되지 않은 내용이 있습니다.';
   const FORMERROR = '형식에 맞지 않는 값이 존재합니다.';
 
+  const CAUTIONTEXT = CAUTION;
   return (
     <>
       <PageMainTitle title="지원서 작성하기" />
+
       <ContentContainer>
         <Formik
           initialValues={FormikConfig.initialValues}
@@ -39,10 +42,10 @@ const ApplyInfoPage = () => {
 
                 <ButtonBox name="campus" buttonData={CAMPUS} text="소속 캠퍼스" />
 
-                <ButtonInputContainer>
+                <ButtomInputContainer>
                   <TextInput name="major" type="text" text="학과" maxLength={11} />
                   <TextInput name="sid" type="text" placeholder="60XXXXXX" text="학번" maxLength={8} />
-                </ButtonInputContainer>
+                </ButtomInputContainer>
 
                 <SelectBox name="grade" selectdata={GRADE} text="학년(추가학기인 경우 '4'를 선택해 주세요)" />
 
@@ -54,13 +57,22 @@ const ApplyInfoPage = () => {
                   <ButtonBox name="part" buttonData={PART} text="지원파트" />
                 </ButtonContainer>
 
-                <ButtonBreakLine />
+                <ButtomBreakLine />
 
                 <AgreementTextContainer></AgreementTextContainer>
                 <CheckBox name="personalInfoAgreement" text="개인정보 수집 및 이용 동의" />
 
                 <StyledCautionIcon />
-                <CautionTextContainer></CautionTextContainer>
+                <CautionTextContainer>
+                  <Title>{CAUTIONTEXT.title}</Title>
+                  <CautionList>
+                    {CAUTIONTEXT.cautionList.map(text => (
+                      <CautionText key={text}>
+                        <p>{text}</p>
+                      </CautionText>
+                    ))}
+                  </CautionList>
+                </CautionTextContainer>
                 <CheckBox name="cautionConfirm" text="위의 주의사항을 확인하였습니다." />
 
                 <SubmitButtonContainer>
@@ -88,13 +100,14 @@ const ApplyInfoPage = () => {
   );
 };
 
-export default ApplyInfoPage;
-
 const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   margin: 0 auto;
+  @media ${({ theme }) => theme.devices.MOBILE} {
+    width: 318px;
+  }
   @media ${({ theme }) => theme.devices.TABLET} {
     width: 568px;
   }
@@ -105,6 +118,9 @@ const ContentContainer = styled.div`
 `;
 
 const StyledForm = styled(Form)`
+  @media ${({ theme }) => theme.devices.MOBILE} {
+    width: 318px;
+  }
   @media ${({ theme }) => theme.devices.TABLET} {
     width: 568px;
   }
@@ -116,15 +132,21 @@ const StyledForm = styled(Form)`
 
 const InputContainer = styled.div`
   display: flex;
+
+  @media ${({ theme }) => theme.devices.PHONE} {
+    flex-direction: column;
+  }
+
   @media ${({ theme }) => theme.devices.TABLET} {
     margin: 40px 0;
+    flex-direction: row;
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
     margin-top: 40px;
   }
 `;
 
-const ButtonInputContainer = styled(InputContainer)`
+const ButtomInputContainer = styled(InputContainer)`
   @media ${({ theme }) => theme.devices.TABLET} {
     margin: 4px 0 40px 0;
   }
@@ -135,6 +157,9 @@ const BreakLine = styled.div`
   height: 1px;
   background-color: ${({ theme }) => theme.colors.GRAY1};
   width: 100%;
+  @media ${({ theme }) => theme.devices.PHONE} {
+    margin-bottom: 32px;
+  }
   @media ${({ theme }) => theme.devices.TABLET} {
     margin-bottom: 40px;
   }
@@ -143,7 +168,7 @@ const BreakLine = styled.div`
   }
 `;
 
-const ButtonBreakLine = styled(BreakLine)`
+const ButtomBreakLine = styled(BreakLine)`
   @media ${({ theme }) => theme.devices.TABLET} {
     margin-bottom: 4px 0 40px 0;
   }
@@ -153,16 +178,26 @@ const ButtonBreakLine = styled(BreakLine)`
 `;
 
 const ButtonContainer = styled.div`
-  margin-top: 40px;
+  @media ${({ theme }) => theme.devices.PHONE} {
+    margin-top: 32px;
+  }
+
+  @media ${({ theme }) => theme.devices.TABLET} {
+    margin-top: 40px;
+  }
 `;
 
 const AgreementTextContainer = styled.div`
   width: 100%;
-  height: 340px;
   background-color: ${({ theme }) => theme.colors.GRAY1};
   border-radius: 18px;
+  @media ${({ theme }) => theme.devices.PHONE} {
+    margin-top: 32px;
+    height: 240px;
+  }
   @media ${({ theme }) => theme.devices.TABLET} {
     margin-top: 40px;
+    height: 340px;
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
     margin-top: 50px;
@@ -172,16 +207,27 @@ const AgreementTextContainer = styled.div`
 const CautionTextContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.GRAY1};
   border-radius: 18px;
+  @media ${({ theme }) => theme.devices.PHONE} {
+    height: 206px;
+    padding: 18px;
+  }
   @media ${({ theme }) => theme.devices.TABLET} {
     height: 208px;
+    padding: 24px;
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
     height: 220px;
+    padding: 30px;
   }
 `;
 
 const StyledCautionIcon = styled(Caution)`
   margin-left: 30px;
+  width: 56px;
+  height: 62px;
+  @media ${({ theme }) => theme.devices.PHONE} {
+    margin-top: 33px;
+  }
   @media ${({ theme }) => theme.devices.TABLET} {
     margin-top: 40px;
   }
@@ -197,3 +243,75 @@ const SubmitButtonContainer = styled.div`
   margin-top: 100px;
   margin-bottom: 200px;
 `;
+
+const Title = styled.p`
+  font-weight: 700;
+  @media ${({ theme }) => theme.devices.MOBILE} {
+    width: 318px;
+    font-size: 14px;
+  }
+  @media ${({ theme }) => theme.devices.TABLET} {
+    width: 568px;
+    font-size: 16px;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    width: 1200px;
+    max-width: 1200px;
+    font-size: 20px;
+  }
+`;
+
+const CautionList = styled.ul`
+  @media ${({ theme }) => theme.devices.MOBILE} {
+    padding: 10px 0 0 20px;
+    margin-top: 6px;
+  }
+  @media ${({ theme }) => theme.devices.TABLET} {
+    padding: 10px 0 0 30px;
+    margin-top: 10px;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    padding: 10px 0 0 30px;
+    margin-top: 10px;
+  }
+`;
+
+const CautionText = styled.li`
+  list-style-type: disc;
+
+  color: ${({ theme }) => theme.colors.GRAY2};
+  :last-child {
+    p {
+      color: ${({ theme }) => theme.colors.RED};
+    }
+  }
+  @media ${({ theme }) => theme.devices.MOBILE} {
+    font-size: 12px;
+    margin-bottom: 8px;
+    :last-child {
+      padding-right: 50px;
+    }
+    p {
+      line-height: 20px;
+    }
+  }
+  @media ${({ theme }) => theme.devices.TABLET} {
+    font-size: 14px;
+    margin-bottom: 7px;
+    :last-child {
+      padding: 0;
+    }
+    p {
+      line-height: 21px;
+    }
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    font-size: 18px;
+    margin-bottom: 12px;
+    p {
+      line-height: 30px;
+    }
+  }
+`;
+
+export default ApplyInfoPage;

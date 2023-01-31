@@ -24,8 +24,18 @@ const StyledCheckbox = styled.input`
   appearance: none;
   border: 1px solid gainsboro;
   border-radius: 6px;
-  width: 26px;
-  height: 26px;
+  @media ${({ theme }) => theme.devices.PHONE} {
+    width: 22px;
+    height: 22px;
+  }
+  @media ${({ theme }) => theme.devices.TABLET} {
+    width: 24px;
+    height: 24px;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    width: 26px;
+    height: 26px;
+  }
   &:checked {
     background-image: url(${IconChecked});
     background-size: 70% 75%;
@@ -38,6 +48,10 @@ const StyledCheckbox = styled.input`
 const CheckboxContainer = styled.div`
   display: flex;
   align-items: center;
+  @media ${({ theme }) => theme.devices.PHONE} {
+    height: 12px;
+    margin-top: 15px;
+  }
   @media ${({ theme }) => theme.devices.TABLET} {
     height: 18px;
     margin-top: 21px;
@@ -49,6 +63,10 @@ const CheckboxContainer = styled.div`
 `;
 
 const CheckBoxText = styled(StyledText)`
+  @media ${({ theme }) => theme.devices.PHONE} {
+    font-size: 12px;
+    margin: 0 0 0 6px;
+  }
   @media ${({ theme }) => theme.devices.TABLET} {
     font-size: 14px;
     margin: 0 0 0 9px;

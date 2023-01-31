@@ -31,12 +31,15 @@ export default TextInput;
 export const StyledText = styled.span`
   display: inline;
   color: ${({ theme }) => theme.colors.WHITE};
+  margin: 0 0 6px 6px;
   p {
     display: inline;
     color: ${({ theme }) => theme.colors.ORANGE};
   }
+  @media ${({ theme }) => theme.devices.PHONE} {
+    font-size: 12px;
+  }
   @media ${({ theme }) => theme.devices.TABLET} {
-    margin: 0 0 6px 6px;
     font-size: 14px;
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
@@ -49,10 +52,17 @@ const Container = styled.div`
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  @media ${({ theme }) => theme.devices.PHONE} {
+    width: 207px;
+    height: 71px;
+    margin-bottom: 32px;
+  }
+
   @media ${({ theme }) => theme.devices.TABLET} {
     width: 276px;
     height: 76px;
     margin-right: 16px;
+    margin-bottom: 0;
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
     height: 92px;
@@ -64,21 +74,24 @@ const Container = styled.div`
 const StyledInput = styled.input`
   box-sizing: border-box;
   font-family: 'Spoqa Han Sans Neo', 'Spoqa Han Sans JP', sans-serif;
+  width: 100%;
+  padding: 16px;
+  border-radius: 10px;
 
   background-color: ${({ theme }) => theme.colors.GRAY1};
   border: none;
   color: ${({ theme }) => theme.colors.WHITE};
+  @media ${({ theme }) => theme.devices.PHONE} {
+    height: 50px;
+    font-size: 14px;
+  }
   @media ${({ theme }) => theme.devices.TABLET} {
-    width: 100%;
     height: 52px;
-    padding: 16px;
-    border-radius: 10px;
+    font-size: 16px;
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
-    width: 100%;
     height: 62px;
     font-size: 20px;
-    border-radius: 10px;
     padding: 16px 20px;
   }
 `;
