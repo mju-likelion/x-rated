@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const ApplyMainTop = () => {
   return (
-    <TitleBox>
+    <ApplyMainTopBlock>
       <MainTitleBlock>
         <LeftSubTitle>모집안내</LeftSubTitle>
         <LeftTitle>멋쟁이사자처럼 명지대</LeftTitle>
@@ -20,11 +20,21 @@ const ApplyMainTop = () => {
           <RightSubTitle>명지대학교 재학생 및 휴학생</RightSubTitle>
         </TitleBox>
       </RightCont>
-    </TitleBox>
+    </ApplyMainTopBlock>
   );
 };
 
 export default ApplyMainTop;
+
+const ApplyMainTopBlock = styled.div`
+  @media ${({ theme }) => theme.devices.MOBILE} {
+    margin-bottom: 25.5px;
+  }
+  @media ${({ theme }) => theme.devices.TABLET} {
+    display: flex;
+    margin-bottom: 20.5px;
+  }
+`;
 
 const MainTitleBlock = styled.div`
   display: block;
@@ -37,29 +47,41 @@ const TitleBox = styled.div`
 const LeftSubTitle = styled.div`
   color: ${({ theme }) => theme.colors.BLUE1};
   font-weight: 500;
+  @media ${({ theme }) => theme.devices.MOBILE} {
+    margin-bottom: 4px;
+  }
   @media ${({ theme }) => theme.devices.TABLET} {
-    font-size: 10px;
+    margin-bottom: 8px;
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
     font-size: 16px;
+    margin-bottom: 16px;
   }
 `;
 
 const LeftTitle = styled.div`
   font-weight: 700;
-  margin-top: 16px;
+  @media ${({ theme }) => theme.devices.MOBILE} {
+    font-size: 22px;
+    margin-bottom: 4px;
+  }
   @media ${({ theme }) => theme.devices.TABLET} {
     font-size: 26px;
+    margin-bottom: 8px;
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
     font-size: 40px;
+    margin-bottom: 16px;
   }
 `;
 
 const RightCont = styled.div`
-  margin-left: auto;
+  @media ${({ theme }) => theme.devices.MOBILE} {
+    margin-top: 10px;
+  }
   @media ${({ theme }) => theme.devices.TABLET} {
-    margin-top: 36px;
+    margin-left: auto;
+    margin-top: 49px;
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
     margin-top: 74px;
@@ -68,16 +90,34 @@ const RightCont = styled.div`
 
 const RightTitle = styled.div`
   color: ${({ theme }) => theme.colors.GRAY2};
-  margin-right: 30px;
-  margin-top: 8px;
+  @media ${({ theme }) => theme.devices.MOBILE} {
+    font-size: 10px;
+    margin-right: 10px;
+    margin-top: 4px;
+  }
   @media ${({ theme }) => theme.devices.TABLET} {
     font-size: 12px;
+    margin-right: 12px;
+    margin-top: 6px;
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
     font-size: 18px;
+    margin-right: 30px;
+    margin-top: 8px;
   }
 `;
 
 const RightSubTitle = styled.div`
-  margin-top: 8px;
+  @media ${({ theme }) => theme.devices.MOBILE} {
+    margin-top: 4px;
+    font-size: 10px;
+  }
+  @media ${({ theme }) => theme.devices.TABLET} {
+    margin-top: 6px;
+    font-size: 12px;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    margin-top: 8px;
+    font-size: 18px;
+  }
 `;

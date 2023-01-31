@@ -8,6 +8,7 @@ import Button from '../../components/Button';
 import ApplyMainTop from './ApplyMainTop';
 import { PART_DATA } from './PartData.js';
 import PartInfo from './PartInfo';
+import PartInfoMobile from './PartInfoMobile';
 import PartInfoTablet from './PartInfoTablet';
 
 const ApplyMainPage = () => {
@@ -41,8 +42,10 @@ const ApplyMainPage = () => {
         {PART_DATA.map((apply, index) =>
           innerWidth > 1199 ? (
             <PartInfo partInfo={apply} key={index} />
-          ) : (
+          ) : innerWidth > 599 ? (
             <PartInfoTablet partInfo={apply} key={index} />
+          ) : (
+            <PartInfoMobile partInfo={apply} key={index} />
           ),
         )}
       </PartInfoDiv>
@@ -58,8 +61,11 @@ const ApplyMainPage = () => {
 export default ApplyMainPage;
 
 const ApplyMainPageBlock = styled.div`
-  @media ${({ theme }) => theme.devices.TABLET} {
+  @media ${({ theme }) => theme.devices.MOBILE} {
     display: block;
+    margin: 80px 16px 0 16px;
+  }
+  @media ${({ theme }) => theme.devices.TABLET} {
     margin: 100px 16px 0 16px;
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
@@ -71,7 +77,7 @@ const ApplyMainPageBlock = styled.div`
 `;
 
 const PartInfoDiv = styled.div`
-  @media ${({ theme }) => theme.devices.TABLET} {
+  @media ${({ theme }) => theme.devices.MOBILE} {
     display: block;
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
@@ -81,6 +87,10 @@ const PartInfoDiv = styled.div`
 
 const WrapApplyButton = styled.div`
   text-align: center;
+  @media ${({ theme }) => theme.devices.MOBILE} {
+    margin-top: 50px;
+    margin-bottom: 124.5px;
+  }
   @media ${({ theme }) => theme.devices.TABLET} {
     margin-top: 50.5px;
     margin-bottom: 125px;

@@ -62,5 +62,5 @@ const InfoCont = styled.div`
 const PartInformationBlock = styled.div`
   background-color: ${({ theme }) => theme.colors.GRAY1};
   border-radius: 18px;
-  margin-top: 30px;
+  margin-bottom: 13px;
 `;
