@@ -7,7 +7,7 @@ const GlobalStyle = createGlobalStyle`
     body{
         padding: 0;
         margin: 0;
-        font-family: 'Spoqa Han Sans Neo', 'Spoqa Han Sans JP','Montserrat', sans-serif;
+        font-family: 'Spoqa Han Sans Neo', 'Spoqa Han Sans JP', 'Montserrat', sans-serif;
     };
     button{
         cursor: pointer;
