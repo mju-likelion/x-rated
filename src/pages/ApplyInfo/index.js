@@ -20,7 +20,6 @@ const ApplyInfoPage = () => {
   return (
     <>
       <PageMainTitle title="지원서 작성하기" />
-
       <ContentContainer>
         <Formik
           initialValues={FormikConfig.initialValues}
@@ -29,35 +28,41 @@ const ApplyInfoPage = () => {
         >
           {({ errors, handleSubmit, values }) => (
             <>
-              <Form>
+              <StyledForm>
                 <TextInput name="name" type="text" text="이름" maxLength={10} />
-                <InputContainer contour>
+                <InputContainer>
                   <TextInput name="phone" type="text" placeholder="000-0000-0000" text="전화번호" maxLength={13} />
                   <TextInput name="email" type="email" text="이메일" />
                 </InputContainer>
-                <ButtonContainer>
-                  <ButtonBox name="campus" buttonData={CAMPUS} text="소속 캠퍼스" />
-                </ButtonContainer>
-                <InputContainer>
+
+                <BreakLine />
+
+                <ButtonBox name="campus" buttonData={CAMPUS} text="소속 캠퍼스" />
+
+                <ButtonInputContainer>
                   <TextInput name="major" type="text" text="학과" maxLength={11} />
                   <TextInput name="sid" type="text" placeholder="60XXXXXX" text="학번" maxLength={8} />
-                </InputContainer>
-                <SelectContainer>
-                  <SelectBox name="grade" selectdata={GRADE} text="학년(추가학기인 경우 '4'를 선택해 주세요)" />
-                </SelectContainer>
+                </ButtonInputContainer>
+
+                <SelectBox name="grade" selectdata={GRADE} text="학년(추가학기인 경우 '4'를 선택해 주세요)" />
+
                 <ButtonContainer>
                   <ButtonBox name="enrollmentStatus" buttonData={ENROLLMENTSTATUS} text="학적" />
                 </ButtonContainer>
-                <ButtonContainer contour>
+
+                <ButtonContainer>
                   <ButtonBox name="part" buttonData={PART} text="지원파트" />
                 </ButtonContainer>
+
+                <ButtonBreakLine />
+
                 <AgreementTextContainer></AgreementTextContainer>
                 <CheckBox name="personalInfoAgreement" text="개인정보 수집 및 이용 동의" />
-                <CautionContainer>
-                  <StyledCautionIcon />
-                  <CautionTextContainer></CautionTextContainer>
-                </CautionContainer>
+
+                <StyledCautionIcon />
+                <CautionTextContainer></CautionTextContainer>
                 <CheckBox name="cautionConfirm" text="위의 주의사항을 확인하였습니다." />
+
                 <SubmitButtonContainer>
                   <Button
                     type="submit"
@@ -74,7 +79,7 @@ const ApplyInfoPage = () => {
                     onClick={handleSubmit}
                   />
                 </SubmitButtonContainer>
-              </Form>
+              </StyledForm>
             </>
           )}
         </Formik>
@@ -89,65 +94,105 @@ const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  max-width: 1200px;
   margin: 0 auto;
-`;
-
-const Container = styled.div`
-  width: 1200px;
-  display: flex;
-  border-bottom: ${({ theme, contour }) => contour && `1px solid ${theme.colors.GRAY1}`};
-`;
-
-const InputContainer = styled(Container)`
-  padding: 48px 0;
-  display: flex;
-  div {
-    :nth-child(2) {
-      margin-left: 30px;
-    }
+  @media ${({ theme }) => theme.devices.TABLET} {
+    width: 568px;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    width: 1200px;
+    max-width: 1200px;
   }
 `;
 
-const TitleContainer = styled(Container)`
-  align-items: flex-start;
-  margin: 0;
+const StyledForm = styled(Form)`
+  @media ${({ theme }) => theme.devices.TABLET} {
+    width: 568px;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    width: 1200px;
+    max-width: 1200px;
+  }
 `;
 
-const CautionContainer = styled(Container)`
-  flex-direction: column;
-  margin-top: 53px;
+const InputContainer = styled.div`
+  display: flex;
+  @media ${({ theme }) => theme.devices.TABLET} {
+    margin: 40px 0;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    margin-top: 40px;
+  }
 `;
 
-const ButtonContainer = styled(Container)`
-  margin-top: 50px;
-  padding-bottom: ${({ contour }) => contour && '20px'};
+const ButtonInputContainer = styled(InputContainer)`
+  @media ${({ theme }) => theme.devices.TABLET} {
+    margin: 4px 0 40px 0;
+  }
 `;
 
-const SelectContainer = styled(Container)`
-  flex-direction: column;
-  margin: 23px 0 7px 0;
-  height: 93px;
+const BreakLine = styled.div`
+  box-sizing: border-box;
+  height: 1px;
+  background-color: ${({ theme }) => theme.colors.GRAY1};
+  width: 100%;
+  @media ${({ theme }) => theme.devices.TABLET} {
+    margin-bottom: 40px;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    margin-bottom: 50px 0;
+  }
 `;
 
-const AgreementTextContainer = styled(Container)`
+const ButtonBreakLine = styled(BreakLine)`
+  @media ${({ theme }) => theme.devices.TABLET} {
+    margin-bottom: 4px 0 40px 0;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    margin: 20px 0 50px 0;
+  }
+`;
+
+const ButtonContainer = styled.div`
+  margin-top: 40px;
+`;
+
+const AgreementTextContainer = styled.div`
+  width: 100%;
   height: 340px;
   background-color: ${({ theme }) => theme.colors.GRAY1};
   border-radius: 18px;
-  margin-top: 50px;
+  @media ${({ theme }) => theme.devices.TABLET} {
+    margin-top: 40px;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    margin-top: 50px;
+  }
 `;
 
-const CautionTextContainer = styled(Container)`
-  height: 220px;
+const CautionTextContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.GRAY1};
   border-radius: 18px;
+  @media ${({ theme }) => theme.devices.TABLET} {
+    height: 208px;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    height: 220px;
+  }
 `;
 
 const StyledCautionIcon = styled(Caution)`
   margin-left: 30px;
+  @media ${({ theme }) => theme.devices.TABLET} {
+    margin-top: 40px;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    margin-top: 50px;
+  }
 `;
 
-const SubmitButtonContainer = styled(Container)`
+const SubmitButtonContainer = styled.div`
+  display: flex;
+  width: 100%;
   justify-content: center;
   margin-top: 100px;
   margin-bottom: 200px;

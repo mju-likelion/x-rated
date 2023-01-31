@@ -9,14 +9,27 @@ const SelectBox = ({ selectdata, name, text }) => {
   const { value } = meta;
   const { setValue } = helper;
   return (
-    <>
+    <SelectContainer>
       <StyledText>
         {text}
         <p>*</p>
       </StyledText>
       <DropDown selectdata={selectdata} setValue={setValue} value={value} />
-    </>
+    </SelectContainer>
   );
 };
 
 export default SelectBox;
+
+const SelectContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  @media ${({ theme }) => theme.devices.TABLET} {
+    margin-top: 40px;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    margin-top: 74px;
+    padding-bottom: 17px;
+  }
+`;

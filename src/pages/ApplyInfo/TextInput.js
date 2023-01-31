@@ -31,33 +31,54 @@ export default TextInput;
 export const StyledText = styled.span`
   display: inline;
   color: ${({ theme }) => theme.colors.WHITE};
-  font-size: 18px;
-  margin: 0 0 8px 8px;
   p {
     display: inline;
     color: ${({ theme }) => theme.colors.ORANGE};
+  }
+  @media ${({ theme }) => theme.devices.TABLET} {
+    margin: 0 0 6px 6px;
+    font-size: 14px;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    margin: 0 0 8px 8px;
+    font-size: 18px;
   }
 `;
 
 const Container = styled.div`
   box-sizing: border-box;
-  height: 92px;
-  width: 483px;
   display: flex;
   flex-direction: column;
+  @media ${({ theme }) => theme.devices.TABLET} {
+    width: 276px;
+    height: 76px;
+    margin-right: 16px;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    height: 92px;
+    width: 483px;
+    margin-right: 30px;
+  }
 `;
 
 const StyledInput = styled.input`
   box-sizing: border-box;
   font-family: 'Spoqa Han Sans Neo', 'Spoqa Han Sans JP', sans-serif;
-  width: 483px;
-  height: 62px;
-  margin-right: 30px;
-  border-radius: 10px;
-  padding: 16px 20px;
-  gap: 10px;
+
   background-color: ${({ theme }) => theme.colors.GRAY1};
   border: none;
-  font-size: 20px;
   color: ${({ theme }) => theme.colors.WHITE};
+  @media ${({ theme }) => theme.devices.TABLET} {
+    width: 100%;
+    height: 52px;
+    padding: 16px;
+    border-radius: 10px;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    width: 100%;
+    height: 62px;
+    font-size: 20px;
+    border-radius: 10px;
+    padding: 16px 20px;
+  }
 `;

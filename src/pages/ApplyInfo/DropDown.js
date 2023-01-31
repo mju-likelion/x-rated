@@ -54,44 +54,64 @@ export default DropDown;
 
 const DropDownContainer = styled.div`
   box-sizing: border-box;
-  margin-top: 8px;
-  width: 380px;
+  @media ${({ theme }) => theme.devices.TABLET} {
+    width: 174px;
+    margin-top: 6px;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    width: 380px;
+    margin-top: 8px;
+  }
 `;
 
 const DropDownBox = styled.div`
   box-sizing: border-box;
   width: 100%;
-  height: 62px;
-  padding: 16px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border: 1px solid ${({ theme, isOpen, hasValue }) => (isOpen || hasValue ? theme.colors.WHITE : theme.colors.GRAY3)};
-  border-radius: 10px;
-  font-size: 20px;
+
   color: ${({ theme, isOpen, hasValue }) => (isOpen || hasValue ? theme.colors.WHITE : theme.colors.GRAY3)};
+  @media ${({ theme }) => theme.devices.TABLET} {
+    height: 52px;
+    padding: 16px;
+    border-radius: 10px;
+    font-size: 16px;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    height: 62px;
+    padding: 16px 20px;
+    border-radius: 10px;
+    font-size: 20px;
+  }
 `;
 
 const DownOptions = styled.div`
   position: absolute;
   box-sizing: border-box;
-  width: 380px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  padding: 5px;
   background-color: ${({ theme }) => theme.colors.GRAY1};
-  margin-top: 12px;
+  @media ${({ theme }) => theme.devices.TABLET} {
+    width: 174px;
+    padding: 4px;
+    margin-top: 6px;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    width: 380px;
+    padding: 5px;
+    margin-top: 12px;
+  }
 `;
 
 const Option = styled.div`
   box-sizing: border-box;
-  width: 370px;
-  height: 50px;
-  padding: 15px;
+  width: 100%;
+
   background-color: inherit;
   border-radius: 8px;
-  margin-bottom: 12px;
   color: ${({ theme }) => theme.colors.GRAY2};
   :nth-child(4) {
     margin: 0;
@@ -100,5 +120,16 @@ const Option = styled.div`
   :active {
     background-color: #232323;
     color: ${({ theme }) => theme.colors.WHITE};
+  }
+  @media ${({ theme }) => theme.devices.TABLET} {
+    height: 40px;
+    padding: 0 12px;
+    line-height: 40px;
+    margin-bottom: 8px;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    height: 50px;
+    padding: 15px;
+    margin-bottom: 12px;
   }
 `;

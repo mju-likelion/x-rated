@@ -28,8 +28,8 @@ const ButtonBox = ({ buttonData, name, text }) => {
       {meta.value && meta.error && <ErrorMsg>{meta.error}</ErrorMsg>}
       {text === '학적' && (
         <Descirption>
-          23년 1학기 기준으로, 재학생은 현재 이수 중인 학년 / 휴학생의 경우 복학 예정 학년이 아닌 현재까지 이수한
-          학년으로 작성해 주세요.
+          <DescriptionFirstLine>23년 1학기 기준으로, 재학생은 현재 이수 중인 학년 / 휴학생의 경우</DescriptionFirstLine>
+          복학 예정 학년이 아닌 현재까지 이수한 학년으로 작성해 주세요.
         </Descirption>
       )}
     </Container>
@@ -40,9 +40,14 @@ export default ButtonBox;
 
 const Container = styled.div`
   box-sizing: border-box;
-  height: 120px;
   display: flex;
   flex-direction: column;
+  @media ${({ theme }) => theme.devices.TABLET} {
+    height: 112px;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    height: 120px;
+  }
 `;
 
 const ButtonContainer = styled.div`
@@ -50,8 +55,6 @@ const ButtonContainer = styled.div`
 `;
 
 const StyledButton = styled.label`
-  width: 182px;
-  height: 62px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -59,7 +62,16 @@ const StyledButton = styled.label`
   color: ${({ theme, isSelected }) => (isSelected ? theme.colors.WHITE : theme.colors.GRAY3)};
   background: none;
   border-radius: 10px;
-  margin: 0 16px 0 0;
+  @media ${({ theme }) => theme.devices.TABLET} {
+    width: 174px;
+    height: 52px;
+    margin-right: 12px;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    width: 182px;
+    height: 62px;
+    margin-right: 16px;
+  }
 `;
 
 const HiddenInput = styled.input`
@@ -68,12 +80,23 @@ const HiddenInput = styled.input`
 
 const ButtonText = styled.span`
   color: inherit;
-  font-size: 20px;
+  @media ${({ theme }) => theme.devices.TABLET} {
+    font-size: 16px;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    font-size: 20px;
+  }
 `;
 
 const Message = styled.div`
   margin-top: 7px;
   line-height: 20px;
+  @media ${({ theme }) => theme.devices.TABLET} {
+    font-size: 12px;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    font-size: 16px;
+  }
 `;
 
 const ErrorMsg = styled(Message)`
@@ -82,4 +105,13 @@ const ErrorMsg = styled(Message)`
 
 const Descirption = styled(Message)`
   color: ${({ theme }) => theme.colors.GRAY2};
+`;
+
+const DescriptionFirstLine = styled.span`
+  @media ${({ theme }) => theme.devices.TABLET} {
+    display: block;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    display: inline;
+  }
 `;

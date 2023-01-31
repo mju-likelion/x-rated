@@ -36,13 +36,25 @@ const StyledCheckbox = styled.input`
 `;
 
 const CheckboxContainer = styled.div`
-  height: 26px;
   display: flex;
   align-items: center;
-  margin-top: 25px;
+  @media ${({ theme }) => theme.devices.TABLET} {
+    height: 18px;
+    margin-top: 21px;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    height: 26px;
+    margin-top: 25px;
+  }
 `;
 
 const CheckBoxText = styled(StyledText)`
-  font-size: 18px;
-  margin: 0 0 0 12px;
+  @media ${({ theme }) => theme.devices.TABLET} {
+    font-size: 14px;
+    margin: 0 0 0 9px;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    font-size: 18px;
+    margin: 0 0 0 12px;
+  }
 `;
