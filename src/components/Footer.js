@@ -39,8 +39,6 @@ const Footer = () => {
   );
 };
 
-export default Footer;
-
 const FooterBox = styled.div`
   height: 100px;
   bottom: 0;
@@ -79,3 +77,5 @@ const CopyrightBox = styled.div`
     text-align: center;
   }
 `;
+
+export default Footer;
