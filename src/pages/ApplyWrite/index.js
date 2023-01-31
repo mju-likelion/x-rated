@@ -57,7 +57,6 @@ const ApplyWritePage = () => {
         <BaseTitle>
           Html 혹은 css를 포함한 <BreakLine /> zip 형식의 자기소개서 페이지를 첨부해 주세요. <Star>*</Star>
         </BaseTitle>
-
         <FileUploadBorder file={fileData}>
           <FileUploadLabel htmlFor="file">
             <FileUploadTitle file={fileData}>{fileData ? `${fileData.name}` : '파일 불러오기'}</FileUploadTitle>
@@ -168,7 +167,9 @@ const FileUploadBorder = styled.div`
         `};
   margin-top: 6px;
   padding: 16px;
-  width: 318px;
+  max-width: 568px;
+  width: 100%;
+  // height: 52px;
   gap: 10px;
   box-sizing: border-box;
   border-radius: 10px;
@@ -177,7 +178,7 @@ const FileUploadBorder = styled.div`
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
     margin-top: 8px;
-    padding: 16px 20px 16px 20px;
+    padding: 16px 20px;
   }
 `;
 
