@@ -17,7 +17,7 @@ const Toast = ({ setToast, type, text }) => {
 
   return (
     <ToastBox>
-      {type === 'success' ? <ToastTypeIcon src={toastSuccessIcon} /> : <ToastTypeIcon src={toastErrorIcon} />}
+      <ToastTypeIcon src={type === 'success' ? toastSuccessIcon : toastErrorIcon} />
       <ToastTypeMsgBox>
         <ToastTypeMsg>{text}</ToastTypeMsg>
         {type === 'error' && <ToastErrorMsg>잠시 후에 다시 시도해주세요</ToastErrorMsg>}
