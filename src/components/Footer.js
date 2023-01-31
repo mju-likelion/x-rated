@@ -42,25 +42,40 @@ const Footer = () => {
 export default Footer;
 
 const FooterBox = styled.div`
-  height: 210px;
+  height: 100px;
   bottom: 0;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    height: 210px;
+  }
 `;
 
 const FooterIconsBox = styled.div`
   display: flex;
-  width: 440px;
   justify-content: space-between;
+  width: 264px;
+  gap: 16px;
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    width: 440px;
+  }
 `;
 
 const CopyrightBox = styled.div`
   color: ${({ theme }) => theme.colors.GRAY2};
-  font-size: 12px;
-  font-weight: 400;
-  margin-top: 30px;
+  font-size: 10px;
   font-family: 'Montserrat';
+  margin-top: 2px;
+  transform: scale(0.8);
+  width: 370px;
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    font-size: 12px;
+    margin-top: 30px;
+    transform: scale(1);
+    width: 100%;
+    text-align: center;
+  }
 `;
