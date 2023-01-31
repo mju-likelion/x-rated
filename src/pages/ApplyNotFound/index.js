@@ -7,11 +7,13 @@ const ApplyNotFoundPage = () => {
   return (
     <div>
       <AlertContainer>
-        <LionLogo />
+        <LogoBox>
+          <LionLogo />
+        </LogoBox>
         <StatusFont>404</StatusFont>
         <ErrorFont>Page not found</ErrorFont>
         <AlertContentFont>
-          죄송합니다. 찾으려는 페이지의 주소가 <br /> 잘못 입력되었거나 주소의 변경 혹은 <br />
+          죄송합니다. 찾으려는 페이지의 주소가 <PhoneBreakLine /> 잘못 입력되었거나 주소의 변경 혹은 <PhoneBreakLine />
           삭제로 인해 사용하실 수 없습니다.
         </AlertContentFont>
       </AlertContainer>
@@ -29,16 +31,56 @@ const AlertContainer = styled.div`
   align-items: center;
   width: 220px;
   height: 368px;
-  margin: 121px 65px 60px 65px;
+  margin: 121px auto 60px auto;
+  @media ${({ theme }) => theme.devices.TABLET} {
+    width: 423px;
+    height: 397px;
+    margin: 198px auto 70px auto;
+  }
+`;
+const LogoBox = styled.div`
+  width: 126px;
+  height: 160px;
 `;
 
-const LionLogo = styled(Logo)``;
+const ButtonBox = styled.div`
+  display: flex;
+  justify-content: center;
+  margin: 60px auto 146px auto;
+  @media ${({ theme }) => theme.devices.TABLET} {
+    margin: 70px auto 223px auto;
+  }
+`;
+
+const LionLogo = styled(Logo)`
+  width: 100%;
+  height: 100%;
+`;
+
+const PhoneBreakLine = styled.br`
+  display: block;
+  @media ${({ theme }) => theme.devices.TABLET} {
+    display: none;
+  }
+`;
+
+// const TabletBreakLine = styled.br`
+//   display: none;
+//   @media ${({ theme }) => theme.devices.TABLET} {
+//     display: block;
+//   }
+// `;
 
 const StatusFont = styled.p`
-  font-size: 60px;
   font-weight: 800;
+  font-size: 60px;
   line-height: 73px;
   color: ${({ theme }) => theme.colors.WHITE};
+
+  @media ${({ theme }) => theme.devices.TABLET} {
+    font-size: 80px;
+    line-height: 98px;
+  }
 `;
 
 const ErrorFont = styled.p`
@@ -46,21 +88,26 @@ const ErrorFont = styled.p`
   font-weight: 700;
   line-height: 29px;
   color: ${({ theme }) => theme.colors.WHITE};
+
+  @media ${({ theme }) => theme.devices.TABLET} {
+    font-size: 30px;
+    line-height: 37px;
+  }
 `;
 
 const AlertContentFont = styled.p`
-  font-size: 14px;
   font-weight: 500;
+  font-size: 14px;
   line-height: 22px;
   color: ${({ theme }) => theme.colors.GRAY2};
   text-align: center;
   margin-top: 40px;
-`;
 
-const ButtonBox = styled.div`
-  display: flex;
-  justify-content: center;
-  margin: 60px 0 146px 0;
+  @media ${({ theme }) => theme.devices.TABLET} {
+    font-size: 18px;
+    line-height: 26px;
+    margin-top: 50px;
+  }
 `;
 
 export default ApplyNotFoundPage;
