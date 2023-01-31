@@ -37,8 +37,8 @@ const ToastBox = styled.div`
   gap: 12px;
   position: absolute;
   z-index: 1;
-  top: 50%;
-  right: 50%;
+  bottom: 5%;
+  left: 43%;
 `;
 
 const ToastTypeIcon = styled.img`
