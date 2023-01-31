@@ -43,13 +43,21 @@ const Wrapper = styled.div`
 `;
 
 const ButtonStyle = styled.button`
-  width: 260px;
-  height: 70px;
-  font-size: 28px;
-  line-height: 35px;
-  font-weight: 700;
-  border-radius: 35px;
   color: #fff;
+  border-radius: 35px;
+  font-weight: 700;
+  width: 192px;
+  height: 50px;
+  font-size: 18px;
+  line-height: 23px;
+
+  @media (min-width: 1200px) {
+    width: 260px;
+    height: 70px;
+    font-size: 28px;
+    line-height: 35px;
+  }
+
   background-color: ${({ disable, theme }) => (disable ? theme.colors.GRAY2 : theme.colors.ORANGE)};
   :hover {
     background-color: ${({ disable }) => disable || '#ffab6b'};
@@ -60,8 +68,15 @@ const Error = styled.p`
   color: ${({ theme }) => theme.colors.RED};
   text-align: center;
   font-weight: 400;
-  font-size: 18px;
-  margin-top: 17px;
+  font-size: 12px;
+  margin-top: 10px;
+  line-height: 15px;
+
+  @media (min-width: 1200px) {
+    font-size: 18px;
+    margin-top: 17px;
+    line-height: 23px;
+  }
 `;
 
 export default Button;
