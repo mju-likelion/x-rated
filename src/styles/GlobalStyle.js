@@ -16,6 +16,9 @@ const GlobalStyle = createGlobalStyle`
     input{
         padding-left: 10px;
     };
+    ::placeholder{
+        font-family:'Spoqa Han Sans Neo'
+    }
 `;
 
 export default GlobalStyle;
