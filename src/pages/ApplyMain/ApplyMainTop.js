@@ -37,25 +37,45 @@ const TitleBox = styled.div`
 const LeftSubTitle = styled.div`
   color: ${({ theme }) => theme.colors.BLUE1};
   font-weight: 500;
-  font-size: 16px;
+  @media ${({ theme }) => theme.devices.TABLET} {
+    font-size: 10px;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    font-size: 16px;
+  }
 `;
 
 const LeftTitle = styled.div`
   font-weight: 700;
-  font-size: 40px;
   margin-top: 16px;
+  @media ${({ theme }) => theme.devices.TABLET} {
+    font-size: 26px;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    font-size: 40px;
+  }
 `;
 
 const RightCont = styled.div`
   margin-left: auto;
-  margin-top: 74px;
+  @media ${({ theme }) => theme.devices.TABLET} {
+    margin-top: 36px;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    margin-top: 74px;
+  }
 `;
 
 const RightTitle = styled.div`
   color: ${({ theme }) => theme.colors.GRAY2};
   margin-right: 30px;
   margin-top: 8px;
-  font-size: 18px;
+  @media ${({ theme }) => theme.devices.TABLET} {
+    font-size: 12px;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    font-size: 18px;
+  }
 `;
 
 const RightSubTitle = styled.div`
