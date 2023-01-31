@@ -4,6 +4,20 @@ import styled from 'styled-components';
 
 import { ReactComponent as Logo } from '../assets/images/icon_logo.svg';
 
+const Header = () => {
+  return (
+    <HeaderTopBox>
+      <HeaderBox>
+        <Logo />
+        <RightNavBox>
+          <RightNavItem>지원하기</RightNavItem>
+          <RightNavItem>지원확인하기</RightNavItem>
+        </RightNavBox>
+      </HeaderBox>
+    </HeaderTopBox>
+  );
+};
+
 const HeaderTopBox = styled.div`
   position: fixed;
   top: 0;
@@ -26,22 +40,12 @@ const RightNavBox = styled.div`
   font-weight: 700;
 `;
 
-const RightNavItem = styled.div`
+const RightNavItem = styled.button`
+  all: unset;
   margin-left: 60px;
+  &:hover {
+    cursor: pointer;
+  }
 `;
-
-const Header = () => {
-  return (
-    <HeaderTopBox>
-      <HeaderBox>
-        <Logo />
-        <RightNavBox>
-          <RightNavItem>지원하기</RightNavItem>
-          <RightNavItem>지원확인하기</RightNavItem>
-        </RightNavBox>
-      </HeaderBox>
-    </HeaderTopBox>
-  );
-};
 
 export default Header;
