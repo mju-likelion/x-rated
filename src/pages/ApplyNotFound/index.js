@@ -37,10 +37,15 @@ const AlertContainer = styled.div`
     height: 397px;
     margin: 198px auto 70px auto;
   }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    width: 470px;
+    height: 436px;
+    margin: 232px auto 70px auto;
+  }
 `;
 const LogoBox = styled.div`
   width: 126px;
-  height: 160px;
+  height: 129px;
 `;
 
 const ButtonBox = styled.div`
@@ -49,6 +54,9 @@ const ButtonBox = styled.div`
   margin: 60px auto 146px auto;
   @media ${({ theme }) => theme.devices.TABLET} {
     margin: 70px auto 223px auto;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    margin: 70px auto 272px auto;
   }
 `;
 
@@ -74,6 +82,10 @@ const StatusFont = styled.p`
     font-size: 80px;
     line-height: 98px;
   }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    font-size: 96px;
+    line-height: 117px;
+  }
 `;
 
 const ErrorFont = styled.p`
@@ -85,6 +97,10 @@ const ErrorFont = styled.p`
   @media ${({ theme }) => theme.devices.TABLET} {
     font-size: 30px;
     line-height: 37px;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    font-size: 40px;
+    line-height: 49px;
   }
 `;
 
@@ -100,6 +116,10 @@ const AlertContentFont = styled.p`
     font-size: 18px;
     line-height: 26px;
     margin-top: 50px;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    font-size: 20px;
+    line-height: 30px;
   }
 `;
 
