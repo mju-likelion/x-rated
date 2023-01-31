@@ -9,17 +9,15 @@ import { ReactComponent as MailIcon } from '../assets/images/icon_mail_default.s
 import { ReactComponent as MediIcon } from '../assets/images/icon_medi_default.svg';
 
 const Footer = () => {
-  const urlList = [
-    { type: 'instagram', url: 'https://www.instagram.com/mju_likelion/' },
-    { type: 'github', url: 'https://github.com/mju-likelion' },
-    { type: 'facebook', url: 'https://www.facebook.com/likelionatmju' },
-    { type: 'medium', url: 'https://medium.com/@mju-likelion' },
-  ];
+  const urlList = {
+    instagram: 'https://www.instagram.com/mju_likelion/',
+    github: 'https://github.com/mju-likelion',
+    facebook: 'https://www.facebook.com/likelionatmju',
+    medium: 'https://medium.com/@mju-likelion',
+  };
 
   const handleClick = type => {
-    {
-      urlList.map(item => item.type === type && window.open(item.url));
-    }
+    window.open(urlList[type]);
   };
 
   const handleCopyEmail = () => {
