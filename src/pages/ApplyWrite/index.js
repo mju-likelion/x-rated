@@ -55,7 +55,7 @@ const ApplyWritePage = () => {
       <PageMainTitle title="지원서 작성하기" />
       <FileUploadContainer>
         <BaseTitle>
-          Html 혹은 css를 포함한 <br /> zip 형식의 자기소개서 페이지를 첨부해 주세요. <Star>*</Star>
+          Html 혹은 css를 포함한 <BreakLine /> zip 형식의 자기소개서 페이지를 첨부해 주세요. <Star>*</Star>
         </BaseTitle>
 
         <FileUploadBorder file={fileData}>
@@ -75,7 +75,7 @@ const ApplyWritePage = () => {
         }}
       />
 
-      <BreakLine />
+      <HorizontalLine />
       <WriteForm onSubmit={formik.handleSubmit}>
         {TEMP_QUESTIONS.map((item, index) => {
           return (
@@ -129,6 +129,13 @@ const BaseTitle = styled.p`
   @media ${({ theme }) => theme.devices.DESKTOP} {
     font-size: 18px;
     line-height: 23px;
+  }
+`;
+
+const BreakLine = styled.br`
+  display: block;
+  @media ${({ theme }) => theme.devices.TABLET} {
+    display: none;
   }
 `;
 
@@ -206,7 +213,7 @@ const FileUpload = styled.input`
   display: none;
 `;
 
-const BreakLine = styled.div`
+const HorizontalLine = styled.div`
   margin: 20px 16px;
   max-width: 1200px;
   border: 1px solid ${({ theme }) => theme.colors.GRAY1};
