@@ -64,13 +64,6 @@ const PhoneBreakLine = styled.br`
   }
 `;
 
-// const TabletBreakLine = styled.br`
-//   display: none;
-//   @media ${({ theme }) => theme.devices.TABLET} {
-//     display: block;
-//   }
-// `;
-
 const StatusFont = styled.p`
   font-weight: 800;
   font-size: 60px;
