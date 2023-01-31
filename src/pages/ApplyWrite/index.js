@@ -58,23 +58,28 @@ const ApplyWritePage = () => {
 
   const fileData = formik.values.file;
 
+  const partTest = true; //이건 나중에 파트별로 렌더링 다르게 하는용도 입니다.
+
   return (
     <>
       <PageMainTitle title="지원서 작성하기" />
-      <FileUploadContainer>
-        <BaseTitle>
-          Html 혹은 css를 포함한 <BreakLine /> zip 형식의 자기소개서 페이지를 첨부해 주세요. <Star>*</Star>
-        </BaseTitle>
-        <FileUploadBorder file={fileData}>
-          <FileUploadLabel htmlFor="file">
-            <FileUploadTitle file={fileData}>{fileData ? `${fileData.name}` : '파일 불러오기'}</FileUploadTitle>
-          </FileUploadLabel>
-        </FileUploadBorder>
-      </FileUploadContainer>
+      {partTest && (
+        <>
+          <FileUploadContainer>
+            <BaseTitle>
+              Html 혹은 css를 포함한 <BreakLine /> zip 형식의 자기소개서 페이지를 첨부해 주세요. <Star>*</Star>
+            </BaseTitle>
+            <FileUploadBorder file={fileData}>
+              <FileUploadLabel htmlFor="file">
+                <FileUploadTitle file={fileData}>{fileData ? `${fileData.name}` : '파일 불러오기'}</FileUploadTitle>
+              </FileUploadLabel>
+            </FileUploadBorder>
+          </FileUploadContainer>
+          <FileUpload id="file" name="file" type="file" accept=".html,.zip" onChange={e => onChange(e, 'file')} />
+          <HorizontalLine />
+        </>
+      )}
 
-      <FileUpload id="file" name="file" type="file" accept=".html,.zip" onChange={e => onChange(e, 'file')} />
-
-      <HorizontalLine />
       <WriteForm onSubmit={formik.handleSubmit}>
         {TEMP_QUESTIONS.map((item, index) => {
           return (
