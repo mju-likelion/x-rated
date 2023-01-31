@@ -45,7 +45,15 @@ const ApplyWritePage = () => {
     if (e.target.value > maxLength) {
       return;
     }
+    if (key === 'file') {
+      formik.setFieldValue(key, e.currentTarget.files[0]);
+      return;
+    }
     formik.setFieldValue(key, e.target.value);
+  };
+
+  const getCharacterCount = (item, index) => {
+    return `${formik.values[order[index]].length}/${item.maxLength}`;
   };
 
   const fileData = formik.values.file;
@@ -64,15 +72,7 @@ const ApplyWritePage = () => {
         </FileUploadBorder>
       </FileUploadContainer>
 
-      <FileUpload
-        id="file"
-        name="file"
-        type="file"
-        accept=".html,.zip"
-        onChange={e => {
-          formik.setFieldValue('file', e.currentTarget.files[0]);
-        }}
-      />
+      <FileUpload id="file" name="file" type="file" accept=".html,.zip" onChange={e => onChange(e, 'file')} />
 
       <HorizontalLine />
       <WriteForm onSubmit={formik.handleSubmit}>
@@ -92,9 +92,7 @@ const ApplyWritePage = () => {
                   onChange={e => onChange(e, order[index], item.maxLength)}
                   value={formik.values[order[index]]}
                 />
-                <WriteLength>
-                  {formik.values[order[index]].length}/{item.maxLength}
-                </WriteLength>
+                <WriteLength>{getCharacterCount(item, index)}</WriteLength>
               </WriteBox>
             </WriteContainer>
           );
