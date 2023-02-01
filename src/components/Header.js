@@ -83,9 +83,7 @@ const RightNavBox = styled.div`
 
 const RightNavItem = styled.button`
   all: unset;
-  &:hover {
-    cursor: pointer;
-  }
+  cursor: pointer;
 `;
 
 export default Header;
