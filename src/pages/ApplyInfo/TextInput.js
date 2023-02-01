@@ -79,6 +79,9 @@ const StyledInput = styled.input`
   height: 50px;
   font-size: 14px;
 
+  :focus {
+    outline: 1px solid ${({ theme }) => theme.colors.WHITE};
+  }
   @media ${({ theme }) => theme.devices.TABLET} {
     height: 52px;
     font-size: 16px;

@@ -1,4 +1,5 @@
 import { Formik, Form } from 'formik';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { ReactComponent as Caution } from '../../assets/images/caution.svg';
@@ -18,6 +19,11 @@ const DEFAULT_ERROR = '작성이 완료되지 않은 내용이 있습니다.';
 const FORM_ERROR = '형식에 맞지 않는 값이 존재합니다.';
 
 const ApplyInfoPage = () => {
+  const navigate = useNavigate();
+  const toNextPage = values => {
+    FormikConfig.onSubmit(values);
+    navigate('/write');
+  };
   return (
     <>
       <ContentContainer>
@@ -26,7 +32,7 @@ const ApplyInfoPage = () => {
         <Formik
           initialValues={FormikConfig.initialValues}
           validationSchema={FormikConfig.validationSchema}
-          onSubmit={FormikConfig.onSubmit}
+          onSubmit={values => toNextPage(values)}
         >
           {({ errors, handleSubmit, values }) => (
             <>
