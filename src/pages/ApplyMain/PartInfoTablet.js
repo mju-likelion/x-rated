@@ -2,13 +2,15 @@ import React from 'react';
 
 import styled from 'styled-components';
 
+import { PartImage } from './PartData';
+
 const PartInfoTablet = ({ partInfo }) => {
   return (
     <PartInformationBlock info={partInfo.value}>
       <PartInfoTop>{partInfo.value}</PartInfoTop>
       <WrapContent>
         <CenterImgBlock>
-          <partInfo.image />
+          <PartImage part={partInfo.value} />
         </CenterImgBlock>
         <PartInfoCont>
           <InfoTitle>무엇을 하나요?</InfoTitle>

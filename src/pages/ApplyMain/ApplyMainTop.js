@@ -7,7 +7,7 @@ const ApplyMainTop = () => {
     <ApplyMainTopBlock>
       <MainTitleBlock>
         <LeftSubTitle>모집안내</LeftSubTitle>
-        <LeftTitle>멋쟁이사자처럼 명지대</LeftTitle>
+        <LeftTitle>멋쟁이사자처럼 명지대(자연)</LeftTitle>
         <LeftTitle>11기를 모집합니다</LeftTitle>
       </MainTitleBlock>
       <RightCont>

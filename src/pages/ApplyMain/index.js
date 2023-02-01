@@ -31,12 +31,17 @@ const ApplyMainPage = () => {
       setInnerWidth(window.innerWidth);
     };
     window.addEventListener('resize', resizeListener);
+    return () => {
+      window.removeEventListener('resize', resizeListener);
+    };
   });
 
   return (
     <ApplyMainPageBlock>
       <ApplyMainTop />
-      <PartInfoDiv>{PART_DATA.map((apply, index) => changeWidth(apply, index))}</PartInfoDiv>
+      <PartInfoDiv>
+        {Object.keys(PART_DATA).map((keyName, index) => changeWidth(PART_DATA[keyName], index))}
+      </PartInfoDiv>
       <WrapApplyButton>
         <StyledLink to="/info">
           <Button text="지원하기"></Button>

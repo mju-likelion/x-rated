@@ -4,6 +4,8 @@ import styled from 'styled-components';
 
 import iconPlus from '../../assets/images/icon_plus.svg';
 
+import { PartImage } from './PartData';
+
 const PartInfo = ({ partInfo }) => {
   return (
     <PartInformationBlock info={partInfo.value}>
@@ -12,7 +14,7 @@ const PartInfo = ({ partInfo }) => {
         <PartInfoImg src={iconPlus} />
       </PartInfoTop>
       <CenterImgBlock>
-        <partInfo.image />
+        <PartImage part={partInfo.value} />
       </CenterImgBlock>
       <PartInfoCont>
         <InfoTitle>무엇을 하나요?</InfoTitle>
