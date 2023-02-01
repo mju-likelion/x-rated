@@ -1,32 +1,91 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
+
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 import Button from '../../components/Button';
 
-import PartInformation from './PartInformation';
+import ApplyMainTop from './ApplyMainTop';
+import { PART_DATA } from './PartData.js';
+import PartInfo from './PartInfo';
+import PartInfoMobile from './PartInfoMobile';
+import PartInfoTablet from './PartInfoTablet';
 
 const ApplyMainPage = () => {
-  const [testState, setTestState] = useState('');
-  const [error, setError] = useState('');
-  const test = e => {
-    setTestState(e.target.value);
+  const [innerWidth, setInnerWidth] = useState(window.innerWidth);
+  const DESKTOP_WIDTH = 1199;
+  const TABLET_WIDTH = 599;
+
+  const changeWidth = (apply, index) => {
+    if (innerWidth > DESKTOP_WIDTH) {
+      return <PartInfo partInfo={apply} key={index} />;
+    } else if (innerWidth > TABLET_WIDTH) {
+      return <PartInfoTablet partInfo={apply} key={index} />;
+    } else {
+      return <PartInfoMobile partInfo={apply} key={index} />;
+    }
   };
 
   useEffect(() => {
-    if (testState.length >= 5 || testState.length === 0) {
-      setError('에러입니당');
-    } else {
-      setError('');
-    }
-  }, [testState]);
+    const resizeListener = () => {
+      setInnerWidth(window.innerWidth);
+    };
+    window.addEventListener('resize', resizeListener);
+    return () => {
+      window.removeEventListener('resize', resizeListener);
+    };
+  });
 
   return (
-    <div>
-      ApplyMainPage
-      <PartInformation />
-      <input onChange={test} placeholder="1~4글자 입력 그외 에러" />
-      <Button type="button" text={'제출하기'} errorMessage={error} />
-    </div>
+    <ApplyMainPageBlock>
+      <ApplyMainTop />
+      <PartInfoBlock>
+        {Object.keys(PART_DATA).map((keyName, index) => changeWidth(PART_DATA[keyName], index))}
+      </PartInfoBlock>
+      <WrapApplyButton>
+        <StyledLink to="/info">
+          <Button text="지원하기"></Button>
+        </StyledLink>
+      </WrapApplyButton>
+    </ApplyMainPageBlock>
   );
 };
+
+const ApplyMainPageBlock = styled.div`
+  display: block;
+  margin: 80px 16px 0 16px;
+  @media ${({ theme }) => theme.devices.TABLET} {
+    margin: 100px 16px 0 16px;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    display: table;
+    margin: 160px auto 0 auto;
+  }
+`;
+
+const PartInfoBlock = styled.div`
+  display: block;
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    display: flex;
+  }
+`;
+
+const WrapApplyButton = styled.div`
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 124.5px;
+  @media ${({ theme }) => theme.devices.TABLET} {
+    margin-top: 50.5px;
+    margin-bottom: 125px;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    margin-top: 100px;
+    margin-bottom: 153px;
+  }
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+`;
 
 export default ApplyMainPage;
