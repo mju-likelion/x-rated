@@ -47,10 +47,8 @@ const ApplyMainPage = () => {
 };
 
 const ApplyMainPageBlock = styled.div`
-  @media ${({ theme }) => theme.devices.MOBILE} {
-    display: block;
-    margin: 80px 16px 0 16px;
-  }
+  display: block;
+  margin: 80px 16px 0 16px;
   @media ${({ theme }) => theme.devices.TABLET} {
     margin: 100px 16px 0 16px;
   }
@@ -63,9 +61,7 @@ const ApplyMainPageBlock = styled.div`
 `;
 
 const PartInfoDiv = styled.div`
-  @media ${({ theme }) => theme.devices.MOBILE} {
-    display: block;
-  }
+  display: block;
   @media ${({ theme }) => theme.devices.DESKTOP} {
     display: flex;
   }
@@ -73,10 +69,8 @@ const PartInfoDiv = styled.div`
 
 const WrapApplyButton = styled.div`
   text-align: center;
-  @media ${({ theme }) => theme.devices.MOBILE} {
-    margin-top: 50px;
-    margin-bottom: 124.5px;
-  }
+  margin-top: 50px;
+  margin-bottom: 124.5px;
   @media ${({ theme }) => theme.devices.TABLET} {
     margin-top: 50.5px;
     margin-bottom: 125px;

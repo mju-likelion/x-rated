@@ -25,9 +25,7 @@ const ApplyMainTop = () => {
 };
 
 const ApplyMainTopBlock = styled.div`
-  @media ${({ theme }) => theme.devices.MOBILE} {
-    margin-bottom: 25.5px;
-  }
+  margin-bottom: 25.5px;
   @media ${({ theme }) => theme.devices.TABLET} {
     display: flex;
     margin-bottom: 20.5px;
@@ -45,9 +43,7 @@ const TitleBox = styled.div`
 const LeftSubTitle = styled.div`
   color: ${({ theme }) => theme.colors.BLUE1};
   font-weight: 500;
-  @media ${({ theme }) => theme.devices.MOBILE} {
-    margin-bottom: 4px;
-  }
+  margin-bottom: 4px;
   @media ${({ theme }) => theme.devices.TABLET} {
     margin-bottom: 8px;
   }
@@ -59,10 +55,8 @@ const LeftSubTitle = styled.div`
 
 const LeftTitle = styled.div`
   font-weight: 700;
-  @media ${({ theme }) => theme.devices.MOBILE} {
-    font-size: 22px;
-    margin-bottom: 4px;
-  }
+  font-size: 22px;
+  margin-bottom: 4px;
   @media ${({ theme }) => theme.devices.TABLET} {
     font-size: 26px;
     margin-bottom: 8px;
@@ -74,9 +68,7 @@ const LeftTitle = styled.div`
 `;
 
 const RightCont = styled.div`
-  @media ${({ theme }) => theme.devices.MOBILE} {
-    margin-top: 10px;
-  }
+  margin-top: 10px;
   @media ${({ theme }) => theme.devices.TABLET} {
     margin-left: auto;
     margin-top: 49px;
@@ -88,11 +80,9 @@ const RightCont = styled.div`
 
 const RightTitle = styled.div`
   color: ${({ theme }) => theme.colors.GRAY2};
-  @media ${({ theme }) => theme.devices.MOBILE} {
-    font-size: 10px;
-    margin-right: 10px;
-    margin-top: 4px;
-  }
+  font-size: 10px;
+  margin-right: 10px;
+  margin-top: 4px;
   @media ${({ theme }) => theme.devices.TABLET} {
     font-size: 12px;
     margin-right: 12px;
@@ -106,10 +96,8 @@ const RightTitle = styled.div`
 `;
 
 const RightSubTitle = styled.div`
-  @media ${({ theme }) => theme.devices.MOBILE} {
-    margin-top: 4px;
-    font-size: 10px;
-  }
+  margin-top: 4px;
+  font-size: 10px;
   @media ${({ theme }) => theme.devices.TABLET} {
     margin-top: 6px;
     font-size: 12px;
