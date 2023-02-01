@@ -29,17 +29,19 @@ const HeaderTopBox = styled.div`
 `;
 
 const HeaderBox = styled.div`
-  width: 318px;
+  padding: 20px 16px;
+  box-sizing: border-box;
   margin: auto;
   height: 56px;
   display: flex;
   align-items: center;
+  max-width: 1200px;
   @media ${({ theme }) => theme.devices.TABLET} {
-    width: 568px;
     height: 70px;
+    padding: 27px 16px;
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
-    width: 1200px;
+    padding: 15px 0;
   }
 `;
 
