@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import toastErrorIcon from '../assets/images/icon_type_error.svg';
 import toastSuccessIcon from '../assets/images/icon_type_success.svg';
 
-const Toast = ({ setToast, toastType, text }) => {
+const Toast = ({ setToast, isSuccess, text }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setToast(false);
@@ -17,10 +17,10 @@ const Toast = ({ setToast, toastType, text }) => {
 
   return (
     <ToastBox>
-      <ToastTypeIcon src={toastType === 'success' ? toastSuccessIcon : toastErrorIcon} />
+      <ToastTypeIcon src={isSuccess ? toastSuccessIcon : toastErrorIcon} />
       <ToastTypeMsgBox>
         <ToastTypeMsg>{text}</ToastTypeMsg>
-        {toastType === 'error' && <ToastErrorMsg>잠시 후에 다시 시도해주세요</ToastErrorMsg>}
+        {!isSuccess && <ToastErrorMsg>잠시 후에 다시 시도해주세요</ToastErrorMsg>}
       </ToastTypeMsgBox>
     </ToastBox>
   );
