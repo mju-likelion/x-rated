@@ -17,7 +17,7 @@ const Footer = () => {
   };
 
   const handleClick = type => {
-    window.open(urlList[type]);
+    typeof window.open === 'function' ? window.open(urlList[type]) : (window.location.href = urlList[type]);
   };
 
   const handleCopyEmail = () => {
