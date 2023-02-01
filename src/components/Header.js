@@ -9,21 +9,17 @@ import SmallLogo from '../assets/images/icon_logo_small.svg';
 const Header = () => {
   const navigate = useNavigate();
 
-  const goMainPage = () => {
-    navigate('/');
-  };
-
-  const goApplyPage = () => {
-    navigate('/info');
+  const routePage = route => {
+    navigate(`/${route}`);
   };
 
   return (
     <HeaderTopBox>
       <HeaderBox>
-        <HeaderBigLogoImg src={Logo} onClick={goMainPage} />
-        <HeaderSmallLogoImg src={SmallLogo} onClick={goMainPage} />
+        <HeaderBigLogoImg src={Logo} onClick={() => routePage('')} />
+        <HeaderSmallLogoImg src={SmallLogo} onClick={() => routePage('')} />
         <RightNavBox>
-          <RightNavItem onClick={goApplyPage}>지원하기</RightNavItem>
+          <RightNavItem onClick={() => routePage('info')}>지원하기</RightNavItem>
           <RightNavItem>지원확인하기</RightNavItem>
         </RightNavBox>
       </HeaderBox>
@@ -50,7 +46,6 @@ const HeaderBox = styled.div`
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
     width: 1200px;
-    height: 70px;
   }
 `;
 
