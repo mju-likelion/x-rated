@@ -142,20 +142,19 @@ const BreakLine = styled.div`
   height: 1px;
   background-color: ${({ theme }) => theme.colors.GRAY1};
   width: 100%;
-
   margin-bottom: 32px;
 
   @media ${({ theme }) => theme.devices.TABLET} {
-    margin-bottom: 40px;
+    margin: 40px;
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
-    margin-bottom: 50px 0;
+    margin: 50px 0;
   }
 `;
 
 const ButtomBreakLine = styled(BreakLine)`
   @media ${({ theme }) => theme.devices.TABLET} {
-    margin-bottom: 4px 0 40px 0;
+    margin: 4px 0 40px 0;
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
     margin: 20px 0 50px 0;
