@@ -1,9 +1,4 @@
 <svg class="logo" width="270" height="40" viewBox="0 0 270 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-<style>
-.logo:hover{
-  cursor:pointer;
-}
-</style>
 <path d="M32.5444 24.3886V29.6384H16.8052V16.7269L5 9.35034H18.9045V24.3886H32.5444Z" fill="#FF872D"/>
 <path fill-rule="evenodd" clip-rule="evenodd" d="M56.6839 9.35034H52.2209V29.6384H67.96V25.6083H56.6839V9.35034Z" fill="white"/>
 <path fill-rule="evenodd" clip-rule="evenodd" d="M102.214 29.6384H117.957V25.6667H106.619V21.4785H116.644V17.5068H106.619V13.3186H117.957V9.35034H102.214V29.6384Z" fill="white"/>

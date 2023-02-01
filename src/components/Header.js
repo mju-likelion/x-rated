@@ -51,13 +51,14 @@ const HeaderBox = styled.div`
 
 const HeaderBigLogoImg = styled.img`
   display: none;
-
+  cursor: pointer;
   @media ${({ theme }) => theme.devices.DESKTOP} {
     display: block;
   }
 `;
 
 const HeaderSmallLogoImg = styled.img`
+  cursor: pointer;
   @media ${({ theme }) => theme.devices.DESKTOP} {
     display: none;
   }
