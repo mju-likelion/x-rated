@@ -39,9 +39,9 @@ const ApplyMainPage = () => {
   return (
     <ApplyMainPageBlock>
       <ApplyMainTop />
-      <PartInfoDiv>
+      <PartInfoBlock>
         {Object.keys(PART_DATA).map((keyName, index) => changeWidth(PART_DATA[keyName], index))}
-      </PartInfoDiv>
+      </PartInfoBlock>
       <WrapApplyButton>
         <StyledLink to="/info">
           <Button text="지원하기"></Button>
@@ -59,13 +59,11 @@ const ApplyMainPageBlock = styled.div`
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
     display: table;
-    margin-top: 160px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 160px auto 0 auto;
   }
 `;
 
-const PartInfoDiv = styled.div`
+const PartInfoBlock = styled.div`
   display: block;
   @media ${({ theme }) => theme.devices.DESKTOP} {
     display: flex;

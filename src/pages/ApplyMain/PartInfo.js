@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import iconPlus from '../../assets/images/icon_plus.svg';
 
-import { PartImage } from './PartData';
+import PartImage from './PartImage';
 
 const PartInfo = ({ partInfo }) => {
   return (
@@ -16,12 +16,12 @@ const PartInfo = ({ partInfo }) => {
       <CenterImgBlock>
         <PartImage part={partInfo.value} />
       </CenterImgBlock>
-      <PartInfoCont>
+      <PartInfoContent>
         <InfoTitle>무엇을 하나요?</InfoTitle>
         <InfoCont>{partInfo.info}</InfoCont>
         <InfoTitle>어떤 툴을 다루나요?</InfoTitle>
         <InfoCont>{partInfo.tool}</InfoCont>
-      </PartInfoCont>
+      </PartInfoContent>
     </PartInformationBlock>
   );
 };
@@ -45,7 +45,7 @@ const CenterImgBlock = styled.div`
   justify-content: center;
 `;
 
-const PartInfoCont = styled.div`
+const PartInfoContent = styled.div`
   display: none;
   margin: 24px 24px;
   line-height: 1.3;
@@ -86,7 +86,7 @@ const PartInformationBlock = styled.div`
     display: none;
   }
 
-  &:hover ${PartInfoCont} {
+  &:hover ${PartInfoContent} {
     display: block;
   }
 `;

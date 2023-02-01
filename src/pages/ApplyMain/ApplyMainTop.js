@@ -10,7 +10,7 @@ const ApplyMainTop = () => {
         <LeftTitle>멋쟁이사자처럼 명지대(자연)</LeftTitle>
         <LeftTitle>11기를 모집합니다</LeftTitle>
       </MainTitleBlock>
-      <RightCont>
+      <RightContent>
         <TitleBox>
           <RightTitle>모집기간</RightTitle>
           <RightSubTitle>2022.03.02 ~ 2022.03.28</RightSubTitle>
@@ -19,13 +19,13 @@ const ApplyMainTop = () => {
           <RightTitle>모집대상</RightTitle>
           <RightSubTitle>명지대학교 재학생 및 휴학생</RightSubTitle>
         </TitleBox>
-      </RightCont>
+      </RightContent>
     </ApplyMainTopBlock>
   );
 };
 
 const ApplyMainTopBlock = styled.div`
-  margin-bottom: 25.5px;
+  margin-bottom: 30px;
   @media ${({ theme }) => theme.devices.TABLET} {
     display: flex;
     margin-bottom: 20.5px;
@@ -67,7 +67,7 @@ const LeftTitle = styled.div`
   }
 `;
 
-const RightCont = styled.div`
+const RightContent = styled.div`
   margin-top: 10px;
   @media ${({ theme }) => theme.devices.TABLET} {
     margin-left: auto;

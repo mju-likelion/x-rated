@@ -2,7 +2,7 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import { PartImage } from './PartData';
+import PartImage from './PartImage';
 
 const PartInfoTablet = ({ partInfo }) => {
   return (
@@ -12,12 +12,12 @@ const PartInfoTablet = ({ partInfo }) => {
         <CenterImgBlock>
           <PartImage part={partInfo.value} />
         </CenterImgBlock>
-        <PartInfoCont>
+        <PartInfoContent>
           <InfoTitle>무엇을 하나요?</InfoTitle>
           <InfoCont>{partInfo.info}</InfoCont>
           <InfoTitle>어떤 툴을 다루나요?</InfoTitle>
           <InfoCont>{partInfo.tool}</InfoCont>
-        </PartInfoCont>
+        </PartInfoContent>
       </WrapContent>
     </PartInformationBlock>
   );
@@ -39,7 +39,7 @@ const CenterImgBlock = styled.div`
   padding: 35px 17px 24px 24px;
 `;
 
-const PartInfoCont = styled.div`
+const PartInfoContent = styled.div`
   margin-top: 35.5px;
   line-height: 1.3;
   word-break: break-all;
