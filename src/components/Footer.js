@@ -66,6 +66,7 @@ const FooterBox = styled.div`
   height: 100px;
   bottom: 0;
   width: 100%;
+  border-top: 1px solid ${({ theme }) => theme.colors.GRAY1};
   display: flex;
   flex-direction: column;
   justify-content: center;
