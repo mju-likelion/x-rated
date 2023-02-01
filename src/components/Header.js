@@ -3,23 +3,17 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
-import Logo from '../assets/images/icon_logo.svg';
-import SmallLogo from '../assets/images/icon_logo_small.svg';
+import Logo from './Logo';
 
 const Header = () => {
   const navigate = useNavigate();
 
-  const routePage = route => {
-    navigate(`/${route}`);
-  };
-
   return (
     <HeaderTopBox>
       <HeaderBox>
-        <HeaderBigLogoImg src={Logo} onClick={() => routePage('')} />
-        <HeaderSmallLogoImg src={SmallLogo} onClick={() => routePage('')} />
+        <Logo to={'/'} />
         <RightNavBox>
-          <RightNavItem onClick={() => routePage('info')}>지원하기</RightNavItem>
+          <RightNavItem onClick={() => navigate('/info')}>지원하기</RightNavItem>
           <RightNavItem>지원확인하기</RightNavItem>
         </RightNavBox>
       </HeaderBox>
@@ -46,21 +40,6 @@ const HeaderBox = styled.div`
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
     width: 1200px;
-  }
-`;
-
-const HeaderBigLogoImg = styled.img`
-  display: none;
-  cursor: pointer;
-  @media ${({ theme }) => theme.devices.DESKTOP} {
-    display: block;
-  }
-`;
-
-const HeaderSmallLogoImg = styled.img`
-  cursor: pointer;
-  @media ${({ theme }) => theme.devices.DESKTOP} {
-    display: none;
   }
 `;
 
