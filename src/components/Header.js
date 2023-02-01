@@ -21,7 +21,7 @@ const Header = () => {
     <HeaderTopBox>
       <HeaderBox>
         <HeaderBigLogoImg src={Logo} onClick={goMainPage} />
-        <HeaderSmallLogoImg className="smallLogo" src={SmallLogo} onClick={goMainPage} />
+        <HeaderSmallLogoImg src={SmallLogo} onClick={goMainPage} />
         <RightNavBox>
           <RightNavItem onClick={goApplyPage}>지원하기</RightNavItem>
           <RightNavItem>지원확인하기</RightNavItem>
