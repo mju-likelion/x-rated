@@ -14,10 +14,10 @@ import SelectBox from './SelectBox';
 import { GRADE } from './SelectData';
 import TextInput from './TextInput';
 
-const ApplyInfoPage = () => {
-  const DEFAULTERROR = '작성이 완료되지 않은 내용이 있습니다.';
-  const FORMERROR = '형식에 맞지 않는 값이 존재합니다.';
+const DEFAULT_ERROR = '작성이 완료되지 않은 내용이 있습니다.';
+const FORM_ERROR = '형식에 맞지 않는 값이 존재합니다.';
 
+const ApplyInfoPage = () => {
   return (
     <>
       <ContentContainer>
@@ -73,11 +73,11 @@ const ApplyInfoPage = () => {
                     text="다음으로"
                     errorMessage={
                       !values.name
-                        ? DEFAULTERROR
+                        ? DEFAULT_ERROR
                         : Object.values(errors).includes('form')
-                        ? FORMERROR
+                        ? FORM_ERROR
                         : Object.keys(errors).length > 0
-                        ? DEFAULTERROR
+                        ? DEFAULT_ERROR
                         : null
                     }
                     onClick={handleSubmit}
