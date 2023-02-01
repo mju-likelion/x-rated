@@ -1,4 +1,4 @@
-import { Formik, Form } from 'formik';
+import { Form, Formik } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -7,7 +7,7 @@ import Button from '../../components/Button';
 import PageMainTitle from '../../components/PageMainTitle';
 
 import ButtonBox from './ButtonBox';
-import { PART, CAMPUS, ENROLLMENTSTATUS } from './ButtonData';
+import { CAMPUS, ENROLLMENTSTATUS, PART } from './ButtonData';
 import CautionNotice from './CautionNotice';
 import CheckBox from './CheckBox';
 import { FormikConfig } from './FormikConfig';
@@ -26,9 +26,8 @@ const ApplyInfoPage = () => {
   };
   return (
     <>
+      <PageMainTitle title="지원서 작성하기" />
       <ContentContainer>
-        <PageMainTitle title="지원서 작성하기" />
-
         <Formik
           initialValues={FormikConfig.initialValues}
           validationSchema={FormikConfig.validationSchema}
