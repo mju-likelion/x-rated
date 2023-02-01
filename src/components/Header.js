@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { ReactComponent as Logo } from '../assets/images/icon_logo.svg';
-import { ReactComponent as SmallLogo } from '../assets/images/icon_logo_small.svg';
+import Logo from '../assets/images/icon_logo.svg';
+import SmallLogo from '../assets/images/icon_logo_small.svg';
 
 const Header = () => {
-  const [resize, setResize] = useState();
   const navigate = useNavigate();
 
   const goMainPage = () => {
@@ -18,21 +17,11 @@ const Header = () => {
     navigate('/info');
   };
 
-  const handleResize = () => {
-    setResize(window.innerWidth);
-  };
-
-  useEffect(() => {
-    window.addEventListener('resize', handleResize);
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
   return (
     <HeaderTopBox>
       <HeaderBox>
-        {resize >= 1200 ? <Logo onClick={goMainPage} /> : <SmallLogo onClick={goMainPage} />}
+        <HeaderBigLogoImg src={Logo} onClick={goMainPage} />
+        <HeaderSmallLogoImg className="smallLogo" src={SmallLogo} onClick={goMainPage} />
         <RightNavBox>
           <RightNavItem onClick={goApplyPage}>지원하기</RightNavItem>
           <RightNavItem>지원확인하기</RightNavItem>
@@ -62,6 +51,20 @@ const HeaderBox = styled.div`
   @media ${({ theme }) => theme.devices.DESKTOP} {
     width: 1200px;
     height: 70px;
+  }
+`;
+
+const HeaderBigLogoImg = styled.img`
+  display: none;
+
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    display: block;
+  }
+`;
+
+const HeaderSmallLogoImg = styled.img`
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    display: none;
   }
 `;
 
