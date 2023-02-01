@@ -26,8 +26,6 @@ const TextInput = ({ name, placeholder, text, maxLength }) => {
   );
 };
 
-export default TextInput;
-
 export const StyledText = styled.span`
   display: inline;
   color: ${({ theme }) => theme.colors.WHITE};
@@ -36,9 +34,8 @@ export const StyledText = styled.span`
     display: inline;
     color: ${({ theme }) => theme.colors.ORANGE};
   }
-  @media ${({ theme }) => theme.devices.PHONE} {
-    font-size: 12px;
-  }
+  font-size: 12px;
+
   @media ${({ theme }) => theme.devices.TABLET} {
     font-size: 14px;
   }
@@ -52,11 +49,9 @@ const Container = styled.div`
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  @media ${({ theme }) => theme.devices.PHONE} {
-    width: 207px;
-    height: 71px;
-    margin-bottom: 32px;
-  }
+  width: 207px;
+  height: 71px;
+  margin-bottom: 32px;
 
   @media ${({ theme }) => theme.devices.TABLET} {
     width: 276px;
@@ -81,10 +76,9 @@ const StyledInput = styled.input`
   background-color: ${({ theme }) => theme.colors.GRAY1};
   border: none;
   color: ${({ theme }) => theme.colors.WHITE};
-  @media ${({ theme }) => theme.devices.PHONE} {
-    height: 50px;
-    font-size: 14px;
-  }
+  height: 50px;
+  font-size: 14px;
+
   @media ${({ theme }) => theme.devices.TABLET} {
     height: 52px;
     font-size: 16px;
@@ -95,3 +89,5 @@ const StyledInput = styled.input`
     padding: 16px 20px;
   }
 `;
+
+export default TextInput;

@@ -50,15 +50,12 @@ const DropDown = ({ value, setValue, selectdata }) => {
   );
 };
 
-export default DropDown;
-
 const DropDownContainer = styled.div`
   box-sizing: border-box;
   margin-top: 6px;
 
-  @media ${({ theme }) => theme.devices.PHONE} {
-    width: 156px;
-  }
+  width: 156px;
+
   @media ${({ theme }) => theme.devices.TABLET} {
     width: 174px;
   }
@@ -80,10 +77,8 @@ const DropDownBox = styled.div`
   border: 1px solid ${({ theme, isOpen, hasValue }) => (isOpen || hasValue ? theme.colors.WHITE : theme.colors.GRAY3)};
 
   color: ${({ theme, isOpen, hasValue }) => (isOpen || hasValue ? theme.colors.WHITE : theme.colors.GRAY3)};
-  @media ${({ theme }) => theme.devices.PHONE} {
-    height: 50px;
-    font-size: 14px;
-  }
+  height: 50px;
+  font-size: 14px;
   @media ${({ theme }) => theme.devices.TABLET} {
     height: 52px;
     font-size: 16px;
@@ -105,9 +100,8 @@ const DownOptions = styled.div`
   display: flex;
   flex-direction: column;
   background-color: ${({ theme }) => theme.colors.GRAY1};
-  @media ${({ theme }) => theme.devices.PHONE} {
-    width: 156px;
-  }
+  width: 156px;
+
   @media ${({ theme }) => theme.devices.TABLET} {
     width: 174px;
   }
@@ -133,12 +127,11 @@ const Option = styled.div`
     background-color: #232323;
     color: ${({ theme }) => theme.colors.WHITE};
   }
-  @media ${({ theme }) => theme.devices.PHONE} {
-    height: 38px;
-    padding: 0 12px;
-    line-height: 38px;
-    margin-bottom: 4px;
-  }
+  height: 38px;
+  padding: 0 12px;
+  line-height: 38px;
+  margin-bottom: 4px;
+
   @media ${({ theme }) => theme.devices.TABLET} {
     height: 40px;
     padding: 0 12px;
@@ -151,3 +144,5 @@ const Option = styled.div`
     margin-bottom: 12px;
   }
 `;
+
+export default DropDown;

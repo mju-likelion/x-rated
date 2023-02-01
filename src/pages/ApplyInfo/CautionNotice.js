@@ -23,14 +23,11 @@ const CautionNotice = () => {
   );
 };
 
-export default CautionNotice;
-
 const Title = styled.p`
   font-weight: 700;
-  @media ${({ theme }) => theme.devices.MOBILE} {
-    width: 318px;
-    font-size: 14px;
-  }
+  width: 318px;
+  font-size: 14px;
+
   @media ${({ theme }) => theme.devices.TABLET} {
     width: 568px;
     font-size: 16px;
@@ -42,10 +39,9 @@ const Title = styled.p`
 `;
 
 const CautionList = styled.ul`
-  @media ${({ theme }) => theme.devices.MOBILE} {
-    padding: 6px 0 0 20px;
-    margin-top: 6px;
-  }
+  padding: 6px 0 0 20px;
+  margin-top: 6px;
+
   @media ${({ theme }) => theme.devices.TABLET} {
     padding: 8px 0 0 25px;
     margin-top: 10px;
@@ -65,16 +61,13 @@ const CautionText = styled.li`
     p {
       color: ${({ theme }) => theme.colors.RED};
     }
-  }
-  @media ${({ theme }) => theme.devices.MOBILE} {
-    font-size: 12px;
-    line-height: 20px;
-    :last-child {
-      span {
-        display: block;
-      }
+    span {
+      display: block;
     }
   }
+  font-size: 12px;
+  line-height: 20px;
+
   @media ${({ theme }) => theme.devices.TABLET} {
     font-size: 14px;
     line-height: 21px;
@@ -101,3 +94,5 @@ const CautionText = styled.li`
     }
   }
 `;
+
+export default CautionNotice;

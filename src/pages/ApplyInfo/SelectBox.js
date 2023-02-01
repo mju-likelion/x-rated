@@ -19,8 +19,6 @@ const SelectBox = ({ selectdata, name, text }) => {
   );
 };
 
-export default SelectBox;
-
 const SelectContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -33,3 +31,5 @@ const SelectContainer = styled.div`
     padding-bottom: 17px;
   }
 `;
+
+export default SelectBox;

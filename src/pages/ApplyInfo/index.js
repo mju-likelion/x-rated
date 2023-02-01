@@ -20,9 +20,9 @@ const ApplyInfoPage = () => {
 
   return (
     <>
-      <PageMainTitle title="지원서 작성하기" />
-
       <ContentContainer>
+        <PageMainTitle title="지원서 작성하기" />
+
         <Formik
           initialValues={FormikConfig.initialValues}
           validationSchema={FormikConfig.validationSchema}
@@ -97,9 +97,7 @@ const ContentContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
   margin: 0 auto;
-  @media ${({ theme }) => theme.devices.MOBILE} {
-    width: 318px;
-  }
+  width: 318px;
   @media ${({ theme }) => theme.devices.TABLET} {
     width: 568px;
   }
@@ -110,9 +108,7 @@ const ContentContainer = styled.div`
 `;
 
 const StyledForm = styled(Form)`
-  @media ${({ theme }) => theme.devices.MOBILE} {
-    width: 318px;
-  }
+  width: 318px;
   @media ${({ theme }) => theme.devices.TABLET} {
     width: 568px;
   }
@@ -124,9 +120,7 @@ const StyledForm = styled(Form)`
 const InputContainer = styled.div`
   display: flex;
 
-  @media ${({ theme }) => theme.devices.PHONE} {
-    flex-direction: column;
-  }
+  flex-direction: column;
 
   @media ${({ theme }) => theme.devices.TABLET} {
     margin: 40px 0;
@@ -148,9 +142,9 @@ const BreakLine = styled.div`
   height: 1px;
   background-color: ${({ theme }) => theme.colors.GRAY1};
   width: 100%;
-  @media ${({ theme }) => theme.devices.PHONE} {
-    margin-bottom: 32px;
-  }
+
+  margin-bottom: 32px;
+
   @media ${({ theme }) => theme.devices.TABLET} {
     margin-bottom: 40px;
   }
@@ -169,9 +163,7 @@ const ButtomBreakLine = styled(BreakLine)`
 `;
 
 const ButtonContainer = styled.div`
-  @media ${({ theme }) => theme.devices.PHONE} {
-    margin-top: 32px;
-  }
+  margin-top: 32px;
 
   @media ${({ theme }) => theme.devices.TABLET} {
     margin-top: 40px;
@@ -182,10 +174,10 @@ const AgreementTextContainer = styled.div`
   width: 100%;
   background-color: ${({ theme }) => theme.colors.GRAY1};
   border-radius: 18px;
-  @media ${({ theme }) => theme.devices.PHONE} {
-    margin-top: 32px;
-    height: 240px;
-  }
+
+  margin-top: 32px;
+  height: 240px;
+
   @media ${({ theme }) => theme.devices.TABLET} {
     margin-top: 40px;
     height: 340px;
@@ -199,9 +191,9 @@ const StyledCautionIcon = styled(Caution)`
   margin-left: 30px;
   width: 56px;
   height: 62px;
-  @media ${({ theme }) => theme.devices.PHONE} {
-    margin-top: 33px;
-  }
+
+  margin-top: 33px;
+
   @media ${({ theme }) => theme.devices.TABLET} {
     margin-top: 40px;
   }
@@ -214,18 +206,25 @@ const SubmitButtonContainer = styled.div`
   display: flex;
   width: 100%;
   justify-content: center;
-  margin-top: 100px;
-  margin-bottom: 200px;
+  margin-top: 50px;
+  margin-bottom: 125px;
+  @media ${({ theme }) => theme.devices.TABLET} {
+    margin-top: 100px;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    margin-top: 100px;
+    margin-bottom: 200px;
+  }
 `;
 
 const CautionTextContainer = styled.div`
   box-sizing: border-box;
   background-color: ${({ theme }) => theme.colors.GRAY1};
   border-radius: 18px;
-  @media ${({ theme }) => theme.devices.PHONE} {
-    height: 206px;
-    padding: 18px;
-  }
+
+  height: 206px;
+  padding: 18px;
+
   @media ${({ theme }) => theme.devices.TABLET} {
     height: 208px;
     padding: 24px;

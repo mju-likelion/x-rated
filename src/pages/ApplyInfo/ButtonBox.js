@@ -36,15 +36,12 @@ const ButtonBox = ({ buttonData, name, text }) => {
   );
 };
 
-export default ButtonBox;
-
 const Container = styled.div`
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  @media ${({ theme }) => theme.devices.PHONE} {
-    height: 103px;
-  }
+  height: 103px;
+
   @media ${({ theme }) => theme.devices.TABLET} {
     height: 112px;
   }
@@ -65,11 +62,10 @@ const StyledButton = styled.label`
   color: ${({ theme, isSelected }) => (isSelected ? theme.colors.WHITE : theme.colors.GRAY3)};
   background: none;
   border-radius: 10px;
-  @media ${({ theme }) => theme.devices.PHONE} {
-    width: 156px;
-    height: 50px;
-    margin-right: 6px;
-  }
+  width: 156px;
+  height: 50px;
+  margin-right: 6px;
+
   @media ${({ theme }) => theme.devices.TABLET} {
     width: 174px;
     height: 52px;
@@ -88,9 +84,8 @@ const HiddenInput = styled.input`
 
 const ButtonText = styled.span`
   color: inherit;
-  @media ${({ theme }) => theme.devices.PHONE} {
-    font-size: 14px;
-  }
+  font-size: 14px;
+
   @media ${({ theme }) => theme.devices.TABLET} {
     font-size: 16px;
   }
@@ -101,10 +96,9 @@ const ButtonText = styled.span`
 
 const Message = styled.p`
   margin-top: 7px;
-  @media ${({ theme }) => theme.devices.PHONE} {
-    font-size: 10px;
-    line-height: 12px;
-  }
+  font-size: 10px;
+  line-height: 12px;
+
   @media ${({ theme }) => theme.devices.TABLET} {
     font-size: 12px;
     line-height: 15px;
@@ -124,10 +118,10 @@ const Descirption = styled(Message)`
 `;
 
 const DescriptionFirstLine = styled.span`
-  @media ${({ theme }) => theme.devices.PHONE} {
-    display: block;
-  }
+  display: block;
   @media ${({ theme }) => theme.devices.DESKTOP} {
     display: inline;
   }
 `;
+
+export default ButtonBox;
