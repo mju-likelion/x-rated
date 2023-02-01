@@ -13,7 +13,7 @@ const TextInput = ({ name, placeholder, text, maxLength }) => {
     <Container>
       <StyledText>
         {text}
-        <p>*</p>
+        <p> *</p>
       </StyledText>
       <StyledInput
         {...field}

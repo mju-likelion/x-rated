@@ -7,7 +7,7 @@ import PageMainTitle from '../../components/PageMainTitle';
 
 import ButtonBox from './ButtonBox';
 import { PART, CAMPUS, ENROLLMENTSTATUS } from './ButtonData';
-import { CAUTION } from './CautionData';
+import CautionNotice from './CautionNotice';
 import CheckBox from './CheckBox';
 import { FormikConfig } from './FormikConfig';
 import SelectBox from './SelectBox';
@@ -18,7 +18,6 @@ const ApplyInfoPage = () => {
   const DEFAULTERROR = '작성이 완료되지 않은 내용이 있습니다.';
   const FORMERROR = '형식에 맞지 않는 값이 존재합니다.';
 
-  const CAUTIONTEXT = CAUTION;
   return (
     <>
       <PageMainTitle title="지원서 작성하기" />
@@ -64,14 +63,7 @@ const ApplyInfoPage = () => {
 
                 <StyledCautionIcon />
                 <CautionTextContainer>
-                  <Title>{CAUTIONTEXT.title}</Title>
-                  <CautionList>
-                    {CAUTIONTEXT.cautionList.map(text => (
-                      <CautionText key={text}>
-                        <p>{text}</p>
-                      </CautionText>
-                    ))}
-                  </CautionList>
+                  <CautionNotice />
                 </CautionTextContainer>
                 <CheckBox name="cautionConfirm" text="위의 주의사항을 확인하였습니다." />
 
@@ -126,7 +118,6 @@ const StyledForm = styled(Form)`
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
     width: 1200px;
-    max-width: 1200px;
   }
 `;
 
@@ -204,23 +195,6 @@ const AgreementTextContainer = styled.div`
   }
 `;
 
-const CautionTextContainer = styled.div`
-  background-color: ${({ theme }) => theme.colors.GRAY1};
-  border-radius: 18px;
-  @media ${({ theme }) => theme.devices.PHONE} {
-    height: 206px;
-    padding: 18px;
-  }
-  @media ${({ theme }) => theme.devices.TABLET} {
-    height: 208px;
-    padding: 24px;
-  }
-  @media ${({ theme }) => theme.devices.DESKTOP} {
-    height: 220px;
-    padding: 30px;
-  }
-`;
-
 const StyledCautionIcon = styled(Caution)`
   margin-left: 30px;
   width: 56px;
@@ -244,73 +218,21 @@ const SubmitButtonContainer = styled.div`
   margin-bottom: 200px;
 `;
 
-const Title = styled.p`
-  font-weight: 700;
-  @media ${({ theme }) => theme.devices.MOBILE} {
-    width: 318px;
-    font-size: 14px;
+const CautionTextContainer = styled.div`
+  box-sizing: border-box;
+  background-color: ${({ theme }) => theme.colors.GRAY1};
+  border-radius: 18px;
+  @media ${({ theme }) => theme.devices.PHONE} {
+    height: 206px;
+    padding: 18px;
   }
   @media ${({ theme }) => theme.devices.TABLET} {
-    width: 568px;
-    font-size: 16px;
+    height: 208px;
+    padding: 24px;
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
-    width: 1200px;
-    max-width: 1200px;
-    font-size: 20px;
-  }
-`;
-
-const CautionList = styled.ul`
-  @media ${({ theme }) => theme.devices.MOBILE} {
-    padding: 10px 0 0 20px;
-    margin-top: 6px;
-  }
-  @media ${({ theme }) => theme.devices.TABLET} {
-    padding: 10px 0 0 30px;
-    margin-top: 10px;
-  }
-  @media ${({ theme }) => theme.devices.DESKTOP} {
-    padding: 10px 0 0 30px;
-    margin-top: 10px;
-  }
-`;
-
-const CautionText = styled.li`
-  list-style-type: disc;
-
-  color: ${({ theme }) => theme.colors.GRAY2};
-  :last-child {
-    p {
-      color: ${({ theme }) => theme.colors.RED};
-    }
-  }
-  @media ${({ theme }) => theme.devices.MOBILE} {
-    font-size: 12px;
-    margin-bottom: 8px;
-    :last-child {
-      padding-right: 50px;
-    }
-    p {
-      line-height: 20px;
-    }
-  }
-  @media ${({ theme }) => theme.devices.TABLET} {
-    font-size: 14px;
-    margin-bottom: 7px;
-    :last-child {
-      padding: 0;
-    }
-    p {
-      line-height: 21px;
-    }
-  }
-  @media ${({ theme }) => theme.devices.DESKTOP} {
-    font-size: 18px;
-    margin-bottom: 12px;
-    p {
-      line-height: 30px;
-    }
+    height: 220px;
+    padding: 30px;
   }
 `;
 

@@ -11,7 +11,7 @@ const ButtonBox = ({ buttonData, name, text }) => {
     <Container>
       <StyledText>
         {text}
-        <p>*</p>
+        <p> *</p>
       </StyledText>
       <ButtonContainer>
         {buttonData.map(data => (
@@ -99,7 +99,7 @@ const ButtonText = styled.span`
   }
 `;
 
-const Message = styled.div`
+const Message = styled.p`
   margin-top: 7px;
   @media ${({ theme }) => theme.devices.PHONE} {
     font-size: 10px;
@@ -107,6 +107,7 @@ const Message = styled.div`
   }
   @media ${({ theme }) => theme.devices.TABLET} {
     font-size: 12px;
+    line-height: 15px;
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
     font-size: 16px;

@@ -12,7 +12,7 @@ const CheckBox = ({ name, text }) => {
       <StyledCheckbox type="checkbox" {...field} />
       <CheckBoxText>
         {text}
-        <p>*</p>
+        <p> *</p>
       </CheckBoxText>
     </CheckboxContainer>
   );
