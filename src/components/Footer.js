@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import styled from 'styled-components';
 
@@ -8,6 +8,8 @@ import { ReactComponent as InstaIcon } from '../assets/images/icon_insta_default
 import { ReactComponent as MailIcon } from '../assets/images/icon_mail_default.svg';
 import { ReactComponent as MediIcon } from '../assets/images/icon_medi_default.svg';
 
+import Toast from './Toast';
+
 const Footer = () => {
   const urlList = {
     instagram: 'https://www.instagram.com/mju_likelion/',
@@ -15,14 +17,28 @@ const Footer = () => {
     facebook: 'https://www.facebook.com/likelionatmju',
     medium: 'https://medium.com/@mju-likelion',
   };
+  const [toast, setToast] = useState(false);
+  const [isCopySuccess, setIsCopySuccess] = useState(false);
+  const mjuEmail = 'mju@likelion.org';
 
   const handleClick = type => {
     typeof window.open === 'function' ? window.open(urlList[type]) : (window.location.href = urlList[type]);
   };
 
   const handleCopyEmail = () => {
-    const mjuEmail = 'mju@likelion.org';
-    navigator.clipboard.writeText(mjuEmail);
+    setToast(true);
+    navigator.clipboard
+      .writeText(mjuEmail)
+      .then(() => {
+        checkCopyEmail();
+      })
+      .catch(() => setIsCopySuccess(false));
+  };
+
+  const checkCopyEmail = () => {
+    navigator.clipboard.readText().then(text => {
+      text === mjuEmail ? setIsCopySuccess(true) : setIsCopySuccess(false);
+    });
   };
 
   return (
@@ -33,6 +49,13 @@ const Footer = () => {
         <FaceIcon onClick={() => handleClick('facebook')} />
         <MediIcon onClick={() => handleClick('medium')} />
         <MailIcon onClick={handleCopyEmail} />
+        {toast && (
+          <Toast
+            setToast={setToast}
+            isSuccess={isCopySuccess}
+            text={isCopySuccess ? '메일 주소가 복사되었습니다' : '메일 주소 복사에 실패하였습니다'}
+          />
+        )}
       </FooterIconsBox>
       <CopyrightBox>© 2023. LIKELION MJU All pictures cannot be copied without permission.</CopyrightBox>
     </FooterBox>
