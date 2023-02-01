@@ -67,7 +67,6 @@ const CautionText = styled.li`
   }
   font-size: 12px;
   line-height: 20px;
-
   @media ${({ theme }) => theme.devices.TABLET} {
     font-size: 14px;
     line-height: 21px;
@@ -85,12 +84,12 @@ const CautionText = styled.li`
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
     font-size: 18px;
-    margin-bottom: 3px;
-    span {
-      display: inline;
-    }
-    p {
-      line-height: 30px;
+    line-height: 30px;
+    :nth-child(2),
+    :nth-child(3) {
+      span {
+        display: inline;
+      }
     }
   }
 `;

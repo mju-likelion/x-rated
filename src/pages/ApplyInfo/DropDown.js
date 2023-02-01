@@ -114,8 +114,9 @@ const DownOptions = styled.div`
 
 const Option = styled.div`
   box-sizing: border-box;
+  display: flex;
+  align-items: center;
   width: 100%;
-
   background-color: inherit;
   border-radius: 8px;
   color: ${({ theme }) => theme.colors.GRAY2};
@@ -129,19 +130,18 @@ const Option = styled.div`
   }
   height: 38px;
   padding: 0 12px;
-  line-height: 38px;
   margin-bottom: 4px;
 
   @media ${({ theme }) => theme.devices.TABLET} {
     height: 40px;
-    padding: 0 12px;
-    line-height: 40px;
     margin-bottom: 8px;
+    font-size: 16px;
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
     height: 50px;
     padding: 15px;
     margin-bottom: 12px;
+    font-size: 20px;
   }
 `;
 
