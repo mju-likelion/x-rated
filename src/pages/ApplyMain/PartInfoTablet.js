@@ -21,8 +21,6 @@ const PartInfoTablet = ({ partInfo }) => {
   );
 };
 
-export default PartInfoTablet;
-
 const PartInfoTop = styled.div`
   font-size: 24px;
   font-weight: 700;
@@ -64,3 +62,5 @@ const PartInformationBlock = styled.div`
   border-radius: 18px;
   margin-bottom: 13px;
 `;
+
+export default PartInfoTablet;

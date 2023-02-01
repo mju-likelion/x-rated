@@ -12,9 +12,9 @@ import PartInfoMobile from './PartInfoMobile';
 import PartInfoTablet from './PartInfoTablet';
 
 const ApplyMainPage = () => {
-  const [testState, setTestState] = useState('');
-  const [error, setError] = useState('');
   const [innerWidth, setInnerWidth] = useState(window.innerWidth);
+  const DESKTOP_WIDTH = 1199;
+  const TABLET_WIDTH = 599;
 
   useEffect(() => {
     const resizeListener = () => {
@@ -23,26 +23,14 @@ const ApplyMainPage = () => {
     window.addEventListener('resize', resizeListener);
   });
 
-  const test = e => {
-    setTestState(e.target.value);
-  };
-
-  useEffect(() => {
-    if (testState.length >= 5 || testState.length === 0) {
-      setError('에러입니당');
-    } else {
-      setError('');
-    }
-  }, [testState]);
-
   return (
     <ApplyMainPageBlock>
       <ApplyMainTop />
       <PartInfoDiv>
         {PART_DATA.map((apply, index) =>
-          innerWidth > 1199 ? (
+          innerWidth > DESKTOP_WIDTH ? (
             <PartInfo partInfo={apply} key={index} />
-          ) : innerWidth > 599 ? (
+          ) : innerWidth > TABLET_WIDTH ? (
             <PartInfoTablet partInfo={apply} key={index} />
           ) : (
             <PartInfoMobile partInfo={apply} key={index} />
@@ -57,8 +45,6 @@ const ApplyMainPage = () => {
     </ApplyMainPageBlock>
   );
 };
-
-export default ApplyMainPage;
 
 const ApplyMainPageBlock = styled.div`
   @media ${({ theme }) => theme.devices.MOBILE} {
@@ -104,3 +90,5 @@ const WrapApplyButton = styled.div`
 const StyledLink = styled(Link)`
   text-decoration: none;
 `;
+
+export default ApplyMainPage;

@@ -24,8 +24,6 @@ const PartInfoMobile = ({ partInfo }) => {
   );
 };
 
-export default PartInfoMobile;
-
 const PartInfoTop = styled.div`
   font-size: 20px;
   font-weight: 700;
@@ -89,3 +87,5 @@ const PartInformationBlock = styled.div`
     display: block;
   }
 `;
+
+export default PartInfoMobile;

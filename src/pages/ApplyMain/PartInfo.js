@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import iconPlus from '../../assets/images/icon_plus.svg';
 
-const PartInformation = ({ partInfo }) => {
+const PartInfo = ({ partInfo }) => {
   return (
     <PartInformationBlock info={partInfo.value}>
       <PartInfoTop>
@@ -23,8 +23,6 @@ const PartInformation = ({ partInfo }) => {
     </PartInformationBlock>
   );
 };
-
-export default PartInformation;
 
 const PartInfoTop = styled.div`
   font-size: 24px;
@@ -90,3 +88,5 @@ const PartInformationBlock = styled.div`
     display: block;
   }
 `;
+
+export default PartInfo;

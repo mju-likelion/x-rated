@@ -24,8 +24,6 @@ const ApplyMainTop = () => {
   );
 };
 
-export default ApplyMainTop;
-
 const ApplyMainTopBlock = styled.div`
   @media ${({ theme }) => theme.devices.MOBILE} {
     margin-bottom: 25.5px;
@@ -121,3 +119,5 @@ const RightSubTitle = styled.div`
     font-size: 18px;
   }
 `;
+
+export default ApplyMainTop;
