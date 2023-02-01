@@ -4,6 +4,7 @@ import { ThemeProvider } from 'styled-components';
 import ApplyFinishPage from './pages/ApplyFinish';
 import ApplyInfoPage from './pages/ApplyInfo';
 import ApplyMainPage from './pages/ApplyMain';
+import ApplyNotFoundPage from './pages/ApplyNotFound';
 import ApplyWritePage from './pages/ApplyWrite';
 import GlobalStyle from './styles/GlobalStyle';
 import { Theme } from './styles/Theme';
@@ -18,6 +19,7 @@ function App() {
           <Route path="/info" element={<ApplyInfoPage />} />
           <Route path="/write" element={<ApplyWritePage />} />
           <Route path="/finish" element={<ApplyFinishPage />} />
+          <Route path="/*" element={<ApplyNotFoundPage />} />
         </Routes>
       </ThemeProvider>
     </>
