@@ -38,7 +38,8 @@ const ToastBox = styled.div`
   position: absolute;
   z-index: 1;
   bottom: 5%;
-  left: 43%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `;
 
 const ToastTypeIcon = styled.img`
