@@ -20,7 +20,7 @@ const CheckBox = ({ name, text }) => {
 
 const StyledCheckbox = styled.input`
   appearance: none;
-  border: 1px solid gainsboro;
+  border: 1px solid ${({ theme }) => theme.colors.WHITE};
   border-radius: 6px;
   width: 22px;
   height: 22px;

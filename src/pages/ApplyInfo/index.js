@@ -39,7 +39,7 @@ const ApplyInfoPage = () => {
 
                 <BreakLine />
 
-                <ButtonBox name="campus" buttonData={CAMPUS} text="소속 캠퍼스" />
+                <ButtonBox name="campus" buttonsData={CAMPUS} text="소속 캠퍼스" />
 
                 <ButtomInputContainer>
                   <TextInput name="major" type="text" text="학과" maxLength={11} />
@@ -49,11 +49,11 @@ const ApplyInfoPage = () => {
                 <SelectBox name="grade" selectdata={GRADE} text="학년(추가학기인 경우 '4'를 선택해 주세요)" />
 
                 <ButtonContainer>
-                  <ButtonBox name="enrollmentStatus" buttonData={ENROLLMENTSTATUS} text="학적" />
+                  <ButtonBox name="enrollmentStatus" buttonsData={ENROLLMENTSTATUS} text="학적" />
                 </ButtonContainer>
 
                 <ButtonContainer>
-                  <ButtonBox name="part" buttonData={PART} text="지원파트" />
+                  <ButtonBox name="part" buttonsData={PART} text="지원파트" />
                 </ButtonContainer>
 
                 <ButtomBreakLine />

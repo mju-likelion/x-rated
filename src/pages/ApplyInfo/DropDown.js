@@ -119,7 +119,7 @@ const Option = styled.div`
   background-color: inherit;
   border-radius: 8px;
   color: ${({ theme }) => theme.colors.GRAY2};
-  :nth-child(4) {
+  :last-child {
     margin: 0;
   }
   :hover,

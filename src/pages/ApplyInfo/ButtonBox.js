@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { StyledText } from './TextInput';
 
-const ButtonBox = ({ buttonData, name, text }) => {
+const ButtonBox = ({ buttonsData, name, text }) => {
   const [field, meta] = useField(name);
   const selectedValue = meta.value;
   // const isSelected = value => (value === selectedValue ? true : false);
@@ -14,7 +14,7 @@ const ButtonBox = ({ buttonData, name, text }) => {
         <p> *</p>
       </StyledText>
       <ButtonContainer>
-        {buttonData.map(data => (
+        {buttonsData.map(data => (
           <StyledButton
             htmlFor={`${data} button`}
             key={data}

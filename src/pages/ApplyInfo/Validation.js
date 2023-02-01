@@ -1,4 +1,5 @@
 import * as Yup from 'yup';
+
 import { ENROLLMENTSTATUS, PART } from './ButtonData';
 import { GRADE } from './SelectData';
 
@@ -6,7 +7,7 @@ export const validation = {
   name: Yup.string().required('required'),
   phone: Yup.string()
     .required('required')
-    .matches(/^01([0|1|6|7|8|9])-([0-9]{3,4})-([0-9]{4})$/, 'form'),
+    .matches(/^\d{8}$/, 'form'),
   email: Yup.string().required('required').email('form'),
   campus: Yup.string().required('required').oneOf(['자연'], '멋쟁이사자처럼 명지대 인문캠퍼스에 지원해 주세요.'),
   major: Yup.string()
