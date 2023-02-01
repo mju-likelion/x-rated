@@ -7,7 +7,7 @@ export const validation = {
   name: Yup.string().required('required'),
   phone: Yup.string()
     .required('required')
-    .matches(/^010-([0-9]{3,4})-([0-9]{4})$/, 'form'),
+    .matches(/^010-([0-9]{4})-([0-9]{4})$/, 'form'),
   email: Yup.string().required('required').email('form'),
   campus: Yup.string().required('required').oneOf(['자연'], '멋쟁이사자처럼 명지대 인문캠퍼스에 지원해 주세요.'),
   major: Yup.string()
