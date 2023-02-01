@@ -16,6 +16,16 @@ const ApplyMainPage = () => {
   const DESKTOP_WIDTH = 1199;
   const TABLET_WIDTH = 599;
 
+  const changeWidth = (apply, index) => {
+    if (innerWidth > DESKTOP_WIDTH) {
+      return <PartInfo partInfo={apply} key={index} />;
+    } else if (innerWidth > TABLET_WIDTH) {
+      return <PartInfoTablet partInfo={apply} key={index} />;
+    } else {
+      return <PartInfoMobile partInfo={apply} key={index} />;
+    }
+  };
+
   useEffect(() => {
     const resizeListener = () => {
       setInnerWidth(window.innerWidth);
@@ -26,17 +36,7 @@ const ApplyMainPage = () => {
   return (
     <ApplyMainPageBlock>
       <ApplyMainTop />
-      <PartInfoDiv>
-        {PART_DATA.map((apply, index) =>
-          innerWidth > DESKTOP_WIDTH ? (
-            <PartInfo partInfo={apply} key={index} />
-          ) : innerWidth > TABLET_WIDTH ? (
-            <PartInfoTablet partInfo={apply} key={index} />
-          ) : (
-            <PartInfoMobile partInfo={apply} key={index} />
-          ),
-        )}
-      </PartInfoDiv>
+      <PartInfoDiv>{PART_DATA.map((apply, index) => changeWidth(apply, index))}</PartInfoDiv>
       <WrapApplyButton>
         <StyledLink to="/info">
           <Button text="지원하기"></Button>
