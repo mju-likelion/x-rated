@@ -5,7 +5,7 @@ import styled from 'styled-components';
 /**
  * @param {string} text 버튼 내부 텍스트
  * @param {string} type 버튼 타입 (button, submit)
- * @param {string} error 표시할 에러 메시지
+ * @param {string} errorMessage 표시할 에러 메시지
  * @param {() => void} handleClick 버튼 클릭시 실행할 이벤트, Route 기능의 경우 history.push와 같은 함수를 이용합니다.
  */
 const Button = ({ text, type = 'button', errorMessage, handleClick }) => {
@@ -32,16 +32,14 @@ const Button = ({ text, type = 'button', errorMessage, handleClick }) => {
       <ButtonStyle type={type} disable={errorMessage} onClick={handleButtonClick}>
         {text}
       </ButtonStyle>
-      {isShowErrorMessage && <Error>{errorMessage}</Error>}
+      {isShowErrorMessage && <ErrorText>{errorMessage}</ErrorText>}
     </Wrapper>
   );
 };
 
 const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  align-items: center;
+  display: inline-block;
+  text-align: center;
 `;
 
 const ButtonStyle = styled.button`
@@ -66,7 +64,7 @@ const ButtonStyle = styled.button`
   }
 `;
 
-const Error = styled.p`
+const ErrorText = styled.p`
   color: ${({ theme }) => theme.colors.RED};
   text-align: center;
   font-weight: 400;
