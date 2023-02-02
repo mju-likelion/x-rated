@@ -66,9 +66,10 @@ const ApplyWritePage = () => {
       {partTest && (
         <>
           <FileUploadContainer>
-            <BaseTitle>
+            <FileTitle>
               HTML 혹은 CSS를 포함한 <BreakLine /> .zip 형식의 자기소개서 페이지를 첨부해 주세요. <Star>*</Star>
-            </BaseTitle>
+              {/* 왜 여기만 line-hegiht가 이상하게 먹지? */}
+            </FileTitle>
             <FileUploadBorder file={fileData}>
               <FileUploadLabel htmlFor="file">
                 <FileUploadTitle file={fileData}>{fileData ? `${fileData.name}` : '파일 불러오기'}</FileUploadTitle>
@@ -140,10 +141,18 @@ const BreakLine = styled.br`
   @media ${({ theme }) => theme.devices.TABLET} {
     display: none;
   }
+  line-height: 0px;
 `;
 
 const Star = styled(BaseTitle)`
   color: ${({ theme }) => theme.colors.ORANGE};
+`;
+
+const FileTitle = styled(BaseTitle)`
+  line-height: 15px;
+  @media ${({ theme }) => theme.devices.TABLET} {
+    line-height: 18px;
+  }
 `;
 
 const FileUploadContainer = styled(BaseContainer)`
@@ -173,7 +182,7 @@ const FileUploadBorder = styled.div`
   padding: 16px;
   max-width: 568px;
   width: 100%;
-  // height: 52px;
+  //  height: 50px;
   gap: 10px;
   box-sizing: border-box;
   border-radius: 10px;
