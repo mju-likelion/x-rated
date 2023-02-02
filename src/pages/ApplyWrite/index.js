@@ -10,13 +10,13 @@ const ApplyWritePage = () => {
     {
       id: 1,
       question:
-        '저희 멋쟁이사자처럼 11기에 지원해 주심에 감사드리며, 지원자분의 지원 동기를 올해의 목표와 연관 지어 서술해 주세요',
+        '저희 멋쟁이사자처럼 11기에 지원해 주심에 감사드리며, 지원자분의 지원 동기를 올해의 목표와 연관 지어 서술해 주세요.',
       maxLength: 1000,
     },
     {
       id: 2,
       question:
-        '저희 멋쟁이사자처럼 11기에 지원해 주심에 감사드리며, 지원자분의 지원 동기를 올해의 목표와 연관 지어 서술해 주세요',
+        '저희 멋쟁이사자처럼 11기에 지원해 주심에 감사드리며, 지원자분의 지원 동기를 올해의 목표와 연관 지어 서술해 주세요.',
       maxLength: 700,
     },
   ];
@@ -67,7 +67,7 @@ const ApplyWritePage = () => {
         <>
           <FileUploadContainer>
             <BaseTitle>
-              Html 혹은 css를 포함한 <BreakLine /> zip 형식의 자기소개서 페이지를 첨부해 주세요. <Star>*</Star>
+              HTML 혹은 CSS를 포함한 <BreakLine /> .zip 형식의 자기소개서 페이지를 첨부해 주세요. <Star>*</Star>
             </BaseTitle>
             <FileUploadBorder file={fileData}>
               <FileUploadLabel htmlFor="file">
@@ -86,6 +86,7 @@ const ApplyWritePage = () => {
             <WriteContainer key={index}>
               <BaseTitle>
                 {` ${index + 1}. ${item.question}`}
+                <Star>*</Star>
                 {/* 추후 서버통신하면 변경요망 */}
               </BaseTitle>
               <WriteBox>
