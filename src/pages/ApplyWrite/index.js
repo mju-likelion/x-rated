@@ -31,7 +31,13 @@ const ApplyWritePage = () => {
 
   const order = Object.keys(initialValues); //이걸 임포트 받는 이유는, 파트별로 문항수가 달라서 선택해서 사용하려고
 
-  const formik = useFormik(formikConfig);
+  const formik = useFormik({
+    ...formikConfig,
+    onSubmit: value => {
+      console.log(value);
+      navigate('/finish');
+    },
+  });
 
   const onChange = (e, key, maxLength) => {
     if (e.target.value > maxLength) {
@@ -51,10 +57,6 @@ const ApplyWritePage = () => {
   const fileData = formik.values.file;
 
   const partTest = true; //이건 나중에 파트별로 렌더링 다르게 하는용도 입니다.
-
-  const handleClick = () => {
-    navigate('/finish');
-  };
 
   const isvalid = () => {
     validationSchema.isValid(formik.values).then(valid => {
@@ -111,12 +113,7 @@ const ApplyWritePage = () => {
           );
         })}
         <ButtonBox>
-          <Button
-            type="submit"
-            text={'제출하기'}
-            errorMessage={valid ? null : '작성되지않은 문항이 있습니다.'}
-            handleClick={handleClick}
-          />
+          <Button type="submit" text={'제출하기'} errorMessage={valid ? null : '작성되지않은 문항이 있습니다.'} />
         </ButtonBox>
       </WriteForm>
     </>
