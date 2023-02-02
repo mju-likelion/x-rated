@@ -257,7 +257,7 @@ const WriteBox = styled(WriteContainer)`
   gap: 10px;
   box-sizing: border-box;
   background-color: ${({ theme }) => theme.colors.GRAY1};
-  padding: 20px 20px 10px 30px;
+  padding: 20px 20px 10px 20px;
   margin: 6px 0 30px 0;
   @media ${({ theme }) => theme.devices.TABLET} {
     margin: 10px 0 50px 0;
