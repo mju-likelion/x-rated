@@ -306,10 +306,11 @@ const ButtonBox = styled.div`
   display: flex;
   justify-content: center;
   @media ${({ theme }) => theme.devices.PHONE} {
-    margin-bottom: 47px;
+    margin: 20px 0 47px 0;
   }
   @media ${({ theme }) => theme.devices.TABLET} {
-    margin-bottom: 68px; //이건 현재 피그마상으로 margin이 동일함(마진의 기준은 푸터가 아닌 채널톡)
+    margin: 50px 0 68px 0;
+    //이건 현재 피그마상으로 margin이 동일함(마진의 기준은 푸터가 아닌 채널톡)
   }
 `;
 
