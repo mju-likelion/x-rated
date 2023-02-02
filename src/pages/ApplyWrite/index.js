@@ -1,11 +1,18 @@
+import { useState, useEffect } from 'react';
+
 import { useFormik } from 'formik';
+import { useNavigate } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
 import PageMainTitle from '../../components/PageMainTitle';
 
 import Button from './../../components/Button';
+import { validationSchema, formikConfig, initialValues } from './FormikConfig';
 
 const ApplyWritePage = () => {
+  const navigate = useNavigate();
+  const [valid, setValid] = useState(false);
+
   const TEMP_QUESTIONS = [
     {
       id: 1,
@@ -22,24 +29,9 @@ const ApplyWritePage = () => {
   ];
   //추후 서버 통신시에 마운트되면 문항 질문 받아서 렌더링 (props x)
 
-  const initialValues = {
-    firstAnswer: '',
-    secondAnswer: '',
-    thirdAnswer: '',
-    fourthAnswer: '',
-    fifthAnswer: '',
-    sixthAnswer: '',
-    file: '',
-  };
+  const order = Object.keys(initialValues); //이걸 임포트 받는 이유는, 파트별로 문항수가 달라서 선택해서 사용하려고
 
-  const order = Object.keys(initialValues);
-
-  const formik = useFormik({
-    initialValues,
-    onSubmit: values => {
-      alert(JSON.stringify(values, null, 2));
-    },
-  });
+  const formik = useFormik(formikConfig);
 
   const onChange = (e, key, maxLength) => {
     if (e.target.value > maxLength) {
@@ -60,6 +52,20 @@ const ApplyWritePage = () => {
 
   const partTest = true; //이건 나중에 파트별로 렌더링 다르게 하는용도 입니다.
 
+  const handleClick = () => {
+    navigate('/finish');
+  };
+
+  const isvalid = () => {
+    validationSchema.isValid(formik.values).then(valid => {
+      if (valid) setValid(true);
+      else setValid(false);
+    });
+  };
+
+  useEffect(() => {
+    isvalid();
+  }, [formik.values]); //이거 솔직히 베스트 로직은 아닌 것 같은데 ..
   return (
     <>
       <PageMainTitle title="지원서 작성하기" />
@@ -105,7 +111,12 @@ const ApplyWritePage = () => {
           );
         })}
         <ButtonBox>
-          <Button type="submit" text={'제출하기'} />
+          <Button
+            type="submit"
+            text={'제출하기'}
+            errorMessage={valid ? null : '작성되지않은 문항이 있습니다.'}
+            handleClick={handleClick}
+          />
         </ButtonBox>
       </WriteForm>
     </>
