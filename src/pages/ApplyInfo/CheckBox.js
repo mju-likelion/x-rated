@@ -20,7 +20,7 @@ const CheckBox = ({ name, text }) => {
 
 const StyledCheckbox = styled.input`
   appearance: none;
-  border: 1px solid ${({ theme }) => theme.colors.WHITE};
+  border: 1px solid ${({ theme }) => theme.colors.GRAY3};
   border-radius: 6px;
   width: 22px;
   height: 22px;
@@ -39,6 +39,7 @@ const StyledCheckbox = styled.input`
     background-position: 50%;
     background-repeat: no-repeat;
     background-color: transparent;
+    border: 1px solid ${({ theme }) => theme.colors.WHITE};
   }
 `;
 
