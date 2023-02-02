@@ -38,7 +38,10 @@ const Button = ({ text, type = 'button', errorMessage, handleClick }) => {
 };
 
 const Wrapper = styled.div`
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
 `;
 
 const ButtonStyle = styled.button`
