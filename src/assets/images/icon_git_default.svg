@@ -8,12 +8,4 @@
 <rect width="34" height="33" fill="white" transform="translate(11 11)"/>
 </clipPath>
 </defs>
-<style>
-.git{
-  cursor:pointer;
-}
-.git:hover .gitCircle{
-  fill:#525252;
-}
-</style>
 </svg>

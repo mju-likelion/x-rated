@@ -10,12 +10,4 @@
 <rect width="34" height="34" fill="white" transform="translate(11 11)"/>
 </clipPath>
 </defs>
-<style>
-.insta{
-  cursor:pointer;
-}
-.insta:hover .instaCircle{
-  fill:#525252;
-}
-</style>
 </svg>
