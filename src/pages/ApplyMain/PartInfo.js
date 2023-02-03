@@ -82,6 +82,10 @@ const PartInformationBlock = styled.div`
     transition: all 0.2s ease-out;
   }
 
+  &:hover ${PartInfoImg} {
+    display: none;
+  }
+
   &:hover ${CenterImgBlock} {
     display: none;
   }

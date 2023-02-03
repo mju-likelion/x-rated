@@ -13,7 +13,7 @@ const ApplyMainTop = () => {
       <RightContent>
         <TitleBox>
           <RightTitle>모집기간</RightTitle>
-          <RightSubTitle>2022.03.02 ~ 2022.03.28</RightSubTitle>
+          <RightSubTitle>2022.03.02 ~ 2022.03.05</RightSubTitle>
         </TitleBox>
         <TitleBox>
           <RightTitle>모집대상</RightTitle>
