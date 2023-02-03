@@ -52,19 +52,11 @@ const ApplyMainPage = () => {
 };
 
 const ApplyMainPageBlock = styled.div`
-  display: block;
-  margin: 80px 16px 0 16px;
-  @media ${({ theme }) => theme.devices.TABLET} {
-    margin: 100px 16px 0 16px;
-  }
-  @media ${({ theme }) => theme.devices.DESKTOP} {
-    display: table;
-    margin: 160px auto 0 auto;
-  }
+  display: table;
+  margin: 0 auto;
 `;
 
 const PartInfoBlock = styled.div`
-  display: block;
   @media ${({ theme }) => theme.devices.DESKTOP} {
     display: flex;
   }
@@ -73,11 +65,8 @@ const PartInfoBlock = styled.div`
 const WrapApplyButton = styled.div`
   text-align: center;
   margin-top: 50px;
-  margin-bottom: 124.5px;
-  @media ${({ theme }) => theme.devices.TABLET} {
-    margin-top: 50.5px;
-    margin-bottom: 125px;
-  }
+  margin-bottom: 125px;
+
   @media ${({ theme }) => theme.devices.DESKTOP} {
     margin-top: 100px;
     margin-bottom: 153px;
