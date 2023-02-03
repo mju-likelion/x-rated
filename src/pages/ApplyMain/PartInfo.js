@@ -19,7 +19,7 @@ const PartInfo = ({ partInfo }) => {
       <PartInfoContent>
         <InfoTitle>무엇을 하나요?</InfoTitle>
         <InfoCont>{partInfo.info}</InfoCont>
-        <InfoTitle>어떤 툴을 다루나요?</InfoTitle>
+        <InfoTitle>무엇을 배우나요?</InfoTitle>
         <InfoCont>{partInfo.tool}</InfoCont>
       </PartInfoContent>
     </PartInformationBlock>
