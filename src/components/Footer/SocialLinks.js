@@ -1,4 +1,4 @@
-export const SOCIALLINKS = {
+export const SOCIAL_LINKS = {
   instagram: 'https://www.instagram.com/mju_likelion/',
   github: 'https://github.com/mju-likelion',
   facebook: 'https://www.facebook.com/likelionatmju',

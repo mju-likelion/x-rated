@@ -9,26 +9,26 @@ import { ReactComponent as InstaIcon } from '../../assets/images/icon_insta_defa
 import { ReactComponent as MailIcon } from '../../assets/images/icon_mail_default.svg';
 import { ReactComponent as MediIcon } from '../../assets/images/icon_medi_default.svg';
 
-import { SOCIALLINKS } from './SocialLinks';
+import { SOCIAL_LINKS } from './SocialLinks';
 
 const FooterIcons = ({ handleCopyEmail, setIsCopySuccess }) => {
   return (
     <>
-      <FooterAnchorIcon href={SOCIALLINKS['instagram']} target="_blank" rel="noopener noreferrer">
+      <FooterAnchorIcon href={SOCIAL_LINKS['instagram']} target="_blank" rel="noopener noreferrer">
         <FooterInstaIcon />
       </FooterAnchorIcon>
-      <FooterAnchorIcon href={SOCIALLINKS['github']} target="_blank" rel="noopener noreferrer">
+      <FooterAnchorIcon href={SOCIAL_LINKS['github']} target="_blank" rel="noopener noreferrer">
         <FooterGitIcon />
       </FooterAnchorIcon>
-      <FooterAnchorIcon href={SOCIALLINKS['facebook']} target="_blank" rel="noopener noreferrer">
+      <FooterAnchorIcon href={SOCIAL_LINKS['facebook']} target="_blank" rel="noopener noreferrer">
         <FooterFaceIcon />
       </FooterAnchorIcon>
-      <FooterAnchorIcon href={SOCIALLINKS['medium']} target="_blank" rel="noopener noreferrer">
+      <FooterAnchorIcon href={SOCIAL_LINKS['medium']} target="_blank" rel="noopener noreferrer">
         <FooterMediIcon />
       </FooterAnchorIcon>
       <CopyToClipboard
-        text={SOCIALLINKS['email']}
-        onCopy={text => (text === SOCIALLINKS['email'] ? setIsCopySuccess(true) : setIsCopySuccess(false))}
+        text={SOCIAL_LINKS['email']}
+        onCopy={text => (text === SOCIAL_LINKS['email'] ? setIsCopySuccess(true) : setIsCopySuccess(false))}
       >
         <FooterMailIcon onClick={handleCopyEmail} />
       </CopyToClipboard>
