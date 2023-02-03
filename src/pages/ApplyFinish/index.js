@@ -9,9 +9,9 @@ const ApplyFinishPage = () => {
     <ApplyFinishBox>
       <ApplyFinishCongratsSvg />
       <ApplyContentsBox>
-        <ApplyFinishContentsLine>저희 멋쟁이사자처럼 명지대(자연) 11기를 위한</ApplyFinishContentsLine>
-        <ApplyFinishContentsLine>첫 번째 걸음을 축하드립니다</ApplyFinishContentsLine>
         <ApplyFinishContentsLine>
+          저희 멋쟁이사자처럼 명지대(자연) 11기를 위한
+          <br /> 첫 번째 걸음을 축하드립니다 <br />
           <ApplyFinishPassDate>3월 6일</ApplyFinishPassDate>에 1차 합격 발표로 만나요
         </ApplyFinishContentsLine>
       </ApplyContentsBox>
