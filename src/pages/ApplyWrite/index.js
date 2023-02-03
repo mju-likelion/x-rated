@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import { useFormik } from 'formik';
 import { useNavigate } from 'react-router-dom';
@@ -7,7 +7,7 @@ import styled, { css } from 'styled-components';
 import PageMainTitle from '../../components/PageMainTitle';
 
 import Button from './../../components/Button';
-import { validationSchema, formikConfig, initialValues } from './FormikConfig';
+import { formikConfig, initialValues, validationSchema } from './FormikConfig';
 
 const ApplyWritePage = () => {
   const navigate = useNavigate();
@@ -33,8 +33,7 @@ const ApplyWritePage = () => {
 
   const formik = useFormik({
     ...formikConfig,
-    onSubmit: value => {
-      console.log(value);
+    onSubmit: () => {
       navigate('/finish');
     },
   });
@@ -75,7 +74,7 @@ const ApplyWritePage = () => {
         <>
           <FileUploadContainer>
             <FileTitle>
-              HTML 혹은 CSS를 포함한 <BreakLine /> .zip 형식의 자기소개서 페이지를 첨부해 주세요. <Star>*</Star>
+              HTML 혹은 CSS를 포함한 <BreakLine /> .zip 형식의 자기소개서 페이지를 첨부해 주세요.<Star>*</Star>
               {/* 왜 여기만 line-hegiht가 이상하게 먹지? */}
             </FileTitle>
             <FileUploadBorder file={fileData}>
@@ -154,6 +153,7 @@ const BreakLine = styled.br`
 
 const Star = styled(BaseTitle)`
   color: ${({ theme }) => theme.colors.ORANGE};
+  margin-left: 7px;
 `;
 
 const FileTitle = styled(BaseTitle)`
