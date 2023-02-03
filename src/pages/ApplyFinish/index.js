@@ -15,6 +15,7 @@ const ApplyFinishPage = () => {
           <ApplyFinishPassDate>3월 6일</ApplyFinishPassDate>에 1차 합격 발표로 만나요
         </ApplyFinishContentsLine>
       </ApplyContentsBox>
+      <ApplyCheckButton>지원 성공 여부 확인하기</ApplyCheckButton>
     </ApplyFinishBox>
   );
 };
@@ -23,13 +24,13 @@ const ApplyFinishBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 174px 16px 303px;
+  padding: 174px 16px 189px;
   box-sizing: border-box;
   @media ${({ theme }) => theme.devices.TABLET} {
-    padding: 200px 71px 430px;
+    padding: 200px 71px 316px;
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
-    padding: 226px 583px 368px;
+    padding: 226px 583px 212px;
   }
 `;
 
@@ -80,6 +81,26 @@ const ApplyFinishPassDate = styled.span`
   padding-bottom: 1px;
   @media ${({ theme }) => theme.devices.DESKTOP} {
     padding-bottom: 4px;
+  }
+`;
+
+const ApplyCheckButton = styled.button`
+  background-color: ${({ theme }) => theme.colors.BLUE1};
+  color: ${({ theme }) => theme.colors.WHITE};
+  margin-top: 64px;
+  width: 192px;
+  height: 50px;
+  border-radius: 36px;
+  font-size: 14px;
+  font-weight: 700;
+  @media ${({ theme }) => theme.devices.TABLET} {
+    border-radius: 35px;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    width: 260px;
+    height: 70px;
+    font-size: 20px;
+    margin-top: 86px;
   }
 `;
 
