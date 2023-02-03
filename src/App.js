@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
 import Header from './components/Header';
+import Footer from './components/Footer/Footer';
 import ApplyFinishPage from './pages/ApplyFinish';
 import ApplyInfoPage from './pages/ApplyInfo';
 import ApplyMainPage from './pages/ApplyMain';
@@ -23,6 +24,7 @@ function App() {
           <Route path="/finish" element={<ApplyFinishPage />} />
           <Route path="/*" element={<ApplyNotFoundPage />} />
         </Routes>
+        <Footer />
       </ThemeProvider>
     </>
   );
