@@ -122,8 +122,16 @@ const ApplyWritePage = () => {
 const BaseContainer = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 318px;
+  margin: 20px auto;
+  @media ${({ theme }) => theme.devices.TABLET} {
+    width: 568px;
+    margin: 30px auto;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    margin: 50px auto;
+    width: 1200px;
+  }
 `;
 
 const BaseTitle = styled.p`
@@ -148,7 +156,6 @@ const BreakLine = styled.br`
   @media ${({ theme }) => theme.devices.TABLET} {
     display: none;
   }
-  line-height: 0px;
 `;
 
 const Star = styled(BaseTitle)`
@@ -166,14 +173,11 @@ const FileTitle = styled(BaseTitle)`
 const FileUploadContainer = styled(BaseContainer)`
   align-items: flex-start;
   height: 86px; //이건 두줄이라서
-  margin: 20px 16px;
   @media ${({ theme }) => theme.devices.TABLET} {
     height: 76px;
-    margin: 30px 16px;
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
     height: 92px;
-    margin: 50px auto;
   }
 `;
 
@@ -190,7 +194,6 @@ const FileUploadBorder = styled.div`
   padding: 16px;
   max-width: 568px;
   width: 100%;
-  //  height: 50px;
   gap: 10px;
   box-sizing: border-box;
   border-radius: 10px;
@@ -235,29 +238,15 @@ const FileUpload = styled.input`
   display: none;
 `;
 
-const HorizontalLine = styled.div`
-  margin: 20px 16px;
-  max-width: 1200px;
+const HorizontalLine = styled(BaseContainer)`
   border: 1px solid ${({ theme }) => theme.colors.GRAY1};
-  @media ${({ theme }) => theme.devices.TABLET} {
-    margin: 30px 16px;
-  }
-  @media ${({ theme }) => theme.devices.DESKTOP} {
-    margin: 50px auto;
-  }
 `;
 
 const WriteContainer = styled(BaseContainer)`
   //  height: 380px; => 추후 피그마 수정하게 될지 모르니 일단 메모
 `;
 
-const WriteForm = styled.form`
-  margin: 0 16px;
-  max-width: 1200px;
-  @media ${({ theme }) => theme.devices.DESKTOP} {
-    margin: 0 auto;
-  }
-`;
+const WriteForm = styled.form``;
 
 const WriteBox = styled(WriteContainer)`
   width: 100%;
@@ -322,11 +311,9 @@ const WriteArea = styled.textarea`
 const ButtonBox = styled.div`
   display: flex;
   justify-content: center;
-  @media ${({ theme }) => theme.devices.PHONE} {
-    margin: 20px 0 47px 0;
-  }
+  margin: 20px auto 47px auto;
   @media ${({ theme }) => theme.devices.TABLET} {
-    margin: 50px 0 68px 0;
+    margin: 50px auto 68px auto;
     //이건 현재 피그마상으로 margin이 동일함(마진의 기준은 푸터가 아닌 채널톡)
   }
 `;
