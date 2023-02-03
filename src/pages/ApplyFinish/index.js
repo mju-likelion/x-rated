@@ -85,6 +85,9 @@ const ApplyFinishPassDate = styled.span`
 `;
 
 const ApplyCheckButton = styled.button`
+  all: unset;
+  text-align: center;
+  box-sizing: border-box;
   background-color: ${({ theme }) => theme.colors.BLUE1};
   color: ${({ theme }) => theme.colors.WHITE};
   margin-top: 64px;
@@ -93,6 +96,7 @@ const ApplyCheckButton = styled.button`
   border-radius: 36px;
   font-size: 14px;
   font-weight: 700;
+  padding: 16px 23px;
   @media ${({ theme }) => theme.devices.TABLET} {
     border-radius: 35px;
   }
@@ -101,6 +105,7 @@ const ApplyCheckButton = styled.button`
     height: 70px;
     font-size: 20px;
     margin-top: 86px;
+    padding: 22px 27px;
   }
 `;
 
