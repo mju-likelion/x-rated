@@ -12,7 +12,7 @@ const CheckBox = ({ name, text }) => {
       <StyledCheckbox type="checkbox" {...field} />
       <CheckBoxText>
         {text}
-        <p> *</p>
+        <p>*</p>
       </CheckBoxText>
     </CheckboxContainer>
   );
@@ -62,7 +62,9 @@ const CheckboxContainer = styled.div`
 const CheckBoxText = styled(StyledText)`
   font-size: 12px;
   margin: 0 0 0 6px;
-
+  p {
+    margin-left: 3px;
+  }
   @media ${({ theme }) => theme.devices.TABLET} {
     font-size: 14px;
     margin: 0 0 0 9px;

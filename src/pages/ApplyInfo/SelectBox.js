@@ -12,7 +12,7 @@ const SelectBox = ({ selectdata, name, text }) => {
     <SelectContainer>
       <StyledText>
         {text}
-        <p> *</p>
+        <p>*</p>
       </StyledText>
       <DropDown selectdata={selectdata} setValue={setValue} value={value} />
     </SelectContainer>

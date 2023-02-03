@@ -39,12 +39,11 @@ const Title = styled.p`
 `;
 
 const CautionList = styled.ul`
-  padding: 6px 0 0 20px;
+  padding: 4px 0 0 18px;
   margin-top: 6px;
 
   @media ${({ theme }) => theme.devices.TABLET} {
     padding: 8px 0 0 25px;
-    margin-top: 10px;
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
     padding: 10px 0 0 30px;
