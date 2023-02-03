@@ -29,7 +29,8 @@ const ApplyWritePage = () => {
   ];
   //추후 서버 통신시에 마운트되면 문항 질문 받아서 렌더링 (props x)
 
-  const order = Object.keys(initialValues); //이걸 임포트 받는 이유는, 파트별로 문항수가 달라서 선택해서 사용하려고
+  const order = Object.keys(initialValues);
+  //이걸 임포트 받는 이유는, 파트별로 문항수가 달라서 선택해서 사용하려고 => 조건부로 받아서 속성 부여해도 될 듯? 이건 서버연동하면 고민
 
   const formik = useFormik({
     ...formikConfig,
@@ -188,18 +189,14 @@ const FileUploadBorder = styled.div`
           border: 1px solid ${theme.colors.BLUE1};
         `
       : css`
-          border: 1px dashed ${theme.colors.GRAY3};
+          background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='10' ry='10' stroke='%235F5F5FFF' stroke-width='2' stroke-dasharray='8%2c8' stroke-dashoffset='0' stroke-linecap='round'/%3e%3c/svg%3e");
         `};
   margin-top: 6px;
   padding: 16px;
-  max-width: 568px;
   width: 100%;
   gap: 10px;
   box-sizing: border-box;
   border-radius: 10px;
-  @media ${({ theme }) => theme.devices.TABLET} {
-    width: 568px;
-  }
   @media ${({ theme }) => theme.devices.DESKTOP} {
     margin-top: 8px;
     padding: 16px 20px;
