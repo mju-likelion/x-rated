@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
+import Header from './components/Header';
 import ApplyFinishPage from './pages/ApplyFinish';
 import ApplyInfoPage from './pages/ApplyInfo';
 import ApplyMainPage from './pages/ApplyMain';
@@ -14,6 +15,7 @@ function App() {
     <>
       <ThemeProvider theme={Theme}>
         <GlobalStyle />
+        <Header />
         <Routes>
           <Route path="/" element={<ApplyMainPage />} />
           <Route path="/info" element={<ApplyInfoPage />} />
