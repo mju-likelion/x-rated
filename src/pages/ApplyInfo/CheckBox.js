@@ -8,8 +8,8 @@ import { StyledText } from './TextInput';
 const CheckBox = ({ name, text }) => {
   const [field] = useField(name);
   return (
-    <CheckboxContainer>
-      <StyledCheckbox type="checkbox" {...field} />
+    <CheckboxContainer htmlFor={`${name}CheckBox`}>
+      <StyledCheckbox id={`${name}CheckBox`} type="checkbox" {...field} />
       <CheckBoxText>
         {text}
         <p>*</p>
@@ -43,7 +43,7 @@ const StyledCheckbox = styled.input`
   }
 `;
 
-const CheckboxContainer = styled.div`
+const CheckboxContainer = styled.label`
   display: flex;
   align-items: center;
   height: 12px;
