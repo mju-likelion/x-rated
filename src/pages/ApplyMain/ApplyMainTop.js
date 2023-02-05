@@ -65,6 +65,7 @@ const LeftSubTitle = styled.div`
 `;
 
 const LeftTitle = styled.div`
+  font-family: 'Spoqa Han Sans Neo', sans-serif;
   font-weight: 700;
   font-size: 22px;
   line-height: 30px;
@@ -107,6 +108,7 @@ const RightTitle = styled.div`
 `;
 
 const RightSubTitle = styled.div`
+  font-family: 'Spoqa Han Sans Neo', sans-serif;
   margin-top: 4px;
   font-size: 12px;
   font-weight: 400;
