@@ -9,11 +9,19 @@ const TextInput = ({ name, placeholder, text, maxLength }) => {
     const phone = e.target.value;
     setValue([3, 8].includes(phone.length) && value.length < phone.length ? phone.concat('-') : phone);
   };
+
+  const handlePlaceHolder = e => {
+    if (e.target.placeholder === '' && !value && placeholder) {
+      e.target.placeholder = placeholder;
+    } else {
+      e.target.placeholder = '';
+    }
+  };
   return (
     <Container>
       <StyledText>
         {text}
-        <p> *</p>
+        <p>*</p>
       </StyledText>
       <StyledInput
         {...field}
@@ -21,6 +29,9 @@ const TextInput = ({ name, placeholder, text, maxLength }) => {
         maxLength={maxLength}
         onChange={name === 'phone' ? handleChange : field.onChange}
         value={field.value || ''}
+        autoComplete="off"
+        onFocus={handlePlaceHolder}
+        onBlur={handlePlaceHolder}
       />
     </Container>
   );
@@ -33,6 +44,7 @@ export const StyledText = styled.span`
   p {
     display: inline;
     color: ${({ theme }) => theme.colors.ORANGE};
+    margin-left: 3px;
   }
   font-size: 12px;
 
@@ -56,7 +68,6 @@ const Container = styled.div`
   @media ${({ theme }) => theme.devices.TABLET} {
     width: 276px;
     height: 76px;
-    margin-right: 16px;
     margin-bottom: 0;
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
@@ -79,8 +90,13 @@ const StyledInput = styled.input`
   font-size: 14px;
 
   :focus {
+    box-sizing: border-box;
     outline: 1px solid ${({ theme }) => theme.colors.WHITE};
+    border-radius: 10px;
+    overflow: hidden;
+    isolation: isolate;
   }
+
   @media ${({ theme }) => theme.devices.TABLET} {
     height: 52px;
     font-size: 16px;

@@ -12,7 +12,7 @@ const SelectBox = ({ selectdata, name, text }) => {
     <SelectContainer>
       <StyledText>
         {text}
-        <p> *</p>
+        <p>*</p>
       </StyledText>
       <DropDown selectdata={selectdata} setValue={setValue} value={value} />
     </SelectContainer>
@@ -27,7 +27,7 @@ const SelectContainer = styled.div`
     margin-top: 40px;
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
-    margin-top: 74px;
+    margin-top: 50px;
     padding-bottom: 17px;
   }
 `;

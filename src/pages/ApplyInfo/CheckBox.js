@@ -8,11 +8,11 @@ import { StyledText } from './TextInput';
 const CheckBox = ({ name, text }) => {
   const [field] = useField(name);
   return (
-    <CheckboxContainer>
-      <StyledCheckbox type="checkbox" {...field} />
+    <CheckboxContainer htmlFor={`${name}CheckBox`}>
+      <StyledCheckbox id={`${name}CheckBox`} type="checkbox" {...field} />
       <CheckBoxText>
         {text}
-        <p> *</p>
+        <p>*</p>
       </CheckBoxText>
     </CheckboxContainer>
   );
@@ -20,7 +20,7 @@ const CheckBox = ({ name, text }) => {
 
 const StyledCheckbox = styled.input`
   appearance: none;
-  border: 1px solid ${({ theme }) => theme.colors.WHITE};
+  border: 1px solid ${({ theme }) => theme.colors.GRAY3};
   border-radius: 6px;
   width: 22px;
   height: 22px;
@@ -39,10 +39,11 @@ const StyledCheckbox = styled.input`
     background-position: 50%;
     background-repeat: no-repeat;
     background-color: transparent;
+    border: 1px solid ${({ theme }) => theme.colors.WHITE};
   }
 `;
 
-const CheckboxContainer = styled.div`
+const CheckboxContainer = styled.label`
   display: flex;
   align-items: center;
   height: 12px;
@@ -61,7 +62,9 @@ const CheckboxContainer = styled.div`
 const CheckBoxText = styled(StyledText)`
   font-size: 12px;
   margin: 0 0 0 6px;
-
+  p {
+    margin-left: 3px;
+  }
   @media ${({ theme }) => theme.devices.TABLET} {
     font-size: 14px;
     margin: 0 0 0 9px;

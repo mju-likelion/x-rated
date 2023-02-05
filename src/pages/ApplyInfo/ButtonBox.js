@@ -11,7 +11,7 @@ const ButtonBox = ({ buttonsData, name, text }) => {
     <Container>
       <StyledText>
         {text}
-        <p> *</p>
+        <p>*</p>
       </StyledText>
       <ButtonContainer>
         {buttonsData.map(data => (

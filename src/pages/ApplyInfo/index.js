@@ -66,11 +66,13 @@ const ApplyInfoPage = () => {
                 <AgreementTextContainer></AgreementTextContainer>
                 <CheckBox name="personalInfoAgreement" text="개인정보 수집 및 이용 동의" />
 
-                <StyledCautionIcon />
-                <CautionTextContainer>
-                  <CautionNotice />
-                </CautionTextContainer>
-                <CheckBox name="cautionConfirm" text="위의 주의사항을 확인하였습니다." />
+                <CautionContainer>
+                  <StyledCautionIcon />
+                  <CautionTextContainer>
+                    <CautionNotice />
+                  </CautionTextContainer>
+                </CautionContainer>
+                <CheckBox name="cautionConfirm" text="위의 주의사항을 확인하였습니다" />
 
                 <SubmitButtonContainer>
                   <Button
@@ -124,21 +126,26 @@ const StyledForm = styled(Form)`
 
 const InputContainer = styled.div`
   display: flex;
-
   flex-direction: column;
 
   @media ${({ theme }) => theme.devices.TABLET} {
+    flex-direction: row;
+    justify-content: space-between;
     margin: 40px 0;
     flex-direction: row;
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
+    justify-content: flex-start;
     margin-top: 40px;
   }
 `;
 
 const ButtomInputContainer = styled(InputContainer)`
   @media ${({ theme }) => theme.devices.TABLET} {
-    margin: 4px 0 40px 0;
+    margin-top: 4px;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    margin-top: 23px;
   }
 `;
 
@@ -148,21 +155,22 @@ const BreakLine = styled.div`
   background-color: ${({ theme }) => theme.colors.GRAY1};
   width: 100%;
   margin-bottom: 32px;
+  border-radius: 0.5px;
 
   @media ${({ theme }) => theme.devices.TABLET} {
-    margin: 40px;
+    margin: 40px auto;
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
-    margin: 50px 0;
+    margin: 50px auto;
   }
 `;
 
 const ButtomBreakLine = styled(BreakLine)`
   @media ${({ theme }) => theme.devices.TABLET} {
-    margin: 4px 0 40px 0;
+    margin: 4px auto 40px auto;
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
-    margin: 20px 0 50px 0;
+    margin: 20px auto 50px auto;
   }
 `;
 
@@ -191,12 +199,16 @@ const AgreementTextContainer = styled.div`
   }
 `;
 
+const CautionContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+`;
+
 const StyledCautionIcon = styled(Caution)`
-  margin-left: 30px;
   width: 56px;
   height: 62px;
-
-  margin-top: 33px;
+  margin: 33px 0 0 30px;
 
   @media ${({ theme }) => theme.devices.TABLET} {
     margin-top: 40px;
