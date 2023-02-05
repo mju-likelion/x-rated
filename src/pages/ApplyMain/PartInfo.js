@@ -14,13 +14,13 @@ const PartInfo = ({ partInfo }) => {
         <PartInfoImg src={iconPlus} />
       </PartInfoTop>
       <CenterImgBlock>
-        <PartImage part={partInfo.value} />
+        <PartImage part={partInfo.value} width={'186px'} height={'140px'} />
       </CenterImgBlock>
       <PartInfoContent>
         <InfoTitle>무엇을 하나요?</InfoTitle>
-        <InfoCont>{partInfo.info}</InfoCont>
-        <InfoTitle>어떤 툴을 다루나요?</InfoTitle>
-        <InfoCont>{partInfo.tool}</InfoCont>
+        <InfoContent>{partInfo.infoDesktop}</InfoContent>
+        <InfoTitle>무엇을 배우나요?</InfoTitle>
+        <InfoContent>{partInfo.tool}</InfoContent>
       </PartInfoContent>
     </PartInformationBlock>
   );
@@ -40,46 +40,51 @@ const PartInfoImg = styled.img`
 `;
 
 const CenterImgBlock = styled.div`
-  margin-top: 56px;
+  margin-top: 57px;
   display: flex;
   justify-content: center;
 `;
 
 const PartInfoContent = styled.div`
+  white-space: pre-wrap;
+  font-family: 'Spoqa Han Sans Neo', sans-serif;
   display: none;
-  margin: 24px 24px;
-  line-height: 1.3;
-  margin-top: auto;
-  word-break: break-all;
+  margin: auto 24px 24px 24px;
 `;
 
 const InfoTitle = styled.div`
+  margin-top: 20px;
   font-size: 22px;
   font-weight: 700;
-  margin-top: 20px;
+  line-height: 24px;
 `;
 
-const InfoCont = styled.div`
+const InfoContent = styled.div`
   font-size: 16px;
   font-weight: 400;
+  line-height: 20px;
   margin-top: 6px;
   color: ${({ theme }) => theme.colors.GRAY2};
 `;
 
 const PartInformationBlock = styled.div`
-  margin: ${props => (props.info === 'SERVER' ? '30px' : '')};
+  margin: ${props => (props.info === 'SERVER' ? '0 30px' : '0')};
   display: flex;
   flex-direction: column;
   width: 380px;
   height: 300px;
   background-color: ${({ theme }) => theme.colors.GRAY1};
   border-radius: 18px;
-  margin-top: 30px;
 
   &:hover ${PartInfoTop} {
     font-size: 20px;
+    font-weight: 700;
     color: ${({ theme }) => theme.colors.GRAY2};
     transition: all 0.2s ease-out;
+  }
+
+  &:hover ${PartInfoImg} {
+    display: none;
   }
 
   &:hover ${CenterImgBlock} {
