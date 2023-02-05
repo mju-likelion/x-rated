@@ -14,7 +14,7 @@ const PartInfoTablet = ({ partInfo }) => {
         </CenterImgBlock>
         <PartInfoContent>
           <InfoTitle>무엇을 하나요?</InfoTitle>
-          <InfoContent>{partInfo.info_tablet}</InfoContent>
+          <InfoContent>{partInfo.infoTablet}</InfoContent>
           <InfoTitle>무엇을 배우나요?</InfoTitle>
           <InfoContent>{partInfo.tool}</InfoContent>
         </PartInfoContent>

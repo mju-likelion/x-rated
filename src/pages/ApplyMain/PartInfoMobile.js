@@ -18,7 +18,7 @@ const PartInfoMobile = ({ partInfo }) => {
       </CenterImgBlock>
       <PartInfoContent>
         <InfoTitle>무엇을 하나요?</InfoTitle>
-        <InfoContent>{partInfo.info_mobile}</InfoContent>
+        <InfoContent>{partInfo.infoMobile}</InfoContent>
         <InfoTitle>무엇을 배우나요?</InfoTitle>
         <InfoContent>{partInfo.tool}</InfoContent>
       </PartInfoContent>
