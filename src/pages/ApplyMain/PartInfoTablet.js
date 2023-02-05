@@ -14,9 +14,9 @@ const PartInfoTablet = ({ partInfo }) => {
         </CenterImgBlock>
         <PartInfoContent>
           <InfoTitle>무엇을 하나요?</InfoTitle>
-          <InfoCont>{partInfo.info}</InfoCont>
+          <InfoContent>{partInfo.info_tablet}</InfoContent>
           <InfoTitle>무엇을 배우나요?</InfoTitle>
-          <InfoCont>{partInfo.tool}</InfoCont>
+          <InfoContent>{partInfo.tool}</InfoContent>
         </PartInfoContent>
       </WrapContent>
     </PartInformationBlock>
@@ -40,7 +40,6 @@ const CenterImgBlock = styled.div`
 `;
 
 const PartInfoContent = styled.div`
-  word-break: break-all;
   margin: 36px 23px 24px 0;
 `;
 
@@ -50,8 +49,9 @@ const InfoTitle = styled.div`
   line-height: 19px;
 `;
 
-const InfoCont = styled.div`
-  font-family: 'SpoqaHanSansNeo-Regular';
+const InfoContent = styled.div`
+  white-space: pre-wrap;
+  font-family: 'Spoqa Han Sans Neo', sans-serif;
   line-height: 15px;
   font-size: 12px;
   font-weight: 400;

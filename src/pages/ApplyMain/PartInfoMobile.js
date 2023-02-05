@@ -18,9 +18,9 @@ const PartInfoMobile = ({ partInfo }) => {
       </CenterImgBlock>
       <PartInfoContent>
         <InfoTitle>무엇을 하나요?</InfoTitle>
-        <InfoCont>{partInfo.info}</InfoCont>
+        <InfoContent>{partInfo.info_mobile}</InfoContent>
         <InfoTitle>무엇을 배우나요?</InfoTitle>
-        <InfoCont>{partInfo.tool}</InfoCont>
+        <InfoContent>{partInfo.tool}</InfoContent>
       </PartInfoContent>
     </PartInformationBlock>
   );
@@ -50,7 +50,6 @@ const PartInfoContent = styled.div`
   margin: 24px 24px;
   line-height: 1.3;
   margin-top: auto;
-  word-break: break-all;
 `;
 
 const InfoTitle = styled.div`
@@ -60,7 +59,9 @@ const InfoTitle = styled.div`
   margin-top: 16px;
 `;
 
-const InfoCont = styled.div`
+const InfoContent = styled.div`
+  white-space: pre-wrap;
+  font-family: 'Spoqa Han Sans Neo', sans-serif;
   font-size: 12px;
   line-height: 15px;
   font-weight: 400;

@@ -18,16 +18,15 @@ const PartInfo = ({ partInfo }) => {
       </CenterImgBlock>
       <PartInfoContent>
         <InfoTitle>무엇을 하나요?</InfoTitle>
-        <InfoCont>{partInfo.info}</InfoCont>
+        <InfoContent>{partInfo.info_desktop}</InfoContent>
         <InfoTitle>무엇을 배우나요?</InfoTitle>
-        <InfoCont>{partInfo.tool}</InfoCont>
+        <InfoContent>{partInfo.tool}</InfoContent>
       </PartInfoContent>
     </PartInformationBlock>
   );
 };
 
 const PartInfoTop = styled.div`
-  font-family: 'Montserrat', sans-serif;
   font-size: 24px;
   font-weight: 700;
   margin-top: 24px;
@@ -47,9 +46,10 @@ const CenterImgBlock = styled.div`
 `;
 
 const PartInfoContent = styled.div`
+  white-space: pre-wrap;
+  font-family: 'Spoqa Han Sans Neo', sans-serif;
   display: none;
   margin: auto 24px 24px 24px;
-  word-break: break-all;
 `;
 
 const InfoTitle = styled.div`
@@ -59,7 +59,7 @@ const InfoTitle = styled.div`
   line-height: 24px;
 `;
 
-const InfoCont = styled.div`
+const InfoContent = styled.div`
   font-size: 16px;
   font-weight: 400;
   line-height: 20px;
