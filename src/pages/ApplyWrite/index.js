@@ -56,6 +56,7 @@ const ApplyWritePage = () => {
     ...formikConfig,
     ...validationSchema,
     onSubmit: () => {
+      if (!valid) return;
       navigate('/finish');
     },
   });
