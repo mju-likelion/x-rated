@@ -7,7 +7,7 @@ import styled, { css } from 'styled-components';
 import PageMainTitle from '../../components/PageMainTitle';
 
 import Button from './../../components/Button';
-import { formikConfig, initialValues, validationSchema } from './FormikConfig';
+import { createVaildationSchema, formikConfig, initialValues } from './FormikConfig';
 
 const ApplyWritePage = () => {
   const navigate = useNavigate();
@@ -23,17 +23,38 @@ const ApplyWritePage = () => {
     {
       id: 2,
       question:
-        '저희 멋쟁이사자처럼 11기에 지원해 주심에 감사드리며, 지원자분의 지원 동기를 올해의 목표와 연관 지어 서술해 주세요.',
-      maxLength: 700,
+        '나의 한계점을 극복하기 위해 노력하여 달성해본 경험을 문제-과정(노력)-목표달성의 이야기로 서술해주세요.',
+      maxLength: 1000,
+    },
+    {
+      id: 3,
+      question: '웹개발자의 입장에서 평소에 사용하는 서비스에서 개선해야할 점이 있다면 말씀해주세요.',
+      maxLength: 1000,
+    },
+    {
+      id: 4,
+      question:
+        '왜 프론트엔드 파트를 선택하게 되었고 본인이 생각하는 프로젝트 내에서 프론트엔드 파트의 역할을 말씀해주세요.',
+      maxLength: 1000,
+    },
+    {
+      id: 5,
+      question: '이번 멋쟁이사자처럼 11기 활동을 통해서 얻어가고 싶은것을 말씀해주세요.',
+      maxLength: 1000,
     },
   ];
   //추후 서버 통신시에 마운트되면 문항 질문 받아서 렌더링 (props x)
 
+  const isDevelopPart = false; //이건 나중에 파트별로 렌더링 다르게 하는용도 입니다.
+
   const order = Object.keys(initialValues);
   //이걸 임포트 받는 이유는, 파트별로 문항수가 달라서 선택해서 사용하려고 => 조건부로 받아서 속성 부여해도 될 듯? 이건 서버연동하면 고민
 
+  const validationSchema = createVaildationSchema(isDevelopPart);
+
   const formik = useFormik({
     ...formikConfig,
+    ...validationSchema,
     onSubmit: () => {
       navigate('/finish');
     },
@@ -56,8 +77,6 @@ const ApplyWritePage = () => {
 
   const fileData = formik.values.file;
 
-  const partTest = true; //이건 나중에 파트별로 렌더링 다르게 하는용도 입니다.
-
   const isvalid = () => {
     validationSchema.isValid(formik.values).then(valid => {
       if (valid) setValid(true);
@@ -71,7 +90,7 @@ const ApplyWritePage = () => {
   return (
     <>
       <PageMainTitle title="지원서 작성하기" />
-      {partTest && (
+      {isDevelopPart && (
         <>
           <FileUploadContainer>
             <FileTitle>

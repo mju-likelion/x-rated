@@ -6,18 +6,21 @@ export const initialValues = {
   thirdAnswer: '',
   fourthAnswer: '',
   fifthAnswer: '',
-  sixthAnswer: '',
   file: '',
 };
 
-export const validationSchema = Yup.object({
-  firstAnswer: Yup.string().required(),
-  secondAnswer: Yup.string().required(),
-});
+export const createVaildationSchema = isDevelopPart => {
+  return Yup.object({
+    firstAnswer: Yup.string().required(),
+    secondAnswer: Yup.string().required(),
+    thirdAnswer: Yup.string().required(),
+    fourthAnswer: Yup.string().required(),
+    fifthAnswer: isDevelopPart ? Yup.string().required() : null,
+  });
+};
 
 export const formikConfig = {
   initialValues,
-  validationSchema,
   onSubmit: values => {
     alert(JSON.stringify(values, null, 2));
   },
