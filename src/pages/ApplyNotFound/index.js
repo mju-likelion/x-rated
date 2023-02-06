@@ -5,7 +5,7 @@ import { ReactComponent as Logo } from '../../assets/images/404_lion.svg';
 import Button from './../../components/Button';
 const ApplyNotFoundPage = () => {
   return (
-    <div>
+    <>
       <AlertContainer>
         <LogoBox>
           <LionLogo />
@@ -13,7 +13,7 @@ const ApplyNotFoundPage = () => {
         <StatusFont>404</StatusFont>
         <ErrorFont>Page not found</ErrorFont>
         <AlertContentFont>
-          죄송합니다. 찾으려는 페이지의 주소가 <PhoneBreakLine /> 잘못 입력되었거나 주소의 변경 혹은 <PhoneBreakLine />
+          죄송합니다.찾으려는 페이지의 주소가 <PhoneBreakLine /> 잘못 입력되었거나 주소의 변경 혹은 <PhoneBreakLine />
           삭제로 인해 사용하실 수 없습니다.
         </AlertContentFont>
       </AlertContainer>
@@ -21,7 +21,7 @@ const ApplyNotFoundPage = () => {
       <ButtonBox>
         <Button type="button" text={'메인으로'} />
       </ButtonBox>
-    </div>
+    </>
   );
 };
 
