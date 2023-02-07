@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import styled from 'styled-components';
 
@@ -7,21 +7,34 @@ import iconPlus from '../../assets/images/icon_plus.svg';
 import PartImage from './PartImage';
 
 const PartInfoMobile = ({ partInfo }) => {
+  const [isClick, setIsClick] = useState(false);
+
+  const onDisplay = () => {
+    setIsClick(!isClick);
+  };
+
   return (
-    <PartInformationBlock info={partInfo.value}>
-      <PartInfoTop>
-        {partInfo.value}
-        <PartInfoImg src={iconPlus} />
-      </PartInfoTop>
-      <CenterImgBlock>
-        <PartImage part={partInfo.value} width={'155.65px'} height={'117.13px'} />
-      </CenterImgBlock>
-      <PartInfoContent>
-        <InfoTitle>무엇을 하나요?</InfoTitle>
-        <InfoContent>{partInfo.infoMobile}</InfoContent>
-        <InfoTitle>무엇을 배우나요?</InfoTitle>
-        <InfoContent>{partInfo.tool}</InfoContent>
-      </PartInfoContent>
+    <PartInformationBlock info={partInfo.value} onClick={onDisplay}>
+      {isClick ? (
+        <PartInfoTop>
+          {partInfo.value}
+          <PartInfoImg src={iconPlus} />
+        </PartInfoTop>
+      ) : (
+        <PartInfoTopClick>{partInfo.value}</PartInfoTopClick>
+      )}
+      {isClick ? (
+        <CenterImgBlock>
+          <PartImage part={partInfo.value} width={'155.65px'} height={'117.13px'} />
+        </CenterImgBlock>
+      ) : (
+        <PartInfoContent>
+          <InfoTitle>무엇을 하나요?</InfoTitle>
+          <InfoContent>{partInfo.infoMobile}</InfoContent>
+          <InfoTitle>무엇을 배우나요?</InfoTitle>
+          <InfoContent>{partInfo.tool}</InfoContent>
+        </PartInfoContent>
+      )}
     </PartInformationBlock>
   );
 };
@@ -32,6 +45,15 @@ const PartInfoTop = styled.div`
   margin-top: 24px;
   margin-left: 24px;
   display: flex;
+`;
+
+const PartInfoTopClick = styled.div`
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 24px;
+  margin-left: 24px;
+  color: ${({ theme }) => theme.colors.GRAY2};
+  transition: all 0.2s ease-out;
 `;
 
 const PartInfoImg = styled.img`
@@ -46,7 +68,6 @@ const CenterImgBlock = styled.div`
 `;
 
 const PartInfoContent = styled.div`
-  display: none;
   margin: 24px 24px;
   line-height: 1.3;
   margin-top: auto;
@@ -71,27 +92,12 @@ const InfoContent = styled.div`
 
 const PartInformationBlock = styled.div`
   margin: ${props => (props.info === 'SERVER' ? '12px 0' : '0')};
-
   display: flex;
   width: 318px;
   height: 251px;
   flex-direction: column;
   background-color: ${({ theme }) => theme.colors.GRAY1};
   border-radius: 18px;
-
-  &.active ${PartInfoTop} {
-    font-size: 18px;
-    color: ${({ theme }) => theme.colors.GRAY2};
-    transition: all 0.2s ease-out;
-  }
-
-  &.active ${CenterImgBlock} {
-    display: none;
-  }
-
-  &.active ${PartInfoContent} {
-    display: block;
-  }
 `;
 
 export default PartInfoMobile;
