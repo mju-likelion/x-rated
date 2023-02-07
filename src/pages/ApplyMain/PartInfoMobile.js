@@ -14,13 +14,13 @@ const PartInfoMobile = ({ partInfo }) => {
         <PartInfoImg src={iconPlus} />
       </PartInfoTop>
       <CenterImgBlock>
-        <PartImage part={partInfo.value} />
+        <PartImage part={partInfo.value} width={'155.65px'} height={'117.13px'} />
       </CenterImgBlock>
       <PartInfoContent>
         <InfoTitle>무엇을 하나요?</InfoTitle>
-        <InfoCont>{partInfo.info}</InfoCont>
-        <InfoTitle>어떤 툴을 다루나요?</InfoTitle>
-        <InfoCont>{partInfo.tool}</InfoCont>
+        <InfoContent>{partInfo.infoMobile}</InfoContent>
+        <InfoTitle>무엇을 배우나요?</InfoTitle>
+        <InfoContent>{partInfo.tool}</InfoContent>
       </PartInfoContent>
     </PartInformationBlock>
   );
@@ -36,13 +36,11 @@ const PartInfoTop = styled.div`
 
 const PartInfoImg = styled.img`
   margin-left: auto;
-  margin-right: 24px;
+  margin-right: 28px;
 `;
 
 const CenterImgBlock = styled.div`
-  margin-top: 44px;
-  width: 155px;
-  margin: auto;
+  margin: 44px auto 0 auto;
   display: flex;
   justify-content: center;
 `;
@@ -52,29 +50,34 @@ const PartInfoContent = styled.div`
   margin: 24px 24px;
   line-height: 1.3;
   margin-top: auto;
-  word-break: break-all;
 `;
 
 const InfoTitle = styled.div`
   font-size: 15px;
+  line-height: 19px;
   font-weight: 700;
   margin-top: 16px;
 `;
 
-const InfoCont = styled.div`
+const InfoContent = styled.div`
+  white-space: pre-wrap;
+  font-family: 'Spoqa Han Sans Neo', sans-serif;
   font-size: 12px;
+  line-height: 15px;
   font-weight: 400;
-  margin-top: 6px;
+  margin-top: 4px;
   color: ${({ theme }) => theme.colors.GRAY2};
 `;
 
 const PartInformationBlock = styled.div`
+  margin: ${props => (props.info === 'SERVER' ? '12px 0' : '0')};
+
   display: flex;
+  width: 318px;
   height: 251px;
   flex-direction: column;
   background-color: ${({ theme }) => theme.colors.GRAY1};
   border-radius: 18px;
-  margin-bottom: 12px;
 
   &.active ${PartInfoTop} {
     font-size: 18px;

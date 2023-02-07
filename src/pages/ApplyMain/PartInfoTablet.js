@@ -10,13 +10,13 @@ const PartInfoTablet = ({ partInfo }) => {
       <PartInfoTop>{partInfo.value}</PartInfoTop>
       <WrapContent>
         <CenterImgBlock>
-          <PartImage part={partInfo.value} />
+          <PartImageBlock part={partInfo.value} width={'144px'} height={'108px'} />
         </CenterImgBlock>
         <PartInfoContent>
           <InfoTitle>무엇을 하나요?</InfoTitle>
-          <InfoCont>{partInfo.info}</InfoCont>
-          <InfoTitle>어떤 툴을 다루나요?</InfoTitle>
-          <InfoCont>{partInfo.tool}</InfoCont>
+          <InfoContent>{partInfo.infoTablet}</InfoContent>
+          <InfoTitle>무엇을 배우나요?</InfoTitle>
+          <InfoContent>{partInfo.tool}</InfoContent>
         </PartInfoContent>
       </WrapContent>
     </PartInformationBlock>
@@ -24,11 +24,11 @@ const PartInfoTablet = ({ partInfo }) => {
 };
 
 const PartInfoTop = styled.div`
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 700;
   display: flex;
   padding-top: 24px;
-  padding-left: 24px;
+  margin-left: 24px;
 `;
 
 const WrapContent = styled.div`
@@ -36,33 +36,42 @@ const WrapContent = styled.div`
 `;
 
 const CenterImgBlock = styled.div`
-  padding: 35px 17px 24px 24px;
+  margin: 35px 17px 25px 24px;
 `;
 
 const PartInfoContent = styled.div`
-  margin-top: 35.5px;
-  line-height: 1.3;
-  word-break: break-all;
-  margin-right: 23px;
+  margin: 36px 23px 24px 0;
 `;
 
 const InfoTitle = styled.div`
-  font-size: 22px;
+  font-size: 15x;
   font-weight: 700;
+  line-height: 19px;
 `;
 
-const InfoCont = styled.div`
-  font-size: 16px;
+const InfoContent = styled.div`
+  white-space: pre-wrap;
+  font-family: 'Spoqa Han Sans Neo', sans-serif;
+  line-height: 15px;
+  font-size: 12px;
   font-weight: 400;
-  margin-top: 6px;
+  margin-top: 4px;
   margin-bottom: 17px;
   color: ${({ theme }) => theme.colors.GRAY2};
 `;
 
+const PartImageBlock = styled(PartImage)`
+  width: 144px;
+  height: 108px;
+`;
+
 const PartInformationBlock = styled.div`
+  margin: ${props => (props.info === 'SERVER' ? '12px 0' : '0')};
+
+  width: 568px;
+  height: 216px;
   background-color: ${({ theme }) => theme.colors.GRAY1};
   border-radius: 18px;
-  margin-bottom: 13px;
 `;
 
 export default PartInfoTablet;
