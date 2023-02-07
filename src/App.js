@@ -1,4 +1,6 @@
-import { Route, Routes } from 'react-router-dom';
+import { useEffect } from 'react';
+
+import { Route, Routes, useLocation } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
 import Footer from './components/Footer/Footer';
@@ -12,6 +14,12 @@ import GlobalStyle from './styles/GlobalStyle';
 import { Theme } from './styles/Theme';
 
 function App() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   return (
     <>
       <ThemeProvider theme={Theme}>
