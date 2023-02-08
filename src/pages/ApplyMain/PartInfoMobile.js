@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import styled from 'styled-components';
 
@@ -6,34 +6,28 @@ import iconPlus from '../../assets/images/icon_plus.svg';
 
 import PartImage from './PartImage';
 
-const PartInfoMobile = ({ partInfo }) => {
-  const [isClick, setIsClick] = useState(false);
-
-  const onDisplay = () => {
-    setIsClick(!isClick);
-  };
-
+const PartInfoMobile = ({ partInfo, isSelected, handleClick }) => {
   return (
-    <PartInformationBlock info={partInfo.value} onClick={onDisplay}>
-      {isClick ? (
+    <PartInformationBlock info={partInfo.value} onClick={() => handleClick(partInfo.index)}>
+      {isSelected ? (
+        <PartInfoTopClick>{partInfo.value}</PartInfoTopClick>
+      ) : (
         <PartInfoTop>
           {partInfo.value}
           <PartInfoImg src={iconPlus} />
         </PartInfoTop>
-      ) : (
-        <PartInfoTopClick>{partInfo.value}</PartInfoTopClick>
       )}
-      {isClick ? (
-        <CenterImgBlock>
-          <PartImage part={partInfo.value} width={'155.65px'} height={'117.13px'} />
-        </CenterImgBlock>
-      ) : (
+      {isSelected ? (
         <PartInfoContent>
           <InfoTitle>무엇을 하나요?</InfoTitle>
           <InfoContent>{partInfo.infoMobile}</InfoContent>
           <InfoTitle>무엇을 배우나요?</InfoTitle>
           <InfoContent>{partInfo.tool}</InfoContent>
         </PartInfoContent>
+      ) : (
+        <CenterImgBlock>
+          <PartImage part={partInfo.value} width={'155.65px'} height={'117.13px'} />
+        </CenterImgBlock>
       )}
     </PartInformationBlock>
   );
