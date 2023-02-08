@@ -1,6 +1,7 @@
 import { Form, Formik } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import * as Yup from 'yup';
 
 import { ReactComponent as Caution } from '../../assets/images/caution.svg';
 import Button from '../../components/Button';
@@ -10,28 +11,36 @@ import ButtonBox from './ButtonBox';
 import { CAMPUS, ENROLLMENTSTATUS, PART } from './ButtonData';
 import CautionNotice from './CautionNotice';
 import CheckBox from './CheckBox';
-import { FormikConfig } from './FormikConfig';
+import { initialValues } from './InitialValues';
 import SelectBox from './SelectBox';
 import { GRADE } from './SelectData';
 import TextInput from './TextInput';
+import { validation } from './Validation';
 
 const DEFAULT_ERROR = '작성이 완료되지 않은 내용이 있습니다.';
 const FORM_ERROR = '형식에 맞지 않는 값이 존재합니다.';
 
 const ApplyInfoPage = () => {
   const navigate = useNavigate();
-  const toNextPage = values => {
-    FormikConfig.onSubmit(values);
-    navigate('/write');
+
+  const handleValues = values => {
+    navigate('/write', {
+      state: {
+        ...values,
+        phone: values.phone.replace(/-/g, ''),
+        part: values.part.toLowerCase(),
+      },
+    });
   };
+
   return (
     <>
       <PageMainTitle title="지원서 작성하기" />
       <ContentContainer>
         <Formik
-          initialValues={FormikConfig.initialValues}
-          validationSchema={FormikConfig.validationSchema}
-          onSubmit={values => toNextPage(values)}
+          initialValues={initialValues}
+          validationSchema={Yup.object(validation)}
+          onSubmit={values => handleValues(values)}
         >
           {({ errors, handleSubmit, values }) => (
             <>
