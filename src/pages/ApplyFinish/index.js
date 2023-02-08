@@ -24,13 +24,13 @@ const ApplyFinishBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 174px 16px 189px;
-  box-sizing: border-box;
+  justify-content: center;
+  height: calc(100vh - 56px - 100px);
   @media ${({ theme }) => theme.devices.TABLET} {
-    padding: 200px 71px 316px;
+    height: calc(100vh - 70px - 100px);
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
-    padding: 226px 583px 212px;
+    height: calc(100vh - 70px - 210px);
   }
 `;
 
