@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { useFormik } from 'formik';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
 import PageMainTitle from '../../components/PageMainTitle';
@@ -11,7 +11,21 @@ import { createVaildationSchema, formikConfig, initialValues } from './FormikCon
 
 const ApplyWritePage = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+
   const [valid, setValid] = useState(false);
+
+  const infoObject = location.state; //이것도 state로 관리를 해야되나? 한번만 받아오는 값인데
+
+  useEffect(() => {
+    if (!infoObject) {
+      window.alert('잘못된 접근입니다.');
+      navigate('/');
+    } //alert는 지양하는데, 토스트 메세지로?
+    else {
+      console.log(infoObject);
+    }
+  }, []);
 
   const TEMP_QUESTIONS = [
     {
@@ -45,7 +59,7 @@ const ApplyWritePage = () => {
   ];
   //추후 서버 통신시에 마운트되면 문항 질문 받아서 렌더링 (props x)
 
-  const isDevelopPart = false; //이건 나중에 파트별로 렌더링 다르게 하는용도 입니다.
+  const isDevelopPart = true; //이건 나중에 파트별로 렌더링 다르게 하는용도 입니다.
 
   const order = Object.keys(initialValues);
   //이걸 임포트 받는 이유는, 파트별로 문항수가 달라서 선택해서 사용하려고 => 조건부로 받아서 속성 부여해도 될 듯? 이건 서버연동하면 고민
@@ -55,8 +69,12 @@ const ApplyWritePage = () => {
   const formik = useFormik({
     ...formikConfig,
     ...validationSchema,
-    onSubmit: () => {
+    onSubmit: value => {
       if (!valid) return;
+      const sendData = [];
+      sendData.push(infoObject);
+      sendData.push(value);
+      console.log(sendData);
       navigate('/finish');
     },
   });
