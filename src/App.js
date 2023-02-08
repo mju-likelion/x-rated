@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
+import FloatingButton from './components/FloatingButton';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header';
 import ApplyFinishPage from './pages/ApplyFinish';
@@ -24,6 +25,7 @@ function App() {
           <Route path="/finish" element={<ApplyFinishPage />} />
           <Route path="/*" element={<ApplyNotFoundPage />} />
         </Routes>
+        <FloatingButton />
         <Footer />
       </ThemeProvider>
     </>
