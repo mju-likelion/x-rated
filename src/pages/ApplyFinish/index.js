@@ -107,6 +107,10 @@ const ApplyCheckButton = styled.button`
     margin-top: 86px;
     padding: 22px 27px;
   }
+  &:hover {
+    cursor: pointer;
+    background-color: ${({ theme }) => theme.colors.BLUE2};
+  }
 `;
 
 export default ApplyFinishPage;
