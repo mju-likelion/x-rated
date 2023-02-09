@@ -9,6 +9,8 @@ export const initialValues = {
   file: '',
 };
 
+const MAX_FILE_SIZE = 10 * 1024 * 1024;
+
 export const createVaildationSchema = isDevelopPart => {
   return Yup.object({
     firstAnswer: Yup.string().required(),
@@ -20,7 +22,7 @@ export const createVaildationSchema = isDevelopPart => {
       ? Yup.mixed()
           .required()
           .test('fileUpload', 'Unsupported fileSize', value => {
-            return value && value.size > 0;
+            return value && value.size > 0 && value.size < MAX_FILE_SIZE;
           })
       : null,
   });
