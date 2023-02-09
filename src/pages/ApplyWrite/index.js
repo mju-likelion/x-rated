@@ -305,6 +305,7 @@ const WriteBox = styled(WriteContainer)`
 `;
 
 const WriteLength = styled.p`
+  color: ${({ theme }) => theme.colors.GRAY2};
   align-self: flex-end;
   font-size: 14px;
   line-height: 18px;
@@ -327,6 +328,10 @@ const WriteArea = styled.textarea`
   &:focus {
     outline: none;
   }
+  &:focus ~ ${WriteLength} {
+    color: ${({ theme }) => theme.colors.WHITE};
+  }
+
   &::-webkit-scrollbar {
     width: 6px;
     height: 164px;
