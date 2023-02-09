@@ -4,7 +4,6 @@ import { useFormik } from 'formik';
 import { useLocation, useNavigate } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
-import { Axios } from '../../api/Axios';
 import PageMainTitle from '../../components/PageMainTitle';
 
 import Button from './../../components/Button';
@@ -177,7 +176,7 @@ const BaseContainer = styled.div`
   }
 `;
 
-const BaseTitle = styled.p`
+const BaseTitle = styled.span`
   display: inline;
   color: ${({ theme }) => theme.colors.WHITE};
   margin-left: 6px;
