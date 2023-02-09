@@ -278,6 +278,7 @@ const FileUpload = styled.input`
 
 const HorizontalLine = styled(BaseContainer)`
   border: 1px solid ${({ theme }) => theme.colors.GRAY1};
+  border-radius: 1px;
 `;
 
 const WriteContainer = styled(BaseContainer)`
