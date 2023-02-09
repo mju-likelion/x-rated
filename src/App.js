@@ -3,7 +3,8 @@ import { useEffect } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
-import FloatingButton from './components/FloatingButton';
+import ChannelService from './components/ChannelTalk/ChannelService';
+import FloatingButton from './components/ChannelTalk/FloatingButton';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header';
 import ApplyFinishPage from './pages/ApplyFinish';
@@ -20,6 +21,10 @@ function App() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
+
+  ChannelService.boot({
+    pluginKey: process.env.REACT_APP_CHANNEL_TALK, // fill your plugin key
+  });
 
   return (
     <>
