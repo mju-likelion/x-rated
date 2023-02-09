@@ -1,23 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 import styled from 'styled-components';
 
-import { ReactComponent as BigChat } from '../assets/images/btn_floating_l.svg';
-import { ReactComponent as SmallChat } from '../assets/images/btn_floating_s.svg';
+import BigChat from '../assets/images/btn_floating_l.svg';
+import SmallChat from '../assets/images/btn_floating_s.svg';
 
 const FloatingButton = () => {
-  const [innerWidth, setInnerWidth] = useState(window.innerWidth);
-  const DESKTOP_WIDTH = 1199;
-  useEffect(() => {
-    const resizeListener = () => {
-      setInnerWidth(window.innerWidth);
-    };
-    window.addEventListener('resize', resizeListener);
-    return () => {
-      window.removeEventListener('resize', resizeListener);
-    };
-  });
-  return <FloatingButtonBlock>{innerWidth > DESKTOP_WIDTH ? <BigChat /> : <SmallChat />}</FloatingButtonBlock>;
+  return (
+    <FloatingButtonBlock>
+      <BigChatImg src={BigChat} />
+      <SmallChatImg src={SmallChat} />
+    </FloatingButtonBlock>
+  );
 };
 
 const FloatingButtonBlock = styled.div`
@@ -25,8 +19,23 @@ const FloatingButtonBlock = styled.div`
   margin-right: 16px;
   float: right;
   bottom: 0px;
+  cursor: pointer;
   @media ${({ theme }) => theme.devices.DESKTOP} {
     margin-right: 130px;
+  }
+`;
+
+const BigChatImg = styled.img`
+  display: none;
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    display: block;
+  }
+`;
+
+const SmallChatImg = styled.img`
+  display: block;
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    display: none;
   }
 `;
 
