@@ -17,14 +17,14 @@ const ApplyMainPage = () => {
   const TABLET_WIDTH = 599;
   const [clickedArray, setClickedArray] = useState([false, false, false]);
 
-  const handleClick = idx => {
+  const handleClick = index => {
     let newArr = [...clickedArray];
-    if (newArr[idx] == true) {
-      newArr[idx] = false;
+    if (newArr[index] == true) {
+      newArr[index] = false;
       setClickedArray([false, false, false]);
     } else {
       newArr = [false, false, false];
-      newArr[idx] = !newArr[idx];
+      newArr[index] = !newArr[index];
       setClickedArray(newArr);
     }
   };
