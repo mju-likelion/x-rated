@@ -15,7 +15,7 @@ const ApplyMainPage = () => {
   const [innerWidth, setInnerWidth] = useState(window.innerWidth);
   const DESKTOP_WIDTH = 1199;
   const TABLET_WIDTH = 599;
-  const [clikedArray, setClickedArray] = useState([false, false, false]);
+  const [clickedArray, setClickedArray] = useState([false, false, false]);
 
   const handleClick = idx => {
     let newArr = clikedArray;
