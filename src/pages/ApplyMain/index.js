@@ -35,7 +35,7 @@ const ApplyMainPage = () => {
     } else if (innerWidth > TABLET_WIDTH) {
       return <PartInfoTablet partInfo={apply} key={index} />;
     } else {
-      return <PartInfoMobile partInfo={apply} key={index} handleClick={handleClick} isSelected={clikedArray[index]} />;
+      return <PartInfoMobile partInfo={apply} key={index} handleClick={handleClick} isSelected={clickedArray[index]} />;
     }
   };
 
