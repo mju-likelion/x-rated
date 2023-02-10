@@ -96,6 +96,7 @@ const CopyrightBox = styled.div`
   line-height: 10px;
   width: 370px;
   text-align: center;
+  font-family: Montserrat;
   @media ${({ theme }) => theme.devices.DESKTOP} {
     font-size: 12px;
     transform: scale(1);
