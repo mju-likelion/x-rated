@@ -19,7 +19,7 @@ const ApplyMainPage = () => {
 
   const handleClick = index => {
     let newArr = [...clickedArray];
-    if (newArr[index] == true) {
+    if (newArr[index] === true) {
       newArr[index] = false;
       setClickedArray([false, false, false]);
     } else {
