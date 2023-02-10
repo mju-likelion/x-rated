@@ -21,6 +21,7 @@ const MobileNoClick = ({ partInfo }) => {
 };
 
 const PartInfoTop = styled.div`
+  font-family: 'Montserrat', sans-serif;
   font-size: 20px;
   font-weight: 700;
   margin-top: 24px;

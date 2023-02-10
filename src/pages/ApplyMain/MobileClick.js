@@ -17,6 +17,7 @@ const MobileClick = ({ partInfo }) => {
 };
 
 const PartInfoTopClick = styled.div`
+  font-family: 'Montserrat', sans-serif;
   font-size: 18px;
   font-weight: 700;
   margin-top: 24px;
@@ -40,7 +41,6 @@ const InfoTitle = styled.div`
 
 const InfoContent = styled.div`
   white-space: pre-wrap;
-  font-family: 'Spoqa Han Sans Neo', sans-serif;
   font-size: 12px;
   line-height: 15px;
   font-weight: 400;
