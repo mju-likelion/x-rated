@@ -18,7 +18,7 @@ const ApplyMainPage = () => {
   const [clickedArray, setClickedArray] = useState([false, false, false]);
 
   const handleClick = idx => {
-    let newArr = clikedArray;
+    let newArr = [...clickedArray];
     if (newArr[idx] == true) {
       newArr[idx] = false;
       setClickedArray([false, false, false]);
