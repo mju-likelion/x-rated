@@ -7,7 +7,7 @@ import MobileNoClick from './MobileNoClick';
 
 const PartInfoMobile = ({ partInfo, isSelected, handleClick }) => {
   return (
-    <PartInformationBlock info={partInfo.value} onClick={() => handleClick(partInfo.index)}>
+    <PartInformationBlock info={partInfo.value} onClick={() => handleClick(partInfo.key)}>
       {isSelected ? <MobileClick partInfo={partInfo} /> : <MobileNoClick partInfo={partInfo} />}
     </PartInformationBlock>
   );
