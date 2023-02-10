@@ -6,6 +6,7 @@ import { ThemeProvider } from 'styled-components';
 import FloatingButton from './components/FloatingButton';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header';
+import ApplyCheckPage from './pages/ApplyCheck';
 import ApplyFinishPage from './pages/ApplyFinish';
 import ApplyInfoPage from './pages/ApplyInfo';
 import ApplyMainPage from './pages/ApplyMain';
@@ -32,6 +33,7 @@ function App() {
           <Route path="/write" element={<ApplyWritePage />} />
           <Route path="/finish" element={<ApplyFinishPage />} />
           <Route path="/*" element={<ApplyNotFoundPage />} />
+          <Route path="/check" element={<ApplyCheckPage />} />
         </Routes>
         <FloatingButton />
         <Footer />
