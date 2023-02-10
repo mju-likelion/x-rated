@@ -7,12 +7,14 @@ const TextInput = ({ name, placeholder, text, maxLength }) => {
   const { setValue } = helper;
 
   const handleChange = e => {
-    const phone = e.target.value;
-
-    if (Number(phone)) {
-      setValue([3, 8].includes(phone.length) && value.length < phone.length ? phone.concat('-') : phone);
+    const num = e.target.value;
+    const regex = /^[0-9\b -]{0,13}$/;
+    if (regex.test(num) && [-1, 3].includes(num.indexOf('-')) && [-1, 3, 8].includes(num.lastIndexOf('-'))) {
+      setValue(num);
+      if ([3, 8].includes(num.length) && value.length < num.length) {
+        setValue(num.concat('-'));
+      }
     }
-    //정규식 사용하기..
   };
 
   const handlePlaceHolder = e => {
