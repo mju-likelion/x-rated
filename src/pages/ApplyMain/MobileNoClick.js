@@ -14,7 +14,7 @@ const MobileNoClick = ({ partInfo }) => {
         <PartInfoImg src={iconPlus} />
       </PartInfoTop>
       <CenterImgBlock>
-        <PartImage part={partInfo.value} width={'155.65px'} height={'117.13px'} />
+        <PartImage part={partInfo.value} width={'155px'} height={'117px'} />
       </CenterImgBlock>
     </>
   );
