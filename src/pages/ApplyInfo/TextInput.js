@@ -5,9 +5,14 @@ const TextInput = ({ name, placeholder, text, maxLength }) => {
   const [field, meta, helper] = useField(name);
   const { value } = meta;
   const { setValue } = helper;
+
   const handleChange = e => {
     const phone = e.target.value;
-    setValue([3, 8].includes(phone.length) && value.length < phone.length ? phone.concat('-') : phone);
+
+    if (Number(phone)) {
+      setValue([3, 8].includes(phone.length) && value.length < phone.length ? phone.concat('-') : phone);
+    }
+    //정규식 사용하기..
   };
 
   const handlePlaceHolder = e => {
