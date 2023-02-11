@@ -4,6 +4,7 @@ import { useFormik } from 'formik';
 import { useLocation, useNavigate } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
+import { Axios } from '../../api/Axios';
 import PageMainTitle from '../../components/PageMainTitle';
 
 import Button from './../../components/Button';
@@ -77,8 +78,23 @@ const ApplyWritePage = () => {
       const sendData = [];
       sendData.push(infoObject);
       sendData.push(value);
-      console.log(sendData);
-      navigate('/finish');
+      Axios.post(
+        `api/applications/upload-cv/`,
+        { cv: fileData },
+        {
+          params: {
+            sid: infoObject.sid,
+          },
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        },
+      )
+        .then(res => {
+          console.log(res);
+          navigate('/finish');
+        })
+        .catch(err => console.log(err));
     },
   });
 
