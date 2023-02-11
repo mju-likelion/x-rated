@@ -22,8 +22,8 @@ export const createVaildationSchema = isDevelopPart => {
       ? Yup.mixed()
           .required()
           .test('fileUpload', 'Unsupported fileSize', value => {
-            if (value.size < MAX_FILE_SIZE) {
-              //이걸 axios단에서 에러 핸들링하는게 더 나을 것 같음
+            if (value.size > MAX_FILE_SIZE) {
+              return false;
             }
             return value && value.size > 0;
           })

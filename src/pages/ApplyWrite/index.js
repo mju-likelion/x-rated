@@ -4,12 +4,11 @@ import { useFormik } from 'formik';
 import { useLocation, useNavigate } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
-import { Axios } from '../../api/Axios';
+import { sendFileData } from '../../api/Axios';
 import PageMainTitle from '../../components/PageMainTitle';
 
 import Button from './../../components/Button';
 import { createVaildationSchema, formikConfig, initialValues } from './FormikConfig';
-
 const ApplyWritePage = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -78,23 +77,7 @@ const ApplyWritePage = () => {
       const sendData = [];
       sendData.push(infoObject);
       sendData.push(value);
-      Axios.post(
-        `api/applications/upload-cv/`,
-        { cv: fileData },
-        {
-          params: {
-            sid: infoObject.sid,
-          },
-          headers: {
-            'Content-Type': 'multipart/form-data',
-          },
-        },
-      )
-        .then(res => {
-          console.log(res);
-          navigate('/finish');
-        })
-        .catch(err => console.log(err));
+      sendFileData(fileData, infoObject.sid, () => navigate('/finish'));
     },
   });
 
@@ -170,7 +153,11 @@ const ApplyWritePage = () => {
           );
         })}
         <ButtonBox>
-          <Button type="submit" text={'제출하기'} errorMessage={valid ? null : '작성되지않은 문항이 있습니다.'} />
+          <Button
+            type="submit"
+            text={'제출하기'}
+            errorMessage={valid ? null : '작성되지않은 문항 또는 파일의 크기가 너무 큽니다.'}
+          />
         </ButtonBox>
       </WriteForm>
     </>
