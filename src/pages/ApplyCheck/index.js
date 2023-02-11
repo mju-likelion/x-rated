@@ -31,7 +31,6 @@ const ApplyCheckTopBox = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  align-items: center;
   height: calc(100vh - 56px - 160px);
   @media ${({ theme }) => theme.devices.TABLET} {
     height: calc(100vh - 70px - 170px);
