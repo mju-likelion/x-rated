@@ -1,34 +1,29 @@
 import React from 'react';
 
-import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
-import BigLogo from '../assets/images/icon_logo_big.svg';
-import SmallLogo from '../assets/images/icon_logo_small.svg';
+import { ReactComponent as BigLogo } from '../assets/images/icon_logo_big.svg';
+import { ReactComponent as SmallLogo } from '../assets/images/icon_logo_small.svg';
 
-const Logo = ({ to }) => {
-  const navigate = useNavigate();
-
+const Logo = () => {
   return (
     <>
-      <HeaderBigLogoImg src={BigLogo} onClick={() => navigate(to)} />
-      <HeaderSmallLogoImg src={SmallLogo} onClick={() => navigate(to)} />
+      <HeaderBigLogo />
+      <HeaderSmallLogo />
     </>
   );
 };
 
 export default Logo;
 
-const HeaderBigLogoImg = styled.img`
+const HeaderBigLogo = styled(BigLogo)`
   display: none;
-  cursor: pointer;
   @media ${({ theme }) => theme.devices.DESKTOP} {
     display: block;
   }
 `;
 
-const HeaderSmallLogoImg = styled.img`
-  cursor: pointer;
+const HeaderSmallLogo = styled(SmallLogo)`
   @media ${({ theme }) => theme.devices.DESKTOP} {
     display: none;
   }
