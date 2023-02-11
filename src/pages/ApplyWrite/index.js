@@ -15,9 +15,9 @@ const ApplyWritePage = () => {
 
   const [valid, setValid] = useState(false);
 
-  const infoObject = location.state; //이것도 state로 관리를 해야되나? 한번만 받아오는 값인데
+  const infoObject = location?.state; //이것도 state로 관리를 해야되나? 한번만 받아오는 값인데
 
-  const isDevelopPart = infoObject.part !== 'design'; //이건 나중에 파트별로 렌더링 다르게 하는용도 입니다.
+  const isDevelopPart = infoObject?.part !== 'design'; //이건 나중에 파트별로 렌더링 다르게 하는용도 입니다.
 
   useEffect(() => {
     if (!infoObject) {
