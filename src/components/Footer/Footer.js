@@ -72,7 +72,7 @@ const FooterRouteOfficialBox = styled.a`
     margin-top: 14px;
     margin-bottom: 28px;
   }
-  @media ${({ theme }) => theme.devices.TABLET} {
+  @media ${({ theme }) => theme.devices.DESKTOP} {
     margin-top: 24px;
     margin-bottom: 36px;
   }
