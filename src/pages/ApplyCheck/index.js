@@ -11,10 +11,6 @@ import InputFiled from './InputFiled';
 const ApplyCheckPage = () => {
   const [isFocus, setIsFocus] = useState(false);
 
-  const handleInputClick = () => {
-    setIsFocus(true);
-  };
-
   return (
     <ApplyCheckTopBox>
       <ApplyCheckTitleBox>
@@ -22,7 +18,7 @@ const ApplyCheckPage = () => {
         <DisableFindIcon isFocus={isFocus} />
         <AbleFindIcon isFocus={isFocus} />
       </ApplyCheckTitleBox>
-      <InputFiled handleInputClick={handleInputClick} />
+      <InputFiled setIsFocus={setIsFocus} />
       <ApplyCheckBtnBox>
         <Button text={'입력완료'} errorMessage={'작성이 완료되지 않은 내용이 있습니다.'} />
       </ApplyCheckBtnBox>
@@ -36,7 +32,13 @@ const ApplyCheckTopBox = styled.div`
   align-items: center;
   flex-direction: column;
   align-items: center;
-  height: calc(100vh - 56px - 160px - 118px);
+  height: calc(100vh - 56px - 160px);
+  @media ${({ theme }) => theme.devices.TABLET} {
+    height: calc(100vh - 70px - 170px);
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    height: calc(100vh - 70px - 232px);
+  }
 `;
 
 const ApplyCheckTitleBox = styled.div`
@@ -46,6 +48,14 @@ const ApplyCheckTitleBox = styled.div`
   display: flex;
   border-bottom: 1px solid ${({ theme }) => theme.colors.GRAY1};
   margin-bottom: 30px;
+  @media ${({ theme }) => theme.devices.TABLET} {
+    width: 400px;
+    gap: 83px;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    width: 483px;
+    gap: 88px;
+  }
 `;
 
 const ApplyCheckTitle = styled.div`
@@ -53,6 +63,14 @@ const ApplyCheckTitle = styled.div`
   line-height: 26px;
   font-weight: 700;
   text-align: center;
+  @media ${({ theme }) => theme.devices.TABLET} {
+    font-size: 30px;
+    line-height: 42px;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    font-size: 40px;
+    line-height: 56px;
+  }
 `;
 
 const DisableFindIcon = styled(DisableFindSvg)`
@@ -61,6 +79,14 @@ const DisableFindIcon = styled(DisableFindSvg)`
     css`
       display: none;
     `}
+  @media ${({ theme }) => theme.devices.TABLET} {
+    width: 30px;
+    height: 64px;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    width: 38px;
+    height: 80px;
+  }
 `;
 
 const AbleFindIcon = styled(AbleFindSvg)`
@@ -70,10 +96,21 @@ const AbleFindIcon = styled(AbleFindSvg)`
     css`
       display: block;
     `}
+  @media ${({ theme }) => theme.devices.TABLET} {
+    width: 30px;
+    height: 64px;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    width: 38px;
+    height: 80px;
+  }
 `;
 
 const ApplyCheckBtnBox = styled.div`
   margin-top: 70px;
+  @media ${({ theme }) => theme.devices.TABLET} {
+    margin-top: 100px;
+  }
 `;
 
 export default ApplyCheckPage;

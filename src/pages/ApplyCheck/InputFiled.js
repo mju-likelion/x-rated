@@ -2,7 +2,11 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-const InputFiled = handleInputClick => {
+const InputFiled = ({ setIsFocus }) => {
+  const handleInputClick = () => {
+    setIsFocus(true);
+  };
+
   return (
     <ApplyCheckAllInputFiled>
       <ApplyCheckInputField>
@@ -47,6 +51,14 @@ const ApplyCheckInputName = styled.div`
   font-size: 12px;
   line-height: 15px;
   font-weight: 400;
+  @media ${({ theme }) => theme.devices.TABLET} {
+    font-size: 14px;
+    line-height: 17px;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    font-size: 18px;
+    line-height: 22px;
+  }
 `;
 
 const ApplyCheckAsterisk = styled.span`
@@ -63,13 +75,25 @@ const ApplyCheckInput = styled.input`
   border-radius: 10px;
   color: ${({ theme }) => theme.colors.WHITE};
   font-size: 14px;
-  line-height: 30px;
+  line-height: 18px;
   padding-left: 16px;
   &:focus {
     outline: 1px solid ${({ theme }) => theme.colors.WHITE};
   }
   ::placeholder {
     color: ${({ theme }) => theme.colors.GRAY3};
+  }
+  @media ${({ theme }) => theme.devices.TABLET} {
+    width: 276px;
+    height: 52px;
+    font-size: 16px;
+    line-height: 20px;
+  }
+  @media ${({ theme }) => theme.devices.TABLET} {
+    width: 483px;
+    height: 62px;
+    font-size: 20px;
+    line-height: 30px;
   }
 `;
 
