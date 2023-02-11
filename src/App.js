@@ -24,6 +24,8 @@ function App() {
 
   ChannelService.boot({
     pluginKey: process.env.REACT_APP_CHANNEL_TALK, // fill your plugin key
+    customLauncherSelector: '#custom-button', // 커스텀 버튼
+    hideChannelButtonOnBoot: true,
   });
 
   return (
