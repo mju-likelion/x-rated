@@ -6,7 +6,10 @@ export const Axios = axios.create({
 
 export const sendData = (sendDataObejct, callbackFunction) => {
   const applyObject = sendDataObejct;
-  const file = applyObject.applicationInfo.file;
+  const file = applyObject.applicationInfo?.file;
+  if (!file) {
+    return sendApplyData(applyObject, null, callbackFunction);
+  }
   const sid = applyObject.personalInfo.sid;
   Axios.post(
     `api/applications/upload-cv/`,
@@ -31,7 +34,7 @@ export const sendData = (sendDataObejct, callbackFunction) => {
 const sendApplyData = (sendDataObject, url, callbackFunction) => {
   const applyObject = sendDataObject;
   delete applyObject.applicationInfo.file;
-  applyObject.applicationInfo.cvUrl = url;
+  if (url) applyObject.applicationInfo.cvUrl = url; //이건 나중에 서버랑 싱크 맞추기
   applyObject.applicationInfo.sixthAnswer = '이건 일단 test값';
   Axios.post(`/api/applications`, { ...applyObject })
     .then(res => {
@@ -39,4 +42,5 @@ const sendApplyData = (sendDataObject, url, callbackFunction) => {
       callbackFunction();
     })
     .catch(err => console.log(err));
+  //이거 나중에 에러 핸들링
 };
