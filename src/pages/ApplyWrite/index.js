@@ -4,7 +4,7 @@ import { useFormik } from 'formik';
 import { useLocation, useNavigate } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
-import { sendFileData } from '../../api/Axios';
+import { Axios, sendFileData } from '../../api/Axios';
 import PageMainTitle from '../../components/PageMainTitle';
 
 import Button from './../../components/Button';
@@ -69,15 +69,25 @@ const ApplyWritePage = () => {
 
   const validationSchema = createVaildationSchema(isDevelopPart);
 
+  const test = (value, url) => {
+    const createApplicationDto = {};
+    createApplicationDto.personalInfo = infoObject;
+    createApplicationDto.applicationInfo = value;
+    createApplicationDto.applicationInfo.cvUrl =
+      'https://ballantines-static.s3.ap-northeast-2.amazonaws.com/cv/60171930-yebin-brother-is-babo.html';
+    createApplicationDto.applicationInfo.sixthAnswer = '이건 일단 test값';
+    Axios.post(`/api/applications`, { ...createApplicationDto })
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
+  };
+
   const formik = useFormik({
     ...formikConfig,
     ...validationSchema,
     onSubmit: value => {
       if (!valid) return;
-      const sendData = [];
-      sendData.push(infoObject);
-      sendData.push(value);
-      sendFileData(fileData, infoObject.sid, () => navigate('/finish'));
+      sendFileData(fileData, infoObject.sid, () => test(value));
+      // sendFileData(fileData, infoObject.sid, () => navigate('/finish'));
     },
   });
 
