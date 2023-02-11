@@ -1,20 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import styled from 'styled-components';
 
 import BigChat from '../../assets/images/btn_floating_l.svg';
 import SmallChat from '../../assets/images/btn_floating_s.svg';
 
-class FloatingButton extends Component {
-  render() {
-    return (
-      <FloatingButtonBlock id="custom-button">
-        <BigChatImg src={BigChat} />
-        <SmallChatImg src={SmallChat} />
-      </FloatingButtonBlock>
-    );
-  }
-}
+const FloatingButton = () => {
+  return (
+    <FloatingButtonBlock id="custom-button">
+      <BigChatImg src={BigChat} />
+      <SmallChatImg src={SmallChat} />
+    </FloatingButtonBlock>
+  );
+};
 
 const FloatingButtonBlock = styled.div`
   position: sticky;
