@@ -2,13 +2,13 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-const InputFiled = ({ setIsFocus }) => {
+const InputField = ({ setIsFocus }) => {
   const handleInputClick = () => {
     setIsFocus(true);
   };
 
   return (
-    <ApplyCheckAllInputFiled>
+    <ApplyCheckAllInputField>
       <ApplyCheckInputField>
         <ApplyCheckInputNameBox>
           <ApplyCheckInputName>
@@ -25,11 +25,11 @@ const InputFiled = ({ setIsFocus }) => {
         </ApplyCheckInputNameBox>
         <ApplyCheckInput placeholder="60XXXXXX" onClick={handleInputClick} />
       </ApplyCheckInputField>
-    </ApplyCheckAllInputFiled>
+    </ApplyCheckAllInputField>
   );
 };
 
-const ApplyCheckAllInputFiled = styled.div`
+const ApplyCheckAllInputField = styled.div`
   display: flex;
   gap: 20px;
   flex-direction: column;
@@ -97,4 +97,4 @@ const ApplyCheckInput = styled.input`
   }
 `;
 
-export default InputFiled;
+export default InputField;

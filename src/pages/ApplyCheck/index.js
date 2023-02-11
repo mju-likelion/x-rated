@@ -6,7 +6,7 @@ import { ReactComponent as AbleFindSvg } from '../../assets/images/icon_find_abl
 import { ReactComponent as DisableFindSvg } from '../../assets/images/icon_find_disable.svg';
 import Button from '../../components/Button';
 
-import InputFiled from './InputFiled';
+import InputField from './InputField';
 
 const ApplyCheckPage = () => {
   const [isFocus, setIsFocus] = useState(false);
@@ -18,7 +18,7 @@ const ApplyCheckPage = () => {
         <DisableFindIcon isFocus={isFocus} />
         <AbleFindIcon isFocus={isFocus} />
       </ApplyCheckTitleBox>
-      <InputFiled setIsFocus={setIsFocus} />
+      <InputField setIsFocus={setIsFocus} />
       <ApplyCheckBtnBox>
         <Button text={'입력완료'} errorMessage={'작성이 완료되지 않은 내용이 있습니다.'} />
       </ApplyCheckBtnBox>
