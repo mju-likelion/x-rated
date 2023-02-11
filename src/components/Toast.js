@@ -35,9 +35,9 @@ const ToastBox = styled.div`
   display: flex;
   align-items: center;
   gap: 12px;
-  position: absolute;
+  position: fixed;
   z-index: 1;
-  bottom: 5%;
+  bottom: 45px;
   left: 50%;
   transform: translate(-50%, -50%);
 `;
