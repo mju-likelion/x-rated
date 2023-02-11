@@ -65,7 +65,6 @@ const ApplyFinishContentsLine = styled.div`
   font-size: 14px;
   font-weight: 500;
   line-height: 22px;
-  font-family: Spoqa Han Sans Neo;
   @media ${({ theme }) => theme.devices.TABLET} {
     font-size: 16px;
     line-height: 24px;

@@ -24,6 +24,7 @@ const PartInfoTablet = ({ partInfo }) => {
 };
 
 const PartInfoTop = styled.div`
+  font-family: 'Montserrat', sans-serif;
   font-size: 20px;
   font-weight: 700;
   display: flex;
@@ -51,7 +52,6 @@ const InfoTitle = styled.div`
 
 const InfoContent = styled.div`
   white-space: pre-wrap;
-  font-family: 'Spoqa Han Sans Neo', sans-serif;
   line-height: 15px;
   font-size: 12px;
   font-weight: 400;

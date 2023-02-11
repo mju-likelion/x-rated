@@ -11,7 +11,10 @@ const Header = () => {
   return (
     <HeaderTopBox>
       <HeaderBox>
-        <Logo to={'/'} />
+        <HeaderLogoBox onClick={() => navigate('/')}>
+          <Logo />
+          <HeaderSiteInfo>APPLY</HeaderSiteInfo>
+        </HeaderLogoBox>
         <RightNavBox>
           <RightNavItem onClick={() => navigate('/info')}>지원하기</RightNavItem>
           <RightNavItem>지원확인하기</RightNavItem>
@@ -42,6 +45,30 @@ const HeaderBox = styled.div`
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
     padding: 15px 0;
+  }
+`;
+
+const HeaderLogoBox = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  cursor: pointer;
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    gap: 6px;
+  }
+`;
+
+const HeaderSiteInfo = styled.div`
+  font-size: 15px;
+  line-height: 10px;
+  font-weight: 500;
+  font-family: Montserrat;
+  @media ${({ theme }) => theme.devices.TABLET} {
+    font-size: 17px;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    font-size: 28px;
+    line-height: 21px;
   }
 `;
 
