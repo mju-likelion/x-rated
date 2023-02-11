@@ -30,6 +30,7 @@ export const sendData = (sendDataObejct, callbackFunction) => {
 
 const sendApplyData = (sendDataObject, url, callbackFunction) => {
   const applyObject = sendDataObject;
+  delete applyObject.applicationInfo.file;
   applyObject.applicationInfo.cvUrl = url;
   applyObject.applicationInfo.sixthAnswer = '이건 일단 test값';
   Axios.post(`/api/applications`, { ...applyObject })
