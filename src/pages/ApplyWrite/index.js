@@ -4,7 +4,7 @@ import { useFormik } from 'formik';
 import { useLocation, useNavigate } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
-import { Axios, sendFileData } from '../../api/Axios';
+import { sendData } from '../../api/Axios';
 import PageMainTitle from '../../components/PageMainTitle';
 
 import Button from './../../components/Button';
@@ -15,18 +15,18 @@ const ApplyWritePage = () => {
 
   const [valid, setValid] = useState(false);
 
-  const infoObject = location?.state; //이것도 state로 관리를 해야되나? 한번만 받아오는 값인데
+  const personalInfo = location?.state; //이것도 state로 관리를 해야되나? 한번만 받아오는 값인데
 
-  const isDevelopPart = infoObject?.part !== 'design'; //이건 나중에 파트별로 렌더링 다르게 하는용도 입니다.
+  const isDevelopPart = personalInfo?.part !== 'design'; //이건 나중에 파트별로 렌더링 다르게 하는용도 입니다.
 
   useEffect(() => {
-    if (!infoObject) {
+    if (!personalInfo) {
       window.alert('잘못된 접근입니다.');
       navigate('/');
     } //alert는 지양하는데, 토스트 메세지로?
     else {
-      console.log(infoObject);
-      // Axios.get(`/api/assets/questions/${infoObject.part}`)
+      console.log(personalInfo);
+      // Axios.get(`/api/assets/questions/${personalInfo.part}`)
       //   .then(res => console.log(res))
       //   .catch(err => console.log(err));
     }
@@ -69,25 +69,13 @@ const ApplyWritePage = () => {
 
   const validationSchema = createVaildationSchema(isDevelopPart);
 
-  const test = (value, url) => {
-    const createApplicationDto = {};
-    createApplicationDto.personalInfo = infoObject;
-    createApplicationDto.applicationInfo = value;
-    createApplicationDto.applicationInfo.cvUrl =
-      'https://ballantines-static.s3.ap-northeast-2.amazonaws.com/cv/60171930-yebin-brother-is-babo.html';
-    createApplicationDto.applicationInfo.sixthAnswer = '이건 일단 test값';
-    Axios.post(`/api/applications`, { ...createApplicationDto })
-      .then(res => console.log(res))
-      .catch(err => console.log(err));
-  };
-
   const formik = useFormik({
     ...formikConfig,
     ...validationSchema,
-    onSubmit: value => {
-      if (!valid) return;
-      sendFileData(fileData, infoObject.sid, () => test(value));
-      // sendFileData(fileData, infoObject.sid, () => navigate('/finish'));
+    onSubmit: applicationInfo => {
+      if (!applicationInfo) return;
+      const applyObejct = { applicationInfo, personalInfo };
+      sendData(applyObejct, () => navigate('/finish'));
     },
   });
 
