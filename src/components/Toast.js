@@ -37,9 +37,15 @@ const ToastBox = styled.div`
   gap: 12px;
   position: fixed;
   z-index: 1;
-  bottom: 45px;
+  bottom: 44px;
   left: 50%;
   transform: translate(-50%, -50%);
+  @media ${({ theme }) => theme.devices.TABLET} {
+    bottom: 41px;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    bottom: 38px;
+  }
 `;
 
 const ToastTypeIcon = styled.img`
