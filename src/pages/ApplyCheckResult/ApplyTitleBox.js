@@ -20,7 +20,6 @@ const ApplyCheckTitleBox = styled.div`
   gap: 48px;
   display: flex;
   border-bottom: 1px solid ${({ theme }) => theme.colors.GRAY1};
-  margin-bottom: 30px;
   @media ${({ theme }) => theme.devices.TABLET} {
     width: 400px;
     gap: 83px;

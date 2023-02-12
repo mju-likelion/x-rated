@@ -6,7 +6,7 @@ import FailContent from './FailContent';
 import SuccessContent from './SuccessContent';
 
 const ApplyResultPage = () => {
-  const [isSuccess, setIsSuccess] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(true);
   return <ApplyCheckTopBox>{isSuccess ? <SuccessContent /> : <FailContent />}</ApplyCheckTopBox>;
 };
 

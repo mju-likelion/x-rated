@@ -33,7 +33,7 @@ function App() {
           <Route path="/write" element={<ApplyWritePage />} />
           <Route path="/finish" element={<ApplyFinishPage />} />
           <Route path="/*" element={<ApplyNotFoundPage />} />
-          <Route path="/success" element={<ApplySuccessPage />} />
+          <Route path="/result" element={<ApplySuccessPage />} />
         </Routes>
         <FloatingButton />
         <Footer />
