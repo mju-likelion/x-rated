@@ -33,6 +33,20 @@ const ApplyInfoPage = () => {
     });
   };
 
+  const handleError = (values, errors) => {
+    if (!values?.name) {
+      return DEFAULT_ERROR;
+    }
+    if (Object.keys(errors).length > 0) {
+      if (Object.values(errors).includes('form')) {
+        return DEFAULT_ERROR;
+      }
+      return FORM_ERROR;
+    } else {
+      return null;
+    }
+  };
+
   return (
     <>
       <PageMainTitle title="지원서 작성하기" />
@@ -87,15 +101,7 @@ const ApplyInfoPage = () => {
                   <Button
                     type="submit"
                     text="다음으로"
-                    errorMessage={
-                      !values.name
-                        ? DEFAULT_ERROR
-                        : Object.values(errors).includes('form')
-                        ? FORM_ERROR
-                        : Object.keys(errors).length > 0
-                        ? DEFAULT_ERROR
-                        : null
-                    }
+                    errorMessage={handleError(values, errors)}
                     onClick={handleSubmit}
                   />
                 </SubmitButtonContainer>
