@@ -1,15 +1,12 @@
-import React from 'react';
-
 import styled from 'styled-components';
 
-import { ReactComponent as FailFindImg } from '../../assets/images/icon_find_fail.svg';
-import { ReactComponent as SuccessFindImg } from '../../assets/images/icon_find_success.svg';
+import ResultImage from './ResultImage';
 
-const ApplyTitleBox = ({ success }) => {
+const ApplyTitleBox = ({ result }) => {
   return (
     <ApplyCheckTitleBox>
       <ApplyCheckTitle>지원 확인하기</ApplyCheckTitle>
-      {success ? <SuccessFindIcon /> : <FailFindIcon />}
+      <ResultImage result={result} />
     </ApplyCheckTitleBox>
   );
 };
@@ -42,28 +39,6 @@ const ApplyCheckTitle = styled.div`
   @media ${({ theme }) => theme.devices.DESKTOP} {
     font-size: 40px;
     line-height: 56px;
-  }
-`;
-
-const SuccessFindIcon = styled(SuccessFindImg)`
-  @media ${({ theme }) => theme.devices.TABLET} {
-    width: 30px;
-    height: 64px;
-  }
-  @media ${({ theme }) => theme.devices.DESKTOP} {
-    width: 38px;
-    height: 80px;
-  }
-`;
-
-const FailFindIcon = styled(FailFindImg)`
-  @media ${({ theme }) => theme.devices.TABLET} {
-    width: 30px;
-    height: 64px;
-  }
-  @media ${({ theme }) => theme.devices.DESKTOP} {
-    width: 38px;
-    height: 80px;
   }
 `;
 

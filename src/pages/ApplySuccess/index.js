@@ -2,19 +2,33 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import ApplyTitleBox from './ApplyTitleBox';
+import ApplyCheckTitleBox from '../../components/ApplyResult/ApplyCheckTitleBox';
 
-const SuccessContent = () => {
+const ApplySuccessPage = () => {
   return (
-    <>
-      <ApplyTitleBox success={true} />
+    <ApplyCheckTopBox>
+      <ApplyCheckTitleBox result={'SUCCESS'} />
       <ApplySuccessResult>
         김땡땡님의 지원이&nbsp;
         <GreenBottonLine>확인되었습니다</GreenBottonLine>
       </ApplySuccessResult>
-    </>
+    </ApplyCheckTopBox>
   );
 };
+
+const ApplyCheckTopBox = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: calc(100vh - 56px - 160px);
+  @media ${({ theme }) => theme.devices.TABLET} {
+    height: calc(100vh - 70px - 170px);
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    height: calc(100vh - 70px - 232px);
+  }
+`;
 
 const ApplySuccessResult = styled.div`
   font-size: 14px;
@@ -41,4 +55,4 @@ const GreenBottonLine = styled.span`
   }
 `;
 
-export default SuccessContent;
+export default ApplySuccessPage;
