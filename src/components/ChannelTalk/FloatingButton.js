@@ -29,11 +29,13 @@ const BigChatImg = styled.img`
   display: none;
   @media ${({ theme }) => theme.devices.DESKTOP} {
     display: block;
+    margin-bottom: 69px;
   }
 `;
 
 const SmallChatImg = styled.img`
   display: block;
+  margin-bottom: 43px;
   @media ${({ theme }) => theme.devices.DESKTOP} {
     display: none;
   }
