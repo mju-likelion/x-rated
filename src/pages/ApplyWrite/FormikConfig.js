@@ -22,10 +22,11 @@ export const createVaildationSchema = isDevelopPart => {
       ? Yup.mixed()
           .required()
           .test('fileUpload', 'Unsupported fileSize', value => {
+            if (!value) return;
             if (value.size > MAX_FILE_SIZE) {
               return false;
             }
-            return value && value.size > 0;
+            return value.size > 0;
           })
       : null,
   });

@@ -16,9 +16,9 @@ const ApplyWritePage = () => {
   const [valid, setValid] = useState(false);
   const [questionList, setQuestionList] = useState([]);
 
-  const personalInfo = location?.state; //이것도 state로 관리를 해야되나? 한번만 받아오는 값인데
+  const personalInfo = location?.state;
 
-  const isDevelopPart = personalInfo?.part !== 'design'; //이건 나중에 파트별로 렌더링 다르게 하는용도 입니다.
+  const isDevelopPart = personalInfo?.part !== 'design';
 
   useEffect(() => {
     if (!personalInfo) {
@@ -31,7 +31,6 @@ const ApplyWritePage = () => {
   }, []);
 
   const order = Object.keys(initialValues);
-  //이걸 임포트 받는 이유는, 파트별로 문항수가 달라서 선택해서 사용하려고 => 조건부로 받아서 속성 부여해도 될 듯? 이건 서버연동하면 고민
 
   const validationSchema = createVaildationSchema(isDevelopPart);
 
@@ -100,7 +99,6 @@ const ApplyWritePage = () => {
               <BaseTitle>
                 {` ${index + 1}. ${item.question}`}
                 <Star>*</Star>
-                {/* 추후 서버통신하면 변경요망 */}
               </BaseTitle>
               <WriteBox>
                 <WriteArea
