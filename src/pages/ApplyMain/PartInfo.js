@@ -60,7 +60,8 @@ const InfoTitle = styled.div`
 `;
 
 const InfoContent = styled.div`
-  font-size: 16px;
+  word-break: keep-all;
+  font-size: 15px;
   font-weight: 400;
   line-height: 20px;
   margin-top: 6px;
