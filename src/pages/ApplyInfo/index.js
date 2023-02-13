@@ -15,15 +15,20 @@ import { initialValues } from './InitialValues';
 import SelectBox from './SelectBox';
 import { GRADE } from './SelectData';
 import TextInput from './TextInput';
+import { useLocalStorageState } from './useLocalStorageStateHook';
 import { validation } from './Validation';
 
 const DEFAULT_ERROR = '작성이 완료되지 않은 내용이 있습니다.';
 const FORM_ERROR = '형식에 맞지 않는 값이 존재합니다.';
 
+const STORAGE_KEY = 'INFOVALUE';
+
 const ApplyInfoPage = () => {
   const navigate = useNavigate();
+  const [localStorageState, updateLocalStorageState] = useLocalStorageState({ key: STORAGE_KEY, value: initialValues });
 
   const handleValues = values => {
+    updateLocalStorageState(values);
     navigate('/write', {
       state: {
         ...values,
@@ -52,7 +57,7 @@ const ApplyInfoPage = () => {
       <PageMainTitle title="지원서 작성하기" />
       <ContentContainer>
         <Formik
-          initialValues={initialValues}
+          initialValues={localStorageState}
           validationSchema={Yup.object(validation)}
           onSubmit={values => handleValues(values)}
         >

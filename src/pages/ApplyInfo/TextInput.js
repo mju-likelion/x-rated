@@ -24,6 +24,7 @@ const TextInput = ({ name, placeholder, text, maxLength }) => {
       e.target.placeholder = '';
     }
   };
+
   return (
     <Container>
       <StyledText>
