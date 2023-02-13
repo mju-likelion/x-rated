@@ -108,7 +108,6 @@ const CopyrightBox = styled.div`
     transform: scale(1);
     width: 436px;
     line-height: 15px;
-    text-align: center;
   }
 `;
 
