@@ -40,13 +40,16 @@ const FooterBox = styled.div`
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
+  padding-bottom: 24px;
   align-items: center;
   @media ${({ theme }) => theme.devices.TABLET} {
     height: 170px;
+    padding-bottom: 30px;
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
     height: 232px;
+    padding-bottom: 40px;
   }
 `;
 
@@ -57,24 +60,24 @@ const FooterIconsBox = styled.div`
   gap: 16px;
   @media ${({ theme }) => theme.devices.DESKTOP} {
     width: 440px;
+    height: 56px;
   }
 `;
 
 const FooterRouteOfficialBox = styled.a`
   display: flex;
   align-items: center;
-  margin-top: 14px;
-  margin-bottom: 24px;
+  margin-top: 12px;
+  margin-bottom: 18px;
   gap: 4px;
   text-decoration: none;
   cursor: pointer;
   @media ${({ theme }) => theme.devices.TABLET} {
-    margin-top: 14px;
-    margin-bottom: 28px;
+    margin-bottom: 22px;
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
-    margin-top: 24px;
-    margin-bottom: 36px;
+    margin-top: 20px;
+    margin-bottom: 30px;
   }
 `;
 
@@ -84,8 +87,10 @@ const FooterRouteOfficialBtn = styled.button`
   font-size: 12px;
   line-height: 10px;
   text-align: center;
+  height: 26px;
   @media ${({ theme }) => theme.devices.DESKTOP} {
     font-size: 14px;
+    height: 30px;
   }
 `;
 
@@ -99,8 +104,10 @@ const CopyrightBox = styled.div`
   font-family: Montserrat;
   @media ${({ theme }) => theme.devices.DESKTOP} {
     font-size: 12px;
+    height: 16px;
     transform: scale(1);
-    width: 100%;
+    width: 436px;
+    line-height: 15px;
     text-align: center;
   }
 `;
