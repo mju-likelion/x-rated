@@ -1,12 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import Logo from './Logo';
 
 const Header = () => {
   const navigate = useNavigate();
+
+  //Line 11~ 19까지, write경로에서 지원하기 버튼 비활성화 이벤트입니다
+  const path = useLocation().pathname;
+  const [isShow, setIsShow] = useState(true);
+
+  useEffect(() => {
+    if (path === '/write') {
+      setIsShow(false);
+    } else setIsShow(true);
+  }, [path]);
 
   return (
     <HeaderTopBox>
@@ -16,7 +26,10 @@ const Header = () => {
           <HeaderSiteInfo>APPLY</HeaderSiteInfo>
         </HeaderLogoBox>
         <RightNavBox>
-          <RightNavItem onClick={() => navigate('/info')}>지원하기</RightNavItem>
+          {/* props를 통하여 조건부 스타일링을 적용합니다, 해당 적용 여부는 추후에 컨펌하고 확정짓도록 하겠습니다 */}
+          <RightNavItem isshow={isShow} onClick={() => navigate('/info')}>
+            <Test isshow={isShow}>지원하기</Test>
+          </RightNavItem>
           <RightNavItem>지원확인하기</RightNavItem>
         </RightNavBox>
       </HeaderBox>
@@ -91,7 +104,12 @@ const RightNavBox = styled.div`
 
 const RightNavItem = styled.button`
   all: unset;
-  cursor: pointer;
+  cursor: ${({ isshow }) => (isshow ? 'pointer' : 'default')};
+`;
+
+//확실한거 아니라서, 테스트용이라고 명시하였습니다.
+const Test = styled.p`
+  opacity: ${({ isshow }) => (isshow ? 1.0 : 0.2)};
 `;
 
 export default Header;
