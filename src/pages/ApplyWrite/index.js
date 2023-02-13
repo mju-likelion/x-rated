@@ -4,7 +4,7 @@ import { useFormik } from 'formik';
 import { useLocation, useNavigate } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
-import { sendApplyData } from '../../api/Axios';
+import { getApplyQuestionList, sendApplyData } from '../../api/Axios';
 import PageMainTitle from '../../components/PageMainTitle';
 
 import Button from './../../components/Button';
@@ -14,6 +14,7 @@ const ApplyWritePage = () => {
   const location = useLocation();
 
   const [valid, setValid] = useState(false);
+  const [questionList, setQuestionList] = useState([]);
 
   const personalInfo = location?.state; //이것도 state로 관리를 해야되나? 한번만 받아오는 값인데
 
@@ -25,44 +26,9 @@ const ApplyWritePage = () => {
       navigate('/');
     } //alert는 지양하는데, 토스트 메세지로?
     else {
-      console.log(personalInfo);
-      // Axios.get(`/api/assets/questions/${personalInfo.part}`)
-      //   .then(res => console.log(res))
-      //   .catch(err => console.log(err));
+      getApplyQuestionList(personalInfo.part, setQuestionList);
     }
   }, []);
-
-  const TEMP_QUESTIONS = [
-    {
-      id: 1,
-      question:
-        '저희 멋쟁이사자처럼 11기에 지원해 주심에 감사드리며, 지원자분의 지원 동기를 올해의 목표와 연관 지어 서술해 주세요.',
-      maxLength: 1000,
-    },
-    {
-      id: 2,
-      question:
-        '나의 한계점을 극복하기 위해 노력하여 달성해본 경험을 문제-과정(노력)-목표달성의 이야기로 서술해주세요.',
-      maxLength: 1000,
-    },
-    {
-      id: 3,
-      question: '웹개발자의 입장에서 평소에 사용하는 서비스에서 개선해야할 점이 있다면 말씀해주세요.',
-      maxLength: 1000,
-    },
-    {
-      id: 4,
-      question:
-        '왜 프론트엔드 파트를 선택하게 되었고 본인이 생각하는 프로젝트 내에서 프론트엔드 파트의 역할을 말씀해주세요.',
-      maxLength: 1000,
-    },
-    {
-      id: 5,
-      question: '이번 멋쟁이사자처럼 11기 활동을 통해서 얻어가고 싶은것을 말씀해주세요.',
-      maxLength: 1000,
-    },
-  ];
-  //추후 서버 통신시에 마운트되면 문항 질문 받아서 렌더링 (props x)
 
   const order = Object.keys(initialValues);
   //이걸 임포트 받는 이유는, 파트별로 문항수가 달라서 선택해서 사용하려고 => 조건부로 받아서 속성 부여해도 될 듯? 이건 서버연동하면 고민
@@ -128,7 +94,7 @@ const ApplyWritePage = () => {
       )}
 
       <WriteForm onSubmit={formik.handleSubmit}>
-        {TEMP_QUESTIONS.map((item, index) => {
+        {questionList?.map((item, index) => {
           return (
             <WriteContainer key={index}>
               <BaseTitle>

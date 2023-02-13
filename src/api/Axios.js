@@ -44,3 +44,12 @@ const sendApplyForm = (sendDataObject, url, callbackFunction) => {
     .catch(err => console.log(err));
   //이거 나중에 에러 핸들링
 };
+
+export const getApplyQuestionList = (part, setList) => {
+  Axios.get(`/api/assets/questions/${part}`)
+    .then(res => {
+      console.log(res);
+      setList(res.data.data.resultQuestions);
+    })
+    .catch(err => console.log(err));
+};
