@@ -35,11 +35,11 @@ const ToastBox = styled.div`
   display: flex;
   align-items: center;
   gap: 12px;
-  position: fixed;
+  position: absolute;
   z-index: 1;
-  bottom: 72px;
+  bottom: 5%;
   left: 50%;
-  transform: translate(-50%, 0);
+  transform: translate(-50%, -50%);
 `;
 
 const ToastTypeIcon = styled.img`
