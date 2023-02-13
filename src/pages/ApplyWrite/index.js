@@ -4,7 +4,7 @@ import { useFormik } from 'formik';
 import { useLocation, useNavigate } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
-import { sendData } from '../../api/Axios';
+import { sendApplyData } from '../../api/Axios';
 import PageMainTitle from '../../components/PageMainTitle';
 
 import Button from './../../components/Button';
@@ -75,7 +75,7 @@ const ApplyWritePage = () => {
     onSubmit: applicationInfo => {
       if (!applicationInfo) return;
       const applyObejct = { applicationInfo, personalInfo };
-      sendData(applyObejct, () => navigate('/finish'));
+      sendApplyData(applyObejct, () => navigate('/finish'));
     },
   });
 

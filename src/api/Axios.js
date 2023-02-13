@@ -4,11 +4,11 @@ export const Axios = axios.create({
   baseURL: process.env.REACT_APP_BASE_URL,
 });
 
-export const sendData = (sendDataObejct, callbackFunction) => {
+export const sendApplyData = (sendDataObejct, callbackFunction) => {
   const applyObject = sendDataObejct;
   const file = applyObject.applicationInfo?.file;
   if (!file) {
-    return sendApplyData(applyObject, null, callbackFunction);
+    return sendApplyForm(applyObject, null, callbackFunction);
   }
   const sid = applyObject.personalInfo.sid;
   Axios.post(
@@ -25,18 +25,18 @@ export const sendData = (sendDataObejct, callbackFunction) => {
   )
     .then(res => {
       const cvUrl = res.data.data.url;
-      sendApplyData(applyObject, cvUrl, callbackFunction);
+      sendApplyForm(applyObject, cvUrl, callbackFunction);
     })
     .catch(err => console.log(err));
   //이거 나중에 에러 핸들링
 };
 
-const sendApplyData = (sendDataObject, url, callbackFunction) => {
+const sendApplyForm = (sendDataObject, url, callbackFunction) => {
   const applyObject = sendDataObject;
   delete applyObject.applicationInfo.file;
-  if (url) applyObject.applicationInfo.cvUrl = url; //이건 나중에 서버랑 싱크 맞추기
+  if (url) applyObject.applicationInfo.cvUrl = url; //이건 나중에 서버랑 싱크 맞추기(현재는 디자인도 자기소개서 파일 경로를 요구합니다.)
   applyObject.applicationInfo.sixthAnswer = '이건 일단 test값';
-  Axios.post(`/api/applications`, { ...applyObject })
+  Axios.post(`/api/applications`, applyObject)
     .then(res => {
       console.log(res);
       callbackFunction();
