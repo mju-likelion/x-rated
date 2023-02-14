@@ -15,6 +15,19 @@ const ApplyMainPage = () => {
   const [innerWidth, setInnerWidth] = useState(window.innerWidth);
   const DESKTOP_WIDTH = 1199;
   const TABLET_WIDTH = 599;
+  const [clickedArray, setClickedArray] = useState([false, false, false]);
+
+  const handleClick = index => {
+    let newArr = [...clickedArray];
+    if (newArr[index]) {
+      newArr[index] = false;
+      setClickedArray([false, false, false]);
+    } else {
+      newArr = [false, false, false];
+      newArr[index] = !newArr[index];
+      setClickedArray(newArr);
+    }
+  };
 
   const changeWidth = (apply, index) => {
     if (innerWidth > DESKTOP_WIDTH) {
@@ -22,7 +35,7 @@ const ApplyMainPage = () => {
     } else if (innerWidth > TABLET_WIDTH) {
       return <PartInfoTablet partInfo={apply} key={index} />;
     } else {
-      return <PartInfoMobile partInfo={apply} key={index} />;
+      return <PartInfoMobile partInfo={apply} key={index} handleClick={handleClick} isSelected={clickedArray[index]} />;
     }
   };
 

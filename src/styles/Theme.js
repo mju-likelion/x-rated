@@ -9,6 +9,7 @@ export const Theme = {
     BLUE2: '#7A9FFF',
     RED: '#FF6868',
     WHITE: '#FFFFFF',
+    GREEN: '#6AFFB8',
   },
   devices: {
     DESKTOP: `(min-width: 1200px)`,

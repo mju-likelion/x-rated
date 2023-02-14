@@ -27,6 +27,7 @@ const PartInfo = ({ partInfo }) => {
 };
 
 const PartInfoTop = styled.div`
+  font-family: 'Montserrat', sans-serif;
   font-size: 24px;
   font-weight: 700;
   margin-top: 24px;
@@ -47,7 +48,6 @@ const CenterImgBlock = styled.div`
 
 const PartInfoContent = styled.div`
   white-space: pre-wrap;
-  font-family: 'Spoqa Han Sans Neo', sans-serif;
   display: none;
   margin: auto 24px 24px 24px;
 `;
@@ -60,7 +60,8 @@ const InfoTitle = styled.div`
 `;
 
 const InfoContent = styled.div`
-  font-size: 16px;
+  word-break: keep-all;
+  font-size: 15px;
   font-weight: 400;
   line-height: 20px;
   margin-top: 6px;
