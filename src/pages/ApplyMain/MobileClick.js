@@ -40,6 +40,7 @@ const InfoTitle = styled.div`
 `;
 
 const InfoContent = styled.div`
+  word-break: keep-all;
   white-space: pre-wrap;
   font-size: 12px;
   line-height: 15px;
