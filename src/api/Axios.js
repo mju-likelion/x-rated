@@ -27,29 +27,24 @@ export const sendApplyData = (sendDataObejct, callbackFunction) => {
       const cvUrl = res.data.data.url;
       sendApplyForm(applyObject, cvUrl, callbackFunction);
     })
-    .catch(err => console.log(err));
+    .catch();
   //이거 나중에 에러 핸들링
 };
 
 const sendApplyForm = (sendDataObject, url, callbackFunction) => {
   const applyObject = sendDataObject;
   delete applyObject.applicationInfo.file;
-  if (url) applyObject.applicationInfo.cvUrl = url; //이건 나중에 서버랑 싱크 맞추기(현재는 디자인도 자기소개서 파일 경로를 요구합니다.)
-  applyObject.applicationInfo.sixthAnswer = '이건 일단 test값';
+  if (url) applyObject.applicationInfo.cvUrl = url;
   Axios.post(`/api/applications`, applyObject)
-    .then(res => {
-      console.log(res);
-      callbackFunction();
-    })
-    .catch(err => console.log(err));
+    .then(() => callbackFunction())
+    .catch();
   //이거 나중에 에러 핸들링
 };
 
 export const getApplyQuestionList = (part, setList) => {
   Axios.get(`/api/assets/questions/${part}`)
     .then(res => {
-      console.log(res);
       setList(res.data.data.resultQuestions);
     })
-    .catch(err => console.log(err));
+    .catch();
 };
