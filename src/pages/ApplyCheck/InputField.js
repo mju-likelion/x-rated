@@ -33,8 +33,14 @@ const ApplyCheckAllInputField = styled.div`
   display: flex;
   gap: 20px;
   flex-direction: column;
+  margin-top: 30px;
+  @media ${({ theme }) => theme.devices.TABLET} {
+    gap: 40px;
+    margin-top: 50px;
+  }
   @media ${({ theme }) => theme.devices.DESKTOP} {
     gap: 40px;
+    margin-top: 40px;
   }
 `;
 
