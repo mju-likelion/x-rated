@@ -33,6 +33,9 @@ const ApplyCheckAllInputField = styled.div`
   display: flex;
   gap: 20px;
   flex-direction: column;
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    gap: 40px;
+  }
 `;
 
 const ApplyCheckInputField = styled.div`
@@ -45,6 +48,13 @@ const ApplyCheckInputNameBox = styled.div`
   width: 201px;
   display: flex;
   padding-left: 6px;
+  box-sizing: border-box;
+  @media ${({ theme }) => theme.devices.TABLET} {
+    width: 270px;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    width: 477px;
+  }
 `;
 
 const ApplyCheckInputName = styled.div`
@@ -53,7 +63,7 @@ const ApplyCheckInputName = styled.div`
   font-weight: 400;
   @media ${({ theme }) => theme.devices.TABLET} {
     font-size: 14px;
-    line-height: 17px;
+    line-height: 18px;
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
     font-size: 18px;
@@ -89,7 +99,7 @@ const ApplyCheckInput = styled.input`
     font-size: 16px;
     line-height: 20px;
   }
-  @media ${({ theme }) => theme.devices.TABLET} {
+  @media ${({ theme }) => theme.devices.DESKTOP} {
     width: 483px;
     height: 62px;
     font-size: 20px;

@@ -31,12 +31,12 @@ const ApplyCheckTopBox = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: calc(100vh - 56px - 160px);
+  height: calc(100vh - 56px - 160px - 93px);
   @media ${({ theme }) => theme.devices.TABLET} {
-    height: calc(100vh - 70px - 170px);
+    height: calc(100vh - 70px - 170px - 93px);
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
-    height: calc(100vh - 70px - 232px);
+    height: calc(100vh - 70px - 232px - 155px);
   }
 `;
 
@@ -47,13 +47,19 @@ const ApplyCheckTitleBox = styled.div`
   display: flex;
   border-bottom: 1px solid ${({ theme }) => theme.colors.GRAY1};
   margin-bottom: 30px;
+  height: 50px;
+  box-sizing: border-box;
   @media ${({ theme }) => theme.devices.TABLET} {
     width: 400px;
     gap: 83px;
+    height: 64px;
+    margin-bottom: 50px;
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
     width: 483px;
     gap: 88px;
+    height: 80px;
+    margin-bottom: 40px;
   }
 `;
 
