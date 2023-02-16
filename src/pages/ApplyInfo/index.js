@@ -1,8 +1,11 @@
+import { useState, useEffect } from 'react';
+
 import { Form, Formik } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import * as Yup from 'yup';
 
+import { getAgreement } from '../../api/ApplyInfo';
 import { ReactComponent as Caution } from '../../assets/images/caution.svg';
 import Button from '../../components/Button';
 import PageMainTitle from '../../components/PageMainTitle';
@@ -26,6 +29,11 @@ const STORAGE_KEY = 'INFOVALUE';
 const ApplyInfoPage = () => {
   const navigate = useNavigate();
   const [localStorageState, updateLocalStorageState] = useLocalStorageState({ key: STORAGE_KEY, value: initialValues });
+  const [agreement, setAgreement] = useState();
+
+  useEffect(() => {
+    getAgreement(setAgreement);
+  }, []);
 
   const handleValues = values => {
     updateLocalStorageState(values);
@@ -91,7 +99,7 @@ const ApplyInfoPage = () => {
 
                 <ButtomBreakLine />
 
-                <AgreementTextContainer></AgreementTextContainer>
+                <AgreementTextContainer>{agreement || ''}</AgreementTextContainer>
                 <CheckBox name="personalInfoAgreement" text="개인정보 수집 및 이용 동의" />
 
                 <CautionContainer>
@@ -209,13 +217,38 @@ const AgreementTextContainer = styled.div`
 
   margin-top: 32px;
   height: 240px;
+  overflow-y: scroll;
+  white-space: pre-wrap;
+  padding: 20px;
+  font-size: 12px;
+  line-height: 20px;
 
   @media ${({ theme }) => theme.devices.TABLET} {
     margin-top: 40px;
     height: 340px;
+    padding: 24px;
+    font-size: 14px;
+    line-height: 21px;
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
     margin-top: 50px;
+    padding: 30px;
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 18px;
+  }
+  ::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: ${({ theme }) => theme.colors.GRAY3};
+    background-clip: padding-box;
+    height: 176px;
+    border: 6px solid rgba(0, 0, 0, 0);
+    border-radius: 9999px;
   }
 `;
 
