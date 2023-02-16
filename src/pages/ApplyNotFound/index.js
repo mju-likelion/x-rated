@@ -76,6 +76,7 @@ const StatusFont = styled.p`
   font-weight: 800;
   font-size: 60px;
   line-height: 73px;
+  font-family: 'Montserrat';
   color: ${({ theme }) => theme.colors.WHITE};
 
   @media ${({ theme }) => theme.devices.TABLET} {
@@ -92,6 +93,7 @@ const ErrorFont = styled.p`
   font-size: 24px;
   font-weight: 700;
   line-height: 29px;
+  font-family: 'Montserrat';
   color: ${({ theme }) => theme.colors.WHITE};
 
   @media ${({ theme }) => theme.devices.TABLET} {
