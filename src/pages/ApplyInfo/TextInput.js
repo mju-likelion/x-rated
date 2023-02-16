@@ -31,16 +31,18 @@ const TextInput = ({ name, placeholder, text, maxLength }) => {
         {text}
         <p>*</p>
       </StyledText>
-      <StyledInput
-        {...field}
-        placeholder={placeholder}
-        maxLength={maxLength}
-        onChange={name === 'phone' ? handleChange : field.onChange}
-        value={field.value || ''}
-        autoComplete="off"
-        onFocus={handlePlaceHolder}
-        onBlur={handlePlaceHolder}
-      />
+      <InputWrapper>
+        <StyledInput
+          {...field}
+          placeholder={placeholder}
+          maxLength={maxLength}
+          onChange={name === 'phone' ? handleChange : field.onChange}
+          value={field.value || ''}
+          autoComplete="off"
+          onFocus={handlePlaceHolder}
+          onBlur={handlePlaceHolder}
+        />
+      </InputWrapper>
     </Container>
   );
 };
@@ -85,12 +87,17 @@ const Container = styled.div`
   }
 `;
 
+const InputWrapper = styled.div`
+  display: inline-block;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+`;
+
 const StyledInput = styled.input`
   box-sizing: border-box;
   width: 100%;
   padding: 16px;
   border-radius: 10px;
-
   background-color: ${({ theme }) => theme.colors.GRAY1};
   border: none;
   color: ${({ theme }) => theme.colors.WHITE};
@@ -98,11 +105,13 @@ const StyledInput = styled.input`
   font-size: 14px;
 
   :focus {
+    outline: none;
     box-sizing: border-box;
-    outline: 1px solid ${({ theme }) => theme.colors.WHITE};
+    border: 1px solid ${({ theme }) => theme.colors.WHITE};
     border-radius: 10px;
-    overflow: hidden;
-    isolation: isolate;
+    ::before::after {
+      border-radius: 10px;
+    }
   }
 
   @media ${({ theme }) => theme.devices.TABLET} {
