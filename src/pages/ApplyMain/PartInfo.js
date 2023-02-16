@@ -33,6 +33,7 @@ const PartInfoTop = styled.div`
   margin-top: 24px;
   margin-left: 24px;
   display: flex;
+  transition: all 0.2s ease-out;
 `;
 
 const PartInfoImg = styled.img`
@@ -81,7 +82,6 @@ const PartInformationBlock = styled.div`
     font-size: 20px;
     font-weight: 700;
     color: ${({ theme }) => theme.colors.GRAY2};
-    transition: all 0.2s ease-out;
   }
 
   &:hover ${PartInfoImg} {
