@@ -6,7 +6,7 @@ import { StyledText } from './TextInput';
 const ButtonBox = ({ buttonsData, name, text }) => {
   const [field, meta] = useField(name);
   const selectedValue = meta.value;
-  // const isSelected = value => (value === selectedValue ? true : false);
+
   return (
     <Container>
       <StyledText>
