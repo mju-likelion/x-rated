@@ -31,18 +31,16 @@ const TextInput = ({ name, placeholder, text, maxLength }) => {
         {text}
         <p>*</p>
       </StyledText>
-      <InputWrapper>
-        <StyledInput
-          {...field}
-          placeholder={placeholder}
-          maxLength={maxLength}
-          onChange={name === 'phone' ? handleChange : field.onChange}
-          value={field.value || ''}
-          autoComplete="off"
-          onFocus={handlePlaceHolder}
-          onBlur={handlePlaceHolder}
-        />
-      </InputWrapper>
+      <StyledInput
+        {...field}
+        placeholder={placeholder}
+        maxLength={maxLength}
+        onChange={name === 'phone' ? handleChange : field.onChange}
+        value={field.value || ''}
+        autoComplete="off"
+        onFocus={handlePlaceHolder}
+        onBlur={handlePlaceHolder}
+      />
     </Container>
   );
 };
@@ -85,12 +83,6 @@ const Container = styled.div`
     width: 483px;
     margin-right: 30px;
   }
-`;
-
-const InputWrapper = styled.div`
-  display: inline-block;
-  border-radius: 10px;
-  -webkit-border-radius: 10px;
 `;
 
 const StyledInput = styled.input`
