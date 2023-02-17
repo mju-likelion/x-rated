@@ -1,31 +1,74 @@
-import React from 'react';
+//import { useState } from 'react';
 
+import { useFormik } from 'formik';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import * as Yup from 'yup';
+
+import Button from '../../components/Button';
 
 const InputField = ({ setIsFocus }) => {
+  const navigate = useNavigate();
+  //const [valid, setValid] = useState(false);
+
   const handleInputClick = () => {
     setIsFocus(true);
   };
 
+  const formik = useFormik({
+    initialValues: {
+      name: '',
+      sid: '',
+    },
+    validationSchema: Yup.object({
+      name: Yup.string().required(),
+      sid: Yup.string()
+        .required()
+        .matches(/^\d{8}$/, 'form'),
+    }),
+    onSubmit: values => {
+      console.log(values);
+      navigate('/success');
+    },
+  });
+
   return (
-    <ApplyCheckAllInputField>
-      <ApplyCheckInputField>
-        <ApplyCheckInputNameBox>
-          <ApplyCheckInputName>
-            이름 <ApplyCheckAsterisk>*</ApplyCheckAsterisk>
-          </ApplyCheckInputName>
-        </ApplyCheckInputNameBox>
-        <ApplyCheckInput onClick={handleInputClick} />
-      </ApplyCheckInputField>
-      <ApplyCheckInputField>
-        <ApplyCheckInputNameBox>
-          <ApplyCheckInputName>
-            학번 <ApplyCheckAsterisk>*</ApplyCheckAsterisk>
-          </ApplyCheckInputName>
-        </ApplyCheckInputNameBox>
-        <ApplyCheckInput placeholder="60XXXXXX" onClick={handleInputClick} />
-      </ApplyCheckInputField>
-    </ApplyCheckAllInputField>
+    <form onSubmit={formik.handleSubmit}>
+      <ApplyCheckAllInputField>
+        <ApplyCheckInputField>
+          <ApplyCheckInputNameBox>
+            <ApplyCheckInputName>
+              이름 <ApplyCheckAsterisk>*</ApplyCheckAsterisk>
+            </ApplyCheckInputName>
+          </ApplyCheckInputNameBox>
+          <ApplyCheckInput
+            id="name"
+            onChange={formik.handleChange}
+            value={formik.values.name}
+            {...formik.getFieldProps('name')}
+            onClick={handleInputClick}
+          />
+        </ApplyCheckInputField>
+        <ApplyCheckInputField>
+          <ApplyCheckInputNameBox>
+            <ApplyCheckInputName>
+              학번 <ApplyCheckAsterisk>*</ApplyCheckAsterisk>
+            </ApplyCheckInputName>
+          </ApplyCheckInputNameBox>
+          <ApplyCheckInput
+            placeholder="60XXXXXX"
+            id="sid"
+            onChange={formik.handleChange}
+            value={formik.values.sid}
+            {...formik.getFieldProps('sid')}
+            onClick={handleInputClick}
+          />
+        </ApplyCheckInputField>
+      </ApplyCheckAllInputField>
+      <ApplyCheckBtnBox>
+        <Button text={'입력완료'} errorMessage={'작성이 완료되지 않은 내용이 있습니다.'} type="submit" />
+      </ApplyCheckBtnBox>
+    </form>
   );
 };
 
@@ -110,6 +153,13 @@ const ApplyCheckInput = styled.input`
     height: 62px;
     font-size: 20px;
     line-height: 30px;
+  }
+`;
+
+const ApplyCheckBtnBox = styled.div`
+  margin-top: 70px;
+  @media ${({ theme }) => theme.devices.TABLET} {
+    margin-top: 100px;
   }
 `;
 
