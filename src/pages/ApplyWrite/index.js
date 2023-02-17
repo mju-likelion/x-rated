@@ -38,7 +38,7 @@ const ApplyWritePage = () => {
     ...formikConfig,
     ...validationSchema,
     onSubmit: applicationInfo => {
-      if (!applicationInfo) return;
+      if (!(applicationInfo && valid)) return;
       const applyObejct = { applicationInfo, personalInfo };
       sendApplyData(applyObejct, () => navigate('/finish'));
     },
