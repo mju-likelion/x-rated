@@ -4,7 +4,7 @@ import { useFormik } from 'formik';
 import { useLocation, useNavigate } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
-import { getApplyQuestionList, sendApplyData } from '../../api/Axios';
+import { getApplyQuestionList, sendApplyData } from '../../api/Applywrite';
 import PageMainTitle from '../../components/PageMainTitle';
 
 import Button from './../../components/Button';
