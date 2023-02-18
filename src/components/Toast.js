@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 import toastErrorIcon from '../assets/images/icon_type_error.svg';
 import toastSuccessIcon from '../assets/images/icon_type_success.svg';
@@ -9,7 +9,7 @@ const Toast = ({ setToast, isSuccess, text }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setToast(false);
-    }, 2000);
+    }, 2500);
     return () => {
       clearTimeout(timer);
     };
@@ -26,6 +26,15 @@ const Toast = ({ setToast, isSuccess, text }) => {
   );
 };
 
+const slideAnimation = keyframes`
+from {
+  transform: translate(-50%, 200%);
+}
+to{
+  transform: translate(-50%, 0);
+}
+`;
+
 const ToastBox = styled.div`
   width: 318px;
   height: 62px;
@@ -39,7 +48,11 @@ const ToastBox = styled.div`
   z-index: 1;
   bottom: 72px;
   left: 50%;
-  transform: translate(-50%, 0);
+  // transform: translate(-50%, 0); 이하 코드들은 일단 기획/디자인에게 컨펌 받기
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out;
+  animation-name: ${slideAnimation};
+  animation-fill-mode: forwards;
 `;
 
 const ToastTypeIcon = styled.img`
