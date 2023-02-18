@@ -8,6 +8,8 @@ import * as Yup from 'yup';
 import Button from '../../components/Button';
 
 const InputField = ({ setIsFocus }) => {
+  const DEFAULT_ERROR = '작성이 완료되지 않은 내용이 있습니다.';
+  const FORM_ERROR = '형식에 맞지 않는 값이 존재합니다.';
   const navigate = useNavigate();
   //const [valid, setValid] = useState(false);
 
@@ -21,10 +23,10 @@ const InputField = ({ setIsFocus }) => {
       sid: '',
     },
     validationSchema: Yup.object({
-      name: Yup.string().required(),
+      name: Yup.string().required(DEFAULT_ERROR),
       sid: Yup.string()
-        .required()
-        .matches(/^\d{8}$/, 'form'),
+        .required(DEFAULT_ERROR)
+        .matches(/^\d{8}$/, FORM_ERROR),
     }),
     onSubmit: values => {
       console.log(values);
@@ -66,7 +68,7 @@ const InputField = ({ setIsFocus }) => {
         </InputFieldBox>
       </AllInputField>
       <ButtonBox>
-        <Button text={'입력완료'} errorMessage={'작성이 완료되지 않은 내용이 있습니다.'} type="submit" />
+        <Button text={'입력완료'} errorMessage={formik.errors.name || formik.errors.sid || null} type="submit" />
       </ButtonBox>
     </form>
   );
