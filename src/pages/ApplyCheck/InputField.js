@@ -1,5 +1,3 @@
-//import { useState } from 'react';
-
 import { useFormik } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
@@ -11,7 +9,6 @@ const InputField = ({ setIsFocus }) => {
   const DEFAULT_ERROR = '작성이 완료되지 않은 내용이 있습니다.';
   const FORM_ERROR = '형식에 맞지 않는 값이 존재합니다.';
   const navigate = useNavigate();
-  //const [valid, setValid] = useState(false);
 
   const handleInputClick = () => {
     setIsFocus(true);
@@ -29,7 +26,7 @@ const InputField = ({ setIsFocus }) => {
         .matches(/^\d{8}$/, FORM_ERROR),
     }),
     onSubmit: values => {
-      console.log(values);
+      //console.log(values);
       navigate('/success');
     },
   });
@@ -68,7 +65,11 @@ const InputField = ({ setIsFocus }) => {
         </InputFieldBox>
       </AllInputField>
       <ButtonBox>
-        <Button text={'입력완료'} errorMessage={formik.errors.name || formik.errors.sid || null} type="submit" />
+        <Button
+          text={'입력완료'}
+          errorMessage={!formik.values.name ? DEFAULT_ERROR : formik.errors.name || formik.errors.sid}
+          type="submit"
+        />
       </ButtonBox>
     </form>
   );
