@@ -17,7 +17,7 @@ const Header = () => {
         </HeaderLogoBox>
         <RightNavBox>
           <RightNavItem onClick={() => navigate('/info')}>지원하기</RightNavItem>
-          <RightNavItem>지원확인하기</RightNavItem>
+          <RightNavItem onClick={() => navigate('/check')}>지원확인하기</RightNavItem>
         </RightNavBox>
       </HeaderBox>
     </HeaderTopBox>
