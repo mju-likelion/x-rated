@@ -6,6 +6,7 @@ import styled, { css } from 'styled-components';
 
 import { getApplyQuestionList, sendApplyData } from '../../api/Applywrite';
 import PageMainTitle from '../../components/PageMainTitle';
+import Toast from '../../components/Toast';
 
 import Button from './../../components/Button';
 import { createVaildationSchema, formikConfig, initialValues } from './FormikConfig';
@@ -14,19 +15,30 @@ const ApplyWritePage = () => {
   const location = useLocation();
 
   const [valid, setValid] = useState(false);
+  const [toast, setToast] = useState(false);
   const [questionList, setQuestionList] = useState([]);
+  const [toastMessage, setToastMessage] = useState('');
 
   const personalInfo = location?.state;
 
   const isDevelopPart = personalInfo?.part !== 'design';
 
+  const callbackFunctionsObject = {
+    navigateFunction: () => navigate('/finish'),
+    setToastFunction: setToast,
+    setTosatMessageFunction: setToastMessage,
+    setList: setQuestionList,
+  };
+
   useEffect(() => {
     if (!personalInfo) {
-      window.alert('잘못된 접근입니다.');
-      navigate('/');
-    } //alert는 지양하는데, 토스트 메세지로?
-    else {
-      getApplyQuestionList(personalInfo.part, setQuestionList);
+      setToast(true);
+      setToastMessage('잘못된 접근입니다.');
+      setTimeout(() => {
+        navigate('/');
+      }, 3000);
+    } else {
+      getApplyQuestionList(personalInfo.part, callbackFunctionsObject);
     }
   }, []);
 
@@ -40,7 +52,8 @@ const ApplyWritePage = () => {
     onSubmit: applicationInfo => {
       if (!(applicationInfo && valid)) return;
       const applyObejct = { applicationInfo, personalInfo };
-      sendApplyData(applyObejct, () => navigate('/finish'));
+      // sendApplyData(applyObejct, () => navigate('/finish'), setToast, setToastMessage);
+      sendApplyData(applyObejct, callbackFunctionsObject);
     },
   });
 
@@ -122,6 +135,7 @@ const ApplyWritePage = () => {
           />
         </ButtonBox>
       </WriteForm>
+      {toast && <Toast setToast={setToast} isSuccess={false} text={toastMessage} />}
     </>
   );
 };
