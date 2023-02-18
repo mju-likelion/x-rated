@@ -52,7 +52,6 @@ const ApplyWritePage = () => {
     onSubmit: applicationInfo => {
       if (!(applicationInfo && valid)) return;
       const applyObejct = { applicationInfo, personalInfo };
-      // sendApplyData(applyObejct, () => navigate('/finish'), setToast, setToastMessage);
       sendApplyData(applyObejct, callbackFunctionsObject);
     },
   });
