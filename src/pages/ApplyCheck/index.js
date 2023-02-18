@@ -22,13 +22,13 @@ const ApplyCheckTopBox = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: calc(100vh - 56px - 160px - 93px);
+  min-height: calc(100vh - 56px - 160px);
   @media ${({ theme }) => theme.devices.TABLET} {
-    height: calc(100vh - 70px - 170px - 93px);
+    min-height: calc(100vh - 70px - 170px);
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
     justify-content: flex-end;
-    height: calc(100vh - 70px - 232px - 86px);
+    min-height: calc(100vh - 70px - 232px);
   }
 `;
 
