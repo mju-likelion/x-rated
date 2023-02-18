@@ -34,28 +34,28 @@ const InputField = ({ setIsFocus }) => {
 
   return (
     <form onSubmit={formik.handleSubmit}>
-      <ApplyCheckAllInputField>
-        <ApplyCheckInputField>
-          <ApplyCheckInputNameBox>
-            <ApplyCheckInputName>
-              이름 <ApplyCheckAsterisk>*</ApplyCheckAsterisk>
-            </ApplyCheckInputName>
-          </ApplyCheckInputNameBox>
-          <ApplyCheckInput
+      <AllInputField>
+        <InputFieldBox>
+          <InputNameBox>
+            <InputName>
+              이름 <Asterisk>*</Asterisk>
+            </InputName>
+          </InputNameBox>
+          <Input
             id="name"
             onChange={formik.handleChange}
             value={formik.values.name}
             {...formik.getFieldProps('name')}
             onClick={handleInputClick}
           />
-        </ApplyCheckInputField>
-        <ApplyCheckInputField>
-          <ApplyCheckInputNameBox>
-            <ApplyCheckInputName>
-              학번 <ApplyCheckAsterisk>*</ApplyCheckAsterisk>
-            </ApplyCheckInputName>
-          </ApplyCheckInputNameBox>
-          <ApplyCheckInput
+        </InputFieldBox>
+        <InputFieldBox>
+          <InputNameBox>
+            <InputName>
+              학번 <Asterisk>*</Asterisk>
+            </InputName>
+          </InputNameBox>
+          <Input
             placeholder="60XXXXXX"
             id="sid"
             onChange={formik.handleChange}
@@ -63,16 +63,16 @@ const InputField = ({ setIsFocus }) => {
             {...formik.getFieldProps('sid')}
             onClick={handleInputClick}
           />
-        </ApplyCheckInputField>
-      </ApplyCheckAllInputField>
-      <ApplyCheckBtnBox>
+        </InputFieldBox>
+      </AllInputField>
+      <ButtonBox>
         <Button text={'입력완료'} errorMessage={'작성이 완료되지 않은 내용이 있습니다.'} type="submit" />
-      </ApplyCheckBtnBox>
+      </ButtonBox>
     </form>
   );
 };
 
-const ApplyCheckAllInputField = styled.div`
+const AllInputField = styled.div`
   display: flex;
   gap: 20px;
   flex-direction: column;
@@ -87,13 +87,13 @@ const ApplyCheckAllInputField = styled.div`
   }
 `;
 
-const ApplyCheckInputField = styled.div`
+const InputFieldBox = styled.div`
   display: flex;
   gap: 6px;
   flex-direction: column;
 `;
 
-const ApplyCheckInputNameBox = styled.div`
+const InputNameBox = styled.div`
   width: 201px;
   display: flex;
   padding-left: 6px;
@@ -106,7 +106,7 @@ const ApplyCheckInputNameBox = styled.div`
   }
 `;
 
-const ApplyCheckInputName = styled.div`
+const InputName = styled.div`
   font-size: 12px;
   line-height: 15px;
   font-weight: 400;
@@ -120,12 +120,11 @@ const ApplyCheckInputName = styled.div`
   }
 `;
 
-const ApplyCheckAsterisk = styled.span`
+const Asterisk = styled.span`
   color: ${({ theme }) => theme.colors.ORANGE};
-  font-family: Spoqa Han Sans Neo; // 글로벌 스타일 폰트 우선 순위 변경되면 지우겠습니다
 `;
 
-const ApplyCheckInput = styled.input`
+const Input = styled.input`
   all: unset;
   box-sizing: border-box;
   background-color: ${({ theme }) => theme.colors.GRAY1};
@@ -156,8 +155,9 @@ const ApplyCheckInput = styled.input`
   }
 `;
 
-const ApplyCheckBtnBox = styled.div`
+const ButtonBox = styled.div`
   margin-top: 70px;
+  text-align: center;
   @media ${({ theme }) => theme.devices.TABLET} {
     margin-top: 100px;
   }

@@ -28,7 +28,7 @@ const ApplyCheckTopBox = styled.div`
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
     justify-content: flex-end;
-    height: calc(100vh - 70px - 232px - 155px);
+    height: calc(100vh - 70px - 232px - 86px);
   }
 `;
 
