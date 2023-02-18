@@ -26,13 +26,13 @@ const InputField = ({ setIsFocus }) => {
         .matches(/^\d{8}$/, FORM_ERROR),
     }),
     onSubmit: values => {
-      //console.log(values);
+      alert(JSON.stringify(values, null, 2));
       navigate('/success');
     },
   });
 
   return (
-    <form onSubmit={formik.handleSubmit}>
+    <form onSubmit={formik.handleSubmit} autoComplete="off">
       <AllInputField>
         <InputFieldBox>
           <InputNameBox>
