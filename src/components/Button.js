@@ -40,6 +40,13 @@ const Button = ({ text, type = 'button', errorMessage, handleClick }) => {
 const Wrapper = styled.div`
   display: inline-block;
   text-align: center;
+  width: 192px;
+  height: 75px;
+
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    width: 288px;
+    height: 110px;
+  }
 `;
 
 const ButtonStyle = styled.button`
@@ -51,7 +58,7 @@ const ButtonStyle = styled.button`
   font-size: 18px;
   line-height: 23px;
 
-  @media (min-width: 1200px) {
+  @media ${({ theme }) => theme.devices.DESKTOP} {
     width: 260px;
     height: 70px;
     font-size: 28px;
@@ -72,7 +79,7 @@ const ErrorText = styled.p`
   margin-top: 10px;
   line-height: 15px;
 
-  @media (min-width: 1200px) {
+  @media ${({ theme }) => theme.devices.DESKTOP} {
     font-size: 18px;
     margin-top: 17px;
     line-height: 23px;
