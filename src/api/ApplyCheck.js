@@ -9,6 +9,6 @@ export const getApplyCheck = (checkData, callbackFunctions) => {
       name: checkData.name,
     },
   })
-    .then(() => navigateSuccess())
-    .catch(() => navigateFail());
+    .then(() => navigateSuccess(checkData.name))
+    .catch(() => navigateFail(checkData.name));
 };

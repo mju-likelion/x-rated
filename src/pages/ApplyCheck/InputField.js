@@ -17,8 +17,8 @@ const InputField = ({ setIsFocus }) => {
   };
 
   const callbackFunctions = {
-    navigateSuccess: () => navigate('/success'),
-    navigateFail: () => navigate('/fail'),
+    navigateSuccess: name => navigate('/success', { state: name }),
+    navigateFail: name => navigate('/fail', { state: name }),
   };
 
   const formik = useFormik({

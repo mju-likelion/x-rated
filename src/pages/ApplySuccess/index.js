@@ -1,15 +1,16 @@
-import React from 'react';
-
+import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
 import ApplyCheckTitleBox from '../../components/ApplyResult/ApplyCheckTitleBox';
 
 const ApplySuccessPage = () => {
+  const { state } = useLocation();
+
   return (
     <ApplyCheckTopBox>
       <ApplyCheckTitleBox result={'SUCCESS'} />
       <ApplySuccessResult>
-        김땡땡님의 지원이&nbsp;
+        {state}님의 지원이&nbsp;
         <GreenBottonLine>확인되었습니다</GreenBottonLine>
       </ApplySuccessResult>
     </ApplyCheckTopBox>

@@ -1,13 +1,16 @@
+import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
 import ApplyTitleBox from '../../components/ApplyResult/ApplyCheckTitleBox';
 
 const ApplyFailPage = () => {
+  const { state } = useLocation();
+
   return (
     <ApplyCheckTopBox>
       <ApplyTitleBox result={'FAIL'} />
       <ApplyFailResultTop>
-        김땡땡님의 지원이&nbsp;
+        {state}님의 지원이&nbsp;
         <RedBottonLine>확인되지 않았습니다</RedBottonLine>
       </ApplyFailResultTop>
       <ApplyFailResultBotton>페이지 오른쪽 하단의 채널톡을 통해 문의해주세요</ApplyFailResultBotton>
