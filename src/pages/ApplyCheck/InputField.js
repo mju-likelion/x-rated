@@ -1,4 +1,5 @@
 import { useFormik } from 'formik';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import * as Yup from 'yup';
 
@@ -6,11 +7,18 @@ import { getApplyCheck } from '../../api/ApplyCheck';
 import Button from '../../components/Button';
 
 const InputField = ({ setIsFocus }) => {
+  const navigate = useNavigate();
+
   const DEFAULT_ERROR = '작성이 완료되지 않은 내용이 있습니다.';
   const FORM_ERROR = '형식에 맞지 않는 값이 존재합니다.';
 
   const handleInputClick = () => {
     setIsFocus(true);
+  };
+
+  const callbackFunctions = {
+    navigateSuccess: () => navigate('/success'),
+    navigateFail: () => navigate('/fail'),
   };
 
   const formik = useFormik({
@@ -25,7 +33,7 @@ const InputField = ({ setIsFocus }) => {
         .matches(/^\d{8}$/, FORM_ERROR),
     }),
     onSubmit: values => {
-      getApplyCheck(values);
+      getApplyCheck(values, callbackFunctions);
     },
   });
 
