@@ -1,19 +1,43 @@
-import { useLocation } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+
+import { useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import ApplyCheckTitleBox from '../../components/ApplyResult/ApplyCheckTitleBox';
 
+import Toast from './../../components/Toast';
+
 const ApplySuccessPage = () => {
   const { state } = useLocation();
+  const navigate = useNavigate();
+
+  const location = useLocation();
+
+  const [toast, setToast] = useState(false);
+  const [toastMessage, setToastMessage] = useState('');
+  const applicantName = location?.state;
+
+  useEffect(() => {
+    if (!applicantName) {
+      setToast(true);
+      setToastMessage('잘못된 접근입니다.');
+      setTimeout(() => {
+        navigate('/');
+      }, 3000);
+    }
+  }, []);
 
   return (
-    <ApplyCheckTopBox>
-      <ApplyCheckTitleBox result={'SUCCESS'} />
-      <ApplySuccessResult>
-        {state}님의 지원이&nbsp;
-        <GreenBottonLine>확인되었습니다</GreenBottonLine>
-      </ApplySuccessResult>
-    </ApplyCheckTopBox>
+    <>
+      <ApplyCheckTopBox>
+        <ApplyCheckTitleBox result={'SUCCESS'} />
+        <ApplySuccessResult>
+          {state}님의 지원이&nbsp;
+          <GreenBottonLine>확인되었습니다</GreenBottonLine>
+        </ApplySuccessResult>
+      </ApplyCheckTopBox>
+      {toast && <Toast setToast={setToast} isSuccess={false} text={toastMessage} />}
+    </>
   );
 };
 

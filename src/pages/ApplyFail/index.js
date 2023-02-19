@@ -1,20 +1,44 @@
-import { useLocation } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+
+import { useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import ApplyTitleBox from '../../components/ApplyResult/ApplyCheckTitleBox';
 
+import Toast from './../../components/Toast';
+
 const ApplyFailPage = () => {
   const { state } = useLocation();
+  const navigate = useNavigate();
+
+  const location = useLocation();
+
+  const [toast, setToast] = useState(false);
+  const [toastMessage, setToastMessage] = useState('');
+  const applicantName = location?.state;
+
+  useEffect(() => {
+    if (!applicantName) {
+      setToast(true);
+      setToastMessage('잘못된 접근입니다.');
+      setTimeout(() => {
+        navigate('/');
+      }, 3000);
+    }
+  }, []);
 
   return (
-    <ApplyCheckTopBox>
-      <ApplyTitleBox result={'FAIL'} />
-      <ApplyFailResultTop>
-        {state}님의 지원이&nbsp;
-        <RedBottonLine>확인되지 않았습니다</RedBottonLine>
-      </ApplyFailResultTop>
-      <ApplyFailResultBotton>페이지 오른쪽 하단의 채널톡을 통해 문의해주세요</ApplyFailResultBotton>
-    </ApplyCheckTopBox>
+    <>
+      <ApplyCheckTopBox>
+        <ApplyTitleBox result={'FAIL'} />
+        <ApplyFailResultTop>
+          {state}님의 지원이&nbsp;
+          <RedBottonLine>확인되지 않았습니다</RedBottonLine>
+        </ApplyFailResultTop>
+        <ApplyFailResultBotton>페이지 오른쪽 하단의 채널톡을 통해 문의해주세요</ApplyFailResultBotton>
+      </ApplyCheckTopBox>
+      {toast && <Toast setToast={setToast} isSuccess={false} text={toastMessage} />}
+    </>
   );
 };
 
