@@ -9,6 +9,7 @@ import { getAgreement } from '../../api/ApplyInfo';
 import { ReactComponent as Caution } from '../../assets/images/caution.svg';
 import Button from '../../components/Button';
 import PageMainTitle from '../../components/PageMainTitle';
+import Toast from '../../components/Toast';
 
 import ButtonBox from './ButtonBox';
 import { CAMPUS, ENROLLMENTSTATUS, PART } from './ButtonData';
@@ -30,9 +31,10 @@ const ApplyInfoPage = () => {
   const navigate = useNavigate();
   const [localStorageState, updateLocalStorageState] = useLocalStorageState({ key: STORAGE_KEY, value: initialValues });
   const [agreement, setAgreement] = useState();
+  const [toast, setToast] = useState(false);
 
   useEffect(() => {
-    getAgreement(setAgreement);
+    getAgreement(setAgreement, setToast);
   }, []);
 
   const handleValues = values => {
@@ -123,6 +125,8 @@ const ApplyInfoPage = () => {
           )}
         </Formik>
       </ContentContainer>
+      {toast && <Toast setToast={setToast} isSuccess={false} text={'데이터를 불러오는 데 실패했습니다'} />}
+      {/* 멘트를 어떻게 하는 게 좋을까요..? */}
     </>
   );
 };
