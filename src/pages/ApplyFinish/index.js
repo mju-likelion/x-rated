@@ -25,12 +25,12 @@ const ApplyFinishBox = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: calc(100vh - 56px - 160px);
+  min-height: calc(100vh - 56px - 160px);
   @media ${({ theme }) => theme.devices.TABLET} {
-    height: calc(100vh - 70px - 170px);
+    min-height: calc(100vh - 70px - 170px);
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
-    height: calc(100vh - 70px - 232px);
+    min-height: calc(100vh - 70px - 232px);
   }
 `;
 
