@@ -269,13 +269,13 @@ const AgreementTextContainer = styled.div`
 const AgreementButtomBlock = styled.div`
   background-color: ${({ theme }) => theme.colors.GRAY1};
   position: relative;
-  width: 290px;
+  width: 278px;
   height: 20px;
   bottom: 20px;
   @media ${({ theme }) => theme.devices.TABLET} {
-    height: 30px;
-    width: 540px;
-    bottom: 30px;
+    height: 24px;
+    width: 520px;
+    bottom: 24px;
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
     width: 1140px;
