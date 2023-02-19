@@ -333,10 +333,12 @@ const WriteArea = styled.textarea`
 const ButtonBox = styled.div`
   display: flex;
   justify-content: center;
-  margin: 20px auto 47px auto;
+  margin: 20px auto 125px auto;
   @media ${({ theme }) => theme.devices.TABLET} {
-    margin: 50px auto 68px auto;
-    //이건 현재 피그마상으로 margin이 동일함(마진의 기준은 푸터가 아닌 채널톡)
+    margin: 50px auto 125px auto;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    margin: 0 auto 200px auto;
   }
 `;
 
