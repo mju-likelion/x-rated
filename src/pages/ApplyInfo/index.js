@@ -101,7 +101,10 @@ const ApplyInfoPage = () => {
 
                 <ButtomBreakLine />
 
-                <AgreementTextContainer>{agreement || ''}</AgreementTextContainer>
+                <AgreementWrapper>
+                  <AgreementTextContainer>{agreement || ''}</AgreementTextContainer>
+                  <AgreementButtomBlock />
+                </AgreementWrapper>
                 <CheckBox name="personalInfoAgreement" text="개인정보 수집 및 이용 동의" />
 
                 <CautionContainer>
@@ -213,6 +216,11 @@ const ButtonContainer = styled.div`
     margin-top: 40px;
   }
 `;
+const AgreementWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
 const AgreementTextContainer = styled.div`
   box-sizing: border-box;
@@ -255,6 +263,24 @@ const AgreementTextContainer = styled.div`
     height: 176px;
     border: 6px solid rgba(0, 0, 0, 0);
     border-radius: 9999px;
+  }
+`;
+
+const AgreementButtomBlock = styled.div`
+  background-color: ${({ theme }) => theme.colors.GRAY1};
+  position: relative;
+  width: 290px;
+  height: 20px;
+  bottom: 20px;
+  @media ${({ theme }) => theme.devices.TABLET} {
+    height: 30px;
+    width: 540px;
+    bottom: 30px;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    width: 1140px;
+    height: 30px;
+    bottom: 30px;
   }
 `;
 
