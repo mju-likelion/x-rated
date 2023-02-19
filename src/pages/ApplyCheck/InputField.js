@@ -67,6 +67,8 @@ const InputField = ({ setIsFocus }) => {
             value={formik.values.sid}
             {...formik.getFieldProps('sid')}
             onClick={handleInputClick}
+            type="text"
+            maxLength={8}
           />
         </InputFieldBox>
       </AllInputField>
