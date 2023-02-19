@@ -284,7 +284,7 @@ const SubmitButtonContainer = styled.div`
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
     margin-top: 100px;
-    margin-bottom: 200px;
+    margin-bottom: 160px;
   }
 `;
 
