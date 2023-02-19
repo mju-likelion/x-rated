@@ -25,5 +25,5 @@ yarn-error.log*
 #env
 .env
 
-#cert
-/cert
+# https
+cert
