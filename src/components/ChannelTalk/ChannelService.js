@@ -15,9 +15,9 @@ class ChannelService {
         channel.context(arguments);
       };
 
-      channel.queue = [];
+      channel.q = [];
       channel.context = function (args) {
-        channel.queue.push(args);
+        channel.q.push(args);
       };
 
       globalWindow.ChannelIO = channel;
