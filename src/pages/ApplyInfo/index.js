@@ -278,7 +278,7 @@ const SubmitButtonContainer = styled.div`
   width: 100%;
   justify-content: center;
   margin-top: 50px;
-  margin-bottom: 125px;
+  margin-bottom: 100px;
   @media ${({ theme }) => theme.devices.TABLET} {
     margin-top: 100px;
   }
