@@ -7,6 +7,7 @@ import ChannelService from './components/ChannelTalk/ChannelService';
 import FloatingButton from './components/ChannelTalk/FloatingButton';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header';
+import ApplyCheckPage from './pages/ApplyCheck';
 import ApplyFailPage from './pages/ApplyFail';
 import ApplyFinishPage from './pages/ApplyFinish';
 import ApplyInfoPage from './pages/ApplyInfo';
@@ -43,6 +44,7 @@ function App() {
           <Route path="/*" element={<ApplyNotFoundPage />} />
           <Route path="/success" element={<ApplySuccessPage />} />
           <Route path="/fail" element={<ApplyFailPage />} />
+          <Route path="/check" element={<ApplyCheckPage />} />
         </Routes>
         <FloatingButton />
         <Footer />

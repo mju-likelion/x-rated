@@ -17,13 +17,17 @@ const ApplyCheckTitleBox = styled.div`
   gap: 48px;
   display: flex;
   border-bottom: 1px solid ${({ theme }) => theme.colors.GRAY1};
+  height: 50px;
+  box-sizing: border-box;
   @media ${({ theme }) => theme.devices.TABLET} {
     width: 400px;
     gap: 83px;
+    height: 64px;
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
     width: 483px;
     gap: 88px;
+    height: 80px;
   }
 `;
 
