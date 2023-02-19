@@ -8,14 +8,19 @@ import Logo from './Logo';
 const Header = () => {
   const navigate = useNavigate();
 
-  //Line 11~ 19까지, write경로에서 지원하기 버튼 비활성화 이벤트입니다
   const path = useLocation().pathname;
-  const [isShow, setIsShow] = useState(true);
+
+  const [headerStatus, setHeaderStatus] = useState({});
+  const { cursorPointer, isClickActived, opacity } = headerStatus;
 
   useEffect(() => {
     if (path === '/write') {
-      setIsShow(false);
-    } else setIsShow(true);
+      setHeaderStatus({
+        cursorPointer: 'not-allowed',
+        isClickActived: 'none',
+        opacity: 0.2,
+      });
+    } else setHeaderStatus({});
   }, [path]);
 
   return (
@@ -26,11 +31,12 @@ const Header = () => {
           <HeaderSiteInfo>APPLY</HeaderSiteInfo>
         </HeaderLogoBox>
         <RightNavBox>
-          {/* props를 통하여 조건부 스타일링을 적용합니다, 해당 적용 여부는 추후에 컨펌하고 확정짓도록 하겠습니다 */}
-          <RightNavItem isshow={isShow} onClick={() => navigate('/info')}>
-            <Test isshow={isShow}>지원하기</Test>
+          <RightNavItem onClick={() => navigate('/info')} cursorPointer={cursorPointer} isClickActived={isClickActived}>
+            <NavItemText opacity={opacity}>지원하기</NavItemText>
           </RightNavItem>
-          <RightNavItem>지원확인하기</RightNavItem>
+          <RightNavItem onClick={() => navigate('/check')}>
+            <NavItemText>지원확인하기</NavItemText>
+          </RightNavItem>
         </RightNavBox>
       </HeaderBox>
     </HeaderTopBox>
@@ -104,12 +110,12 @@ const RightNavBox = styled.div`
 
 const RightNavItem = styled.button`
   all: unset;
-  cursor: ${({ isshow }) => (isshow ? 'pointer' : 'default')};
+  cursor: ${({ cursorPointer }) => cursorPointer || 'pointer'};
+  pointer-events: ${({ isClickActived }) => isClickActived || 'default'};
 `;
 
-//확실한거 아니라서, 테스트용이라고 명시하였습니다.
-const Test = styled.p`
-  opacity: ${({ isshow }) => (isshow ? 1.0 : 0.2)};
+const NavItemText = styled.p`
+  opacity: ${({ opacity }) => opacity || 1};
 `;
 
 export default Header;
