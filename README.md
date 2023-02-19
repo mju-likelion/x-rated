@@ -67,3 +67,7 @@
 | fix      | 버그 수정, 예외 케이스 대응, 기능 개선 |
 | docs     | README.md 작성, 주석 작성              |
 | chore    | 기타 작업                              |
+
+## https 설정하기
+
+- [https 설정하기](docs/https.md)

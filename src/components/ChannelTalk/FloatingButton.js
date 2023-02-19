@@ -18,7 +18,7 @@ const FloatingButtonBlock = styled.div`
   position: sticky;
   margin-right: 16px;
   float: right;
-  bottom: 0px;
+  bottom: 0;
   cursor: pointer;
   @media ${({ theme }) => theme.devices.DESKTOP} {
     margin-right: 130px;
@@ -26,16 +26,20 @@ const FloatingButtonBlock = styled.div`
 `;
 
 const BigChatImg = styled.img`
+  position: absolute;
+  right: 0;
+  bottom: 0;
   display: none;
   @media ${({ theme }) => theme.devices.DESKTOP} {
     display: block;
-    margin-bottom: 69px;
   }
 `;
 
 const SmallChatImg = styled.img`
+  position: absolute;
+  right: 0;
+  bottom: 0;
   display: block;
-  margin-bottom: 43px;
   @media ${({ theme }) => theme.devices.DESKTOP} {
     display: none;
   }

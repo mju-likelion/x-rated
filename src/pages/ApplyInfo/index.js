@@ -1,8 +1,11 @@
+import { useState, useEffect } from 'react';
+
 import { Form, Formik } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import * as Yup from 'yup';
 
+import { getAgreement } from '../../api/ApplyInfo';
 import { ReactComponent as Caution } from '../../assets/images/caution.svg';
 import Button from '../../components/Button';
 import PageMainTitle from '../../components/PageMainTitle';
@@ -15,15 +18,25 @@ import { initialValues } from './InitialValues';
 import SelectBox from './SelectBox';
 import { GRADE } from './SelectData';
 import TextInput from './TextInput';
+import { useLocalStorageState } from './useLocalStorageStateHook';
 import { validation } from './Validation';
 
 const DEFAULT_ERROR = '작성이 완료되지 않은 내용이 있습니다.';
 const FORM_ERROR = '형식에 맞지 않는 값이 존재합니다.';
 
+const STORAGE_KEY = 'INFOVALUE';
+
 const ApplyInfoPage = () => {
   const navigate = useNavigate();
+  const [localStorageState, updateLocalStorageState] = useLocalStorageState({ key: STORAGE_KEY, value: initialValues });
+  const [agreement, setAgreement] = useState();
+
+  useEffect(() => {
+    getAgreement(setAgreement);
+  }, []);
 
   const handleValues = values => {
+    updateLocalStorageState(values);
     navigate('/write', {
       state: {
         ...values,
@@ -33,12 +46,26 @@ const ApplyInfoPage = () => {
     });
   };
 
+  const handleError = (values, errors) => {
+    if (!values?.name) {
+      return DEFAULT_ERROR;
+    }
+    if (Object.keys(errors).length > 0) {
+      if (Object.values(errors).includes('form')) {
+        return DEFAULT_ERROR;
+      }
+      return FORM_ERROR;
+    } else {
+      return null;
+    }
+  };
+
   return (
     <>
       <PageMainTitle title="지원서 작성하기" />
       <ContentContainer>
         <Formik
-          initialValues={initialValues}
+          initialValues={localStorageState}
           validationSchema={Yup.object(validation)}
           onSubmit={values => handleValues(values)}
         >
@@ -72,7 +99,7 @@ const ApplyInfoPage = () => {
 
                 <ButtomBreakLine />
 
-                <AgreementTextContainer></AgreementTextContainer>
+                <AgreementTextContainer>{agreement || ''}</AgreementTextContainer>
                 <CheckBox name="personalInfoAgreement" text="개인정보 수집 및 이용 동의" />
 
                 <CautionContainer>
@@ -87,15 +114,7 @@ const ApplyInfoPage = () => {
                   <Button
                     type="submit"
                     text="다음으로"
-                    errorMessage={
-                      !values.name
-                        ? DEFAULT_ERROR
-                        : Object.values(errors).includes('form')
-                        ? FORM_ERROR
-                        : Object.keys(errors).length > 0
-                        ? DEFAULT_ERROR
-                        : null
-                    }
+                    errorMessage={handleError(values, errors)}
                     onClick={handleSubmit}
                   />
                 </SubmitButtonContainer>
@@ -192,19 +211,46 @@ const ButtonContainer = styled.div`
 `;
 
 const AgreementTextContainer = styled.div`
-  width: 100%;
+  box-sizing: border-box;
   background-color: ${({ theme }) => theme.colors.GRAY1};
   border-radius: 18px;
-
   margin-top: 32px;
   height: 240px;
+  overflow-y: scroll;
+  white-space: pre-wrap;
+  padding: 20px;
+  font-size: 12px;
+  line-height: 20px;
+  width: 318px;
 
   @media ${({ theme }) => theme.devices.TABLET} {
     margin-top: 40px;
     height: 340px;
+    padding: 24px;
+    font-size: 14px;
+    line-height: 21px;
+    width: 568px;
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
     margin-top: 50px;
+    padding: 30px;
+    font-size: 18px;
+    line-height: 24px;
+    width: 1200px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 18px;
+  }
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: ${({ theme }) => theme.colors.GRAY3};
+    background-clip: padding-box;
+    height: 176px;
+    border: 6px solid rgba(0, 0, 0, 0);
+    border-radius: 9999px;
   }
 `;
 

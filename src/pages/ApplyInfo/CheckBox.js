@@ -7,9 +7,10 @@ import { StyledText } from './TextInput';
 
 const CheckBox = ({ name, text }) => {
   const [field] = useField(name);
+  const { value } = field;
   return (
     <CheckboxContainer htmlFor={`${name}CheckBox`}>
-      <StyledCheckbox id={`${name}CheckBox`} type="checkbox" {...field} />
+      <StyledCheckbox id={`${name}CheckBox`} type="checkbox" checked={value || false} {...field} />
       <CheckBoxText>
         {text}
         <p>*</p>

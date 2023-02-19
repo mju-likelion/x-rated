@@ -25,5 +25,8 @@ yarn-error.log*
 #env
 .env
 
+# jetbrains ide
+.idea
+
 # https
 cert

@@ -5,9 +5,16 @@ const TextInput = ({ name, placeholder, text, maxLength }) => {
   const [field, meta, helper] = useField(name);
   const { value } = meta;
   const { setValue } = helper;
+
   const handleChange = e => {
-    const phone = e.target.value;
-    setValue([3, 8].includes(phone.length) && value.length < phone.length ? phone.concat('-') : phone);
+    const num = e.target.value;
+    const regex = /^[0-9\b -]{0,13}$/;
+    if (regex.test(num) && [-1, 3].includes(num.indexOf('-')) && [-1, 3, 8].includes(num.lastIndexOf('-'))) {
+      setValue(num);
+      if ([3, 8].includes(num.length) && value.length < num.length) {
+        setValue(num.concat('-'));
+      }
+    }
   };
 
   const handlePlaceHolder = e => {
@@ -17,6 +24,7 @@ const TextInput = ({ name, placeholder, text, maxLength }) => {
       e.target.placeholder = '';
     }
   };
+
   return (
     <Container>
       <StyledText>
@@ -82,7 +90,6 @@ const StyledInput = styled.input`
   width: 100%;
   padding: 16px;
   border-radius: 10px;
-
   background-color: ${({ theme }) => theme.colors.GRAY1};
   border: none;
   color: ${({ theme }) => theme.colors.WHITE};
@@ -90,11 +97,13 @@ const StyledInput = styled.input`
   font-size: 14px;
 
   :focus {
+    outline: none;
     box-sizing: border-box;
-    outline: 1px solid ${({ theme }) => theme.colors.WHITE};
+    border: 1px solid ${({ theme }) => theme.colors.WHITE};
     border-radius: 10px;
-    overflow: hidden;
-    isolation: isolate;
+    ::before::after {
+      border-radius: 10px;
+    }
   }
 
   @media ${({ theme }) => theme.devices.TABLET} {

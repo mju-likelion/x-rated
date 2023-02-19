@@ -1,41 +1,58 @@
 import { useEffect, useState } from 'react';
 
 import { useFormik } from 'formik';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
+import { getApplyQuestionList, sendApplyData } from '../../api/Applywrite';
 import PageMainTitle from '../../components/PageMainTitle';
+import Toast from '../../components/Toast';
 
 import Button from './../../components/Button';
-import { formikConfig, initialValues, validationSchema } from './FormikConfig';
-
+import { createVaildationSchema, formikConfig, initialValues } from './FormikConfig';
 const ApplyWritePage = () => {
   const navigate = useNavigate();
-  const [valid, setValid] = useState(false);
+  const location = useLocation();
 
-  const TEMP_QUESTIONS = [
-    {
-      id: 1,
-      question:
-        '저희 멋쟁이사자처럼 11기에 지원해 주심에 감사드리며, 지원자분의 지원 동기를 올해의 목표와 연관 지어 서술해 주세요.',
-      maxLength: 1000,
-    },
-    {
-      id: 2,
-      question:
-        '저희 멋쟁이사자처럼 11기에 지원해 주심에 감사드리며, 지원자분의 지원 동기를 올해의 목표와 연관 지어 서술해 주세요.',
-      maxLength: 700,
-    },
-  ];
-  //추후 서버 통신시에 마운트되면 문항 질문 받아서 렌더링 (props x)
+  const [valid, setValid] = useState(false);
+  const [toast, setToast] = useState(false);
+  const [questionList, setQuestionList] = useState([]);
+  const [toastMessage, setToastMessage] = useState('');
+
+  const personalInfo = location?.state;
+
+  const isDevelopPart = personalInfo?.part !== 'design';
+
+  const callbackFunctionsObject = {
+    navigateFunction: () => navigate('/finish'),
+    setToastFunction: setToast,
+    setTosatMessageFunction: setToastMessage,
+    setList: setQuestionList,
+  };
+
+  useEffect(() => {
+    if (!personalInfo) {
+      setToast(true);
+      setToastMessage('잘못된 접근입니다.');
+      setTimeout(() => {
+        navigate('/');
+      }, 3000);
+    } else {
+      getApplyQuestionList(personalInfo.part, callbackFunctionsObject);
+    }
+  }, []);
 
   const order = Object.keys(initialValues);
-  //이걸 임포트 받는 이유는, 파트별로 문항수가 달라서 선택해서 사용하려고 => 조건부로 받아서 속성 부여해도 될 듯? 이건 서버연동하면 고민
+
+  const validationSchema = createVaildationSchema(isDevelopPart);
 
   const formik = useFormik({
     ...formikConfig,
-    onSubmit: () => {
-      navigate('/finish');
+    ...validationSchema,
+    onSubmit: applicationInfo => {
+      if (!(applicationInfo && valid)) return;
+      const applyObejct = { applicationInfo, personalInfo };
+      sendApplyData(applyObejct, callbackFunctionsObject);
     },
   });
 
@@ -56,8 +73,6 @@ const ApplyWritePage = () => {
 
   const fileData = formik.values.file;
 
-  const partTest = true; //이건 나중에 파트별로 렌더링 다르게 하는용도 입니다.
-
   const isvalid = () => {
     validationSchema.isValid(formik.values).then(valid => {
       if (valid) setValid(true);
@@ -71,7 +86,7 @@ const ApplyWritePage = () => {
   return (
     <>
       <PageMainTitle title="지원서 작성하기" />
-      {partTest && (
+      {isDevelopPart && (
         <>
           <FileUploadContainer>
             <FileTitle>
@@ -90,13 +105,12 @@ const ApplyWritePage = () => {
       )}
 
       <WriteForm onSubmit={formik.handleSubmit}>
-        {TEMP_QUESTIONS.map((item, index) => {
+        {questionList?.map((item, index) => {
           return (
             <WriteContainer key={index}>
               <BaseTitle>
                 {` ${index + 1}. ${item.question}`}
                 <Star>*</Star>
-                {/* 추후 서버통신하면 변경요망 */}
               </BaseTitle>
               <WriteBox>
                 <WriteArea
@@ -113,9 +127,14 @@ const ApplyWritePage = () => {
           );
         })}
         <ButtonBox>
-          <Button type="submit" text={'제출하기'} errorMessage={valid ? null : '작성되지않은 문항이 있습니다.'} />
+          <Button
+            type="submit"
+            text={'제출하기'}
+            errorMessage={valid ? null : '작성되지않은 문항 또는 파일의 크기가 너무 큽니다.'}
+          />
         </ButtonBox>
       </WriteForm>
+      {toast && <Toast setToast={setToast} isSuccess={false} text={toastMessage} />}
     </>
   );
 };
@@ -135,7 +154,7 @@ const BaseContainer = styled.div`
   }
 `;
 
-const BaseTitle = styled.p`
+const BaseTitle = styled.span`
   display: inline;
   color: ${({ theme }) => theme.colors.WHITE};
   margin-left: 6px;
@@ -237,6 +256,7 @@ const FileUpload = styled.input`
 
 const HorizontalLine = styled(BaseContainer)`
   border: 1px solid ${({ theme }) => theme.colors.GRAY1};
+  border-radius: 1px;
 `;
 
 const WriteContainer = styled(BaseContainer)`
@@ -263,6 +283,7 @@ const WriteBox = styled(WriteContainer)`
 `;
 
 const WriteLength = styled.p`
+  color: ${({ theme }) => theme.colors.GRAY2};
   align-self: flex-end;
   font-size: 14px;
   line-height: 18px;
@@ -285,6 +306,10 @@ const WriteArea = styled.textarea`
   &:focus {
     outline: none;
   }
+  &:focus ~ ${WriteLength} {
+    color: ${({ theme }) => theme.colors.WHITE};
+  }
+
   &::-webkit-scrollbar {
     width: 6px;
     height: 164px;
