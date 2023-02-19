@@ -217,38 +217,52 @@ const ButtonContainer = styled.div`
   }
 `;
 const AgreementWrapper = styled.div`
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 318px;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-radius: 18px;
+  background-color: ${({ theme }) => theme.colors.GRAY1};
+
+  @media ${({ theme }) => theme.devices.TABLET} {
+    margin-top: 40px;
+    padding-top: 24px;
+    width: 568px;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    padding-top: 30px;
+    width: 1200px;
+  }
 `;
 
 const AgreementTextContainer = styled.div`
   box-sizing: border-box;
   background-color: ${({ theme }) => theme.colors.GRAY1};
-  border-radius: 18px;
-  margin-top: 32px;
-  height: 240px;
+  color: ${({ theme }) => theme.colors.GRAY2};
+  height: 210px;
   overflow-y: scroll;
   white-space: pre-wrap;
-  padding: 20px;
+  position: relative;
+  padding: 0 20px;
   font-size: 12px;
   line-height: 20px;
-  width: 318px;
+  width: 100%;
+  border-radius: 18px;
 
   @media ${({ theme }) => theme.devices.TABLET} {
-    margin-top: 40px;
-    height: 340px;
-    padding: 24px;
+    height: 326px;
+    padding: 0 24px;
     font-size: 14px;
     line-height: 21px;
-    width: 568px;
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
-    margin-top: 50px;
-    padding: 30px;
+    padding: 0 30px;
+    height: 295px;
     font-size: 18px;
     line-height: 24px;
-    width: 1200px;
   }
 
   ::-webkit-scrollbar {
@@ -270,17 +284,17 @@ const AgreementButtomBlock = styled.div`
   background-color: ${({ theme }) => theme.colors.GRAY1};
   position: relative;
   width: 278px;
-  height: 20px;
-  bottom: 20px;
+  height: 12px;
+  bottom: 10px;
   @media ${({ theme }) => theme.devices.TABLET} {
-    height: 24px;
+    height: 14px;
     width: 520px;
-    bottom: 24px;
+    bottom: 12px;
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
     width: 1140px;
-    height: 30px;
-    bottom: 30px;
+    height: 15px;
+    bottom: 13px;
   }
 `;
 
