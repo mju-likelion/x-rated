@@ -78,11 +78,11 @@ const PartInfoBlock = styled.div`
 const WrapApplyButton = styled.div`
   text-align: center;
   margin-top: 50px;
-  margin-bottom: 125px;
+  margin-bottom: 100px;
 
   @media ${({ theme }) => theme.devices.DESKTOP} {
     margin-top: 100px;
-    margin-bottom: 160px;
+    margin-bottom: 120px;
   }
 `;
 

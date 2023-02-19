@@ -333,12 +333,12 @@ const WriteArea = styled.textarea`
 const ButtonBox = styled.div`
   display: flex;
   justify-content: center;
-  margin: 20px auto 125px auto;
+  margin: 20px auto 100px auto;
   @media ${({ theme }) => theme.devices.TABLET} {
-    margin: 50px auto 125px auto;
+    margin: 50px auto 100px auto;
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
-    margin: 0 auto 200px auto;
+    margin: 0 auto 160px auto;
   }
 `;
 

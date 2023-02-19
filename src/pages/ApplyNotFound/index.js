@@ -51,12 +51,12 @@ const LogoBox = styled.div`
 const ButtonBox = styled.div`
   display: flex;
   justify-content: center;
-  margin: 60px auto 146px auto;
+  margin: 60px auto 121px auto;
   @media ${({ theme }) => theme.devices.TABLET} {
-    margin: 70px auto 223px auto;
+    margin: 70px auto 198px auto;
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
-    margin: 70px auto 272px auto;
+    margin: 70px auto 232px auto;
   }
 `;
 
