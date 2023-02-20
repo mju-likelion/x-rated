@@ -1,10 +1,12 @@
 import React from 'react';
 
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { ReactComponent as Congratulations } from '../../assets/images/congratulations.svg';
 
 const ApplyFinishPage = () => {
+  const navigate = useNavigate();
   return (
     <ApplyFinishBox>
       <ApplyFinishCongratsSvg />
@@ -15,7 +17,7 @@ const ApplyFinishPage = () => {
           <ApplyFinishPassDate>3월 6일</ApplyFinishPassDate>에 1차 합격 발표로 만나요
         </ApplyFinishContentsLine>
       </ApplyContentsBox>
-      <ApplyCheckButton>지원 성공 여부 확인하기</ApplyCheckButton>
+      <ApplyCheckButton onClick={() => navigate('/check')}>지원 성공 여부 확인하기</ApplyCheckButton>
     </ApplyFinishBox>
   );
 };
@@ -25,7 +27,7 @@ const ApplyFinishBox = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: calc(100vh - 56px - 160px);
+  min-height: calc(100vh - 56px - 99px);
   @media ${({ theme }) => theme.devices.TABLET} {
     min-height: calc(100vh - 70px - 170px);
   }
