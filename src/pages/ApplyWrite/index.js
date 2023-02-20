@@ -233,7 +233,6 @@ const FileUploadTitle = styled(BaseTitle)`
         `};
   font-size: 14px;
   line-height: 18px;
-
   @media ${({ theme }) => theme.devices.TABLET} {
     font-size: 16px;
     line-height: 20px;
@@ -248,6 +247,9 @@ const FileUploadLabel = styled.label`
   display: flex;
   align-items: center;
   box-sizing: border-box;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const FileUpload = styled.input`
