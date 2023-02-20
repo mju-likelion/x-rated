@@ -12,12 +12,20 @@
 │   │
 │   ├── 📂 atoms
 │   ├── 📂 components
+│   │    ├── 📂 ApplyResult
+│   │    ├── 📂 ChannelTalk
+│   │    └── 📂 Footer
+│   │
 │   ├── 📂 hooks
 │   ├── 📂 pages
-│   │    ├── 📂 applyFinish
-│   │    ├── 📂 applyinfo
-│   │    ├── 📂 applyMain
-│   │    └── 📂 applyWrite
+│   │    ├── 📂 ApplyCheck
+│   │    ├── 📂 ApplyFail
+│   │    ├── 📂 ApplyFinish
+│   │    ├── 📂 ApplyInfo
+│   │    ├── 📂 ApplyMain
+│   │    ├── 📂 ApplyNotFound
+│   │    ├── 📂 ApplySuccess
+│   │    └── 📂 ApplyWrite
 │   │
 │   └── 📂 styles
 │
