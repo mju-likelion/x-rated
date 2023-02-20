@@ -9,6 +9,7 @@ import { getAgreement } from '../../api/ApplyInfo';
 import { ReactComponent as Caution } from '../../assets/images/caution.svg';
 import Button from '../../components/Button';
 import PageMainTitle from '../../components/PageMainTitle';
+import Toast from '../../components/Toast';
 
 import ButtonBox from './ButtonBox';
 import { CAMPUS, ENROLLMENTSTATUS, PART } from './ButtonData';
@@ -30,9 +31,10 @@ const ApplyInfoPage = () => {
   const navigate = useNavigate();
   const [localStorageState, updateLocalStorageState] = useLocalStorageState({ key: STORAGE_KEY, value: initialValues });
   const [agreement, setAgreement] = useState();
+  const [toast, setToast] = useState(false);
 
   useEffect(() => {
-    getAgreement(setAgreement);
+    getAgreement(setAgreement, setToast);
   }, []);
 
   const handleValues = values => {
@@ -99,7 +101,10 @@ const ApplyInfoPage = () => {
 
                 <ButtomBreakLine />
 
-                <AgreementTextContainer>{agreement || ''}</AgreementTextContainer>
+                <AgreementWrapper>
+                  <AgreementTextContainer>{agreement || ''}</AgreementTextContainer>
+                  <AgreementButtomBlock />
+                </AgreementWrapper>
                 <CheckBox name="personalInfoAgreement" text="개인정보 수집 및 이용 동의" />
 
                 <CautionContainer>
@@ -123,6 +128,8 @@ const ApplyInfoPage = () => {
           )}
         </Formik>
       </ContentContainer>
+      {toast && <Toast setToast={setToast} isSuccess={false} text={'데이터를 불러오는 데 실패했습니다'} />}
+      {/* 멘트를 어떻게 하는 게 좋을까요..? */}
     </>
   );
 };
@@ -209,34 +216,53 @@ const ButtonContainer = styled.div`
     margin-top: 40px;
   }
 `;
+const AgreementWrapper = styled.div`
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 318px;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-radius: 18px;
+  background-color: ${({ theme }) => theme.colors.GRAY1};
+
+  @media ${({ theme }) => theme.devices.TABLET} {
+    margin-top: 40px;
+    padding-top: 24px;
+    width: 568px;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    padding-top: 30px;
+    width: 1200px;
+  }
+`;
 
 const AgreementTextContainer = styled.div`
   box-sizing: border-box;
   background-color: ${({ theme }) => theme.colors.GRAY1};
-  border-radius: 18px;
-  margin-top: 32px;
-  height: 240px;
+  color: ${({ theme }) => theme.colors.GRAY2};
+  height: 210px;
   overflow-y: scroll;
   white-space: pre-wrap;
-  padding: 20px;
+  position: relative;
+  padding: 0 20px;
   font-size: 12px;
   line-height: 20px;
-  width: 318px;
+  width: 100%;
+  border-radius: 18px;
 
   @media ${({ theme }) => theme.devices.TABLET} {
-    margin-top: 40px;
-    height: 340px;
-    padding: 24px;
+    height: 326px;
+    padding: 0 24px;
     font-size: 14px;
     line-height: 21px;
-    width: 568px;
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
-    margin-top: 50px;
-    padding: 30px;
+    padding: 0 30px;
+    height: 295px;
     font-size: 18px;
     line-height: 24px;
-    width: 1200px;
   }
 
   ::-webkit-scrollbar {
@@ -251,6 +277,24 @@ const AgreementTextContainer = styled.div`
     height: 176px;
     border: 6px solid rgba(0, 0, 0, 0);
     border-radius: 9999px;
+  }
+`;
+
+const AgreementButtomBlock = styled.div`
+  background-color: ${({ theme }) => theme.colors.GRAY1};
+  position: relative;
+  width: 278px;
+  height: 12px;
+  bottom: 10px;
+  @media ${({ theme }) => theme.devices.TABLET} {
+    height: 14px;
+    width: 520px;
+    bottom: 12px;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    width: 1140px;
+    height: 15px;
+    bottom: 13px;
   }
 `;
 
