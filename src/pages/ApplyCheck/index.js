@@ -22,9 +22,9 @@ const ApplyCheckTopBox = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  min-height: calc(100vh - 56px - 160px);
+  min-height: calc(100vh - 56px - 99px);
   @media ${({ theme }) => theme.devices.TABLET} {
-    min-height: calc(100vh - 70px - 170px);
+    min-height: calc(100vh - 70px - 77px);
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
     margin-top: 160px;
