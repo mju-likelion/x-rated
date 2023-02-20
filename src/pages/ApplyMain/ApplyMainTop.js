@@ -16,7 +16,8 @@ const ApplyMainTop = () => {
       <RightContent>
         <TitleBox>
           <RightTitle>모집기간</RightTitle>
-          <RightSubTitle>2022.03.02 ~ 2022.03.05</RightSubTitle>
+          <RightSubTitle>3월 2일 ~ 3월 7일&nbsp;</RightSubTitle>
+          <RightTimeTitle>18:00</RightTimeTitle>
         </TitleBox>
         <TitleBox>
           <RightTitle>모집대상</RightTitle>
@@ -90,11 +91,12 @@ const RightContent = styled.div`
 `;
 
 const RightTitle = styled.div`
-  color: ${({ theme }) => theme.colors.GRAY2};
+  color: ${({ theme }) => theme.colors.GRAY3};
   font-size: 12px;
   margin-right: 10px;
   margin-top: 4px;
   @media ${({ theme }) => theme.devices.TABLET} {
+    color: ${({ theme }) => theme.colors.GRAY2};
     margin-right: 12px;
     margin-top: 6px;
   }
@@ -107,6 +109,22 @@ const RightTitle = styled.div`
 `;
 
 const RightSubTitle = styled.div`
+  color: ${({ theme }) => theme.colors.GRAY2};
+  margin-top: 4px;
+  font-size: 12px;
+  font-weight: 400;
+  @media ${({ theme }) => theme.devices.TABLET} {
+    color: ${({ theme }) => theme.colors.WHITE};
+    margin-top: 6px;
+  }
+  @media ${({ theme }) => theme.devices.DESKTOP} {
+    margin-top: 8px;
+    font-size: 18px;
+  }
+`;
+
+const RightTimeTitle = styled.div`
+  color: ${({ theme }) => theme.colors.GRAY2};
   margin-top: 4px;
   font-size: 12px;
   font-weight: 400;
