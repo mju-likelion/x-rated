@@ -130,7 +130,7 @@ const ApplyWritePage = () => {
           <Button
             type="submit"
             text={'제출하기'}
-            errorMessage={valid ? null : '작성되지않은 문항 또는 파일의 크기가 너무 큽니다.'}
+            errorMessage={valid ? null : `작성되지 않은 문항이 있거나\n 파일의 크기가 너무 큽니다.`}
           />
         </ButtonBox>
       </WriteForm>

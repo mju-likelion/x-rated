@@ -42,6 +42,7 @@ const Wrapper = styled.div`
   text-align: center;
   width: 192px;
   height: 75px;
+  white-space: pre-line;
 
   @media ${({ theme }) => theme.devices.DESKTOP} {
     width: 288px;
