@@ -37,13 +37,11 @@ const ApplyFinishBox = styled.div`
 `;
 
 const ApplyFinishCongratsSvg = styled(Congratulations)`
-  margin-bottom: 14px;
-  margin-left: 8px;
+  margin: 0 0 14px 8px;
   @media ${({ theme }) => theme.devices.TABLET} {
     width: 445px;
     height: 46px;
-    margin-left: 13px;
-    margin-bottom: 20px;
+    margin: 0 0 20px 13px;
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
     width: 740px;
