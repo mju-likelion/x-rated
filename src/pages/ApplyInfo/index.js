@@ -105,6 +105,12 @@ const ApplyInfoPage = () => {
                   <AgreementTextContainer>{agreement || ''}</AgreementTextContainer>
                   <AgreementButtomBlock />
                 </AgreementWrapper>
+                <CheckBox name="LikeLionpersonalInfoAgreement" text="개인정보 수집 및 이용 동의" />
+
+                <AgreementWrapper>
+                  <AgreementTextContainer>{agreement || ''}</AgreementTextContainer>
+                  <AgreementButtomBlock />
+                </AgreementWrapper>
                 <CheckBox name="personalInfoAgreement" text="개인정보 수집 및 이용 동의" />
 
                 <CautionContainer>
@@ -116,12 +122,7 @@ const ApplyInfoPage = () => {
                 <CheckBox name="cautionConfirm" text="위의 주의사항을 확인하였습니다" />
 
                 <SubmitButtonContainer>
-                  <Button
-                    type="submit"
-                    text="다음으로"
-                    errorMessage={handleError(values, errors)}
-                    onClick={handleSubmit}
-                  />
+                  <Button type="submit" text="다음으로" errorMessage={handleError(values, errors)} />
                 </SubmitButtonContainer>
               </StyledForm>
             </>
