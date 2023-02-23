@@ -57,7 +57,7 @@ const FooterIconsBox = styled.div`
   display: flex;
   justify-content: space-between;
   width: 264px;
-  gap: 16px;
+  height: 40px;
   @media ${({ theme }) => theme.devices.DESKTOP} {
     width: 440px;
     height: 56px;
@@ -67,9 +67,8 @@ const FooterIconsBox = styled.div`
 const FooterRouteOfficialBox = styled.a`
   display: flex;
   align-items: center;
-  margin-top: 12px;
+  margin-top: 18px;
   margin-bottom: 18px;
-  gap: 4px;
   text-decoration: none;
   cursor: pointer;
   @media ${({ theme }) => theme.devices.TABLET} {
@@ -78,6 +77,7 @@ const FooterRouteOfficialBox = styled.a`
   @media ${({ theme }) => theme.devices.DESKTOP} {
     margin-top: 20px;
     margin-bottom: 30px;
+    gap: 5px;
   }
 `;
 
@@ -85,9 +85,7 @@ const FooterRouteOfficialBtn = styled.button`
   all: unset;
   color: ${({ theme }) => theme.colors.GRAY2};
   font-size: 12px;
-  line-height: 10px;
-  text-align: center;
-  height: 26px;
+  height: 20px;
   @media ${({ theme }) => theme.devices.DESKTOP} {
     font-size: 14px;
     height: 30px;
