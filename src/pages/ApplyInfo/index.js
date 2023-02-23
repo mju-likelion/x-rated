@@ -71,7 +71,7 @@ const ApplyInfoPage = () => {
           validationSchema={Yup.object(validation)}
           onSubmit={values => handleValues(values)}
         >
-          {({ errors, handleSubmit, values }) => (
+          {({ errors, values }) => (
             <>
               <StyledForm>
                 <TextInput name="name" type="text" text="이름" maxLength={10} />
