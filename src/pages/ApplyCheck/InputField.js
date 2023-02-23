@@ -17,7 +17,7 @@ const InputField = ({ setIsFocus }) => {
   };
 
   const handleInputBlur = () => {
-    formik.values.name === '' && formik.values.sid === '' && setIsFocus(false);
+    if (formik.values.name === '' && formik.values.sid === '') setIsFocus(false);
   };
 
   const callbackFunctions = {
