@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import { Form, Formik } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
@@ -8,7 +6,6 @@ import * as Yup from 'yup';
 import { ReactComponent as Caution } from '../../assets/images/caution.svg';
 import Button from '../../components/Button';
 import PageMainTitle from '../../components/PageMainTitle';
-import Toast from '../../components/Toast';
 
 import { LIKELIONAGREEMENT, PERSONALAGREEMENT } from './AgreementData';
 import ButtonBox from './ButtonBox';
@@ -30,7 +27,6 @@ const STORAGE_KEY = 'INFOVALUE';
 const ApplyInfoPage = () => {
   const navigate = useNavigate();
   const [localStorageState, updateLocalStorageState] = useLocalStorageState({ key: STORAGE_KEY, value: initialValues });
-  const [toast, setToast] = useState(false);
 
   const handleValues = values => {
     updateLocalStorageState(values);
@@ -97,14 +93,14 @@ const ApplyInfoPage = () => {
                 <ButtomBreakLine />
 
                 <AgreementWrapper>
-                  <AgreementTextContainer>{LIKELIONAGREEMENT}</AgreementTextContainer>
-                  <AgreementButtomBlock />
+                  <TextContainer>{LIKELIONAGREEMENT}</TextContainer>
+                  <ButtomBlock />
                 </AgreementWrapper>
                 <CheckBox name="likeLionpersonalInfoAgreement" text="개인정보 수집 및 이용 동의" />
 
                 <AgreementWrapper>
-                  <AgreementTextContainer>{PERSONALAGREEMENT}</AgreementTextContainer>
-                  <AgreementButtomBlock />
+                  <TextContainer>{PERSONALAGREEMENT}</TextContainer>
+                  <ButtomBlock />
                 </AgreementWrapper>
                 <CheckBox name="personalInfoAgreement" text="개인정보 수집 및 이용 동의" />
 
@@ -124,8 +120,6 @@ const ApplyInfoPage = () => {
           )}
         </Formik>
       </ContentContainer>
-      {toast && <Toast setToast={setToast} isSuccess={false} text={'데이터를 불러오는 데 실패했습니다'} />}
-      {/* 멘트를 어떻게 하는 게 좋을까요..? */}
     </>
   );
 };
@@ -234,7 +228,7 @@ const AgreementWrapper = styled.div`
   }
 `;
 
-const AgreementTextContainer = styled.div`
+const TextContainer = styled.div`
   box-sizing: border-box;
   background-color: ${({ theme }) => theme.colors.GRAY1};
   color: ${({ theme }) => theme.colors.GRAY2};
@@ -276,7 +270,7 @@ const AgreementTextContainer = styled.div`
   }
 `;
 
-const AgreementButtomBlock = styled.div`
+const ButtomBlock = styled.div`
   background-color: ${({ theme }) => theme.colors.GRAY1};
   position: relative;
   width: 278px;
