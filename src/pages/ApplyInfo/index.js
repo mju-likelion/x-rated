@@ -1,16 +1,16 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 import { Form, Formik } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import * as Yup from 'yup';
 
-import { getAgreement } from '../../api/ApplyInfo';
 import { ReactComponent as Caution } from '../../assets/images/caution.svg';
 import Button from '../../components/Button';
 import PageMainTitle from '../../components/PageMainTitle';
 import Toast from '../../components/Toast';
 
+import { LIKELIONAGREEMENT, PERSONALAGREEMENT } from './AgreementData';
 import ButtonBox from './ButtonBox';
 import { CAMPUS, ENROLLMENTSTATUS, PART } from './ButtonData';
 import CautionNotice from './CautionNotice';
@@ -30,12 +30,7 @@ const STORAGE_KEY = 'INFOVALUE';
 const ApplyInfoPage = () => {
   const navigate = useNavigate();
   const [localStorageState, updateLocalStorageState] = useLocalStorageState({ key: STORAGE_KEY, value: initialValues });
-  const [agreement, setAgreement] = useState();
   const [toast, setToast] = useState(false);
-
-  useEffect(() => {
-    getAgreement(setAgreement, setToast);
-  }, []);
 
   const handleValues = values => {
     updateLocalStorageState(values);
@@ -102,13 +97,13 @@ const ApplyInfoPage = () => {
                 <ButtomBreakLine />
 
                 <AgreementWrapper>
-                  <AgreementTextContainer>{agreement || ''}</AgreementTextContainer>
+                  <AgreementTextContainer>{LIKELIONAGREEMENT}</AgreementTextContainer>
                   <AgreementButtomBlock />
                 </AgreementWrapper>
-                <CheckBox name="LikeLionpersonalInfoAgreement" text="개인정보 수집 및 이용 동의" />
+                <CheckBox name="likeLionpersonalInfoAgreement" text="개인정보 수집 및 이용 동의" />
 
                 <AgreementWrapper>
-                  <AgreementTextContainer>{agreement || ''}</AgreementTextContainer>
+                  <AgreementTextContainer>{PERSONALAGREEMENT}</AgreementTextContainer>
                   <AgreementButtomBlock />
                 </AgreementWrapper>
                 <CheckBox name="personalInfoAgreement" text="개인정보 수집 및 이용 동의" />

@@ -8,7 +8,7 @@ export const initialValues = {
   enrollmentStatus: '',
   campus: '',
   part: '',
-  LikeLionpersonalInfoAgreement: false,
+  likeLionpersonalInfoAgreement: false,
   personalInfoAgreement: false,
   cautionConfirm: false,
 };
