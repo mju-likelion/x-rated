@@ -32,7 +32,7 @@ const ApplyFinishBox = styled.div`
     min-height: calc(100vh - 70px - 170px);
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
-    min-height: calc(100vh - 70px - 232px);
+    min-height: calc(100vh - 70px - 188px);
   }
 `;
 
