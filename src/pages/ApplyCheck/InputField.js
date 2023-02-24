@@ -16,6 +16,10 @@ const InputField = ({ setIsFocus }) => {
     setIsFocus(true);
   };
 
+  const handleInputBlur = () => {
+    if (formik.values.name === '' && formik.values.sid === '') setIsFocus(false);
+  };
+
   const callbackFunctions = {
     navigateSuccess: name => navigate('/success', { state: name }),
     navigateFail: name => navigate('/fail', { state: name }),
@@ -52,6 +56,7 @@ const InputField = ({ setIsFocus }) => {
             value={formik.values.name}
             {...formik.getFieldProps('name')}
             onClick={handleInputClick}
+            onBlur={handleInputBlur}
           />
         </InputFieldBox>
         <InputFieldBox>
@@ -69,6 +74,7 @@ const InputField = ({ setIsFocus }) => {
             onClick={handleInputClick}
             type="text"
             maxLength={8}
+            onBlur={handleInputBlur}
           />
         </InputFieldBox>
       </AllInputField>
