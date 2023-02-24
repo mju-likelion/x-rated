@@ -1,10 +1,12 @@
 import React from 'react';
 
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { ReactComponent as Congratulations } from '../../assets/images/congratulations.svg';
 
 const ApplyFinishPage = () => {
+  const navigate = useNavigate();
   return (
     <ApplyFinishBox>
       <ApplyFinishCongratsSvg />
@@ -15,7 +17,7 @@ const ApplyFinishPage = () => {
           <ApplyFinishPassDate>3월 6일</ApplyFinishPassDate>에 1차 합격 발표로 만나요
         </ApplyFinishContentsLine>
       </ApplyContentsBox>
-      <ApplyCheckButton>지원 성공 여부 확인하기</ApplyCheckButton>
+      <ApplyCheckButton onClick={() => navigate('/check')}>지원 성공 여부 확인하기</ApplyCheckButton>
     </ApplyFinishBox>
   );
 };
@@ -25,23 +27,21 @@ const ApplyFinishBox = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: calc(100vh - 56px - 160px);
+  min-height: calc(100vh - 56px - 99px);
   @media ${({ theme }) => theme.devices.TABLET} {
     min-height: calc(100vh - 70px - 170px);
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
-    min-height: calc(100vh - 70px - 232px);
+    min-height: calc(100vh - 70px - 188px);
   }
 `;
 
 const ApplyFinishCongratsSvg = styled(Congratulations)`
-  margin-bottom: 14px;
-  margin-left: 8px;
+  margin: 0 0 14px 8px;
   @media ${({ theme }) => theme.devices.TABLET} {
     width: 445px;
     height: 46px;
-    margin-left: 13px;
-    margin-bottom: 20px;
+    margin: 0 0 20px 13px;
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
     width: 740px;
