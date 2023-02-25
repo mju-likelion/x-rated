@@ -19,6 +19,7 @@ export const validation = {
     .matches(/^\d{8}$/, 'form'),
   enrollmentStatus: Yup.string().required('required').oneOf(ENROLLMENTSTATUS),
   part: Yup.string().required('required').oneOf(PART),
+  likeLionpersonalInfoAgreement: Yup.boolean().required('required').oneOf([true]),
   personalInfoAgreement: Yup.boolean().required('required').oneOf([true]),
   cautionConfirm: Yup.boolean().required('required').oneOf([true]),
 };

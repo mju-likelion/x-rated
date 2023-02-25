@@ -1,16 +1,13 @@
-import { useState, useEffect } from 'react';
-
 import { Form, Formik } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import * as Yup from 'yup';
 
-import { getAgreement } from '../../api/ApplyInfo';
 import { ReactComponent as Caution } from '../../assets/images/caution.svg';
 import Button from '../../components/Button';
 import PageMainTitle from '../../components/PageMainTitle';
-import Toast from '../../components/Toast';
 
+import { LIKELIONAGREEMENT, PERSONALAGREEMENT } from './AgreementData';
 import ButtonBox from './ButtonBox';
 import { CAMPUS, ENROLLMENTSTATUS, PART } from './ButtonData';
 import CautionNotice from './CautionNotice';
@@ -30,12 +27,6 @@ const STORAGE_KEY = 'INFOVALUE';
 const ApplyInfoPage = () => {
   const navigate = useNavigate();
   const [localStorageState, updateLocalStorageState] = useLocalStorageState({ key: STORAGE_KEY, value: initialValues });
-  const [agreement, setAgreement] = useState();
-  const [toast, setToast] = useState(false);
-
-  useEffect(() => {
-    getAgreement(setAgreement, setToast);
-  }, []);
 
   const handleValues = values => {
     updateLocalStorageState(values);
@@ -71,7 +62,7 @@ const ApplyInfoPage = () => {
           validationSchema={Yup.object(validation)}
           onSubmit={values => handleValues(values)}
         >
-          {({ errors, handleSubmit, values }) => (
+          {({ errors, values }) => (
             <>
               <StyledForm>
                 <TextInput name="name" type="text" text="이름" maxLength={10} />
@@ -102,8 +93,14 @@ const ApplyInfoPage = () => {
                 <ButtomBreakLine />
 
                 <AgreementWrapper>
-                  <AgreementTextContainer>{agreement || ''}</AgreementTextContainer>
-                  <AgreementButtomBlock />
+                  <TextContainer>{LIKELIONAGREEMENT}</TextContainer>
+                  <ButtomBlock />
+                </AgreementWrapper>
+                <CheckBox name="likeLionpersonalInfoAgreement" text="개인정보 수집 및 이용 동의" />
+
+                <AgreementWrapper>
+                  <TextContainer>{PERSONALAGREEMENT}</TextContainer>
+                  <ButtomBlock />
                 </AgreementWrapper>
                 <CheckBox name="personalInfoAgreement" text="개인정보 수집 및 이용 동의" />
 
@@ -116,20 +113,13 @@ const ApplyInfoPage = () => {
                 <CheckBox name="cautionConfirm" text="위의 주의사항을 확인하였습니다" />
 
                 <SubmitButtonContainer>
-                  <Button
-                    type="submit"
-                    text="다음으로"
-                    errorMessage={handleError(values, errors)}
-                    onClick={handleSubmit}
-                  />
+                  <Button type="submit" text="다음으로" errorMessage={handleError(values, errors)} />
                 </SubmitButtonContainer>
               </StyledForm>
             </>
           )}
         </Formik>
       </ContentContainer>
-      {toast && <Toast setToast={setToast} isSuccess={false} text={'데이터를 불러오는 데 실패했습니다'} />}
-      {/* 멘트를 어떻게 하는 게 좋을까요..? */}
     </>
   );
 };
@@ -238,7 +228,7 @@ const AgreementWrapper = styled.div`
   }
 `;
 
-const AgreementTextContainer = styled.div`
+const TextContainer = styled.div`
   box-sizing: border-box;
   background-color: ${({ theme }) => theme.colors.GRAY1};
   color: ${({ theme }) => theme.colors.GRAY2};
@@ -280,7 +270,7 @@ const AgreementTextContainer = styled.div`
   }
 `;
 
-const AgreementButtomBlock = styled.div`
+const ButtomBlock = styled.div`
   background-color: ${({ theme }) => theme.colors.GRAY1};
   position: relative;
   width: 278px;
