@@ -1,4 +1,5 @@
 import { Axios } from './Axios';
+import { AxiosErrorHandler } from './AxiosErrorHandler';
 
 export const sendApplyData = (sendDataObejct, callbackFunctionsObject) => {
   const { setToastFunction, setTosatMessageFunction } = callbackFunctionsObject;
@@ -25,12 +26,8 @@ export const sendApplyData = (sendDataObejct, callbackFunctionsObject) => {
       sendApplyForm(applyObject, cvUrl, callbackFunctionsObject);
     })
     .catch(err => {
-      setToastFunction(true);
-      //setTosatMessageFunction(err.response.data.statusCode);
-      setTosatMessageFunction(err.response.data.message[0]);
-      /*에러를 다 보여줄 필요는 없으므로 첫 번째 인덱스만 접근했습니다.
-      이게 만약에 전부다 배열형태의 에러 반환이라면 이걸로해도 무난할 듯 싶습니다.
-      아니라면 statusCode에 맞는 에러 메시지로 토스트 메시지 셋팅 들어가기*/
+      const errMessage = err.response.data.message;
+      AxiosErrorHandler(setToastFunction, setTosatMessageFunction, errMessage);
     });
 };
 
@@ -42,9 +39,8 @@ const sendApplyForm = (sendDataObject, url, callbackFunctionsObject) => {
   Axios.post(`/api/applications`, applyObject)
     .then(() => navigateFunction())
     .catch(err => {
-      setToastFunction(true);
-      setTosatMessageFunction(err.response.data.message[0]);
-      //setTosatMessageFunction(err.response.data.statusCode);
+      const errMessage = err.response.data.message;
+      AxiosErrorHandler(setToastFunction, setTosatMessageFunction, errMessage);
     });
 };
 
@@ -55,8 +51,7 @@ export const getApplyQuestionList = (part, callbackFunctionsObject) => {
       setList(res.data.data.resultQuestions);
     })
     .catch(err => {
-      setToastFunction(true);
-      setTosatMessageFunction(err.response.statusText);
-      //서버 에러 반환형식 문서화가 필요합니다.
+      const errMessage = err.response.data.message;
+      AxiosErrorHandler(setToastFunction, setTosatMessageFunction, errMessage);
     });
 };
