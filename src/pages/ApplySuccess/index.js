@@ -42,13 +42,14 @@ const ApplySuccessPage = () => {
 };
 
 const ApplyCheckTopBox = styled.div`
+  padding: 120px 0;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: calc(100vh - 56px - 160px);
-  min-height: calc(100vh - 56px - 99px);
+  min-height: calc(100vh - 56px - 99px - 240px);
   @media ${({ theme }) => theme.devices.TABLET} {
+    padding: 0;
     min-height: calc(100vh - 70px - 77px);
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
