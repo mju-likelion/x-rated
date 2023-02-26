@@ -1,12 +1,14 @@
 import React from 'react';
 
 import ReactDOM from 'react-dom/client';
+import ReactGA from 'react-ga4';
 import { BrowserRouter } from 'react-router-dom';
 
 import App from './App';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 
+ReactGA.initialize(process.env.REACT_APP_GOOGLE_ANALYTICS_TRACKING_ID);
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
