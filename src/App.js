@@ -7,6 +7,7 @@ import ChannelService from './components/ChannelTalk/ChannelService';
 import FloatingButton from './components/ChannelTalk/FloatingButton';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header';
+import UseRouteTracker from './hooks/UseRouteTracker';
 import ApplyCheckPage from './pages/ApplyCheck';
 import ApplyFailPage from './pages/ApplyFail';
 import ApplyFinishPage from './pages/ApplyFinish';
@@ -24,6 +25,8 @@ function App() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
+
+  UseRouteTracker();
 
   ChannelService.boot({
     pluginKey: process.env.REACT_APP_CHANNEL_TALK, // fill your plugin key

@@ -19,8 +19,6 @@ const UseRouteTracker = () => {
       ReactGA.send('pageview');
     }
   }, [initialized, location]);
-
-  return <></>;
 };
 
 export default UseRouteTracker;
