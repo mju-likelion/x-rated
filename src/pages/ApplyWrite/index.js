@@ -24,7 +24,12 @@ const ApplyWritePage = () => {
   const isDevelopPart = personalInfo?.part !== 'design';
 
   const callbackFunctionsObject = {
-    navigateFunction: () => navigate('/finish'),
+    navigateFunction: () =>
+      navigate('/finish', {
+        state: {
+          success: true,
+        },
+      }), //이걸 props를 넘겨서 받아야됨
     setToastFunction: setToast,
     setTosatMessageFunction: setToastMessage,
     setList: setQuestionList,

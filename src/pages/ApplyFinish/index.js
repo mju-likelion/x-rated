@@ -1,12 +1,32 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { ReactComponent as Congratulations } from '../../assets/images/congratulations.svg';
+import Toast from '../../components/Toast';
 
 const ApplyFinishPage = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const [toast, setToast] = useState(false);
+  const [toastMessage, setToastMessage] = useState('');
+
+  const isSucceed = location?.state;
+
+  useEffect(() => {
+    if (!isSucceed) {
+      setToast(true);
+      setToastMessage('잘못된 접근입니다.');
+      setTimeout(() => {
+        navigate('/');
+      }, 1000);
+    } else {
+      return;
+    }
+  }, []);
+
   return (
     <ApplyFinishBox>
       <ApplyFinishCongratsSvg />
@@ -18,6 +38,7 @@ const ApplyFinishPage = () => {
         </ApplyFinishContentsLine>
       </ApplyContentsBox>
       <ApplyCheckButton onClick={() => navigate('/check')}>지원 성공 여부 확인하기</ApplyCheckButton>
+      {toast && <Toast setToast={setToast} isSuccess={false} text={toastMessage} />}
     </ApplyFinishBox>
   );
 };
