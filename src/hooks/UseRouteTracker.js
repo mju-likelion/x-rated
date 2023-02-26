@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react';
 
-// eslint-disable-next-line import/no-extraneous-dependencies
 import ReactGA from 'react-ga4';
 import { useLocation } from 'react-router-dom';
 
-const UseRouteTracker = () => {
+const useRouteTracker = () => {
   const location = useLocation();
   const [initialized, setInitialized] = useState(false);
 
@@ -21,4 +20,4 @@ const UseRouteTracker = () => {
   }, [initialized, location]);
 };
 
-export default UseRouteTracker;
+export default useRouteTracker;
