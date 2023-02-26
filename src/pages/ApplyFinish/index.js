@@ -23,17 +23,17 @@ const ApplyFinishPage = () => {
 };
 
 const ApplyFinishBox = styled.div`
-  padding: 120px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 120px 0;
   min-height: calc(100vh - 56px - 99px - 240px);
   @media ${({ theme }) => theme.devices.TABLET} {
-    padding: 0;
-    min-height: calc(100vh - 70px - 170px);
+    min-height: calc(100vh - 70px - 170px - 240px);
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
+    padding: 0;
     min-height: calc(100vh - 70px - 188px);
   }
 `;
