@@ -153,7 +153,7 @@ const Input = styled.input`
   line-height: 18px;
   padding-left: 16px;
   &:focus {
-    outline: 1px solid ${({ theme }) => theme.colors.WHITE};
+    border: 1px solid ${({ theme }) => theme.colors.WHITE};
   }
   ::placeholder {
     color: ${({ theme }) => theme.colors.GRAY3};
