@@ -49,8 +49,7 @@ const ApplyCheckTopBox = styled.div`
   flex-direction: column;
   min-height: calc(100vh - 56px - 99px - 240px);
   @media ${({ theme }) => theme.devices.TABLET} {
-    padding: 0;
-    min-height: calc(100vh - 70px - 77px);
+    min-height: calc(100vh - 70px - 170px - 240px);
   }
   @media ${({ theme }) => theme.devices.DESKTOP} {
     margin: 160px 0 160px 0;
