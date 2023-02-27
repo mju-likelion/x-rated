@@ -8,7 +8,9 @@ import App from './App';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 
-ReactGA.initialize(process.env.REACT_APP_GOOGLE_ANALYTICS_TRACKING_ID);
+if (process.env.REACT_APP_GOOGLE_ANALYTICS_TRACKING_ID) {
+  ReactGA.initialize(process.env.REACT_APP_GOOGLE_ANALYTICS_TRACKING_ID);
+}
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
