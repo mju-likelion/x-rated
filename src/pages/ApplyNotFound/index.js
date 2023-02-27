@@ -1,9 +1,11 @@
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { ReactComponent as Logo } from '../../assets/images/404_lion.svg';
 
 import Button from './../../components/Button';
 const ApplyNotFoundPage = () => {
+  const navigate = useNavigate();
   return (
     <>
       <AlertContainer>
@@ -19,7 +21,7 @@ const ApplyNotFoundPage = () => {
       </AlertContainer>
 
       <ButtonBox>
-        <Button type="button" text={'메인으로'} />
+        <Button type="button" text={'메인으로'} handleClick={() => navigate('/')} />
       </ButtonBox>
     </>
   );

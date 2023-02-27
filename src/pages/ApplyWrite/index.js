@@ -29,7 +29,7 @@ const ApplyWritePage = () => {
         state: {
           success: true,
         },
-      }), //이걸 props를 넘겨서 받아야됨
+      }),
     setToastFunction: setToast,
     setTosatMessageFunction: setToastMessage,
     setList: setQuestionList,
