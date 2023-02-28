@@ -39,7 +39,9 @@ const sendApplyForm = (sendDataObject, url, callbackFunctionsObject) => {
   Axios.post(`/api/applications`, applyObject)
     .then(() => navigateFunction())
     .catch(err => {
-      const errMessage = err.response.data.message;
+      const errResponse = err.response.data;
+      const errMessage =
+        errResponse.statusCode === 409 ? '지원서를 이미 제출하신 분은\n다시 제출할 수 없습니다' : errResponse.message; //중첩에 따른 토스트메세지 통일
       AxiosErrorHandler(setToastFunction, setTosatMessageFunction, errMessage);
     });
 };

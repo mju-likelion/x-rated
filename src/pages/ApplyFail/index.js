@@ -20,7 +20,7 @@ const ApplyFailPage = () => {
   useEffect(() => {
     if (!applicantName) {
       setToast(true);
-      setToastMessage('잘못된 접근입니다.');
+      setToastMessage('잘못된 접근입니다');
       setTimeout(() => {
         navigate('/');
       }, 3000);

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import styled, { keyframes } from 'styled-components';
 
@@ -6,6 +6,8 @@ import toastErrorIcon from '../assets/images/icon_type_error.svg';
 import toastSuccessIcon from '../assets/images/icon_type_success.svg';
 
 const Toast = ({ setToast, isSuccess, text }) => {
+  const [isOverTwoLine, setIsOverTwoLine] = useState(false);
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setToast(false);
@@ -15,12 +17,17 @@ const Toast = ({ setToast, isSuccess, text }) => {
     };
   }, [setToast]);
 
+  useEffect(() => {
+    if (text.includes('\n')) setIsOverTwoLine(true); //줄바꿈이 포함된다는건 2줄이라는 뜻이므로
+    else setIsOverTwoLine(false);
+  }, [text]);
+
   return (
     <ToastBox>
       <ToastTypeIcon src={isSuccess ? toastSuccessIcon : toastErrorIcon} />
       <ToastTypeMsgBox>
         <ToastTypeMsg>{text}</ToastTypeMsg>
-        {!isSuccess && <ToastErrorMsg>잠시 후에 다시 시도해주세요</ToastErrorMsg>}
+        {!isSuccess && <ToastErrorMsg isOverTwoLine={isOverTwoLine}>잠시 후에 다시 시도해주세요</ToastErrorMsg>}
       </ToastTypeMsgBox>
     </ToastBox>
   );
@@ -48,7 +55,6 @@ const ToastBox = styled.div`
   z-index: 1;
   bottom: 72px;
   left: 50%;
-  // transform: translate(-50%, 0); 이하 코드들은 일단 기획/디자인에게 컨펌 받기
   animation-duration: 0.5s;
   animation-timing-function: ease-out;
   animation-name: ${slideAnimation};
@@ -65,10 +71,15 @@ const ToastTypeMsgBox = styled.div`
   gap: 5px;
 `;
 
-const ToastTypeMsg = styled.div``;
+const ToastTypeMsg = styled.div`
+  white-space: pre-wrap;
+  line-height: 19px;
+`;
 
 const ToastErrorMsg = styled.div`
+  display: ${({ isOverTwoLine }) => (isOverTwoLine ? 'none' : 'block')}; //2줄로 넘으면 보여주지 않는 것으로 변경
   font-size: 12px;
+  line-height: 15px;
   color: ${({ theme }) => theme.colors.GRAY2};
 `;
 

@@ -18,7 +18,7 @@ const ApplyFinishPage = () => {
   useEffect(() => {
     if (!isSucceed) {
       setToast(true);
-      setToastMessage('잘못된 접근입니다.');
+      setToastMessage('잘못된 접근입니다');
       setTimeout(() => {
         navigate('/');
       }, 1000);
