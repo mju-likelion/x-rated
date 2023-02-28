@@ -14,6 +14,6 @@ export const AxiosErrorHandler = (setToastFunction, setTosatMessageFunction, err
   } else if (typeof errMessage === 'string') {
     setTosatMessageFunction(errMessage);
   } else {
-    setTosatMessageFunction('알수없는 에러 반환타입입니다');
+    setTosatMessageFunction('알 수 없는 에러입니다');
   }
 };

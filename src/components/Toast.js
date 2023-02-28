@@ -18,7 +18,7 @@ const Toast = ({ setToast, isSuccess, text }) => {
   }, [setToast]);
 
   useEffect(() => {
-    if (text === '지원서를 이미 제출하신 분은\n 다시 제출할 수 없습니다.') setIsOverTwoLine(true);
+    if (text.includes('\n')) setIsOverTwoLine(true); //줄바꿈이 포함된다는건 2줄이라는 뜻이므로
     else setIsOverTwoLine(false);
   }, [text]);
 
@@ -27,7 +27,7 @@ const Toast = ({ setToast, isSuccess, text }) => {
       <ToastTypeIcon src={isSuccess ? toastSuccessIcon : toastErrorIcon} />
       <ToastTypeMsgBox>
         <ToastTypeMsg>{text}</ToastTypeMsg>
-        {!isSuccess && !isOverTwoLine && <ToastErrorMsg>잠시 후에 다시 시도해주세요</ToastErrorMsg>}
+        {!isSuccess && <ToastErrorMsg isOverTwoLine={isOverTwoLine}>잠시 후에 다시 시도해주세요</ToastErrorMsg>}
       </ToastTypeMsgBox>
     </ToastBox>
   );
@@ -71,10 +71,15 @@ const ToastTypeMsgBox = styled.div`
   gap: 5px;
 `;
 
-const ToastTypeMsg = styled.div``;
+const ToastTypeMsg = styled.div`
+  white-space: pre-wrap;
+  line-height: 19px;
+`;
 
 const ToastErrorMsg = styled.div`
+  display: ${({ isOverTwoLine }) => (isOverTwoLine ? 'none' : 'block')}; //2줄로 넘으면 보여주지 않는 것으로 변경
   font-size: 12px;
+  line-height: 15px;
   color: ${({ theme }) => theme.colors.GRAY2};
 `;
 
