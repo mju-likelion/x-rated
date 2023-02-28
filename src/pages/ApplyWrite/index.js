@@ -62,7 +62,7 @@ const ApplyWritePage = () => {
   });
 
   const onChange = (e, key, maxLength) => {
-    if (e.target.value > maxLength) {
+    if (e.target.value.length > maxLength) {
       return;
     }
     if (key === 'file') {
