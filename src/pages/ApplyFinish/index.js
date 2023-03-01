@@ -17,8 +17,6 @@ const ApplyFinishPage = () => {
   const isSucceed = location?.state;
 
   useEffect(() => {
-    localStorage.removeItem(STORAGE_KEY);
-
     if (!isSucceed) {
       setToast(true);
       setToastMessage('잘못된 접근입니다');
@@ -26,6 +24,7 @@ const ApplyFinishPage = () => {
         navigate('/');
       }, 1000);
     } else {
+      localStorage.removeItem(STORAGE_KEY);
       return;
     }
   }, []);
