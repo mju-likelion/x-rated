@@ -33,6 +33,7 @@ const HeaderTopBox = styled.div`
   top: 0;
   width: 100%;
   background-color: ${({ theme }) => theme.colors.BLACK};
+  z-index: 50;
 `;
 
 const HeaderBox = styled.div`
