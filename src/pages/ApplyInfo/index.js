@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import * as Yup from 'yup';
 
 import { ReactComponent as Caution } from '../../assets/images/caution.svg';
+import IconChecked from '../../assets/images/check.svg';
 import Button from '../../components/Button';
 import PageMainTitle from '../../components/PageMainTitle';
 
@@ -119,6 +120,7 @@ const ApplyInfoPage = () => {
             </>
           )}
         </Formik>
+        <BlindSvg />
       </ContentContainer>
     </>
   );
@@ -338,6 +340,12 @@ const CautionTextContainer = styled.div`
     height: 220px;
     padding: 30px;
   }
+`;
+
+const BlindSvg = styled.div`
+  display: hidden;
+  position: absolute;
+  background-image: url(${IconChecked});
 `;
 
 export default ApplyInfoPage;

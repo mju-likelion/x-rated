@@ -14,8 +14,12 @@ const GlobalStyle = createGlobalStyle`
         border :none;
     };
     input{
+        font-family:'Spoqa Han Sans Neo';
         padding-left: 10px;
     };
+    textarea{
+        font-family:'Spoqa Han Sans Neo';
+    }
     ::placeholder{
         font-family:'Spoqa Han Sans Neo'
     }
