@@ -8,8 +8,10 @@ const useRouteTracker = () => {
   const [initialized, setInitialized] = useState(false);
 
   useEffect(() => {
-    ReactGA.initialize(process.env.REACT_APP_GOOGLE_ANALYTICS_TRACKING_ID);
-    setInitialized(true);
+    if (process.env.REACT_APP_GOOGLE_ANALYTICS_TRACKING_ID) {
+      ReactGA.initialize(process.env.REACT_APP_GOOGLE_ANALYTICS_TRACKING_ID);
+      setInitialized(true);
+    }
   }, []);
 
   useEffect(() => {
