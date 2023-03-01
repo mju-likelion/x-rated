@@ -6,15 +6,15 @@ const TextInput = ({ name, placeholder, text, maxLength }) => {
   const { value } = meta;
   const { setValue } = helper;
 
-  const handleChange = e => {
+  const handleChangePhone = e => {
     const num = e.target.value;
-    const regex = /^[0-9\b -]{0,13}$/;
-    if (regex.test(num) && [-1, 3].includes(num.indexOf('-')) && [-1, 3, 8].includes(num.lastIndexOf('-'))) {
-      setValue(num);
-      if ([3, 8].includes(num.length) && value.length < num.length) {
-        setValue(num.concat('-'));
-      }
+    const parsedNum = num.replace(/-/g, '');
+    const regex = /^[0-9]{0,11}$/;
+    if (!regex.test(parsedNum)) {
+      return;
     }
+    const addedDash = parsedNum.replace(/\D+/g, '').replace(/(\d{3})(\d{4})(\d{4})/, '$1-$2-$3');
+    setValue(addedDash);
   };
 
   const handlePlaceHolder = e => {
@@ -35,7 +35,7 @@ const TextInput = ({ name, placeholder, text, maxLength }) => {
         {...field}
         placeholder={placeholder}
         maxLength={maxLength}
-        onChange={name === 'phone' ? handleChange : field.onChange}
+        onChange={name === 'phone' ? handleChangePhone : field.onChange}
         value={field.value || ''}
         autoComplete="off"
         onFocus={handlePlaceHolder}
