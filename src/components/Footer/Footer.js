@@ -23,7 +23,7 @@ const Footer = () => {
           />
         )}
       </FooterIconsBox>
-      <FooterRouteOfficialBox href={'https://mju-likelion.com'} target="_blank" rel="noopener noreferrer">
+      <FooterRouteOfficialBox href={process.env.REACT_APP_OFFICIAL_URL} target="_blank" rel="noopener noreferrer">
         <FooterRouteOfficialBtn>멋쟁이사자처럼 명지대(자연)에 대해 더 알아보기</FooterRouteOfficialBtn>
         <FooterArrowIcon />
       </FooterRouteOfficialBox>
