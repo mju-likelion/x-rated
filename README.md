@@ -1,4 +1,39 @@
-# MJU LIKELION 11th APPLY Project
+# [MJU LIKELION 11th APPLY Project](https://apply.mju-likelion.com/)
+
+## 📂 Folder Structure
+
+```
+├── 📂 public
+│
+├── 📂 src
+│   ├── 📂 api
+│   ├── 📂 assets
+│   │    └── 📂 imgs
+│   │
+│   ├── 📂 atoms
+│   ├── 📂 components
+│   │    ├── 📂 ApplyResult
+│   │    ├── 📂 ChannelTalk
+│   │    └── 📂 Footer
+│   │
+│   ├── 📂 hooks
+│   ├── 📂 pages
+│   │    ├── 📂 ApplyCheck
+│   │    ├── 📂 ApplyFail
+│   │    ├── 📂 ApplyFinish
+│   │    ├── 📂 ApplyInfo
+│   │    ├── 📂 ApplyMain
+│   │    ├── 📂 ApplyNotFound
+│   │    ├── 📂 ApplySuccess
+│   │    └── 📂 ApplyWrite
+│   │
+│   └── 📂 styles
+│
+├── 📝 App.css,App.js,index.css,index.js ...
+│
+└── 🛠package.json,README.md,gitignore...
+
+```
 
 ## 🛠 Tech Stack
 
@@ -40,3 +75,7 @@
 | fix      | 버그 수정, 예외 케이스 대응, 기능 개선 |
 | docs     | README.md 작성, 주석 작성              |
 | chore    | 기타 작업                              |
+
+## https 설정하기
+
+- [https 설정하기](docs/https.md)
