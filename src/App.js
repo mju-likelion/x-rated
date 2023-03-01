@@ -7,6 +7,7 @@ import ChannelService from './components/ChannelTalk/ChannelService';
 import FloatingButton from './components/ChannelTalk/FloatingButton';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header';
+import NotSupportingBrowserAlert from './components/NotSupportingBrowserAlert';
 import useRouteTracker from './hooks/useRouteTracker';
 import ApplyCheckPage from './pages/ApplyCheck';
 import ApplyFailPage from './pages/ApplyFail';
@@ -34,23 +35,31 @@ function App() {
     hideChannelButtonOnBoot: true,
   });
 
+  const ua = window.navigator.userAgent;
+
   return (
     <>
       <ThemeProvider theme={Theme}>
         <GlobalStyle />
-        <Header />
-        <Routes>
-          <Route path="/" element={<ApplyMainPage />} />
-          <Route path="/info" element={<ApplyInfoPage />} />
-          <Route path="/write" element={<ApplyWritePage />} />
-          <Route path="/finish" element={<ApplyFinishPage />} />
-          <Route path="/*" element={<ApplyNotFoundPage />} />
-          <Route path="/success" element={<ApplySuccessPage />} />
-          <Route path="/fail" element={<ApplyFailPage />} />
-          <Route path="/check" element={<ApplyCheckPage />} />
-        </Routes>
-        <FloatingButton />
-        <Footer />
+        {ua.includes('Android') && ua.includes('Instagram') ? (
+          <NotSupportingBrowserAlert />
+        ) : (
+          <>
+            <Header />
+            <Routes>
+              <Route path="/" element={<ApplyMainPage />} />
+              <Route path="/info" element={<ApplyInfoPage />} />
+              <Route path="/write" element={<ApplyWritePage />} />
+              <Route path="/finish" element={<ApplyFinishPage />} />
+              <Route path="/*" element={<ApplyNotFoundPage />} />
+              <Route path="/success" element={<ApplySuccessPage />} />
+              <Route path="/fail" element={<ApplyFailPage />} />
+              <Route path="/check" element={<ApplyCheckPage />} />
+            </Routes>
+            <FloatingButton />
+            <Footer />
+          </>
+        )}
       </ThemeProvider>
     </>
   );
