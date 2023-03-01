@@ -22,7 +22,7 @@ import { validation } from './Validation';
 const DEFAULT_ERROR = '작성이 완료되지 않은 내용이 있습니다.';
 const FORM_ERROR = '형식에 맞지 않는 값이 존재합니다.';
 
-const STORAGE_KEY = 'INFOVALUE';
+export const STORAGE_KEY = 'INFOVALUE';
 
 const ApplyInfoPage = () => {
   const navigate = useNavigate();

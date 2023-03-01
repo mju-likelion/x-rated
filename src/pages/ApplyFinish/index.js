@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 import { ReactComponent as Congratulations } from '../../assets/images/congratulations.svg';
 import Toast from '../../components/Toast';
+import { STORAGE_KEY } from '../ApplyInfo';
 
 const ApplyFinishPage = () => {
   const navigate = useNavigate();
@@ -16,6 +17,8 @@ const ApplyFinishPage = () => {
   const isSucceed = location?.state;
 
   useEffect(() => {
+    localStorage.removeItem(STORAGE_KEY);
+
     if (!isSucceed) {
       setToast(true);
       setToastMessage('잘못된 접근입니다');

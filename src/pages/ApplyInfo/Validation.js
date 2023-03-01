@@ -16,7 +16,7 @@ export const validation = {
   grade: Yup.string().required('required').oneOf(GRADE),
   sid: Yup.string()
     .required('required')
-    .matches(/^\d{8}$/, 'form'),
+    .matches(/^60[0-9]{6}$/, 'form'),
   enrollmentStatus: Yup.string().required('required').oneOf(ENROLLMENTSTATUS),
   part: Yup.string().required('required').oneOf(PART),
   likeLionpersonalInfoAgreement: Yup.boolean().required('required').oneOf([true]),
