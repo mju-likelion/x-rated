@@ -95,7 +95,10 @@ const ApplyWritePage = () => {
         <>
           <FileUploadContainer>
             <FileTitle>
-              <NotionLink href="https://www.notion.so/30cb0901a5c74e7c98e34d5121074e32" target="_blank">
+              <NotionLink
+                href="https://adorable-muskmelon-692.notion.site/30cb0901a5c74e7c98e34d5121074e32"
+                target="_blank"
+              >
                 안내사항
               </NotionLink>
               을 참고하여 HTML 혹은 CSS를 포함한 <BreakLine /> .zip 형식의 자기소개서 페이지를 첨부해 주세요.
