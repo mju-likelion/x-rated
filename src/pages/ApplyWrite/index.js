@@ -204,13 +204,6 @@ const FileTitle = styled(BaseTitle)`
 
 const FileUploadContainer = styled(BaseContainer)`
   align-items: flex-start;
-  /* height: 86px; //이건 두줄이라서
-  @media ${({ theme }) => theme.devices.TABLET} {
-    height: 76px;
-  }
-  @media ${({ theme }) => theme.devices.DESKTOP} {
-    height: 92px;
-  } */
 `;
 
 const FileUploadBorder = styled.div`
