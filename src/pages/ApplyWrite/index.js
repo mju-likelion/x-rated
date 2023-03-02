@@ -95,7 +95,11 @@ const ApplyWritePage = () => {
         <>
           <FileUploadContainer>
             <FileTitle>
-              HTML 혹은 CSS를 포함한 <BreakLine /> .zip 형식의 자기소개서 페이지를 첨부해 주세요.<Star>*</Star>
+              <NotionLink href="https://www.notion.so/30cb0901a5c74e7c98e34d5121074e32" target="_blank">
+                안내사항
+              </NotionLink>
+              을 참고하여 HTML 혹은 CSS를 포함한 <BreakLine /> .zip 형식의 자기소개서 페이지를 첨부해 주세요.
+              <Star>*</Star>
               {/* 왜 여기만 line-hegiht가 이상하게 먹지? */}
             </FileTitle>
             <FileUploadBorder file={fileData}>
@@ -143,6 +147,11 @@ const ApplyWritePage = () => {
     </>
   );
 };
+
+const NotionLink = styled.a`
+  color: ${({ theme }) => theme.colors.WHITE};
+  text-underline-position: under;
+`;
 
 const BaseContainer = styled.div`
   display: flex;
