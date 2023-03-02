@@ -95,7 +95,10 @@ const ApplyWritePage = () => {
         <>
           <FileUploadContainer>
             <FileTitle>
-              <NotionLink href="https://www.notion.so/30cb0901a5c74e7c98e34d5121074e32" target="_blank">
+              <NotionLink
+                href="https://adorable-muskmelon-692.notion.site/30cb0901a5c74e7c98e34d5121074e32"
+                target="_blank"
+              >
                 안내사항
               </NotionLink>
               을 참고하여 HTML 혹은 CSS를 포함한 <BreakLine /> .zip 형식의 자기소개서 페이지를 첨부해 주세요.
@@ -151,6 +154,7 @@ const ApplyWritePage = () => {
 const NotionLink = styled.a`
   color: ${({ theme }) => theme.colors.WHITE};
   text-underline-position: under;
+  font-weight: bold;
 `;
 
 const BaseContainer = styled.div`
@@ -198,21 +202,11 @@ const Star = styled(BaseTitle)`
 `;
 
 const FileTitle = styled(BaseTitle)`
-  line-height: 15px;
-  @media ${({ theme }) => theme.devices.TABLET} {
-    line-height: 18px;
-  }
+  line-height: 18px;
 `;
 
 const FileUploadContainer = styled(BaseContainer)`
   align-items: flex-start;
-  height: 86px; //이건 두줄이라서
-  @media ${({ theme }) => theme.devices.TABLET} {
-    height: 76px;
-  }
-  @media ${({ theme }) => theme.devices.DESKTOP} {
-    height: 92px;
-  }
 `;
 
 const FileUploadBorder = styled.div`
