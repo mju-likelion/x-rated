@@ -154,6 +154,7 @@ const ApplyWritePage = () => {
 const NotionLink = styled.a`
   color: ${({ theme }) => theme.colors.WHITE};
   text-underline-position: under;
+  font-weight: bold;
 `;
 
 const BaseContainer = styled.div`
@@ -201,21 +202,11 @@ const Star = styled(BaseTitle)`
 `;
 
 const FileTitle = styled(BaseTitle)`
-  line-height: 15px;
-  @media ${({ theme }) => theme.devices.TABLET} {
-    line-height: 18px;
-  }
+  line-height: 18px;
 `;
 
 const FileUploadContainer = styled(BaseContainer)`
   align-items: flex-start;
-  height: 86px; //이건 두줄이라서
-  @media ${({ theme }) => theme.devices.TABLET} {
-    height: 76px;
-  }
-  @media ${({ theme }) => theme.devices.DESKTOP} {
-    height: 92px;
-  }
 `;
 
 const FileUploadBorder = styled.div`
