@@ -111,7 +111,16 @@ const ApplyWritePage = () => {
               </FileUploadLabel>
             </FileUploadBorder>
           </FileUploadContainer>
-          <FileUpload id="file" name="file" type="file" accept=".html,.zip" onChange={e => onChange(e, 'file')} />
+          <FileUpload
+            id="file"
+            name="file"
+            type="file"
+            accept=".html,.zip"
+            onChange={e => onChange(e, 'file')}
+            onClick={e => {
+              e.target.value = null;
+            }}
+          />
           <HorizontalLine />
         </>
       )}
