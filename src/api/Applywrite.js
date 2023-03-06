@@ -26,7 +26,10 @@ export const sendApplyData = (sendDataObejct, callbackFunctionsObject) => {
       sendApplyForm(applyObject, cvUrl, callbackFunctionsObject);
     })
     .catch(err => {
-      const errMessage = err.response.data.message;
+      const errMessage = err.response.data.message
+        ? err.response.data.message
+        : '알 수 없는 에러입니다.\n공식 계정으로 문의부탁드립니다.';
+      //알 수 없는 에러타입,nginx대비
       AxiosErrorHandler(setToastFunction, setTosatMessageFunction, errMessage);
     });
 };
