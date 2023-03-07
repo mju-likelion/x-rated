@@ -1,3 +1,6 @@
+/* eslint-disable no-unused-vars */
+import { useEffect } from 'react';
+
 import { Form, Formik } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
@@ -29,15 +32,22 @@ const ApplyInfoPage = () => {
   const navigate = useNavigate();
   const [localStorageState, updateLocalStorageState] = useLocalStorageState({ key: STORAGE_KEY, value: initialValues });
 
+  useEffect(() => {
+    window.alert('11기 지원기간이 아닙니다.');
+    navigate('/');
+  }, []);
+
   const handleValues = values => {
-    updateLocalStorageState(values);
-    navigate('/write', {
-      state: {
-        ...values,
-        phone: values.phone.replace(/-/g, ''),
-        part: values.part.toLowerCase(),
-      },
-    });
+    window.alert('11기 지원기간이 아닙니다.');
+    return;
+    // updateLocalStorageState(values);
+    // navigate('/write', {
+    //   state: {
+    //     ...values,
+    //     phone: values.phone.replace(/-/g, ''),
+    //     part: values.part.toLowerCase(),
+    //   },
+    // });
   };
 
   const handleError = (values, errors) => {
