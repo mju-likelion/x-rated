@@ -4,6 +4,7 @@ import { useFormik } from 'formik';
 import { useLocation, useNavigate } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
+// eslint-disable-next-line no-unused-vars
 import { getApplyQuestionList, sendApplyData } from '../../api/Applywrite';
 import PageMainTitle from '../../components/PageMainTitle';
 import Toast from '../../components/Toast';
@@ -56,8 +57,10 @@ const ApplyWritePage = () => {
     ...validationSchema,
     onSubmit: applicationInfo => {
       if (!(applicationInfo && valid)) return;
-      const applyObejct = { applicationInfo, personalInfo };
-      sendApplyData(applyObejct, callbackFunctionsObject);
+      window.alert('11기 지원기간이 아닙니다.');
+      return;
+      // const applyObejct = { applicationInfo, personalInfo };
+      // sendApplyData(applyObejct, callbackFunctionsObject);
     },
   });
 
