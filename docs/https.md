@@ -13,7 +13,7 @@ brew install mkcert
 
 ```shell
 mkcert -install
-mkcert local-apply.mju-likelion.com "*.mju-likelion.com" localhost 127.0.0.1 ::1
+mkcert local-apply.mju-likelion.org "*.mju-likelion.org" localhost 127.0.0.1 ::1
 mkdir cert
 mv *key.pem cert/cert.key
 mv *.pem cert/cert.pem
@@ -30,7 +30,7 @@ sudo vi /etc/hosts
 ```text
 ...
 
-0.0.0.0         local-apply.mju-likelion.com
+0.0.0.0         local-apply.mju-likelion.org
 ```
 
 ### 3. https 로 서버 실행
