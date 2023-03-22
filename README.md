@@ -1,4 +1,4 @@
-# [MJU LIKELION 11th APPLY Project](https://apply.mju-likelion.com/)
+# [MJU LIKELION 11th APPLY Project](https://apply.mju-likelion.org/)
 
 ## 📂 Folder Structure
 
